@@ -1,43 +1,118 @@
-@use "../../../scss/" as *;
-
 .welcome {
-    &__content {
-        @include flex(center, center);
+    position: relative;
+    height: 100%;
+  
+    &__video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
+  
+    &__grid {
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 4%;
 
-    &__info,
-    &__img {
-        width: 100%;
-        height: 100%;
-    }
+        &__info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    &__info {
-        @include flex(flex-start, flex-end);
-
-        &__content {
-            padding-left: 15rem;
-
-            .description {
-                font-size: 1rem;
+            .title, .description {
+                text-align: left;
+                font-size: 3rem;
+                font-weight: 700;
+                color: #fff;
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 0.2rem;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                margin-top: 35rem;
             }
 
-            .btns > * ~ * {
-                margin-left: 1rem;
+            .description {
+                font-size: 1.5rem;
+                font-weight: 400;
+            }
+
+            .btns { 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1rem;
+            }
+        }
+
+        &__slider {
+            margin: 20px;
+            flex-direction: column;
+            justify-content: center;
+
+            #image-slider-container {
+                width: 100%;
+                height: 500px;
+      
+                canvas {
+                  width: 100%;
+                  height: 100%;
+                }
             }
         }
     }
 
-    &__img {
-        @include flex(flex-end, flex-start);
+// Mobile styles
+@media (max-width: 768px) {
 
-        &__slide {
-            height: 915px;
-            width: 915px;
-            overflow: hidden;
+    .welcome {
+        position: relative;
+        height: 100%;
+        box-sizing: border-box;
 
-            canvas {
-                display: block;
+        
+        &__info {
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+            font-size: 1rem;
+            padding: 20%;
+            right: 62px;
+            text-align: center;
+            
+            .title {
+                text-align: left;
+                font-size: 1rem;
             }
+
+            .description {
+                font-size: 1.25rem;
+            }
+
+            .btns { 
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1rem;
+            
+            }
+        }
+
+        &__slider {
+            position: relative;
+            right: 512px !important;
+            width: 100%;
+            z-index: 1;
+            max-width: 100%;
+            height: auto;
+          }
         }
     }
 }

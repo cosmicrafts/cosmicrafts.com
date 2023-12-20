@@ -1,4 +1,4 @@
-import logo from './images/logo.png'
+const logo = import('./images/logo.png');
 import champAshe from './images/Champion_ashe_HP.png'
 import champAhri from './images/Champion_Ahri_HP.png'
 import champGaren from './images/Champion_garen_HP.png'

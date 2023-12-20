@@ -153,14 +153,3 @@ iframe {
         transform: translateX(-50%) translateY(0);
     }
 }
-
-@media only screen and (max-width: 768px) {
-  .btns {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.btn-main {
-    margin-bottom: 12px;
-  }

@@ -1,27 +1,41 @@
-import './credit.scss'
+import './credit.scss';
+import { useRef, useEffect } from 'react';
+import { bgVideo } from '../../../assets/videos';
+import Button from '../../button/Button';
 
-import { useRef, useEffect } from 'react'
-
-import { bgVideo } from '../../../assets/videos'
-import Button from '../../button/Button'
-
-const Credit = props => {
-
-    const videoRef = useRef(null)
+const Credit = (props) => {
+    const videoRef = useRef(null);
 
     useEffect(() => {
-        videoRef.current.play()
-        const pauseVideo = () => {
-            if (!document.hidden) {
-                videoRef.current.play()
-            } else {
-                videoRef.current.pause()
+        const playVideo = () => {
+            if (videoRef.current) {
+                videoRef.current.muted = true; // Mute the video
+                videoRef.current.play().catch((error) => {
+                    console.error('Error playing video: ', error);
+                });
             }
-        }
-        document.addEventListener('webkitvisibilitychange', pauseVideo)
+        };
+
+        // Play the video when the component mounts
+        playVideo();
+
+        // Listen for the 'ended' event and replay the video when it finishes
+        const replayVideo = () => {
+            if (videoRef.current) {
+                videoRef.current.currentTime = 0;
+                playVideo();
+            }
+        };
+
+        // Listen for the 'ended' event to replay the video
+        videoRef.current.addEventListener('ended', replayVideo);
+
+        // Cleanup event listener on component unmount
         return () => {
-            document.removeEventListener('webkitvisibilitychange', pauseVideo)
-        }
+            if (videoRef.current) {
+                videoRef.current.removeEventListener('ended', replayVideo);
+            }
+        };
     }, []);
 
     return (
@@ -33,7 +47,7 @@ const Credit = props => {
                 loop={true}
                 className="overlay"
             >
-                <source src={bgVideo} type="video/mp4"/>
+                <source src={bgVideo} type="video/mp4" />
             </video>
             <div className="credit__content">
                 <div className="title">
@@ -46,7 +60,7 @@ const Credit = props => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Credit
+export default Credit;
