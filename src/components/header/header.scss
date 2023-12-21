@@ -1,5 +1,14 @@
 @use "../../scss/" as *;
 
+// Adjust the header height
+$header-height: 96px; // Set your desired height
+
+@mixin flex($align-items, $justify-content) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
 .header {
     height: $header-height;
     position: fixed;
@@ -15,8 +24,9 @@
     }
 
     &__logo {
-        width: 96px;
-        pointer-events: visible;
+            width: 64px;
+            height: 100%;
+            pointer-events: visible;
 
         img {
             width: 100%;
@@ -32,10 +42,15 @@
 
         a {
             display: inline-block;
+            font-weight: bold;
             padding: 0.5rem;
             text-transform: uppercase;
             position: relative;
             pointer-events: visible;
+            white-space: nowrap; // Prevent text from wrapping
+
+            // Specify transition colors here
+            $transition-color: #FF6F61; // Set your desired transition color
 
             &::before,
             &::after {
@@ -43,13 +58,22 @@
                 position: absolute;
                 height: 2px;
                 width: 0;
-                background-color: $main-color;
+                background-color: $transition-color;
                 transition: width 0.3s ease;
             }
 
             &:hover::before,
             &:hover::after {
                 width: 50%;
+            }
+
+            & {
+                transition: font-size 0.5s ease-out; // Ease-out effect for normal state
+            }
+            &:hover {
+                font-size: 1.1rem; // Increase font size on hover
+                transition: font-size 0.5s ease; // Add ease effect with a 0.3s duration
+             
             }
 
             &::before {
@@ -60,6 +84,38 @@
             &::after {
                 right: 0;
                 bottom: 0;
+            }
+        }
+    }
+
+    // Mobile and Desktop styles
+    @media (max-width: 768px) {
+        &__inner {
+            @include flex(center, center); // Center both horizontally and vertically
+        }
+
+        &__logo, &__nav {
+            width: auto; // Keep width auto to prevent stretching
+            justify-content: center; // Center content horizontally
+        }
+        
+        &__logo {
+            width: 12vh;
+            width: 64px;
+        }
+
+        &__nav {
+            flex-wrap: wrap; // Allow items to wrap if needed
+            justify-content: center; // Center items horizontally
+            padding: 10px 10px; // Adjust padding for better spacing
+
+            li {
+                margin: 3px; // Reduce margin for each item
+            }
+
+            a {
+                font-size: 1rem; // Reduce font size for mobile
+                line-height: .5; // Adjust line height to reduce spacing between text
             }
         }
     }

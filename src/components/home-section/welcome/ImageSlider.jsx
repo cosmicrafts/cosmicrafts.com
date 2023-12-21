@@ -9,7 +9,7 @@ const ImageSlider = () => {
 
             // Ensure the container has a height for the hover effect
             if (sliderContainer && sliderContainer.offsetHeight === 0) {
-                sliderContainer.style.height = '768px';
+                sliderContainer.style.height = '960px';
             }
         
         

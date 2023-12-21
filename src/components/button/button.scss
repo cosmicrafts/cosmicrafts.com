@@ -8,15 +8,24 @@
     outline: 0;
     cursor: pointer;
     padding: 1.5rem 5rem;
-    font-family: $font-family;
     border-top-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
 
     &-main {
-        background-color: $main-color;
+        background-image: linear-gradient(180deg, rgb(221, 157, 20), rgb(218, 93, 21));
+        
+        &:hover {
+            background-image: linear-gradient(0deg, rgb(255, 0, 255), rgb(153, 0, 153));
+
+        }
     }
 
     &-second {
-        background-color: $second-color;
+        background-image: linear-gradient(180deg, rgb(25, 180, 207), rgb(40, 57, 155));
+        
+        &:hover {
+            background-image: linear-gradient(0deg, rgb(255, 0, 255), rgb(153, 0, 153));
+            transform: translateY(-12px ease);
+        }
     }
 }

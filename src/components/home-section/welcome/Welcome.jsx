@@ -18,11 +18,11 @@ const Welcome = (props) => {
           {/* Info Content */}
           <div className="welcome__info__content">
             <div className="title">
-              <span>Real-time</span>
-              <h2 className="subtitle">Galactic strategy clash!</h2>
+              <span>METAVERSE READY</span>
+              <h2 className="subtitle">Galactic strategy clash in real-time!</h2>
             </div>
             <div className="description">
-              Play free, battle your way to victory, and collect valuable NFTs & tokens that boost your galactic empire.
+              Play free, battle your way to victory, and collect NFTs & tokens that boost your Metaverse empire.
             </div>
             <div className="btns">
               <a href="https://play.cosmicrafts.com" target="_blank" rel="noopener noreferrer">

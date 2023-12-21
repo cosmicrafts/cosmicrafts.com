@@ -1,57 +1,63 @@
 @use "./scss/" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap");
+// Importing Futuristic Font
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
 
+// Color Variables
+$cityscape-silver: #bdc6d1;
+$neon-lime: #ffffff;
+$night-sky-blue: #aaff00;
+$urban-dark: #202020;
+
+// General Resets
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    font-family: 'Poppins', sans-serif;
 }
 
-html,
-body {
+html, body {
     font-size: 100%;
     position: relative;
     height: 100%;
-}
-
-body {
-    font-family: $font-family;
+    background-color: $urban-dark;
+    color: $cityscape-silver;
     font-size: 1rem;
-    font-weight: 400;
     line-height: 1.5;
-    background-color: $black;
-    color: $white;
     overflow: hidden;
 }
 
-ul,
-li {
+// Styling Lists and Links
+ul, li {
     list-style-type: none;
 }
 
 a {
-    color: unset;
+    color: $neon-lime;
     text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $night-sky-blue;
+    }
 }
 
-iframe {
-    border: 0;
-}
-
-#root,
-.App {
+// Root and App Styling
+#root, .App {
     height: 100%;
 }
 
+// Background Image Styling
 .bg-image {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+// Overlay Styling
 .overlay {
     position: relative;
 
@@ -62,44 +68,54 @@ iframe {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba($color: #000000, $alpha: 0.8);
+        background-color: rgba($color: #000000, $alpha: 0.5);
     }
 }
 
+// Color Classes
 .main-color {
-    color: $main-color;
+    color: $neon-lime;
 }
 
 .second-color {
-    color: $second-color;
+    color: $night-sky-blue;
 }
 
+// Title Styling
 .title {
-    font-weight: 700;
+    font-weight: 800;
+    
     span {
         font-size: 3rem;
+        color: $night-sky-blue;
     }
+    
     h2 {
         font-size: 5rem;
         line-height: 5rem;
+        color: $neon-lime;
     }
 }
 
+// Container Styling
 .container {
     max-width: 1670px;
     margin: auto;
+    padding: 1rem;
 }
 
+// Margin Utility
 .m-t-4 {
     margin-top: 4rem;
 }
 
+// Positioning Utility
 .relative {
     position: relative;
 }
 
-.swiper,
-.swiper-slide {
+// Swiper Styling
+.swiper, .swiper-slide {
     height: 100%;
 }
 
@@ -121,18 +137,19 @@ iframe {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%) rotate(45deg);
-        background-color: $second-color;
+        background-color: $night-sky-blue;
     }
 
     &-active {
         background-color: transparent;
 
         &::before {
-            background-color: $main-color;
+            background-color: $neon-lime;
         }
     }
 }
 
+// Scroll Animation
 .scroll {
     position: fixed;
     bottom: 1rem;
@@ -143,13 +160,18 @@ iframe {
 }
 
 @keyframes bounce {
-    0% {
+    0%, 100% {
         transform: translateX(-50%) translateY(0);
     }
     50% {
         transform: translateX(-50%) translateY(-10px);
     }
-    100% {
-        transform: translateX(-50%) translateY(0);
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    .title h2 {
+        font-size: 3rem;
+        line-height: 3rem;
     }
 }

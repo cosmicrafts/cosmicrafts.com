@@ -1,118 +1,119 @@
+// Rename the flex mixin to customFlex
+@mixin customFlex($align-items, $justify-content) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
 .welcome {
     position: relative;
     height: 100%;
-  
+
     &__video-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-  
-    &__grid {
         position: absolute;
         top: 0;
-        height: 100vh;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 4%;
-
-        &__info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .title, .description {
-                text-align: left;
-                font-size: 3rem;
-                font-weight: 700;
-                color: #fff;
-                text-align: center;
-                text-transform: uppercase;
-                letter-spacing: 0.2rem;
-                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                margin-top: 35rem;
-            }
-
-            .description {
-                font-size: 1.5rem;
-                font-weight: 400;
-            }
-
-            .btns { 
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 1rem;
-            }
-        }
-
-        &__slider {
-            margin: 20px;
-            flex-direction: column;
-            justify-content: center;
-
-            #image-slider-container {
-                width: 100%;
-                height: 500px;
-      
-                canvas {
-                  width: 100%;
-                  height: 100%;
-                }
-            }
-        }
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -99;
     }
 
-// Mobile styles
-@media (max-width: 768px) {
+    &__grid {
+        margin: 0; /* Remove any default margin */
 
-    .welcome {
-        position: relative;
-        height: 100%;
-        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        padding: 4px;
+    }
 
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        text-align: left; /* Center-align the text */
+        margin-left: 48px;
         
-        &__info {
-            position: relative;
-            z-index: 2;
-            box-sizing: border-box;
-            font-size: 1rem;
-            padding: 20%;
-            right: 62px;
-            text-align: center;
-            
-            .title {
-                text-align: left;
-                font-size: 1rem;
-            }
+    }
 
-            .description {
-                font-size: 1.25rem;
-            }
+    .title {
+        font-size: 1.25rem; /* Reduce the font size for the title */
+        margin-bottom: 0.25rem; /* Reduce the margin for spacing */
+        
+    }
 
-            .btns { 
-                box-sizing: border-box;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 1rem;
+    .description {
+        font-size: 1.25rem; /* Reduce the font size for the description */
+        font-weight: 400;
+        margin-bottom: 1rem; /* Reduce the margin for spacing */
+        margin-right: 0; /* Remove right margin */
+
+    }
+
+    .btns {
+        display: flex; /* Make buttons flex */
+        flex-direction: row; /* Stack buttons vertically */
+        align-items: flex-end; /* Align buttons to the left */
+        gap: 12px; /* Add spacing between buttons */
+    }
+
+    .btns a {
+        width: 100%; /* Make buttons take full width */
+        align-items: flex-end; /* Align buttons to the left */
+        text-align: left; /* Center-align button text */
+    }
+
+    &__slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12px; /* Add top margin to create space between slider and info */
+        overflow: visible;
+        position: relative; /* Add relative positioning to the slider container */
+        z-index: -1; /* Push the slider behind the info */
+    }
+
+    #image-slider-container {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+
+    // Mobile styles
+    @media (max-width: 612px) {
+        &__grid {
+            right: 24px;
             
-            }
         }
 
+        .title {
+            font-size: 1.2rem; /* Reduce the font size for the title */
+            word-spacing: .2rem;
+            margin-bottom: 12px;
+            
+        }
+
+        .description {
+           
+            font-size: 1rem; /* Keep the font size for the description */
+        }
+
+        .btns {
+            margin-top: 24px;
+            gap: 12px; 
+            flex-direction: column;
+            text-align: center;
+        }
+
+        // Hide the image slider
         &__slider {
-            position: relative;
-            right: 512px !important;
-            width: 100%;
-            z-index: 1;
-            max-width: 100%;
-            height: auto;
-          }
+            display: none;
         }
     }
 }
