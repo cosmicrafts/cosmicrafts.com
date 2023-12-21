@@ -1,5 +1,6 @@
-@mixin flex($aligin-item, $justify-content) {
+@mixin flex($align-items, $justify-content, $overflow: visible) {
     display: flex;
-    align-items: $aligin-item;
+    align-items: $align-items;
     justify-content: $justify-content;
+    overflow: $overflow;
 }

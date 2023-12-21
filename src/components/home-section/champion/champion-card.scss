@@ -4,15 +4,19 @@
 .champion-card {
     $width: 450px;
     width: $width;
+    height: 100%;
     height: #{math.div($width * 9, 16)}px;
     position: relative;
     pointer-events: none;
 
     img {
-        max-width: 100%;
+        width: 100%;
+        height: 100%;
         position: relative;
         opacity: 0;
-        transition: opacity 0.5s ease;
+        transition: opacity 1.2s ease;
+        object-fit: cover;
+        overflow: visible;
     }
 
     &:hover img {
@@ -29,6 +33,7 @@
     &:hover .frame::before {
         opacity: 1;
         animation-play-state: running;
+        
     }
 
     .frame {

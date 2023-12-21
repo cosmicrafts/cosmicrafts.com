@@ -2,15 +2,23 @@
 @use "sass:math";
 
 .champion {
+    overflow: visible; /* Allow children to overflow */
+    
     &-list {
+        height: 100%;
+        object-fit: cover;
+        
         .swiper-slide {
-            width: 450px;
+            width: 360px;
             pointer-events: visible;
-            overflow: visible;
+            overflow: visible; /* Set overflow to visible for .swiper-slide */
             transform: translateX(200px);
             opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.8s ease, opacity 0.8s ease;
             transition-delay: 0s;
+            align-items: center;
+           bottom: 8vb;
+   
         }
     }
 

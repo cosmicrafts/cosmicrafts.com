@@ -10,7 +10,7 @@
     z-index: 102;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
 
     @include flex(flex-start, flex-end);
 
