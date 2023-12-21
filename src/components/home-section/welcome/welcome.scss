@@ -21,7 +21,6 @@
 
     &__grid {
         margin: 0; /* Remove any default margin */
-
         position: absolute;
         top: 0;
         display: grid;
@@ -38,6 +37,7 @@
         align-items: left;
         text-align: left; /* Center-align the text */
         margin-left: 48px;
+        margin-bottom: 128px;
         
     }
 
