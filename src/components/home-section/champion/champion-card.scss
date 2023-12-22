@@ -7,6 +7,7 @@
     height: #{math.div($width * 9, 16)}px;
     position: relative;
     pointer-events: none;
+    overflow: hidden; // Ensure the pseudo-element doesn't overflow
 
     img {
         max-width: 100%;
@@ -17,26 +18,31 @@
 
     &:hover img {
         opacity: 1;
+        overflow: visible;
     }
 
-    .frame,
-    .name {
+    .frame, .name {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
     }
 
+
     &:hover .frame::before {
-        opacity: 1;
         animation-play-state: running;
+        opacity: 1;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
     }
 
+    // frame controllers
     .frame {
         width: 70%;
         height: 80%;
         overflow: hidden;
         bottom: 0;
         pointer-events: visible;
+        
+        
 
         &::before {
             content: "";
@@ -50,14 +56,17 @@
             animation: rotate 3s linear infinite;
             animation-play-state: paused;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.5s ease;
+            
         }
 
         .bg {
             position: absolute;
             inset: 4px;
+            
             &::before {
                 background-color: rgba($color: #000000, $alpha: 0);
+                
             }
         }
 
@@ -66,15 +75,23 @@
         }
     }
 
+    // nameplates
     .name {
+        border-radius: 0 0 8px 8px;
         height: max-content;
         bottom: 4px;
         width: calc(70% - 8px);
         text-align: center;
         padding: 1rem 0;
-        background-color: rgba($color: $second-color, $alpha: 0.5);
         text-transform: uppercase;
         font-size: 1.5rem;
+        color: rgb(255, 255, 255);
+        font-weight: 600;
+        background: linear-gradient(
+            to bottom, 
+            rgba(21, 26, 51, 0.75) 0%, 
+            rgba(21, 26, 51, 1.7) 100%
+        );
     }
 }
 

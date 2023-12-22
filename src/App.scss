@@ -17,6 +17,8 @@ $urban-dark: #202020;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    overflow: visible;
 }
 
 html, body {
@@ -27,7 +29,7 @@ html, body {
     color: $cityscape-silver;
     font-size: 1rem;
     line-height: 1.5;
-    overflow: hidden;
+    overflow: visible;
 }
 
 // Styling Lists and Links
@@ -38,16 +40,19 @@ ul, li {
 a {
     color: $neon-lime;
     text-decoration: none;
-    transition: color 0.3s ease;
 
     &:hover {
         color: $night-sky-blue;
+        transform: rotate(calc(2deg + -2deg * random()));
+        transition: transform 0.3s ease;
     }
 }
+
 
 // Root and App Styling
 #root, .App {
     height: 100%;
+    width: 100%;
 }
 
 // Background Image Styling
@@ -86,7 +91,8 @@ a {
     font-weight: 800;
     
     span {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        line-height: 5rem;
         color: $night-sky-blue;
     }
     
