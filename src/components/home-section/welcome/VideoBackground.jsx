@@ -1,7 +1,7 @@
 // VideoBackground.jsx
 
 import React, { useRef, useEffect } from 'react';
-import bgVideo from '../../../assets/videos/bg-video.mp4';
+import bgVideo from '../../../assets/videos/bg-video2.mp4';
 
 const VideoBackground = () => {
   const videoRef = useRef(null);

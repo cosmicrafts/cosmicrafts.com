@@ -1,8 +1,9 @@
 import './credit.scss';
-import { useRef, useEffect } from 'react';
-import { bgVideo } from '../../../assets/videos';
 import Button from '../../button/Button';
 import logo from '../../../assets/images/cosmicfont.svg';
+import { useRef, useEffect } from 'react';
+import { bgVideo } from '../../../assets/videos';
+
 
 const Credit = (props) => {
     const videoRef = useRef(null);
