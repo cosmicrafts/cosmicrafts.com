@@ -25,15 +25,15 @@ const Trailer = props => {
             </div>
             <div className="trailer__content__info">
                 <div className="title">
-                    <span>Compete With</span>
-                    <h2 className="main-color">Friends</h2>
+                    <span>The gameplay that rewrites the rules</span>
+                    <h2 className="main-color">Dive into the action</h2>
                 </div>
                 <div className="video">
                     <iframe
                         ref={iframeRef}
                         width="100%"
                         title="trailer"
-                        src="https://www.youtube.com/embed/TFzkbos0oeo"
+                        src="https://www.youtube.com/embed/bHv3pSqKfPE?si=hidqLbq7cd3FSnh9"
                     ></iframe>
                 </div>
             </div>

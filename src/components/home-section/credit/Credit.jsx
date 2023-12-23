@@ -51,8 +51,8 @@ const Credit = (props) => {
             </video>
             <div className="credit__content">
                 <div className="title">
-                    <span>Start Your</span>
-                    <h2 className="main-color">LEGENDS</h2>
+                    <span>Unleash the hero within</span>
+                    <h2 className="main-color">ADVENTURE AWAITS</h2>
                 </div>
                 <div className="btns m-t-4">
                     <Button className="btn-main">PLAY NOW</Button>

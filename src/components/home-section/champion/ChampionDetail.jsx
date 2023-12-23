@@ -1,34 +1,31 @@
-import './champion-detail.scss'
+import './champion-detail.scss';
+import { useRef, useEffect } from 'react';
 
-import { closeIcon } from '../../../assets/images'
-import { useRef, useEffect } from 'react'
-
-const ChampionDetail = props => {
-
-    const item = props.item
-    const iframeRef = useRef(null)
+const ChampionDetail = (props) => {
+    const item = props.item;
+    const iframeRef = useRef(null);
 
     useEffect(() => {
-        const height = iframeRef.current.offsetWidth * 9 / 16 + 'px'
-        iframeRef.current.setAttribute('height', height)
-    }, [])
+        const height = iframeRef.current.offsetWidth * 9 / 16 + 'px';
+        iframeRef.current.setAttribute('height', height);
+    }, []);
 
     const onClose = () => {
-        document.querySelector(`#champ-detail-${props.id}`).classList.remove('active')
-        iframeRef.current.setAttribute('src', '')
+        document.querySelector(`#champ-detail-${props.id}`).classList.remove('active');
+        iframeRef.current.setAttribute('src', '');
 
-        const img = document.querySelector(`#champ-img-${props.id}`)
-        img.style.opacity = 0
+        const img = document.querySelector(`#champ-img-${props.id}`);
+        img.style.opacity = 0;
         setTimeout(() => {
-            img.remove()
+            img.remove();
         }, 500);
-    }
+    };
 
     return (
         <div
             id={`champ-detail-${props.id}`}
             className={`champion-detail bg-image overlay ${props.active ? 'active' : ''}`}
-            style={{backgroundImage: `url(${item.bgLarge})`}}
+            style={{ backgroundImage: `url(${item.bgLarge})` }}
         >
             <div className="champion-detail__content">
                 <span>{item.nickName}</span>
@@ -39,7 +36,7 @@ const ChampionDetail = props => {
                 <div className="story">
                     {item.description}
                 </div>
-                <span>Champion spotlight</span>
+                {/* <span>Hero spotlight</span> */}
                 <div className="video">
                     <iframe
                         title="champion spotlight"
@@ -48,11 +45,11 @@ const ChampionDetail = props => {
                     ></iframe>
                 </div>
             </div>
-            <div className="champion-detail__close" onClick={onClose}>
-                <img src={closeIcon} alt="" />
-            </div>          
+            <button className="back-button" onClick={onClose}>
+                BACK
+            </button>
         </div>
-    )
-}
+    );
+};
 
-export default ChampionDetail
+export default ChampionDetail;

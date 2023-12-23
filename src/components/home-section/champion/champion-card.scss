@@ -8,12 +8,15 @@
     position: relative;
     pointer-events: none;
     overflow: hidden; // Ensure the pseudo-element doesn't overflow
+    
 
     img {
         max-width: 100%;
         position: relative;
         opacity: 0;
         transition: opacity 0.5s ease;
+        
+  
     }
 
     &:hover img {
@@ -57,7 +60,6 @@
             animation-play-state: paused;
             opacity: 0;
             transition: opacity 0.5s ease;
-            
         }
 
         .bg {
@@ -103,3 +105,4 @@
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
