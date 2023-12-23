@@ -22,7 +22,7 @@
     &__content {
         font-size: 1.5rem;
         margin-top: 12vb;
-        width: 50%;
+        width: 60%;
         right: 0;
         padding: 2rem 0;
         position: relative;
@@ -100,7 +100,7 @@
         }
     }}
     .champ-img-detail {
-        margin-left: -128px;
+        margin-left: -64px;
         mix-blend-mode: screen;
     
         }
@@ -115,7 +115,7 @@
         &__content {
             text-align: center;
             width: 75%; // Adjust width for smaller screens
-            height: 80%;
+            height: 90%;
             font-size: 1.15rem;
             .name {
                 font-size: 3rem; // Adjust font size for smaller screens

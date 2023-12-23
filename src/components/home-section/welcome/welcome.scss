@@ -42,9 +42,8 @@
     }
 
     .title {
-        font-size: 1.25rem; /* Reduce the font size for the title */
+        font-size: 1rem; /* Reduce the font size for the title */
         margin-bottom: 1rem; /* Reduce the margin for spacing */
-        
     }
 
     .description {
@@ -52,9 +51,7 @@
         font-weight: 400;
         margin-bottom: 2rem; /* Reduce the margin for spacing */
         margin-right: 0; /* Remove right margin */
-        font-size: 2rem;
-
-
+        font-size: 1.5rem;
     }
 
     .btns {
@@ -86,16 +83,20 @@
         overflow: visible;
     }
 
+     // ipad styles
+     @media (max-width: 1024px) {
 
-    // Mobile styles
-    @media (max-width: 612px) {
-        &__grid {
-            right: 24px;
-            
+        .welcome__info {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: left; /* Center-align the text */
+            margin-left: 48px;
+            margin-top: 10%;
+            width: 85%;   
         }
 
         .title {
-            font-size: 1.2rem; /* Reduce the font size for the title */
             word-spacing: .2rem;
             margin-bottom: 12px;
             
@@ -103,14 +104,47 @@
 
         .description {
            
-            font-size: 1rem; /* Keep the font size for the description */
+            font-size: 1.25rem; /* Keep the font size for the description */
         }
-
         .btns {
-            margin-top: 24px;
+            position: fixed;
             gap: 12px; 
             flex-direction: column;
             text-align: center;
+            bottom: 8%;
+
+        }
+        &__slider {
+            display: none;
+        }
+
+     }
+
+    // Mobile styles
+    @media (max-width: 612px) {
+        &__grid {
+            right: 24px; 
+            top: -2%;        
+        }
+
+        .title {
+            font-size: 1rem; /* Reduce the font size for the title */
+            word-spacing: .2rem;
+            margin-bottom: 12px;
+            
+        }
+
+        .description {
+            font-size: 1.25rem; /* Keep the font size for the description */
+        }
+
+        .btns {
+            position: fixed;
+            gap: 12px; 
+            flex-direction: column;
+            text-align: center;
+            bottom: 8%;
+
         }
 
         // Hide the image slider
@@ -119,3 +153,4 @@
         }
     }
 }
+
