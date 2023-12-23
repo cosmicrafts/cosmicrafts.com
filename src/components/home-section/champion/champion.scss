@@ -11,16 +11,16 @@
 
         // Slide Styling controls
         .swiper-slide {
-            width: 460px;
+            width: 360px;
             transform: translateX(600px);
             opacity: 0;
-            transition: transform 0.5s ease, opacity 0.9s ease;
-            transition-delay: 0s;
+            transition: transform 0.3s ease, opacity 0.9s ease;
+            transition-delay: 0.2s;
             align-items: center;
 
 
-            
-          // bottom: 8vb;
+            overflow: visible;
+          bottom: 3vb;
             display: flex;
             flex-direction: column;
             justify-content: center;
