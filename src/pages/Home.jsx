@@ -6,8 +6,11 @@ import {
 import SwiperCore, {
     EffectFade,
     Mousewheel,
-    Pagination
+    Pagination,
+    Navigation,  // Import Navigation module
+    Keyboard  
 } from 'swiper'
+
 
 import {
     Welcome,
@@ -19,7 +22,8 @@ import {
 
 import { championsData } from '../assets/dummy'
 
-SwiperCore.use([Mousewheel, Pagination, EffectFade])
+// Use Navigation and Keyboard globally
+SwiperCore.use([Mousewheel, Pagination, EffectFade, Navigation, Keyboard]);
 
 const swiperOptions = {
     direction: 'vertical',
@@ -28,8 +32,9 @@ const swiperOptions = {
     mousewheel: true,
     pagination: true,
     effect: 'fade',
-    speed: 1000
-}
+    speed: 1000,
+    keyboard: true
+};
 
 const Home = () => {
     return (
@@ -56,7 +61,7 @@ const Home = () => {
                 />)
             }
             <div className="scroll">
-                <span>Scroll to see effect</span>
+                <span>Swipe, Scroll, or use Keys to Explore</span>
             </div>
         </>
     )

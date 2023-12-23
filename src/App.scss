@@ -92,7 +92,7 @@ a {
     
     span {
         font-size: 2.5rem;
-        line-height: 5rem;
+        line-height: 3rem;
         color: $night-sky-blue;
     }
     
@@ -128,13 +128,16 @@ a {
 }
 
 .swiper-pagination-bullet {
-    $size: 20px;
+    z-index: 2000;}
+
+.swiper-pagination-bullet {
+    $size: 24px;
     width: $size;
     height: $size;
     border-radius: unset;
-    margin: 10px;
+    margin: 24px;
     background-color: transparent;
-
+    z-index: 20;
     position: relative;
 
     &::before {
@@ -146,14 +149,54 @@ a {
         top: 50%;
         transform: translate(-50%, -50%) rotate(45deg);
         background-color: $night-sky-blue;
+        z-index: 200;
     }
 
     &-active {
         background-color: transparent;
+        z-index: 200;
 
         &::before {
             background-color: $neon-lime;
         }
+    }
+}
+
+// Swiper Navigation Styling
+.swiper-button-prev, .swiper-button-next {
+    z-index: 2000; // Ensure they are on top
+    position: absolute; // Absolute positioning within Swiper
+    top: 50%; // Vertically centered
+    transform: translateY(-50%); // Adjust for centering
+    width: 40px; // Size of the buttons
+    height: 40px;
+    background-color: $neon-lime; // Button background color
+    color: $urban-dark; // Arrow color
+    border-radius: 50%; // Circular shape
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); // Shadow for depth
+    cursor: pointer; // Cursor pointer for interactivity
+
+    // Hover effect
+    &:hover {
+        background-color: lighten($neon-lime, 10%); // Lighten on hover
+        transform: translateY(-50%) scale(1.1); // Scale up slightly
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    // Active (pressed) state
+    &:active {
+        background-color: darken($neon-lime, 10%); // Darken on press
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); // Reduce shadow size
+    }
+
+    // Arrows customization
+    &::after {
+        font-family: 'swiper-icons'; // Swiper's default icon font
+        font-size: 20px; // Size of the arrow icon
+        color: inherit; // Inherit color from the button
     }
 }
 

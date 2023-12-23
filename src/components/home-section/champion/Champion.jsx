@@ -5,8 +5,11 @@ import ChampionCard from './ChampionCard'
 
 import { bg2 } from '../../../assets/images'
 import { championsData } from '../../../assets/dummy'
-
 import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 
 const Champion = props => {
     return (
@@ -22,6 +25,10 @@ const Champion = props => {
                         spaceBetween={0}
                         grabCursor={true}
                         nested={true}
+                        navigation={true}
+                        keyboard={{ enabled: true }}
+                        pagination={{ clickable: true }}
+
                     >
                         {
                             championsData.map((item, index) => (

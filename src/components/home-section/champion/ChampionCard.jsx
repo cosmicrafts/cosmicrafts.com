@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './champion-card.scss';
 
+
 const ChampionCard = props => {
     const cardRef = useRef(null);
     const item = props.item;
@@ -16,7 +17,7 @@ const ChampionCard = props => {
         newNode.style.top = pos.top + 'px';
         newNode.style.left = pos.left + 'px';
         newNode.style.zIndex = '102'; // Original zIndex
-        newNode.style.transition = 'all 0.7s ease';
+        newNode.style.transition = 'all 0.4s ease';
         newNode.id = `champ-img-${props.id}`;
         newNode.classList.add('champ-img-detail'); // Added to control in SCSS
 

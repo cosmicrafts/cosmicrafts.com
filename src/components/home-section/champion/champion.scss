@@ -4,7 +4,6 @@
 .champion {
     overflow: visible; /* Allow children to overflow */
 
-    
     &-list {
         height: 100%;
         object-fit: cover;
@@ -18,6 +17,9 @@
             transition: transform 0.5s ease, opacity 0.9s ease;
             transition-delay: 0s;
             align-items: center;
+
+
+            
           // bottom: 8vb;
             display: flex;
             flex-direction: column;
@@ -26,65 +28,21 @@
             pointer-events: none;
             z-index: 1;
             overflow: hidden;
-            // border: 1px solid red;
-            // border-radius: 10px;
-            // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            // background-color: $night-sky-blue;
-            // background-image: linear-gradient(90deg, $night-sky-blue, $neon-lime);
-            // background-size: 200% 200%;
-            // background-position: 0 0;
-            // animation: gradient 5s ease infinite;
-
-            // &:hover {
-            //     background-position: 100% 100%;
-            // }
-
-            // @keyframes gradient {
-            //     0% {
-            //         background-position: 0 0;
-            //     }
-            //     50% {
-            //         background-position: 100% 100%;
-            //     }
-            //     100% {
-            //         background-position: 0 0;
-            //     }
-            // }
-
-            // &:hover {
-            //     background-image: linear-gradient(90deg, $night-sky-blue, $neon-lime);
-            // }
-
+       
              &:hover .champion-card {
                 transform: scale(1.05);
-                transition: transform 0.5s ease-in-out;
-                
+                transition: transform 0.5s ease-in-out; 
              }
-        
-
-            // &:hover .champion-card::before {
-            //     animation-play-state: running;
-            //     opacity: 1;
-            //     box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
-            // }
-
-            // &:hover .champion-card img {
-            //     opacity: 1;
-            //     overflow: visible;
-            // }
-
+ 
            &:hover .champion-card .frame::before {
                 animation-play-state: running;
                opacity: 1;
                  box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
              }
-
-
-
-
-            // &:hover .champion-card .name {
-            //     animation-play-state: running;
         }
+    }
+  .swiper-pagination-bullet {
+        z-index: 2000;
     }
 
     &.active &-list {

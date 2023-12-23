@@ -2,7 +2,7 @@
 
 .section {
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
     visibility: hidden;
     transition: visibility 1s ease;
 
@@ -24,5 +24,6 @@
         opacity: 0;
         transition: transform 0.6s ease, opacity 0.5s ease;
         padding-top: $header-height;
+        box-shadow:  0 8px 8px rgba(0, 0, 0, 1);
     }
 }

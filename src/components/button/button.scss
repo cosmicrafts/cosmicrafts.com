@@ -10,6 +10,8 @@
     padding: 1.5rem 5rem;
     border-top-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
+    box-shadow:  0 8px 8px rgba(0, 0, 0, .6);
+    text-shadow: 0 8px 8px rgba(0, 0, 0, .6);
 
     &-main {
         background-image: linear-gradient(180deg, rgb(221, 157, 20), rgb(218, 93, 21));

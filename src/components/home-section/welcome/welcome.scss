@@ -59,12 +59,14 @@
         flex-direction: row; /* Stack buttons vertically */
         align-items: flex-end; /* Align buttons to the left */
         gap: 12px; /* Add spacing between buttons */
+        
     }
 
     .btns a {
         width: 100%; /* Make buttons take full width */
         align-items: flex-end; /* Align buttons to the left */
         text-align: left; /* Center-align button text */
+        
     }
 
     &__slider {
