@@ -2,6 +2,7 @@ import './credit.scss';
 import { useRef, useEffect } from 'react';
 import { bgVideo } from '../../../assets/videos';
 import Button from '../../button/Button';
+import logo from '../../../assets/images/cosmicfont.svg';
 
 const Credit = (props) => {
     const videoRef = useRef(null);
@@ -50,6 +51,10 @@ const Credit = (props) => {
                 <source src={bgVideo} type="video/mp4" />
             </video>
             <div className="credit__content">
+                {/* Add the logo here */}
+                <div className="logo">
+                    <img src={logo} alt="Logo" />
+                </div>
                 <div className="title">
                     <span>Unleash the hero within</span>
                     <h2 className="main-color">ADVENTURE AWAITS</h2>

@@ -1,4 +1,5 @@
-const logo = import('./images/logo.png');
+const logo = import('./images/logo.svg');
+const logo2 = import('./images/logo2.svg');
 import champAshe from './images/Champion_ashe_HP.png'
 import champAhri from './images/Champion_Ahri_HP.png'
 import champGaren from './images/Champion_garen_HP.png'
@@ -34,6 +35,7 @@ import trailerImg from './images/trailer-img.png'
 
 export {
     logo,
+    logo2,
     champAhri,
     champAshe,
     champGaren,

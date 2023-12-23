@@ -25,8 +25,8 @@ const Trailer = props => {
             </div>
             <div className="trailer__content__info">
                 <div className="title">
-                    <span>The gameplay that rewrites the rules</span>
-                    <h2 className="main-color">Dive into the action</h2>
+                    <span>The game that rewrites the rules</span>
+                    <h2 className="main-color">Dive into the action!</h2>
                 </div>
                 <div className="video">
                     <iframe

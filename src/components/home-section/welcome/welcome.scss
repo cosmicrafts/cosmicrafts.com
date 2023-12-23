@@ -17,6 +17,17 @@
         height: 100%;
         object-fit: cover;
         z-index: -99;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); // Semi-transparent black overlay
+            z-index: 1; // Ensure it's above the video but below content
+        }
     }
 
     &__grid {
@@ -38,7 +49,6 @@
         text-align: left; /* Center-align the text */
         margin-left: 48px;
         margin-bottom: 25%;
-        
     }
 
     .title {
@@ -54,20 +64,14 @@
         font-size: 1.5rem;
     }
 
+    
     .btns {
-        display: flex; /* Make buttons flex */
-        flex-direction: row; /* Stack buttons vertically */
-        align-items: flex-end; /* Align buttons to the left */
-        gap: 12px; /* Add spacing between buttons */
-        
+        display: flex;
+        flex-wrap: wrap; /* Allow buttons to wrap into multiple columns */
+        gap: 12px; 
+        justify-content: flex-start; 
     }
 
-    .btns a {
-        width: 100%; /* Make buttons take full width */
-        align-items: flex-end; /* Align buttons to the left */
-        text-align: left; /* Center-align button text */
-        
-    }
 
     &__slider {
         display: flex;
@@ -105,35 +109,26 @@
         }
 
         .description {
-           
-            font-size: 1.25rem; /* Keep the font size for the description */
+            font-size: 1.25rem; 
         }
-        .btns {
-            position: fixed;
-            gap: 12px; 
-            flex-direction: column;
-            text-align: center;
-            bottom: 8%;
 
-        }
         &__slider {
             display: none;
         }
-
      }
 
     // Mobile styles
     @media (max-width: 612px) {
         &__grid {
             right: 24px; 
-            top: -2%;        
+            top: -2%;     
+               
         }
 
         .title {
             font-size: 1rem; /* Reduce the font size for the title */
             word-spacing: .2rem;
             margin-bottom: 12px;
-            
         }
 
         .description {
@@ -141,13 +136,18 @@
         }
 
         .btns {
-            position: fixed;
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap into multiple columns */
             gap: 12px; 
+            justify-content: flex-start; 
             flex-direction: column;
             text-align: center;
-            bottom: 8%;
-
         }
+
+        .btns button {
+            width: 320px; /* Set a fixed width for the buttons */
+            height: 80px;
+        text-align: center;}
 
         // Hide the image slider
         &__slider {

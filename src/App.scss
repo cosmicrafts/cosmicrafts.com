@@ -163,15 +163,19 @@ a {
 }
 
 // Swiper Navigation Styling
+// Defining gradient colors
+$gradient-start: rgba(255, 75, 75, 1); // Example: Red-ish gradient start
+$gradient-end: rgba(75, 123, 255, 1); // Example: Blue-ish gradient end
+
+// Swiper Navigation Arrows Styling
 .swiper-button-prev, .swiper-button-next {
     z-index: 2000; // Ensure they are on top
     position: absolute; // Absolute positioning within Swiper
     top: 50%; // Vertically centered
     transform: translateY(-50%); // Adjust for centering
-    width: 40px; // Size of the buttons
-    height: 40px;
-    background-color: $neon-lime; // Button background color
-    color: $urban-dark; // Arrow color
+    width: 50px; // Increased size of the buttons
+    height: 50px;
+    background-image: linear-gradient(45deg, $gradient-start, $gradient-end); // Gradient background
     border-radius: 50%; // Circular shape
     display: flex;
     justify-content: center;
@@ -181,24 +185,34 @@ a {
 
     // Hover effect
     &:hover {
-        background-color: lighten($neon-lime, 10%); // Lighten on hover
-        transform: translateY(-50%) scale(1.1); // Scale up slightly
-        transition: background-color 0.3s ease, transform 0.3s ease;
+        transform: translateY(-50%) scale(1.15); // Slightly larger scale
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); // Larger shadow
     }
 
     // Active (pressed) state
     &:active {
-        background-color: darken($neon-lime, 10%); // Darken on press
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); // Reduce shadow size
+        transform: translateY(-50%) scale(0.95); // Slightly smaller scale
+        background-image: linear-gradient(45deg, darken($gradient-start, 10%), darken($gradient-end, 10%)); // Darker gradient
     }
 
     // Arrows customization
     &::after {
         font-family: 'swiper-icons'; // Swiper's default icon font
-        font-size: 20px; // Size of the arrow icon
-        color: inherit; // Inherit color from the button
+        font-size: 24px; // Increased size of the arrow icon
+        color: #fff; // White color for contrast
     }
 }
+
+// Specific positioning for prev and next buttons
+.swiper-button-prev {
+    left: 20px; // Position from the left
+}
+
+.swiper-button-next {
+    right: 20px; // Position from the right
+}
+
+
 
 // Scroll Animation
 .scroll {
