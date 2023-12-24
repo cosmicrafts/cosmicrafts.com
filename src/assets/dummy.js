@@ -44,7 +44,7 @@ export const championsData = [
     },
     {
         img: cardAshe,
-        name: 'ashe',
+        name: 'nodeblast',
         bg: bgAshe,
         nickName: 'THE FROST ARCHER',
         role: 'MARKSMAN',
