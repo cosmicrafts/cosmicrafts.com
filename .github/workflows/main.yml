@@ -1,4 +1,4 @@
-name: React Vite CI/CD Pipeline
+name: cosmicrafts_com
 
 on:
   push:
