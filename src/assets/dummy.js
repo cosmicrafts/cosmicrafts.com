@@ -55,7 +55,7 @@ export const championsData = [
     },
     {
         img: cardGaren,
-        name: 'garen',
+        name: 'falopino',
         bg: bgGaren,
         nickName: 'THE MIGHT OF DEMACIA',
         role: 'FIGHTER',
