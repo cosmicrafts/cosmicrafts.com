@@ -22,12 +22,12 @@ import {
 export const championsData = [
     {
         img: cardAkali,
-        name: 'akali',
+        name: 'aeliana',
         bg: bgAkali,
-        nickName: 'THE ROGUE ASSASSIN',
-        role: 'ASSASSIN',
+        nickName: 'The Quantum Vanguard',
+        role: 'ENGINEER',
         difficulty: 'MODERATE',
-        description: `Abandoning the Kinkou Order and her title of the Fist of Shadow, Akali now strikes alone, ready to be the deadly weapon her people need. Though she holds onto all she learned from her master Shen, she has pledged to defend Ionia from its enemies, one kill at a time. Akali may strike in silence, but her message will be heard loud and clear: fear the assassin with no master.`,
+        description: `From the luminous halls of the Cosmicon Empire emerged a prodigy, Aeliana. At a tender age, her fingers danced over gadgets, reshaping the very fabric of technological understanding. As the daughter of the stars, she quickly established herself as the top-tier engineer, crafting devices that seemed to bend the very laws of physics.`,
         video: 'sQ7ALTSCbdw',
         bgLarge: bgLargeAkali
     },
