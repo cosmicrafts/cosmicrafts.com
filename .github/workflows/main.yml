@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v1
@@ -39,7 +40,10 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null\n" > "$SSH_DIR/config"
 
           # Rsync Over SSH
-          rsync -avz -e "ssh -i $SSH_DIR/deploy_key" --exclude='.git/*' --exclude='node_modules/*' ./dist/ $SERVER_USER@$SERVER_IP:/var/www/cosmicrafts.com
+          rsync -avz -e "ssh -i $SSH_DIR/deploy_key" \
+            --exclude='.git/*' \
+            --exclude='node_modules/*' \
+            ./ $SERVER_USER@$SERVER_IP:/var/www/cosmicrafts.com
 
-          # Restart Apache on the server
+          # Post-Deployment Commands (e.g., restart Apache)
           ssh -i $SSH_DIR/deploy_key $SERVER_USER@$SERVER_IP "sudo systemctl restart apache2"
