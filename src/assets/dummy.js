@@ -77,7 +77,7 @@ export const championsData = [
     },
     {
         img: cardLux,
-        name: 'Lux',
+        name: 'Oblivex',
         bg: bgLux,
         nickName: 'THE LADY OF LUMINOSITY',
         role: 'MAGE',
