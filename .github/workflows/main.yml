@@ -40,3 +40,6 @@ jobs:
 
           # Rsync Over SSH
           rsync -avz -e "ssh -i $SSH_DIR/deploy_key" --exclude='.git/*' --exclude='node_modules/*' ./dist/ $SERVER_USER@$SERVER_IP:/var/www/cosmicrafts.com
+
+          # Restart Apache on the server
+          ssh -i $SSH_DIR/deploy_key $SERVER_USER@$SERVER_IP "sudo systemctl restart apache2"
