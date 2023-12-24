@@ -69,7 +69,7 @@ export const championsData = [
         name: 'grok',
         bg: bgAhri,
         nickName: 'THE NINE-TAILED FOX',
-        role: 'MAGE',
+        role: 'Thief',
         difficulty: 'MODERATE',
         description: 'Innately connected to the latent power of Runeterra, Ahri is a vastaya who can reshape magic into orbs of raw energy. She revels in toying with her prey by manipulating their emotions before devouring their life essence. Despite her predatory nature, Ahri retains a sense of empathy as she receives flashes of memory from each soul she consumes.',
         video: '0z7kfuJwGvs',
