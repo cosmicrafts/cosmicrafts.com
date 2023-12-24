@@ -1,32 +1,39 @@
 name: cosmicrafts_com
 
 on:
-  push:
-    branches: [ main ]
+push:
+branches: [ main ]
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+build-and-deploy:
+runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
+steps:
+- uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '21'
+- name: Set up Node.js
+uses: actions/setup-node@v1
+with:
+node-version: '18'
 
-    - name: Install Dependencies
-      run: yarn install
+- name: Install Dependencies
+run: yarn install
 
-    - name: Build
-      run: yarn build
+- name: Build
+run: yarn build
 
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@v2.1.5
-      with:
-        REMOTE_PASSWORD: ${{ secrets.SSH_PASSWORD }}  # Use the SSH password secret
-        SOURCE: "dist/"
-        REMOTE_HOST: ${{ secrets.SERVER_IP }}
-        REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
-        TARGET: "/var/www/cosmicrafts.com"
+- name: Deploy to Server
+uses: easingthemes/ssh-deploy@v2.1.5
+with:
+SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+SOURCE: "dist/"
+REMOTE_HOST: ${{ secrets.SERVER_IP }}
+REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
+TARGET: "/var/www/cosmicrafts.com"
+ON_ERROR: "email-author" # Send an email notification on error
+
+- name: Notify on Success
+uses: dawidd6/action-slack@v2
+with:
+status: "success"
+text: "cosmicrafts.com deployment successful!"
