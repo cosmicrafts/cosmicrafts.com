@@ -66,7 +66,7 @@ export const championsData = [
     },
     {
         img: cardAhri,
-        name: 'ahri',
+        name: 'grok',
         bg: bgAhri,
         nickName: 'THE NINE-TAILED FOX',
         role: 'MAGE',
