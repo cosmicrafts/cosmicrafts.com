@@ -14,7 +14,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '18'  # Modify this to the desired Node.js version
+          node-version: '18'
 
       - name: Install Dependencies
         run: yarn install
@@ -26,13 +26,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.SERVER_IP }}
           REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
+          SOURCE: "dist/"
           TARGET: "/var/www/cosmicrafts.com"
-
-      - name: Notify on Success
-        uses: dawidd6/action-slack@v2
-        with:
-          status: "success"
-          text: "cosmicrafts.com deployment successful!"
