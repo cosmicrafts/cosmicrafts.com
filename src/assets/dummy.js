@@ -33,12 +33,12 @@ export const championsData = [
     },
     {
         img: cardFortune,
-        name: 'miss fortune',
+        name: 'elara',
         bg: bgFortune,
-        nickName: 'THE BOUNTY HUNTER',
-        role: 'MARKSMAN',
+        nickName: 'Eclipsia’s Shadow Sentinel',
+        role: 'SPY',
         difficulty: 'LOW',
-        description: 'A Bilgewater captain famed for her looks but feared for her ruthlessness, Sarah Fortune paints a stark figure among the hardened criminals of the port city. As a child, she witnessed the reaver king Gangplank murder her family—an act she brutally avenged years later, blowing up his flagship while he was still aboard. Those who underestimate her will face a beguiling and unpredictable opponent… and, likely, a bullet or two in their guts.',
+        description: 'Elara’s journey from the enigmatic realms of the Shadow Conclave of Eclipsia to the esteemed ranks of the Cosmicons’ commanders is a tale of resilience, strategy, and unwavering determination.',
         video: 'TN-EdiIg4G4',
         bgLarge: bgLargeFortune
     },
