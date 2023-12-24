@@ -1,8 +1,9 @@
-name: cosmicrafts_com
+name: build-and-deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -22,11 +23,20 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.1.5
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.SERVER_IP }}
-          REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
-          SOURCE: "dist/"
-          TARGET: "/var/www/cosmicrafts.com"
+      - name: Custom SSH Deploy
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SERVER_USER: ${{ secrets.SERVER_USERNAME }}
+        run: |
+          # Setup SSH Key
+          SSH_DIR="$HOME/.ssh"
+          mkdir -p "$SSH_DIR"
+          echo "$DEPLOY_SSH_KEY" > "$SSH_DIR/deploy_key"
+          chmod 600 "$SSH_DIR/deploy_key"
+
+          # Disable Host Key Checking
+          echo -e "Host *\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null\n" > "$SSH_DIR/config"
+
+          # Rsync Over SSH
+          rsync -avz -e "ssh -i $SSH_DIR/deploy_key" --exclude='.git/*' --exclude='node_modules/*' ./dist/ $SERVER_USER@$SERVER_IP:/var/www/cosmicrafts.com
