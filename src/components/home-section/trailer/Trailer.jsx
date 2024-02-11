@@ -1,12 +1,9 @@
 import { useRef, useEffect } from 'react'
-
 import { bg3, trailerImg } from '../../../assets/images'
 import HomeSection from '../HomeSection'
-
 import './trailer.scss'
 
 const Trailer = props => {
-
     const iframeRef = useRef(null)
 
     useEffect(() => {

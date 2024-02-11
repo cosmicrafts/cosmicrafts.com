@@ -1,3 +1,6 @@
+import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import {
     Swiper,
     SwiperSlide
@@ -17,6 +20,7 @@ import {
     Champion,
     ChampionDetail,
     Trailer,
+    TeamPage,
     Credit
 } from '../components/home-section'
 
@@ -37,21 +41,40 @@ const swiperOptions = {
 };
 
 const Home = () => {
+    const location = useLocation();
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        const slideMap = { 'welcome': 0, 'champion': 1, 'trailer': 2, 'team': 3, 'credit': 4 };
+        const slideIndex = slideMap[location.state?.slide];
+        if (slideIndex !== undefined && swiperRef.current?.swiper) {
+            swiperRef.current.swiper.slideTo(slideIndex);
+        }
+    }, [location, swiperRef]);
     return (
         <>
-            <Swiper {...swiperOptions}>
+            <Swiper {...swiperOptions} ref={swiperRef}>
                 <SwiperSlide>
                     {({ isActive }) => <Welcome isActive={isActive}/>}
                 </SwiperSlide>
+
                 <SwiperSlide>
                     {({ isActive }) => <Champion isActive={isActive}/>}
                 </SwiperSlide>
+
                 <SwiperSlide>
                     {({ isActive }) => <Trailer isActive={isActive}/>}
                 </SwiperSlide>
+
+                <SwiperSlide>
+                    {({ isActive }) => <TeamPage isActive={isActive}/>}
+                </SwiperSlide>
+
                 <SwiperSlide>
                     {({ isActive }) => <Credit isActive={isActive}/>}
                 </SwiperSlide>
+
+                
             </Swiper>
             {
                 championsData.map((item, index) => <ChampionDetail

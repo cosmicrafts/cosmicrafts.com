@@ -7,6 +7,7 @@ $header-height: 96px; // Set your desired height
     display: flex;
     align-items: $align-items;
     justify-content: $justify-content;
+    padding: 1rem;
 }
 
 .header {
@@ -27,9 +28,17 @@ $header-height: 96px; // Set your desired height
             width: 64px;
             height: 100%;
             pointer-events: visible;
+            margin-left: 1rem;
+            
 
         img {
-            width: 100%;
+            cursor: pointer;
+            width: 4rem;
+            transition: transform 0.2s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.025) translateY(-5px);
         }
     }
 
@@ -42,6 +51,7 @@ $header-height: 96px; // Set your desired height
 
         a {
             display: inline-block;
+            font-size: 1rem;
             font-weight: bold;
             padding: 0.5rem;
             text-transform: uppercase;
@@ -92,6 +102,7 @@ $header-height: 96px; // Set your desired height
     @media (max-width: 768px) {
         &__inner {
             @include flex(center, center); // Center both horizontally and vertically
+            flex-direction: column;
         }
 
         &__logo, &__nav {
@@ -100,20 +111,24 @@ $header-height: 96px; // Set your desired height
         }
         
         &__logo {
+            margin-top: 4rem;
             width: 12vh;
             width: 64px;
         }
 
         &__nav {
+            display: flex;
             flex-wrap: wrap; // Allow items to wrap if needed
             justify-content: center; // Center items horizontally
             padding: 10px 10px; // Adjust padding for better spacing
 
             li {
+                
                 margin: 3px; // Reduce margin for each item
             }
 
             a {
+                margin-top: 1rem;
                 font-size: 1rem; // Reduce font size for mobile
                 line-height: .5; // Adjust line height to reduce spacing between text
             }

@@ -2,7 +2,6 @@
 @use "sass:math";
 
 .champion {
-    overflow: visible; /* Allow children to overflow */
 
     &-list {
         height: 100%;
@@ -17,9 +16,6 @@
             transition: transform 0.3s ease, opacity 0.9s ease;
             transition-delay: 0.2s;
             align-items: center;
-
-
-            overflow: visible;
           bottom: 3vb;
             display: flex;
             flex-direction: column;
