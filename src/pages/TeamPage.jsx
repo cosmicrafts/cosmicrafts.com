@@ -57,7 +57,7 @@ const TeamPage = () => {
       name: "Erick Picos",
       alias: "Shizuken",
       role: "Co-Founder",
-      description: "Unity sorcerer & C# ninja. Biotech student by day, game dev extraordinaire by night.",
+      description: "Unity sorcerer & C# ninja. Biotech student by day, extraordinaire game developer  by night.",
       image: shizukenImage,
       linkedin: "https://www.linkedin.com/in/chutoeskills/"
     },
@@ -66,7 +66,7 @@ const TeamPage = () => {
       name: "Manuel Quintero",
       alias: "Sakunix",
       role: "Co-Founder",
-      description: "Open-source champion & Linux guru. Crafting sleek code and advocating for gaming's future.",
+      description: "Open-source advocate & Linux guru. Crafting sleek code and cyber security for gaming's future.",
       image: sakunixImage,
       linkedin: "https://www.linkedin.com/in/sakunix/"
     },

@@ -1,7 +1,6 @@
 @use "../../scss/" as *;
 
-// Adjust the header height
-$header-height: 96px; // Set your desired height
+$header-height: 77px;
 
 @mixin flex($align-items, $justify-content) {
     display: flex;
@@ -44,6 +43,7 @@ $header-height: 96px; // Set your desired height
 
     &__nav {
         @include flex(center, space-between);
+        
 
         li ~ li {
             margin-left: 1rem;
@@ -57,7 +57,7 @@ $header-height: 96px; // Set your desired height
             text-transform: uppercase;
             position: relative;
             pointer-events: visible;
-            white-space: nowrap; // Prevent text from wrapping
+            white-space: nowrap;
 
             // Specify transition colors here
             $transition-color: #FF6F61; // Set your desired transition color
@@ -98,40 +98,91 @@ $header-height: 96px; // Set your desired height
         }
     }
 
-    // Mobile and Desktop styles
-    @media (max-width: 768px) {
-        &__inner {
-            @include flex(center, center); // Center both horizontally and vertically
-            flex-direction: column;
-        }
-
-        &__logo, &__nav {
-            width: auto; // Keep width auto to prevent stretching
-            justify-content: center; // Center content horizontally
-        }
-        
-        &__logo {
-            margin-top: 4rem;
-            width: 12vh;
-            width: 64px;
-        }
-
-        &__nav {
-            display: flex;
-            flex-wrap: wrap; // Allow items to wrap if needed
-            justify-content: center; // Center items horizontally
-            padding: 10px 10px; // Adjust padding for better spacing
-
-            li {
-                
-                margin: 3px; // Reduce margin for each item
-            }
-
-            a {
-                margin-top: 1rem;
-                font-size: 1rem; // Reduce font size for mobile
-                line-height: .5; // Adjust line height to reduce spacing between text
-            }
+    .burger-menu {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%); // Center vertically
+        width: 64px;
+        pointer-events: visible;
+        display: none;
+    
+        &.open {
+            display: block;
         }
     }
-}
+
+    // Mobile and Desktop styles
+    @media (max-width: 768px) {
+        .header__logo {
+            z-index: 100;
+        }
+        .header__nav {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(24, 24, 24, 0.99);
+            z-index: 101;
+            padding-top: $header-height;
+            box-sizing: border-box;
+            
+            transform: translateY(-100%); /* Start hidden offscreen */
+            transition: transform 0.4s ease-in-out; 
+          }
+        
+          .nav-active {
+            display: flex;
+            transform: translateY(0%); 
+            animation: slideDown 0.6s ease-in-out forwards; 
+          }
+        
+          /* Adding closing animation */
+          .header__nav.closing { 
+            animation: slideUp 0.6s ease-in-out forwards; 
+          }
+        
+          @keyframes slideDown {
+            0% { transform: translateY(-100%); }
+            60% { transform: translateY(10%); } 
+            100% { transform: translateY(0%); } 
+          }
+        
+          @keyframes slideUp {
+            0% { transform: translateY(0%); }
+            10% { transform: translateY(10%); } 
+            100% { transform: translateY(-100%); } 
+          }
+        
+    
+        .burger-menu {
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 102;
+        }
+    
+        .header__nav li {
+            margin: 24px 0;
+        }
+    
+        .header__nav a {
+            color: #fff;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+    
+        .header__nav a:hover {
+            color: #aaa;
+        }
+    }
+}    
