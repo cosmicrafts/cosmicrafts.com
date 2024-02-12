@@ -4,7 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import SwiperCore, { Navigation } from 'swiper';
-import { FaLinkedinIn } from 'react-icons/fa'; // Ensure React Icons is installed
+import { FaLinkedinIn } from 'react-icons/fa'; 
+import bizkitImage from '../assets/team/bizkit.jpg';
+import pkImage from '../assets/team/pk.jpg';
+import shizukenImage from '../assets/team/shizuken.jpg';
+import sakunixImage from '../assets/team/sakunix.jpg';
+import kurisuImage from '../assets/team/kurisu.jpg';
+
 
 SwiperCore.use([Navigation]);
 
@@ -33,7 +39,7 @@ const TeamPage = () => {
       alias: "Bizkit",
       role: "Founder & CEO",
       description: "Game Designer & esports veteran turned AI enthusiast. Do-it-all skillset, one algorithm at a time.",
-      image: "../src/assets/team/bizkit.jpg", 
+      image: bizkitImage,
       linkedin: "https://www.linkedin.com/in/ohsalmeron/"
     },
     {
@@ -42,7 +48,7 @@ const TeamPage = () => {
       alias: "pk34",
       role: "Co-Founder",
       description: "Web3 wizard & Motoko champion. League of Legends fanatic fueling our blockchain adventures.",
-      image: "../src/assets/team/pk.jpg", 
+      image: pkImage,
       linkedin: "https://www.linkedin.com/in/frank-peguero-4108b583/"
     },
     {
@@ -51,7 +57,7 @@ const TeamPage = () => {
       alias: "Shizuken",
       role: "Co-Founder",
       description: "Unity sorcerer & C# ninja. Biotech student by day, game dev extraordinaire by night.",
-      image: "../src/assets/team/shizuken.jpg", 
+      image: shizukenImage,
       linkedin: "https://www.linkedin.com/in/chutoeskills/"
     },
     {
@@ -60,7 +66,7 @@ const TeamPage = () => {
       alias: "Sakunix",
       role: "Co-Founder",
       description: "Open-source champion & Linux guru. Crafting sleek code and advocating for gaming's future.",
-      image: "../src/assets/team/sakunix.jpg", 
+      image: sakunixImage,
       linkedin: "https://www.linkedin.com/in/sakunix/"
     },
     {
@@ -69,7 +75,7 @@ const TeamPage = () => {
       alias: "Kurisu",
       role: "Community Manager",
       description: "Web3 explorer & crypto strategist. Gamer at heart, building connections with our awesome community.",
-      image: "../src/assets/team/kurisu.jpg",
+      image: kurisuImage,
       linkedin: "https://www.linkedin.com/in/kristian-erick-rimas/"
     }
   ];
