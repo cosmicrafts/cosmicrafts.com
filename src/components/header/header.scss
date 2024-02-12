@@ -60,7 +60,7 @@ $header-height: 77px;
             white-space: nowrap;
 
             // Specify transition colors here
-            $transition-color: #FF6F61; // Set your desired transition color
+            $transition-color: #00ccff; // Set your desired transition color
 
             &::before,
             &::after {
@@ -115,6 +115,7 @@ $header-height: 77px;
 
     // Mobile and Desktop styles
     @media (max-width: 768px) {
+        
         .header__logo {
             z-index: 100;
         }
@@ -128,14 +129,18 @@ $header-height: 77px;
             position: fixed;
             top: 0;
             left: 0;
-            background-color: rgba(24, 24, 24, 0.99);
-            z-index: 101;
+            background-image: linear-gradient(rgba(207, 124, 0, 0.98), rgba(149, 62, 0, 0.98));
+            z-index: 10;
             padding-top: $header-height;
             box-sizing: border-box;
             
             transform: translateY(-100%); /* Start hidden offscreen */
             transition: transform 0.4s ease-in-out; 
           }
+          .header__nav li:hover a {
+            color: #171717; 
+            filter: drop-shadow(0 2px 4px rgba(0, 191, 255, 0.1));
+        }
         
           .nav-active {
             display: flex;
@@ -160,7 +165,7 @@ $header-height: 77px;
             100% { transform: translateY(-100%); } 
           }
         
-    
+
         .burger-menu {
             display: block;
             position: absolute;
@@ -168,6 +173,21 @@ $header-height: 77px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 102;
+        }
+
+        .burger-menu svg {
+            fill: #fff;
+            transition: transform 0.4s ease, fill 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
+        }
+
+        .burger-menu:hover svg {
+            transform: scale(1.15); 
+            fill: #ecfbff;
+        }
+
+        .burger-menu:active svg {
+            transform: scale(0.90); /* Scale down the burger menu icon when pressed */
         }
     
         .header__nav li {
@@ -178,7 +198,12 @@ $header-height: 77px;
             color: #fff;
             font-size: 1.5em;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
+
+        }
+
+        .header__nav a:hover {
+            transform: scale(1.15); 
         }
     
         .header__nav a:hover {

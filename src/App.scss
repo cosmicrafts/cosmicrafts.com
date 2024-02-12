@@ -212,10 +212,13 @@ $gradient-end: rgba(75, 123, 255, 1); // Example: Blue-ish gradient end
 .scroll {
     position: fixed;
     bottom: 1rem;
-    z-index: 1;
+    z-index: 100;
     left: 50%;
     transform: translateX(-50%);
-    animation: bounce 3s ease infinite;
+    animation: bounce 2s ease infinite;
+    span{
+        font-size: .75rem;
+    }
 }
 
 @keyframes bounce {
@@ -223,7 +226,7 @@ $gradient-end: rgba(75, 123, 255, 1); // Example: Blue-ish gradient end
         transform: translateX(-50%) translateY(0);
     }
     50% {
-        transform: translateX(-50%) translateY(-10px);
+        transform: translateX(-50%) translateY(-4px);
     }
     100% {
         transform: translateX(-50%) translateY(0);

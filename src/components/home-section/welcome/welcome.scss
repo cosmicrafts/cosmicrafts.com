@@ -59,7 +59,7 @@
     .description {
         font-size: 1.25rem; /* Reduce the font size for the description */
         font-weight: 400;
-        margin-bottom: 2rem; /* Reduce the margin for spacing */
+        margin-bottom: 1rem; /* Reduce the margin for spacing */
         margin-right: 0; /* Remove right margin */
         font-size: 1.5rem;
     }
@@ -96,14 +96,17 @@
             align-items: left;
             text-align: left; /* Center-align the text */
             margin-left: 48px;
-            margin-top: 10%;
+            margin-top: 10rem;
             width: 85%;   
         }
 
         .title {
-            word-spacing: .2rem;
+            word-spacing: .25rem;
             margin-bottom: 12px;
-            
+            span {
+                font-size: 1.5rem;
+                line-height: 3rem;
+            }
         }
 
         .description {
@@ -117,20 +120,34 @@
 
     // Mobile styles
     @media (max-width: 612px) {
+
+        .welcome__info {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: center;
+            margin-left: 48px;
+            margin-top: 0rem;
+            width: 85%;
+        }
+
         &__grid {
             right: 24px; 
-            top: -2%;     
-               
         }
 
         .title {
-            font-size: 1rem; /* Reduce the font size for the title */
-            word-spacing: .2rem;
-            margin-bottom: 12px;
+            span{
+                font-size: 2rem; 
+            }
+        }
+
+        .subtitle{
+            font-size: 2rem; 
         }
 
         .description {
-            font-size: 1.25rem; /* Keep the font size for the description */
+            font-size: 1.25rem;
+
         }
 
         .btns {
@@ -141,11 +158,12 @@
             flex-direction: column;
             text-align: center;
         }
-
+    
         .btns button {
             width: 320px; /* Set a fixed width for the buttons */
             height: 80px;
-        text-align: center;}
+            text-align: center;
+        }
 
         // Hide the image slider
         &__slider {
