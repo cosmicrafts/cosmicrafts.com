@@ -10,6 +10,7 @@ import pkImage from '../assets/team/pk.jpg';
 import shizukenImage from '../assets/team/shizuken.jpg';
 import sakunixImage from '../assets/team/sakunix.jpg';
 import kurisuImage from '../assets/team/kurisu.jpg';
+import teamBG from '../assets/TeamBG.jpg';
 
 
 SwiperCore.use([Navigation]);
@@ -82,7 +83,7 @@ const TeamPage = () => {
 
   
   return (
-    <div className="team-page-wrapper">
+    <div className="team-page-wrapper" style={{ backgroundImage: `url(${teamBG})` }}>
       <Swiper
           slidesPerView={'auto'}
           spaceBetween={12}
