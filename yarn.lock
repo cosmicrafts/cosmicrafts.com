@@ -1862,6 +1862,7 @@ __metadata:
     hover-effect: "npm:^1.2.1"
     react: "npm:17.0.2"
     react-dom: "npm:17.0.2"
+    react-icons: "npm:^5.0.1"
     react-router-dom: "npm:^6.22.0"
     sass: "npm:^1.43.4"
     swiper: "npm:7.2.0"
@@ -2200,6 +2201,15 @@ __metadata:
   peerDependencies:
     react: 17.0.2
   checksum: 10c0/51abbcb72450fe527ebf978c3bc989ba266630faaa53f47a2fae5392369729e8de62b2e4683598cbe651ea7873cd34ec7d5127e2f50bf4bfe6bd0c3ad9bddcb0
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "react-icons@npm:5.0.1"
+  peerDependencies:
+    react: "*"
+  checksum: 10c0/717022d93a3b2b30082f86fbb3c725a94a603b3fa1c611533439cc886f691a13b1833c30446d257a177667779239eac57411fa7516d8a4787bd735e965c9f63d
   languageName: node
   linkType: hard
 

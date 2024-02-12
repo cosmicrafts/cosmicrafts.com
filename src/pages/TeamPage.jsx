@@ -32,13 +32,13 @@ const TeamPage = () => {
       name: "Omar Hernandez",
       alias: "Bizkit",
       role: "Founder & CEO",
-      description: "Game Designer & esports veteran turned AI enthusiast. Swiss Army Knife skillset, one algorithm at a time.",
+      description: "Game Designer & esports veteran turned AI enthusiast. Do-it-all skillset, one algorithm at a time.",
       image: "../src/assets/team/bizkit.jpg", 
       linkedin: "https://www.linkedin.com/in/ohsalmeron/"
     },
     {
       id: 2,
-      name: "Francisco Peguero",
+      name: "Frank Peguero",
       alias: "pk34",
       role: "Co-Founder",
       description: "Web3 wizard & Motoko champion. League of Legends fanatic fueling our blockchain adventures.",
@@ -47,7 +47,7 @@ const TeamPage = () => {
     },
     {
       id: 3,
-      name: "Erick Jose Picos",
+      name: "Erick Picos",
       alias: "Shizuken",
       role: "Co-Founder",
       description: "Unity sorcerer & C# ninja. Biotech student by day, game dev extraordinaire by night.",
@@ -77,7 +77,6 @@ const TeamPage = () => {
   
   return (
     <div className="team-page-wrapper">
-      <h1>The Cosmicrafts Team</h1>
       <Swiper
           slidesPerView={'auto'}
           spaceBetween={12}
