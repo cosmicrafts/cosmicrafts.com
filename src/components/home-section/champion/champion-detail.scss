@@ -46,27 +46,32 @@
 
     .back-button {
         position: fixed; // Use fixed positioning
-        bottom: 20px; // Adjust bottom margin as needed
-        right: 20px; // Adjust right margin as needed
-        background-color: $main-color;
+        bottom: 4rem; // Adjust bottom margin as needed
+        left: 50%; // Center horizontally
+        transform: translateX(-50%); // Move the button back by half of its width
+        background-color: rgb(214, 139, 0);
         color: $white;
         padding: 12px 64px; // Adjust padding as needed
         border: none;
         border-radius: 4px;
         cursor: pointer;
         font-size: 1rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        z-index: 300;
-        box-shadow:  0 8px 8px rgba(0, 0, 0, 1);
-
+        transition: background-color 0.3s ease, transform 0.3s ease; // Add transition for background color and transform
+        z-index: 400;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 1);
+    
         &:hover {
-            background-color: darken($main-color, 10%);
-            color: $white;
+            background-color: rgb(246, 170, 28);
+            transform: scale(1.05)  translateX(-50%); // Scale up on hover
+        }
+    
+        &:active {
+            transform: scale(0.95) translateX(-50%); // Scale down when pressed
         }
     }
+    
+    
 }
-
-// Rest of your SCSS...
 
 .champ-img-detail {
     opacity: 80%;

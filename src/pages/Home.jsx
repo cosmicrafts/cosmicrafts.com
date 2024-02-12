@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import { FaDiscord } from "react-icons/fa"; 
 import {
     Swiper,
     SwiperSlide
@@ -85,6 +85,11 @@ const Home = () => {
             }
             <div className="scroll">
                 <span>Swipe, Scroll, or use Keys to Explore</span>
+            </div>
+            <div className="discord-icon">
+                <a href="https://discord.gg/cosmicrafts-884272584491941888" target="_blank" rel="noopener noreferrer">
+                    <FaDiscord size={30} />
+                </a>
             </div>
         </>
     )

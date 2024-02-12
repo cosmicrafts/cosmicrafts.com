@@ -25,11 +25,13 @@ const Header = () => {
     return (
         <div className="header">
             <div className="header__inner">
-                <div className="header__logo">
-                    <Link to="/">
-                        <img src={logo} alt="Logo" />
-                    </Link>
-                </div>
+            <div className="header__logo">
+    <Link to="/" 
+          state={{ slide: 'welcome' }} 
+          onClick={() => setIsOpen(false)}> {/* Added to close menu  */}
+        <img src={logo} alt="Logo" />
+    </Link>
+</div>
                 <div className="burger-menu" onClick={toggleMenu}>
                     {isOpen ? <FaTimes size="30" /> : <FaBars size="30" />}
                 </div>

@@ -15,7 +15,7 @@ $header-height: 77px;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 2;
     pointer-events: none;
 
     &__inner {
@@ -130,7 +130,7 @@ $header-height: 77px;
             top: 0;
             left: 0;
             background-image: linear-gradient(rgba(207, 124, 0, 0.98), rgba(149, 62, 0, 0.98));
-            z-index: 10;
+            z-index: 2;
             padding-top: $header-height;
             box-sizing: border-box;
             
@@ -172,7 +172,7 @@ $header-height: 77px;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 102;
+            z-index: 2;
         }
 
         .burger-menu svg {

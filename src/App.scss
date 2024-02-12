@@ -57,6 +57,27 @@ a {
     background-size: cover;
 }
 
+.discord-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+  
+    svg {
+        width: 48px;
+        height: 48px;
+      transition: transform 0.3s ease, opacity 0.3s ease; /* Animation transitions */
+    }
+  
+    &:hover svg {
+      transform: scale(1.2); /* Scale up on hover */
+    }
+  
+    &:active svg {
+      transform: scale(0.9); /* Scale down when pressed */
+    }
+  }
+
 // Overlay Styling
 .overlay {
     position: relative;
