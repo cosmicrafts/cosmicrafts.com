@@ -1,0 +1,97 @@
+/* Global styles */
+
+/* PricingSlider specific styles */
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: center; /* Vertical centering within grid */
+  width: 90%;
+  height: 90%;
+  margin: 42px auto; /* Add some top/bottom margin */
+}
+
+.investment-info,
+.user-investment {
+  display: grid;
+  grid-template-rows: auto; 
+  gap: 10px;
+  padding: 30px;
+  background: linear-gradient(145deg, #ffffff, #dce3e9); /* Gradient background */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  color: #333; /* Dark text for contrast */
+  width: 100%; /* Ensure consistency */
+  align-items: center; /* Center align the content */
+  
+  .token-nfo{
+    grid-template-columns: auto auto;
+  }
+}
+
+h2 {
+  font-size: 1.25em;
+  color: #333; /* Dark text for contrast */
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.current-icp,
+.current-price,
+.total-tokens,
+.tokens-received {
+  font-weight: 500;
+  font-size: large;
+  color: #333;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Override default appearance */
+  appearance: none;
+  width: 100%;
+  height: 18px;
+  border-radius: 6px;
+  background: #e0e0e0; /* Lighter background for slider */
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  cursor: pointer;
+}
+
+input[type="range"]:hover {
+  opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px; /* Bigger thumb */
+  height: 24px;
+  border-radius: 50%;
+  background: #4c9aff; /* Bright thumb for contrast */
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #4c9aff;
+  cursor: pointer;
+}
+
+.labels {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pricing-container {
+    grid-template-columns: 1fr; /* Stack panels on smaller screens */
+    gap: 20px;
+  }
+}

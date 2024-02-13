@@ -42,3 +42,31 @@
 .social-media-slide__recommendation {
   font-size: 1rem;
 }
+
+.pricing-slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.section {
+  margin: 20px 0;
+}
+
+.slider {
+  width: 80%; // Adjust based on preference
+  margin: 10px auto; // Center the slider
+}
+
+h2 {
+  color: #333; // Adjust based on your color scheme
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666; // Adjust for better readability
+  margin: 5px 0;
+}

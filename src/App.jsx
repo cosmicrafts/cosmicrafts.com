@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import './App.scss';
+import PricingSlider from './pages/DAOcalc';
 
 import Header from './components/header/Header';
 import Home from './pages/Home';
@@ -18,7 +19,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/team" element={<TeamPage />} /> {/* Corrected route path */}
+          <Route path="/team" element={<TeamPage />} /> 
+          <Route path="/factions" element={<PricingSlider />} 
+          /> 
         </Routes>
       </div>
     </Router>
