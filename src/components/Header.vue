@@ -33,17 +33,17 @@ const changeLanguage = (event) => {
     <div class="language-selector">
       <img src="@/assets/icons/lang.svg" alt="Language Icon" class="lang-icon" />
       <select id="header-language" @change="changeLanguage">
-        <option value="en">EN</option>
-        <option value="es">ES</option>
-        <option value="fr">FR</option>
-        <option value="de">DE</option>
-        <option value="pt">Portuguese (BR)</option>
-        <option value="ru">Russian</option>
-        <option value="ar">Arabic</option>
-        <option value="vi">Vietnamese</option>
-        <option value="ko">Korean</option>
-        <option value="ja">Japanese</option>
-        <option value="zh">Chinese</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="pt">Português (BR)</option>
+        <option value="ru">Русский</option>
+        <option value="ar">العربية</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="ko">한국어</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
       </select>
     </div>
 

@@ -10,7 +10,7 @@ import Footer from './components/Footer.vue';
     <section class="hero">
       <h1>{{ $t('hero.title') }}</h1>
       <p>{{ $t('hero.description') }}</p>
-      <button>{{ $t('cta') }}</button>
+      <button class="cta-button">{{ $t('cta') }}</button>
     </section>
 
     <!-- Lore Section -->
@@ -38,7 +38,7 @@ import Footer from './components/Footer.vue';
 
     <!-- Call-to-Action Section -->
     <section class="cta-section">
-      <button>{{ $t('cta') }}</button>
+      <button class="cta-button">{{ $t('cta') }}</button>
     </section>
 
     <!-- Footer -->

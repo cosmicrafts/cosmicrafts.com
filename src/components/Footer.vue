@@ -24,9 +24,9 @@ const changeLanguage = (event) => {
     </div>
 
 <!-- Language Selector -->
-<div class="language-section">
-    <label for="language">{{ $t('footer.language') }}:</label>
-    <select id="language" @change="changeLanguage">
+<div class="language-selector">
+      <img src="@/assets/icons/lang.svg" alt="Language Icon" class="lang-icon" />
+      <select id="header-language" @change="changeLanguage">
       <option value="en">English</option>
       <option value="es">Español</option>
       <option value="fr">Français</option>
@@ -105,6 +105,11 @@ footer {
 }
 
 /* Language Selector */
+
+.lang-icon {
+  width: 1rem;
+  height: 1rem;
+}
 .language-section {
   margin-top: 1.5rem;
   display: flex;
