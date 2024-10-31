@@ -1,0 +1,37 @@
+{
+    "hero": {
+      "title": "欢迎来到Cosmicrafts宇宙",
+      "description": "通往宇宙冒险、史诗战斗和银河秘密的大门。"
+    },
+    "cta": "试试Cosmicrafts Adventures",
+    "lore": {
+      "title": "Cosmicrafts的传说",
+      "description": "探索充满英雄、战斗和秘密的Cosmicrafts宇宙的丰富历史。"
+    },
+    "games": {
+      "title": "我们的游戏",
+      "battlegrounds": {
+        "title": "Cosmicrafts战场",
+        "description": "参与Cosmicrafts宇宙中的史诗多人战斗。"
+      },
+      "adventures": {
+        "title": "Cosmicrafts冒险",
+        "description": "参与激动人心的太空任务，发现银河的秘密。"
+      }
+    },
+    "footer": {
+      "stayConnected": "保持联系",
+      "careers": "职业",
+      "about": "关于",
+      "support": "支持",
+      "press": "媒体",
+      "creators": "创作者",
+      "privacy": "隐私",
+      "legal": "法律",
+      "terms": "条款",
+      "cookiePolicy": "Cookie政策",
+      "cookieSettings": "Cookie设置",
+      "language": "语言"
+    }
+  }
+  

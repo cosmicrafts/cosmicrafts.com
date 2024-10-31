@@ -1,0 +1,37 @@
+{
+    "hero": {
+      "title": "Chào mừng đến với Vũ trụ Cosmicrafts",
+      "description": "Cánh cửa của bạn đến các cuộc phiêu lưu vũ trụ, trận chiến sử thi và những bí ẩn của thiên hà."
+    },
+    "cta": "Thử Cosmicrafts Adventures",
+    "lore": {
+      "title": "Truyền Thuyết Cosmicrafts",
+      "description": "Khám phá câu chuyện phong phú của vũ trụ Cosmicrafts, đầy rẫy những anh hùng, trận chiến và bí ẩn."
+    },
+    "games": {
+      "title": "Trò Chơi Của Chúng Tôi",
+      "battlegrounds": {
+        "title": "Cosmicrafts Battlegrounds",
+        "description": "Tham gia các trận chiến nhiều người chơi sử thi trong vũ trụ Cosmicrafts."
+      },
+      "adventures": {
+        "title": "Cosmicrafts Adventures",
+        "description": "Tham gia vào các nhiệm vụ không gian thú vị và khám phá những bí ẩn của thiên hà."
+      }
+    },
+    "footer": {
+      "stayConnected": "Giữ Liên Lạc",
+      "careers": "Nghề nghiệp",
+      "about": "Về chúng tôi",
+      "support": "Hỗ trợ",
+      "press": "Báo chí",
+      "creators": "Nhà sáng tạo",
+      "privacy": "Quyền riêng tư",
+      "legal": "Pháp lý",
+      "terms": "Điều khoản",
+      "cookiePolicy": "Chính sách Cookie",
+      "cookieSettings": "Cài đặt Cookie",
+      "language": "Ngôn ngữ"
+    }
+  }
+  

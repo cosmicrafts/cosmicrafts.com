@@ -1,0 +1,37 @@
+{
+    "hero": {
+      "title": "Cosmicrafts 우주에 오신 것을 환영합니다",
+      "description": "우주 모험, 서사시 전투 및 은하의 비밀로 가는 관문입니다."
+    },
+    "cta": "Cosmicrafts Adventures 시도하기",
+    "lore": {
+      "title": "Cosmicrafts 전설",
+      "description": "영웅, 전투 및 비밀이 가득한 Cosmicrafts 우주의 풍부한 역사를 탐험하세요."
+    },
+    "games": {
+      "title": "우리의 게임",
+      "battlegrounds": {
+        "title": "Cosmicrafts 전장",
+        "description": "Cosmicrafts 우주에서 서사시 멀티플레이어 전투에 참여하세요."
+      },
+      "adventures": {
+        "title": "Cosmicrafts 모험",
+        "description": "흥미진진한 우주 임무에 참여하고 은하의 비밀을 발견하세요."
+      }
+    },
+    "footer": {
+      "stayConnected": "연결 유지",
+      "careers": "채용",
+      "about": "회사 소개",
+      "support": "지원",
+      "press": "언론",
+      "creators": "크리에이터",
+      "privacy": "개인 정보 보호",
+      "legal": "법적",
+      "terms": "이용 약관",
+      "cookiePolicy": "쿠키 정책",
+      "cookieSettings": "쿠키 설정",
+      "language": "언어"
+    }
+  }
+  

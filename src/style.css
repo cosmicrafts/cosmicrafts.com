@@ -1,0 +1,56 @@
+/* Global Styles */
+
+:root {
+  /* Colors */
+  --background-color: #1a202c;
+  --font-color: #e2e8f0;
+  --accent-color: #4a90e2;
+  --hover-accent-color: #3a7bd5;
+
+  /* Typography */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+  color: var(--accent-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--hover-accent-color);
+}
+
+/* Buttons */
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: var(--hover-accent-color);
+}
+button:focus {
+  outline: 3px solid var(--hover-accent-color);
+}

@@ -1,0 +1,37 @@
+{
+    "hero": {
+      "title": "Добро пожаловать во Вселенную Cosmicrafts",
+      "description": "Ваш портал в космические приключения, эпические битвы и тайны галактики."
+    },
+    "cta": "Попробуйте Cosmicrafts Adventures",
+    "lore": {
+      "title": "История Cosmicrafts",
+      "description": "Исследуйте богатую историю вселенной Cosmicrafts, полную героев, битв и тайн."
+    },
+    "games": {
+      "title": "Наши Игры",
+      "battlegrounds": {
+        "title": "Cosmicrafts Battlegrounds",
+        "description": "Участвуйте в эпических многопользовательских сражениях во вселенной Cosmicrafts."
+      },
+      "adventures": {
+        "title": "Cosmicrafts Adventures",
+        "description": "Отправляйтесь в захватывающие космические миссии и откройте тайны галактики."
+      }
+    },
+    "footer": {
+      "stayConnected": "Оставайтесь на связи",
+      "careers": "Карьера",
+      "about": "О нас",
+      "support": "Поддержка",
+      "press": "Пресса",
+      "creators": "Создатели",
+      "privacy": "Конфиденциальность",
+      "legal": "Правовая информация",
+      "terms": "Условия",
+      "cookiePolicy": "Политика использования файлов cookie",
+      "cookieSettings": "Настройки файлов cookie",
+      "language": "Язык"
+    }
+  }
+  

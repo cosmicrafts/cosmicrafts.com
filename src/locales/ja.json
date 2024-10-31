@@ -1,0 +1,37 @@
+{
+    "hero": {
+      "title": "Cosmicraftsの宇宙へようこそ",
+      "description": "宇宙の冒険、壮大な戦い、そして銀河の謎への扉です。"
+    },
+    "cta": "Cosmicrafts Adventuresを試す",
+    "lore": {
+      "title": "Cosmicraftsの伝説",
+      "description": "ヒーロー、戦い、そして秘密で満たされたCosmicraftsの豊かな歴史を探検しましょう。"
+    },
+    "games": {
+      "title": "私たちのゲーム",
+      "battlegrounds": {
+        "title": "Cosmicraftsの戦場",
+        "description": "Cosmicraftsの宇宙で壮大なマルチプレイヤーの戦いに参加しましょう。"
+      },
+      "adventures": {
+        "title": "Cosmicraftsの冒険",
+        "description": "エキサイティングな宇宙ミッションに参加し、銀河の秘密を明らかにしましょう。"
+      }
+    },
+    "footer": {
+      "stayConnected": "つながりを保つ",
+      "careers": "キャリア",
+      "about": "について",
+      "support": "サポート",
+      "press": "プレス",
+      "creators": "クリエーター",
+      "privacy": "プライバシー",
+      "legal": "法的",
+      "terms": "利用規約",
+      "cookiePolicy": "クッキーポリシー",
+      "cookieSettings": "クッキー設定",
+      "language": "言語"
+    }
+  }
+  

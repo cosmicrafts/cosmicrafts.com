@@ -1,0 +1,37 @@
+{
+    "hero": {
+      "title": "مرحبًا بك في عالم Cosmicrafts",
+      "description": "بوابتك إلى المغامرات الكونية والمعارك الملحمية وأسرار المجرة."
+    },
+    "cta": "جرب Cosmicrafts Adventures",
+    "lore": {
+      "title": "قصة Cosmicrafts",
+      "description": "استكشف التاريخ الغني لعالم Cosmicrafts المليء بالأبطال والمعارك والأسرار."
+    },
+    "games": {
+      "title": "ألعابنا",
+      "battlegrounds": {
+        "title": "ساحات Cosmicrafts",
+        "description": "انضم إلى المعارك الملحمية في عالم Cosmicrafts."
+      },
+      "adventures": {
+        "title": "مغامرات Cosmicrafts",
+        "description": "انطلق في مهام فضائية مثيرة واكتشف أسرار المجرة."
+      }
+    },
+    "footer": {
+      "stayConnected": "ابق على تواصل",
+      "careers": "الوظائف",
+      "about": "حول",
+      "support": "الدعم",
+      "press": "الصحافة",
+      "creators": "المبدعون",
+      "privacy": "الخصوصية",
+      "legal": "القانوني",
+      "terms": "الشروط",
+      "cookiePolicy": "سياسة ملفات تعريف الارتباط",
+      "cookieSettings": "إعدادات ملفات تعريف الارتباط",
+      "language": "اللغة"
+    }
+  }
+  

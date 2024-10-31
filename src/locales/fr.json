@@ -1,0 +1,37 @@
+{
+    "hero": {
+      "title": "Bienvenue dans l'univers de Cosmicrafts",
+      "description": "Votre portail vers des aventures cosmiques, des batailles épiques et les mystères de la galaxie."
+    },
+    "cta": "Essayez Cosmicrafts Adventures",
+    "lore": {
+      "title": "Lore de Cosmicrafts",
+      "description": "Explorez l'histoire riche de l'univers Cosmicrafts, rempli de héros, de batailles et de mystères."
+    },
+    "games": {
+      "title": "Nos Jeux",
+      "battlegrounds": {
+        "title": "Cosmicrafts Battlegrounds",
+        "description": "Participez à des batailles multijoueurs épiques dans l'univers de Cosmicrafts."
+      },
+      "adventures": {
+        "title": "Cosmicrafts Adventures",
+        "description": "Embarquez pour des quêtes spatiales passionnantes et découvrez les secrets de la galaxie."
+      }
+    },
+    "footer": {
+      "stayConnected": "Restez Connecté",
+      "careers": "Carrières",
+      "about": "À Propos",
+      "support": "Support",
+      "press": "Presse",
+      "creators": "Créateurs",
+      "privacy": "Confidentialité",
+      "legal": "Mentions Légales",
+      "terms": "Conditions",
+      "cookiePolicy": "Politique de Cookies",
+      "cookieSettings": "Paramètres de Cookies",
+      "language": "Langue"
+    }
+  }
+  
