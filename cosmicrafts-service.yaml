@@ -1,0 +1,15 @@
+# cosmicrafts-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: cosmicrafts-service
+  labels:
+    app: cosmicrafts-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: cosmicrafts-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5173
