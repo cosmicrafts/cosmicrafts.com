@@ -94,13 +94,16 @@ document.addEventListener('click', () => {
 /* Basic Header Styling */
 
 header {
+  width: 100vw;
+  left: 0;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
   border-bottom: 1px solid #3a3a3a;
-  background-color: #1a202c;
-  position: relative;
+  background: linear-gradient(-180deg, rgba(32, 47, 78, 0.975), rgba(20, 28, 41, 0.925));
+  position: fixed;
 }
 
 /* Logo Centered */
@@ -161,8 +164,8 @@ header {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 .nav-links a {
@@ -230,6 +233,7 @@ header {
     align-items: flex-start; /* Align content to the left */
     transform: translateX(-100%);
     transition: transform 0.25s ease-in-out;
+    border-right: 1px solid #3a3a3a;
     z-index: 10;
   }
 
@@ -266,9 +270,14 @@ header {
 
   /* Align nav-links to the top */
   .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
     align-items: flex-start; /* Align links to the left */
     font-size: 1.5rem;
     text-align: left;
+    flex-direction: column;
   }
 
   /* Language Selector positioned at the bottom left */
@@ -292,4 +301,6 @@ header {
     display: none;
   }
 }
+
+
 </style>
