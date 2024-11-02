@@ -1,0 +1,45 @@
+{
+      "header": {
+        "home": "Ana Sayfa",
+        "features": "Özellikler",
+        "games": "Oyunlar",
+        "community": "Topluluk",
+        "contact": "İletişim",
+        "language": "Dil"
+      },
+      "hero": {
+        "title": "Cosmicrafts Evrenine Hoş Geldiniz",
+        "description": "Kozmik maceralara, destansı savaşlara ve galaksinin gizemlerine açılan kapınız."
+      },
+      "cta": "Cosmicrafts Maceralarını Deneyin",
+      "lore": {
+        "title": "Cosmicrafts Efsanesi",
+        "description": "Kahramanlar, savaşlar ve gizemlerle dolu Cosmicrafts evreninin zengin hikayesini keşfedin."
+      },
+      "games": {
+        "title": "Oyunlarımız",
+        "battlegrounds": {
+          "title": "Cosmicrafts Savaş Alanları",
+          "description": "Cosmicrafts evreninde destansı çok oyunculu savaşlara katılın."
+        },
+        "adventures": {
+          "title": "Cosmicrafts Maceraları",
+          "description": "Heyecan verici uzay görevlerine çıkın ve galaksinin sırlarını keşfedin."
+        }
+      },
+      "footer": {
+        "stayConnected": "Bağlantıda Kalın",
+        "careers": "Kariyer",
+        "about": "Hakkında",
+        "support": "Destek",
+        "press": "Basın",
+        "creators": "Yaratıcılar",
+        "privacy": "Gizlilik",
+        "legal": "Yasal",
+        "terms": "Şartlar",
+        "cookiePolicy": "Çerez Politikası",
+        "cookieSettings": "Çerez Ayarları",
+        "language": "Dil"
+      }
+    }
+    

@@ -15,6 +15,7 @@ import vi from './locales/vi.json';
 import ko from './locales/ko.json';
 import ja from './locales/ja.json';
 import zh from './locales/zh.json';
+import tr from './locales/tr.json';
 
 const i18n = createI18n({
   legacy: false,  // Enable Composition API usage
@@ -31,7 +32,8 @@ const i18n = createI18n({
     vi,
     ko,
     ja,
-    zh
+    zh,
+    tr
   }
 });
 

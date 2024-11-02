@@ -1,4 +1,12 @@
 {
+  "header": {
+    "home": "홈",
+    "features": "기능",
+    "games": "게임",
+    "community": "커뮤니티",
+    "contact": "연락처",
+    "language": "언어"
+  },
     "hero": {
       "title": "Cosmicrafts 우주에 오신 것을 환영합니다",
       "description": "우주 모험, 서사시 전투 및 은하의 비밀로 가는 관문입니다."

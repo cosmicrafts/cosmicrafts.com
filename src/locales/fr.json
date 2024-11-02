@@ -1,4 +1,12 @@
 {
+  "header": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "games": "Jeux",
+    "community": "Communauté",
+    "contact": "Contact",
+    "language": "Langue"
+  },
     "hero": {
       "title": "Bienvenue dans l'univers de Cosmicrafts",
       "description": "Votre portail vers des aventures cosmiques, des batailles épiques et les mystères de la galaxie."

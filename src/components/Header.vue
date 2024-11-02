@@ -1,44 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import LanguageSelector from '@/components/LanguageSelector.vue';
 
 const { locale } = useI18n();
 const isMenuOpen = ref(false);
-const isDropdownOpen = ref(false);
-const selectedLanguage = ref("en"); // Default language
-const languages = [
-  { code: "en", label: "English" },
-  { code: "es", label: "Español" },
-  { code: "fr", label: "Français" },
-  { code: "de", label: "Deutsch" },
-  { code: "pt", label: "Português (BR)" },
-  { code: "ru", label: "Русский" },
-  { code: "ar", label: "العربية" },
-  { code: "vi", label: "Tiếng Việt" },
-  { code: "ko", label: "한국어" },
-  { code: "ja", label: "日本語" },
-  { code: "zh", label: "中文" },
-];
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
-
-const changeLanguage = (languageCode) => {
-  selectedLanguage.value = languageCode;
-  locale.value = languageCode;
-  isDropdownOpen.value = false; // Close the dropdown immediately after selection
-};
-
-const toggleDropdown = (event) => {
-  event.stopPropagation(); // Prevent click events from propagating and reopening the dropdown
-  isDropdownOpen.value = !isDropdownOpen.value;
-};
-
-// Close dropdown if clicking outside
-document.addEventListener('click', () => {
-  isDropdownOpen.value = false;
-});
 </script>
 
 <template>
@@ -72,17 +42,9 @@ document.addEventListener('click', () => {
           <li><a href="#">{{ $t('header.contact') }}</a></li>
         </ul>
 
-        <!-- Custom Dropdown for Language Selector -->
-        <div class="language-selector" @click="toggleDropdown">
-          <img src="@/assets/icons/lang.svg" alt="Language Icon" class="lang-icon" />
-          <span>{{ languages.find(lang => lang.code === selectedLanguage).label }}</span>
-
-          <!-- Dropdown Menu -->
-          <ul v-if="isDropdownOpen" class="dropdown-menu">
-            <li v-for="lang in languages" :key="lang.code" @click.stop="changeLanguage(lang.code)">
-              {{ lang.label }}
-            </li>
-          </ul>
+        <!-- Language Selector Component Wrapper -->
+        <div class="language-selector-wrapper">
+          <LanguageSelector />
         </div>
       </div>
     </nav>
@@ -90,61 +52,29 @@ document.addEventListener('click', () => {
 </template>
 
 
+
 <style scoped>
 /* Basic Header Styling */
 
 header {
-  width: 100vw;
-  left: 0;
-  top: 0;
+  top: 1%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
   border-bottom: 1px solid #3a3a3a;
-  background: linear-gradient(-180deg, rgba(32, 47, 78, 0.975), rgba(20, 28, 41, 0.925));
+  background: linear-gradient(to bottom, rgba(45, 64, 83, 0.98), rgba(17, 26, 34, 0.95));
   position: fixed;
+  z-index: 10;
+  border-radius: 10px;
+  margin: auto;
+  left: .5rem;
+  right: .5rem;
 }
 
 /* Logo Centered */
 .logo img {
   width: 2.5rem;
-}
-
-/* Language Selector */
-.language-selector {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-
-.lang-icon {
-  width: 1rem;
-  height: 1rem;
-}
-
-.dropdown-menu {
-  position: absolute;
-  bottom: 100%; /* Ensure dropdown opens upwards */
-  left: 0;
-  background: #1a202c;
-  border: 1px solid #3a3a3a;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 10rem;
-  z-index: 20;
-  transform-origin: bottom left; /* Set the origin for animation */
-  transform: scaleY(0); /* Start in a collapsed state */
-  transition: transform 0.1s ease-out; /* Smooth transition */
-}
-
-.language-selector:hover .dropdown-menu,
-.language-selector:focus-within .dropdown-menu {
-  transform: scaleY(1); /* Expand upward when active */
 }
 
 .dropdown-menu li {
@@ -161,8 +91,6 @@ header {
 /* Navigation Links */
 .nav-links {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: row;
   gap: 2rem;
@@ -171,7 +99,7 @@ header {
 .nav-links a {
   color: #e2e8f0;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.1s;
 }
 
@@ -227,7 +155,7 @@ header {
     left: 0;
     width: 60%; /* Half width of the screen */
     height: 100%;
-    background: linear-gradient(180deg, rgba(32, 47, 78, 0.975), rgba(20, 28, 41, 0.925));
+    background: linear-gradient(to bottom, rgba(30, 43, 56, 0.58), rgba(23, 33, 43, 0.691));
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align content to the left */
@@ -235,6 +163,9 @@ header {
     transition: transform 0.25s ease-in-out;
     border-right: 1px solid #3a3a3a;
     z-index: 10;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    backdrop-filter: blur(12px);
   }
 
   nav.open {
@@ -280,11 +211,6 @@ header {
     flex-direction: column;
   }
 
-  /* Language Selector positioned at the bottom left */
-  .language-selector {
-    align-self: flex-start;
-  }
-
   .overlay {
     position: fixed;
     top: 0;
@@ -297,10 +223,10 @@ header {
 }
 
 @media (min-width: 769px) {
-  .close-btn {
+  .close-btn,
+  .language-selector-wrapper {
     display: none;
   }
+
 }
-
-
 </style>

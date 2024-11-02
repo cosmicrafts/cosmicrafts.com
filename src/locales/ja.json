@@ -1,4 +1,12 @@
 {
+  "header": {
+    "home": "ホーム",
+    "features": "機能",
+    "games": "ゲーム",
+    "community": "コミュニティ",
+    "contact": "連絡先",
+    "language": "言語"
+  },
     "hero": {
       "title": "Cosmicraftsの宇宙へようこそ",
       "description": "宇宙の冒険、壮大な戦い、そして銀河の謎への扉です。"

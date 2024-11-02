@@ -1,12 +1,9 @@
-<!-- src/components/Footer.vue -->
 <script setup>
 import { useI18n } from 'vue-i18n';
+import LanguageSelector from '@/components/LanguageSelector.vue';
 
 const { locale } = useI18n();
 
-const changeLanguage = (event) => {
-  locale.value = event.target.value;
-};
 </script>
 
 <template>
@@ -23,23 +20,10 @@ const changeLanguage = (event) => {
       </ul>
     </div>
 
-<!-- Language Selector -->
-<div class="language-selector">
-      <img src="@/assets/icons/lang.svg" alt="Language Icon" class="lang-icon" />
-      <select id="header-language" @change="changeLanguage">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-      <option value="pt">Português (BR)</option>
-      <option value="ru">Русский</option>
-      <option value="ar">العربية</option>
-      <option value="vi">Tiếng Việt</option>
-      <option value="ko">한국어</option>
-      <option value="ja">日本語</option>
-      <option value="zh">中文</option>
-    </select>
-  </div>  
+    <!-- Use the LanguageSelector component -->
+    <div class="language-section">
+      <LanguageSelector />
+    </div>  
 
     <!-- Horizontal Links & Branding -->
     <div class="footer-nav">
@@ -104,23 +88,11 @@ footer {
   transform: scale(1.1);
 }
 
-/* Language Selector */
-
-.lang-icon {
-  width: 1rem;
-  height: 1rem;
-}
+/* Language Section */
 .language-section {
   margin-top: 1.5rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-}
-
-.language-section select {
-  padding: 0.3rem 0.6rem;
-  font-size: 0.9rem;
 }
 
 /* Footer Navigation Links */

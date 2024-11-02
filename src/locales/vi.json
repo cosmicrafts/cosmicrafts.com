@@ -1,4 +1,12 @@
 {
+  "header": {
+    "home": "Trang Chủ",
+    "features": "Tính Năng",
+    "games": "Trò Chơi",
+    "community": "Cộng Đồng",
+    "contact": "Liên Hệ",
+    "language": "Ngôn Ngữ"
+  },
     "hero": {
       "title": "Chào mừng đến với Vũ trụ Cosmicrafts",
       "description": "Cánh cửa của bạn đến các cuộc phiêu lưu vũ trụ, trận chiến sử thi và những bí ẩn của thiên hà."
