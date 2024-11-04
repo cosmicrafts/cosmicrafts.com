@@ -9,6 +9,10 @@ const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+const handleLogin = () => {
+  console.log('Log In button clicked');
+};
 </script>
 
 <template>
@@ -35,11 +39,10 @@ const toggleMenu = () => {
       <!-- Container for Navigation Links -->
       <div class="nav-container">
         <ul class="nav-links">
-          <li><a href="#">{{ $t('header.home') }}</a></li>
-          <li><a href="#">{{ $t('header.features') }}</a></li>
-          <li><a href="#">{{ $t('header.games') }}</a></li>
+          <li><a href="#">{{ $t('header.dao') }}</a></li>
+          <li><a href="#">{{ $t('header.marketplace') }}</a></li>
           <li><a href="#">{{ $t('header.community') }}</a></li>
-          <li><a href="#">{{ $t('header.contact') }}</a></li>
+          <li><a href="#">{{ $t('header.support') }}</a></li>
         </ul>
 
         <!-- Language Selector Component Wrapper -->
@@ -48,45 +51,42 @@ const toggleMenu = () => {
         </div>
       </div>
     </nav>
+
+    <!-- Log In Button (always on the far right) -->
+    <button class="login-button" @click="handleLogin">Connect</button>
   </header>
 </template>
-
-
 
 <style scoped>
 /* Basic Header Styling */
 
 header {
-  top: 1%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid #3a3a3a;
-  background: linear-gradient(to bottom, rgba(45, 64, 83, 0.98), rgba(17, 26, 34, 0.95));
+  border: 1px solid #ffffff17;
+  background: linear-gradient(to bottom, rgba(38, 48, 58, 0.98), rgba(25, 32, 39, 0.98));
   position: fixed;
   z-index: 10;
-  border-radius: 10px;
+  border-radius: 16px;
   margin: auto;
-  left: .5rem;
-  right: .5rem;
+  top: 1%;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 1rem;
 }
 
-/* Logo Centered */
+/* Logo Styling */
 .logo img {
   width: 2.5rem;
 }
 
-.dropdown-menu li {
-  padding: 0.5rem 1rem;
-  color: #e2e8f0;
-  font-size: 0.9rem;
-  cursor: pointer;
+nav {
+  position: fixed;
+  left: 6rem;
 }
 
-.dropdown-menu li:hover {
-  background-color: #4a90e2;
-}
 
 /* Navigation Links */
 .nav-links {
@@ -94,6 +94,9 @@ header {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  align-items: center; /* Ensures vertical alignment */
+  margin-left: 1rem; /* Move links to the left */
+  padding-left: 0; /* Remove additional padding if any */
 }
 
 .nav-links a {
@@ -104,7 +107,29 @@ header {
 }
 
 .nav-links a:hover {
-  color: #4a90e2;
+  color: #4aa5e2;
+}
+
+
+/* Log In Button Styling */
+.login-button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(to bottom, #00C0FC, #0056BA);
+  color: #fff;
+  border: 1px solid #25252529;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+  height: 2.5rem;
+  z-index: 11;
+}
+
+.login-button:hover {
+  background: linear-gradient(to bottom, #50b3d1, #32649d);
+  border-color: #f7f7f778;
 }
 
 /* Burger Menu Styling */
@@ -141,7 +166,7 @@ header {
     display: flex; /* Visible on mobile */
   }
 
-  /* Center logo, hide nav links initially */
+  /* Center logo on mobile */
   .logo {
     position: absolute;
     left: 50%;
@@ -153,12 +178,12 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 60%; /* Half width of the screen */
+    width: 60%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(30, 43, 56, 0.58), rgba(23, 33, 43, 0.691));
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align content to the left */
+    align-items: flex-start;
     transform: translateX(-100%);
     transition: transform 0.25s ease-in-out;
     border-right: 1px solid #3a3a3a;
@@ -176,7 +201,7 @@ header {
   .close-btn {
     position: absolute;
     top: 0rem;
-    left: 0rem; /* Align to the left */
+    left: 0rem;
     background: none;
     border: none;
     color: #e2e8f0;
@@ -190,13 +215,13 @@ header {
     transform: scale(1.1);
   }
 
-  /* Navigation Container to properly position links and language selector */
+  /* Navigation Container */
   .nav-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 6rem 1.5rem 2rem; /* Add spacing to separate from close button */
+    padding: 6rem 1.5rem 2rem;
   }
 
   /* Align nav-links to the top */
@@ -205,9 +230,8 @@ header {
     padding: 0;
     margin: 0;
     display: flex;
-    align-items: flex-start; /* Align links to the left */
+    align-items: flex-start;
     font-size: 1.5rem;
-    text-align: left;
     flex-direction: column;
   }
 
@@ -217,8 +241,8 @@ header {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.35); /* Slightly transparent dark overlay */
-    z-index: 9; /* Ensure it's behind the menu */
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 9;
   }
 }
 
@@ -227,6 +251,8 @@ header {
   .language-selector-wrapper {
     display: none;
   }
-
+  .language-icon {
+    display: inline-block; /* Display only the icon on desktop */
+  }
 }
 </style>

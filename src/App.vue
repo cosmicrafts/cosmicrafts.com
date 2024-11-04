@@ -1,17 +1,19 @@
 <script setup>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import HeroSection from './components/HeroSection.vue';
+
+const handleCtaClick = (action) => {
+  console.log(`CTA button clicked with action: ${action}`);
+};
 </script>
 
 <template>
-  <Header />
   <main id="app">
+  <Header />
+  
     <!-- Hero Section -->
-    <section class="hero">
-      <h1>{{ $t('hero.title') }}</h1>
-      <p>{{ $t('hero.description') }}</p>
-      <button class="cta-button">{{ $t('cta') }}</button>
-    </section>
+    <HeroSection @ctaClick="handleCtaClick" />
 
     <!-- Lore Section -->
     <section class="lore">
@@ -19,7 +21,7 @@ import Footer from './components/Footer.vue';
       <p>{{ $t('lore.description') }}</p>
     </section>
 
-    <!-- Game Highlights Section -->
+    <!-- Games Section -->
     <section class="games">
       <h2>{{ $t('games.title') }}</h2>
 
@@ -41,25 +43,15 @@ import Footer from './components/Footer.vue';
       <button class="cta-button">{{ $t('cta') }}</button>
     </section>
 
-    <!-- Footer -->
     <Footer />
   </main>
 </template>
 
 <style scoped>
-#app {
-  font-family: 'Roboto', sans-serif;
-  color: #e2e8f0;
-  background-color: #1a202c;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
 
-.hero {
-  padding: 2rem 0;
-}
+  .hero {
+    margin-top: 6rem; /* Add consistent top margin */
+  }
 
 .lore,
 .games,
