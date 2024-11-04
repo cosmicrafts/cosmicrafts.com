@@ -66,7 +66,7 @@ header {
   justify-content: space-between;
   padding: 1.5rem 2rem;
   border: 1px solid #ffffff17;
-  background: linear-gradient(to bottom, rgba(38, 48, 58, 0.98), rgba(25, 32, 39, 0.98));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(20, 20, 20, 0.5));
   position: fixed;
   z-index: 10;
   border-radius: 16px;
@@ -75,6 +75,7 @@ header {
   left: 0.5rem;
   right: 0.5rem;
   height: 1rem;
+  backdrop-filter: blur(12px);
 }
 
 /* Logo Styling */
@@ -100,7 +101,7 @@ nav {
 }
 
 .nav-links a {
-  color: #e2e8f0;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.1s;
@@ -122,7 +123,8 @@ nav {
   border: 1px solid #25252529;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: var(--font-weight-bold);
+  font-weight: 600;
+  font-size: 1rem;
   height: 2.5rem;
   z-index: 11;
 }

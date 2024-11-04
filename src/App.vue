@@ -2,6 +2,7 @@
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import HeroSection from './components/HeroSection.vue';
+import CarouselSection from './components/CarouselSection.vue';
 
 const handleCtaClick = (action) => {
   console.log(`CTA button clicked with action: ${action}`);
@@ -14,6 +15,9 @@ const handleCtaClick = (action) => {
   
     <!-- Hero Section -->
     <HeroSection @ctaClick="handleCtaClick" />
+
+    <!-- Carousel Section -->
+    <CarouselSection @ctaClick="handleCtaClick" />
 
     <!-- Lore Section -->
     <section class="lore">
@@ -50,7 +54,12 @@ const handleCtaClick = (action) => {
 <style scoped>
 
   .hero {
-    margin-top: 6rem; /* Add consistent top margin */
+    margin-top: 0rem;
+  }
+
+  .carousel {
+  margin-top: 0rem;
+  height: 24rem;
   }
 
 .lore,
