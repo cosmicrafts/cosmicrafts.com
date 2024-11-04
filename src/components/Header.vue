@@ -66,7 +66,7 @@ header {
   justify-content: space-between;
   padding: 1.5rem 2rem;
   border: 1px solid #ffffff17;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(20, 20, 20, 0.5));
+  background: linear-gradient(to bottom, rgba(28, 33, 54, 0.25), rgba(14, 26, 45, 0.5));
   position: fixed;
   z-index: 10;
   border-radius: 16px;
@@ -75,7 +75,7 @@ header {
   left: 0.5rem;
   right: 0.5rem;
   height: 1rem;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(4px);
 }
 
 /* Logo Styling */
@@ -164,6 +164,12 @@ nav {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+  .header{
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+  
   .burger {
     display: flex; /* Visible on mobile */
   }
