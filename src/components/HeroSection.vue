@@ -14,7 +14,7 @@
         alt="Hero Image" 
         class="hero-image" 
         :style="{ 
-          transform: `translateY(${scrollY * 0.35}px) scale(${1 - scrollY * 0.0005})` 
+          transform: `translateY(${scrollY * 0.15}px) scale(${1 - scrollY * 0.00085})` 
         }" 
       />
       <img 
@@ -22,24 +22,24 @@
         alt="Game Logo" 
         class="hero-logo" 
         :style="{ 
-          transform: `translateY(${scrollY * 0.25}px) scale(${1 - scrollY * 0.00075})` 
+          transform: `translateY(${scrollY * 0.05}px) scale(${1 - scrollY * 0.00055})` 
         }" 
       />
       <h1 
         class="hero-title" 
         :style="{ 
-          transform: `translateY(${scrollY * 0.2}px) scale(${1 - scrollY * 0.00025})` 
+          transform: `translateY(${scrollY * 0.05}px) scale(${1 - scrollY * -0.00025})` 
         }" 
       >
-        DESATA EL CAOS
+      A Starlight Drift
       </h1>
       <p 
         class="hero-subtitle" 
         :style="{ 
-          transform: `translateY(${scrollY * 0.25}px) scale(${1 - scrollY * 0.0002})` 
+          transform: `translateY(${scrollY * -0.01}px) scale(${1 - scrollY * -0.00035})` 
         }" 
       >
-        ACCIÓN Y ESTRATEGIA PARA MÓVILES · GRATIS
+      The Metaverse isn’t ready. Good.
       </p>
     </div>
   </section>
@@ -187,13 +187,13 @@ onUnmounted(() => {
 }
 
 .hero-image {
-  max-width: 28rem;
-  margin-top: 12rem;
+  max-width: 24rem;
+  margin-top: 2rem;
   z-index: 2;
 }
 
 .hero-logo {
-  max-width: 18rem;
+  max-width: 16rem;
   margin-top: -12rem;
   z-index: 3;
 }
@@ -201,14 +201,13 @@ onUnmounted(() => {
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-top: 1rem;
+  margin-top: -1rem;
   z-index: 3;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  margin-top: 0rem;
   z-index: 3;
 }
 </style>
