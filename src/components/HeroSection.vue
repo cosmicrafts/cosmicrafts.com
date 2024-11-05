@@ -1,17 +1,50 @@
 <template>
   <section class="hero">
     <!-- Background Canvas for Stars -->
-    <canvas id="starfield" ref="starfield" class="noise-canvas"></canvas>
-
+    <canvas 
+      id="starfield" 
+      ref="starfield" 
+      class="noise-canvas" 
+      :style="{ top: `${scrollY * .5}px` }"
+    ></canvas>
     <!-- Content Wrapper -->
     <div class="hero-content">
-      <img :src="heroImage" alt="Hero Image" class="hero-image" :style="{ transform: `translateY(${scrollY * 0.35}px)` }" />
-      <img :src="logo" alt="Game Logo" class="hero-logo" :style="{ transform: `translateY(${scrollY * 0.25}px)` }" />
-      <h1 class="hero-title" :style="{ transform: `translateY(${scrollY * 0.2}px)` }">DESATA EL CAOS</h1>
-      <p class="hero-subtitle" :style="{ transform: `translateY(${scrollY * 0.25}px)` }">ACCIÓN Y ESTRATEGIA PARA MÓVILES · GRATIS</p>
+      <img 
+        :src="heroImage" 
+        alt="Hero Image" 
+        class="hero-image" 
+        :style="{ 
+          transform: `translateY(${scrollY * 0.35}px) scale(${1 - scrollY * 0.0005})` 
+        }" 
+      />
+      <img 
+        :src="logo" 
+        alt="Game Logo" 
+        class="hero-logo" 
+        :style="{ 
+          transform: `translateY(${scrollY * 0.25}px) scale(${1 - scrollY * 0.00075})` 
+        }" 
+      />
+      <h1 
+        class="hero-title" 
+        :style="{ 
+          transform: `translateY(${scrollY * 0.2}px) scale(${1 - scrollY * 0.00025})` 
+        }" 
+      >
+        DESATA EL CAOS
+      </h1>
+      <p 
+        class="hero-subtitle" 
+        :style="{ 
+          transform: `translateY(${scrollY * 0.25}px) scale(${1 - scrollY * 0.0002})` 
+        }" 
+      >
+        ACCIÓN Y ESTRATEGIA PARA MÓVILES · GRATIS
+      </p>
     </div>
   </section>
 </template>
+
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
@@ -80,6 +113,9 @@ function anim() {
 function handleScroll() {
   const currentScrollY = window.scrollY;
 
+  // Update scrollY for parallax effect
+  scrollY.value = currentScrollY;
+
   // Adjust speed based on scroll direction
   if (currentScrollY > previousScrollY) {
     // Scrolling down - increase speed but cap it at maxSpeed
@@ -92,6 +128,7 @@ function handleScroll() {
   // Update previous scroll position
   previousScrollY = currentScrollY;
 }
+
 
 function resize() {
   w = window.innerWidth;
