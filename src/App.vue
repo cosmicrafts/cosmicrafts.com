@@ -12,9 +12,6 @@
       <TransitionSection />
     </div>
 
-    <!-- Carousel Section -->
-    <CarouselSection @ctaClick="handleCtaClick" />
-
     <!-- Other Sections (Lore, Games, etc.) -->
     <section class="lore">
       <h2>{{ $t('lore.title') }}</h2>

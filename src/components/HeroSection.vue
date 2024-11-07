@@ -28,19 +28,26 @@
       <h1 
         class="hero-title" 
         :style="{ 
-          transform: `translateY(${scrollY * 0.05}px) scale(${1 - scrollY * -0.00025})` 
+          transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.000855})` 
         }" 
       >
       A Starlight Drift
       </h1>
-      <p 
-        class="hero-subtitle" 
-        :style="{ 
-          transform: `translateY(${scrollY * -0.01}px) scale(${1 - scrollY * -0.00035})` 
-        }" 
-      >
-      The Metaverse isn’t ready. Good.
-      </p>
+    </div>
+
+     <!-- CTA and Social Media Panel -->
+     <div class="cta-panel">
+      <div class="cta-buttons">
+        <button class="cta-button play-now">Play Now</button>
+        <button class="cta-button wishlist">Wishlist on Steam</button>
+      </div>
+      <div class="social-links">
+        <a href="#"><img src="@/assets/icons/x.svg" alt="Twitter" /></a>
+        <a href="#"><img src="@/assets/icons/discord.svg" alt="Discord" /></a>
+        <a href="#"><img src="@/assets/icons/youtube.svg" alt="YouTube" /></a>
+        <a href="#"><img src="@/assets/icons/instagram.svg" alt="Instagram" /></a>
+        <a href="#"><img src="@/assets/icons/facebook.svg" alt="Facebook" /></a>
+      </div>
     </div>
   </section>
 </template>
@@ -188,26 +195,140 @@ onUnmounted(() => {
 
 .hero-image {
   max-width: 24rem;
-  margin-top: 2rem;
+  margin-top: 0rem;
   z-index: 2;
+  opacity: 0.95;
 }
 
 .hero-logo {
   max-width: 16rem;
-  margin-top: -12rem;
+  margin-top: -10rem;
   z-index: 3;
+  opacity: 0.95;
 }
 
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-top: -1rem;
+  margin-top: -2rem;
   z-index: 3;
 }
 
-.hero-subtitle {
-  font-size: 1.2rem;
-  margin-top: 0rem;
-  z-index: 3;
+/* CTA and Social Panel */
+.cta-panel {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  z-index: 6;
+  background: linear-gradient(to bottom, rgba(22, 24, 31, 0.1), rgba(24, 27, 34, 0.2));
+  backdrop-filter: blur(4px);
+  border-top: 1px solid #ffffff12;
 }
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.8; /* Adds initial opacity to the icons */
+  padding: 1rem;
+  transition: background 0.3s, opacity 0.1s;
+}
+
+.social-links img:hover {
+  opacity: 1; /* Makes the icon fully opaque on hover */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px; /* Rounds the background corners */
+}
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.cta-button.play-now {
+  background: linear-gradient(to bottom, #ff9900, #753b00);
+  color: #fff;
+}
+
+.cta-button.play-now:hover {
+  background: linear-gradient(to bottom, #ffb84d, #e68a00);
+}
+
+.cta-button.wishlist {
+  background: linear-gradient(to bottom, #4a90e2, #3a7bd5);
+  color: #fff;
+}
+
+.cta-button.wishlist:hover {
+  background: linear-gradient(to bottom, #6aa6e2, #4a90e2);
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  /* Smaller logo and hero image */
+  .hero-image {
+    max-width: 18rem;
+    margin-top: -8rem;
+  }
+
+  .hero-logo {
+    max-width: 12rem;
+    margin-top: -8rem;
+  }
+
+  /* Slightly smaller hero title text */
+  .hero-title {
+    font-size: 2.5rem;
+    margin-top: -1rem;
+  }
+
+  /* Stack CTA panel items in rows */
+  .cta-panel {
+    flex-direction: column;
+    gap: 0.5rem; /* Less space between rows */
+    padding: 1rem;
+  }
+
+  /* Each button takes full width in its row */
+  .cta-buttons {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 0.75rem 0; /* More vertical padding for mobile */
+  }
+
+  /* Social media links are in a row at the bottom */
+  .social-links {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
 </style>
