@@ -82,7 +82,7 @@ document.addEventListener('click', () => {
       display: grid;
       grid-template-columns: repeat(3, 4fr);
       gap: 0.9rem;
-      background: linear-gradient(to bottom, rgba(30, 43, 56, 0.88), rgba(23, 33, 43, 0.77));
+      background: linear-gradient(to bottom, rgba(30, 43, 56, 0.98), rgba(23, 33, 43, 0.99));
       border: 1px solid #3a3a3a;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       list-style: none;
@@ -92,7 +92,6 @@ document.addEventListener('click', () => {
       transform-origin: bottom left;
       transform: scaleY(0);
       transition: transform 0.1s ease-out;
-      backdrop-filter: blur(12px);
       border: 0.25px solid rgba(255, 255, 255, 0.086);
       border-radius: 10px;
       }

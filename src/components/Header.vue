@@ -2,9 +2,9 @@
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import LanguageSelector from '@/components/LanguageSelector.vue';
-import MobileMenu from '@/components/MobileMenu.vue'; // Import MobileMenu component
+import MobileMenu from '@/components/MobileMenu.vue';
 
-const { locale } = useI18n();
+const { t } = useI18n(); // Correctly retrieve `t`
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
@@ -30,8 +30,18 @@ const handleLogin = () => {
       <img src="@/assets/icons/cosmicrafts.svg" alt="Cosmicrafts Logo" />
     </div>
 
-    <!-- Connect Button (always on the far right) -->
-    <button class="login-button" @click="handleLogin">Connect</button>
+    <!-- Navigation Links (Desktop Only) -->
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">{{ t('header.dao') }}</a></li>
+        <li><a href="#">{{ t('header.games') }}</a></li>
+        <li><a href="#">{{ t('header.community') }}</a></li>
+        <li><a href="#">{{ t('header.contact') }}</a></li>
+      </ul>
+    </nav>
+
+  <!-- Connect Button with Universal Styles -->
+  <button class="button outline" @click="handleLogin">Connect</button>
   </header>
 
   <!-- MobileMenu Component -->
@@ -47,7 +57,7 @@ header {
   justify-content: space-between;
   padding: 1.5rem 2rem;
   border: 1px solid #ffffff12;
-  background: linear-gradient(to bottom, rgba(22, 24, 31, 0.634), rgba(24, 27, 34, 0.2));
+  background: linear-gradient(to bottom, rgba(30, 43, 56, 0.88), rgba(23, 33, 43, 0.77));
   position: fixed;
   z-index: 10;
   border-radius: 16px;
@@ -59,11 +69,34 @@ header {
   backdrop-filter: blur(8px);
 }
 
+
+
 /* Logo Styling */
 .logo img {
   width: 2.5rem;
 }
 
+/* Navigation Links */
+.nav-links ul {
+  position: absolute;
+  left: 6rem;
+  top: 1.5%;
+  display: flex;
+  gap: 4rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #00C0FC; /* Hover color to accent color */
+}
 /* Log In Button Styling */
 .login-button {
   position: absolute;
@@ -117,7 +150,10 @@ header {
 @media (max-width: 768px) {
   .burger {
     display: flex; /* Visible on mobile */
-    
+  }
+
+  .nav-links {
+    display: none; /* Hide nav-links on mobile */
   }
 
   /* Center logo on mobile */

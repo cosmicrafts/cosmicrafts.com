@@ -46,7 +46,7 @@ const closeMenu = () => {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.126);
     z-index: 10;
   }
   
@@ -57,7 +57,7 @@ const closeMenu = () => {
     left: 0;
     width: 60%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(26, 34, 41, 0.719), rgba(8, 11, 14, 0.691));
+    background: linear-gradient(to bottom, rgba(30, 43, 56, 0.88), rgba(23, 33, 43, 0.77));
     display: flex;
     flex-direction: column;
     padding: 6rem 1.5rem 2rem;
@@ -65,7 +65,8 @@ const closeMenu = () => {
     z-index: 11;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
+    border-right: 1px solid #ffffff12;
   }
   
   /* Close Button (Styled like Burger Menu Icon) */
