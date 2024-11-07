@@ -69,8 +69,6 @@ header {
   backdrop-filter: blur(8px);
 }
 
-
-
 /* Logo Styling */
 .logo img {
   width: 2.5rem;
@@ -82,7 +80,7 @@ header {
   left: 6rem;
   top: 1.5%;
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   list-style: none;
 }
 
@@ -91,12 +89,53 @@ header {
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: color 0.2s;
+  display: inline-block;
+  position: relative;
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out, text-shadow 0.25s ease-in-out;
+  padding: 0.2rem 0.5rem;
 }
 
 .nav-links a:hover {
-  color: #00C0FC; /* Hover color to accent color */
+  color: #00c3ff;
+  transform: scale(1.1);
+  text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686);
 }
+
+/* Line Animation */
+.nav-links a::before,
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 50%;
+  background-color: #ffa200;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0px 0px 5px rgba(255, 162, 0, 0);
+  transform: scaleX(0); /* Start hidden */
+}
+
+.nav-links a::before {
+  top: -1px; /* Offset top line above text */
+  left: -4%; /* Adjust horizontal offset for breathing room */
+  transform-origin: left; /* Line grows from the left */
+}
+
+.nav-links a::after {
+  bottom: -1px; /* Offset bottom line below text */
+  right: -4%; /* Adjust horizontal offset for breathing room */
+  transform-origin: right; /* Line grows from the right */
+}
+
+/* Hover Effect */
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  transform: scaleX(1.5);
+  box-shadow: 0px 0px 5px rgba(255, 162, 0, 0.6);
+}
+
+
+
+
 /* Log In Button Styling */
 .login-button {
   position: absolute;
