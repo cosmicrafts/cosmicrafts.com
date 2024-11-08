@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import MobileMenu from '@/components/MobileMenu.vue';
 
-const { t } = useI18n(); // Correctly retrieve `t`
+const { t } = useI18n();
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
@@ -24,12 +24,10 @@ const handleLogin = () => {
       <span :class="{ open: isMenuOpen }"></span>
       <span :class="{ open: isMenuOpen }"></span>
     </div>
-
     <!-- Logo -->
     <div class="logo">
       <img src="@/assets/icons/cosmicrafts.svg" alt="Cosmicrafts Logo" />
     </div>
-
     <!-- Navigation Links (Desktop Only) -->
     <nav class="nav-links">
       <ul>
@@ -39,14 +37,13 @@ const handleLogin = () => {
         <li><a href="#">{{ t('header.contact') }}</a></li>
       </ul>
     </nav>
-
-  <!-- Connect Button with Universal Styles -->
-  <button class="button outline" @click="handleLogin">Connect</button>
+    <!-- Connect Button -->
+    <button class="button outline" @click="handleLogin">Connect</button>
   </header>
-
   <!-- MobileMenu Component -->
-  <MobileMenu v-if="isMenuOpen" @closeMenu="toggleMenu" />
+  <MobileMenu :isOpen="isMenuOpen" @closeMenu="toggleMenu" />
 </template>
+
 
 <style scoped>
 /* Basic Header Styling */
