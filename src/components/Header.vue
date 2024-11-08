@@ -14,6 +14,14 @@ const toggleMenu = () => {
 const handleLogin = () => {
   console.log('Log In button clicked');
 };
+
+// Scroll to the top of the page when the logo is clicked
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Smooth scroll to the top
+  });
+};
 </script>
 
 <template>
@@ -24,8 +32,8 @@ const handleLogin = () => {
       <span :class="{ open: isMenuOpen }"></span>
       <span :class="{ open: isMenuOpen }"></span>
     </div>
-    <!-- Logo -->
-    <div class="logo">
+    <!-- Logo with Click Event for Scrolling to Top -->
+    <div class="logo" @click="scrollToTop">
       <img src="@/assets/icons/cosmicrafts.svg" alt="Cosmicrafts Logo" />
     </div>
     <!-- Navigation Links (Desktop Only) -->
@@ -69,7 +77,28 @@ header {
 /* Logo Styling */
 .logo img {
   width: 2.5rem;
+  cursor: pointer; /* Cursor pointer to indicate it's clickable */
+  transition: transform 0.5s ease, filter 0.1s ease;
 }
+
+.logo img:hover {
+  transform: scale(1.1) rotate(-4deg);
+  filter: drop-shadow(0px 0px 6px rgba(0, 195, 255, 0.8));
+  animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    filter: drop-shadow(0px 0px 6px rgba(0, 195, 255, 0.8));
+    transform: translateY(-1px); /* Start slightly above */
+  }
+  to {
+    filter: drop-shadow(0px 0px 12px rgba(0, 195, 255, 1));
+    transform: translateY(1px); /* Move slightly below */
+  }
+}
+
+
 
 /* Navigation Links */
 .nav-links ul {
