@@ -45,12 +45,18 @@ const scrollToTop = () => {
         <li><a href="#">{{ t('header.contact') }}</a></li>
       </ul>
     </nav>
+    <div class="desktop-language-selector">
+      <LanguageSelector />
+    </div>
     <!-- Connect Button -->
     <button class="button outline" @click="handleLogin">Connect</button>
+    <!-- Language Selector, hidden on mobile -->
+    
   </header>
   <!-- MobileMenu Component -->
   <MobileMenu :isOpen="isMenuOpen" @closeMenu="toggleMenu" />
 </template>
+
 
 
 <style scoped>
@@ -72,6 +78,15 @@ header {
   right: 0.5rem;
   height: 1rem;
   backdrop-filter: blur(8px);
+}
+
+.desktop-language-selector {
+  position: absolute;
+  right: 10rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  height: 2.5rem;
 }
 
 /* Logo Styling */
@@ -97,8 +112,6 @@ header {
     transform: translateY(1px); /* Move slightly below */
   }
 }
-
-
 
 /* Navigation Links */
 .nav-links ul {
@@ -160,9 +173,6 @@ header {
   transform: scaleX(1.5);
   box-shadow: 0px 0px 5px rgba(255, 162, 0, 0.6);
 }
-
-
-
 
 /* Log In Button Styling */
 .login-button {
@@ -227,6 +237,10 @@ header {
 
   .nav-links {
     display: none; /* Hide nav-links on mobile */
+  }
+
+  .desktop-language-selector {
+    display: none;
   }
 
   /* Center logo on mobile */
