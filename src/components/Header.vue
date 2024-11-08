@@ -45,7 +45,7 @@ const scrollToTop = () => {
         <li><a href="#">{{ t('header.contact') }}</a></li>
       </ul>
     </nav>
-    <div class="desktop-language-selector">
+    <div class="desktop-language-selector header">
       <LanguageSelector direction="down-left" />
     </div>
     <!-- Connect Button -->
@@ -86,8 +86,24 @@ header {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(30, 43, 56, 0.9);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
 }
+
+/* Hover effect */
+.desktop-language-selector:hover {
+  background-color: rgba(0, 195, 255, 0.862); /* Lighter blue background on hover */
+  box-shadow: 0 6px 12px rgba(0, 195, 255, 0.2); 
+}
+
 
 /* Logo Styling */
 .logo img {
@@ -206,7 +222,7 @@ header {
 .burger span {
   display: block;
   width: 24px;
-  height: 3px;
+  height: 4px;
   background-color: #ffffff;
   transition: transform 0.25s, opacity 0.1s;
 }

@@ -46,7 +46,7 @@ document.addEventListener('click', () => {
 <template>
   <div class="language-selector" @click="toggleDropdown">
     <img src="@/assets/icons/lang.svg" alt="Language Icon" class="lang-icon" />
-    <span>{{ languages.find(lang => lang.code === selectedLanguage).label }}</span>
+    <span class="lang-label">{{ languages.find(lang => lang.code === selectedLanguage).label }}</span>
 
     <!-- Dropdown Menu -->
     <transition name="dropdown">
@@ -58,6 +58,7 @@ document.addEventListener('click', () => {
     </transition>
   </div>
 </template>
+
 
 <style scoped>
 .language-selector {
@@ -73,8 +74,12 @@ document.addEventListener('click', () => {
 }
 
 .lang-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lang-label {
+  display: inline; /* Default display for non-desktop instances */
 }
 
 /* Dropdown open/close animation */
@@ -143,6 +148,13 @@ document.addEventListener('click', () => {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (min-width: 767px) {
+  /* Hide the language label on larger screens (for header) */
+  .header .language-selector .lang-label {
+    display: none;
   }
 }
 </style>
