@@ -46,7 +46,7 @@ const scrollToTop = () => {
       </ul>
     </nav>
     <div class="desktop-language-selector">
-      <LanguageSelector />
+      <LanguageSelector direction="down-left" />
     </div>
     <!-- Connect Button -->
     <button class="button outline" @click="handleLogin">Connect</button>
@@ -82,7 +82,7 @@ header {
 
 .desktop-language-selector {
   position: absolute;
-  right: 10rem;
+  right: 9rem;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -116,7 +116,7 @@ header {
 /* Navigation Links */
 .nav-links ul {
   position: absolute;
-  left: 6rem;
+  left: 5rem;
   top: 1.5%;
   display: flex;
   gap: 2rem;
@@ -229,6 +229,13 @@ header {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+@media (max-width: 1080px) {
+  .nav-links ul {
+  left: 4rem;
+  top: 1.5%;
+  gap: 1rem;
+}
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .burger {

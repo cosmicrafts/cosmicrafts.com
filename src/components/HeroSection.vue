@@ -28,7 +28,7 @@
       <h1 
         class="hero-title" 
         :style="{ 
-          transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.00155})` 
+          transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.00105})` 
         }" 
       >
       This Ain’t Normal. But That’s the Point.
