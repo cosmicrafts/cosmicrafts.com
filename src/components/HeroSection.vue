@@ -251,11 +251,11 @@ onUnmounted(() => {
 }
 
 .social-links img:hover {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.05);
   transform: scale(1.1);
   opacity: 1;
   border-radius: 8px;
-  filter: brightness(0) saturate(100%) invert(44%) sepia(100%) saturate(1000%) hue-rotate(165deg) brightness(92%) contrast(105%);
+  filter: drop-shadow(0px 0px 4px rgba(0, 119, 255, 0.784));
 }
 
 .cta-button {
@@ -267,25 +267,6 @@ onUnmounted(() => {
   border-radius: 4px;
   transition: background 0.3s;
 }
-
-.cta-button.play-now {
-  background: linear-gradient(to bottom, #ff9900, #753b00);
-  color: #fff;
-}
-
-.cta-button.play-now:hover {
-  background: linear-gradient(to bottom, #ffb84d, #aa6907);
-}
-
-.cta-button.wishlist {
-  background: linear-gradient(to bottom, #4a90e2, #3a7bd5);
-  color: #fff;
-}
-
-.cta-button.wishlist:hover {
-  background: linear-gradient(to bottom, #6aa6e2, #4a90e2);
-}
-
 
 @media (max-width: 768px) {
   /* Smaller logo and hero image */
