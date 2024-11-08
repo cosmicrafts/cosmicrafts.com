@@ -97,25 +97,31 @@
   position: relative;
   opacity: 0; /* Start invisible */
   transform: translateX(-64px); /* Slide in effect */
-  transition: opacity 0.5s ease, transform 0.5s ease, color 0.25s ease-in-out;
+  transition: opacity 0.5s ease, transform 0.5s ease, color 0.25s ease-in-out,
+              border-top 0.3s ease, border-bottom 0.3s ease; /* Add border transition */
   transition-delay: calc(0.1s * var(--index)); /* Staggered delay */
   padding: 0.2rem 0.5rem;
   cursor: pointer;
+  border-top: 1px solid transparent; /* Start with transparent borders */
+  border-bottom: 1px solid transparent;
 }
 
-/* Hover effects */
 .nav-links a:hover {
-  color: #00c3ff; /* Hover color */
-  transform: scale(1.1); /* Slight scale up on hover */
+  color: #00c3ff;
+  border-bottom: 1px solid #00c3ff;
+  border-top: 1px solid #00c3ff;
+  padding-bottom: 0.2rem; /* Adjust padding to account for the new border */
   text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686);
 }
+
+
 
 /* Line Animation */
 .nav-links a::before,
 .nav-links a::after {
   content: '';
   position: absolute;
-  height: 1px;
+  height: 2px;
   width: 50%;
   background-color: #ffa200;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -149,6 +155,7 @@
 }
 
 .close-btn {
+    transform: scaleX(0);
   display: flex;
   flex-direction: column;
   cursor: pointer;

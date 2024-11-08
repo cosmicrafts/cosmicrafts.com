@@ -56,7 +56,7 @@ header {
   border: 1px solid #ffffff12;
   background: linear-gradient(to bottom, rgba(30, 43, 56, 0.88), rgba(23, 33, 43, 0.77));
   position: fixed;
-  z-index: 10;
+  z-index: 12;
   border-radius: 16px;
   margin: auto;
   top: 1%;
@@ -94,7 +94,9 @@ header {
 
 .nav-links a:hover {
   color: #00c3ff;
-  transform: scale(1.1);
+  border-bottom: 1px solid #00c3ff;
+  border-top: 1px solid #00c3ff;
+  padding-bottom: 0.2rem; /* Adjust padding to account for the new border */
   text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686);
 }
 
@@ -103,7 +105,7 @@ header {
 .nav-links a::after {
   content: '';
   position: absolute;
-  height: 1px;
+  height: 1.5px;
   width: 50%;
   background-color: #ffa200;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -166,8 +168,14 @@ header {
   display: block;
   width: 24px;
   height: 3px;
-  background-color: #e2e8f0;
-  transition: transform 0.1s, opacity 0.1s;
+  background-color: #ffffff;
+  transition: transform 0.25s, opacity 0.1s;
+}
+
+.burger:hover span {
+  background-color: #00c3ff; /* Blue color on hover */
+  box-shadow: 0px 0px 4px rgba(0, 191, 255, 0.4);
+  transform: scale(115%);
 }
 
 .burger .open:nth-child(1) {
