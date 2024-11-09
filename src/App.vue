@@ -44,7 +44,10 @@ import Footer from './components/Footer.vue';
 import HeroSection from './components/HeroSection.vue';
 import CarouselSection from './components/CarouselSection.vue';
 import TransitionSection from './components/TransitionSection.vue';
+import { selectedLanguage } from './stores/languageState';
+import { provide } from 'vue';
 
+provide('selectedLanguage', selectedLanguage);
 const handleCtaClick = (action) => {
   console.log(`CTA button clicked with action: ${action}`);
 };

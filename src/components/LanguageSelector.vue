@@ -1,10 +1,12 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, inject, watch, onMounted, onBeforeUnmount } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { locale } = useI18n();
 const isDropdownOpen = ref(false);
-const selectedLanguage = ref("en");
+
+// Inject the centralized language state
+const selectedLanguage = inject('selectedLanguage');
 const languages = [
   { code: "en", label: "English" },
   { code: "es", label: "Español" },
@@ -13,13 +15,14 @@ const languages = [
   { code: "pt", label: "Português" },
   { code: "ru", label: "Русский" },
   { code: "ar", label: "العربية" },
+  { code: "tr", label: "Türkçe" },
   { code: "vi", label: "Tiếng Việt" },
   { code: "ko", label: "한국어" },
   { code: "ja", label: "日本語" },
   { code: "zh", label: "中文" },
-  { code: "tr", label: "Türkçe" }
 ];
 
+// Define props for dropdown direction
 const props = defineProps({
   direction: {
     type: String,
@@ -38,10 +41,28 @@ const toggleDropdown = (event) => {
   isDropdownOpen.value = !isDropdownOpen.value;
 };
 
-document.addEventListener('click', () => {
-  isDropdownOpen.value = false;
+const handleClickOutside = (event) => {
+  const dropdownElement = document.querySelector('.language-selector');
+  if (dropdownElement && !dropdownElement.contains(event.target)) {
+    isDropdownOpen.value = false;
+  }
+};
+
+// Add and remove the event listener on mount and unmount
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
+
+// Watch for changes in the global language state and update locale accordingly
+watch(selectedLanguage, (newLang) => {
+  locale.value = newLang;
 });
 </script>
+
 
 <template>
   <div class="language-selector" @click="toggleDropdown">
@@ -97,7 +118,7 @@ document.addEventListener('click', () => {
 .dropdown-menu {
   position: absolute;
   display: grid;
-  grid-template-columns: repeat(3, 4fr);
+  grid-template-columns: repeat(2, 3fr);
   gap: 0.9rem;
   background: linear-gradient(to bottom, rgba(30, 43, 56, 0.98), rgba(23, 33, 43, 0.99));
   border: 1px solid #3a3a3a;
@@ -135,7 +156,7 @@ document.addEventListener('click', () => {
   border-radius: 4px;
   opacity: 0;
   transform: translateX(-10px);
-  animation: fadeIn 0.4s ease forwards;
+  animation: fadeIn 0.25s ease forwards;
   animation-delay: calc(0.05s * var(--index)); /* Stagger each item */
 }
 
@@ -147,7 +168,7 @@ document.addEventListener('click', () => {
 @keyframes fadeIn {
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 

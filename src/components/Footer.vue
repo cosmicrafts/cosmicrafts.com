@@ -1,7 +1,8 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 import LanguageSelector from '@/components/LanguageSelector.vue';
-
+import { inject } from 'vue';
+const selectedLanguage = inject('selectedLanguage');
 const { locale } = useI18n();
 
 </script>
