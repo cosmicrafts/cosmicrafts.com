@@ -1,45 +1,84 @@
-<template>
-    <!-- Overlay to close the menu, conditionally rendered -->
-    <div v-if="isOpen" class="overlay overlay-fade" @click="closeMenu"></div>
-    
-    <!-- Side panel for nav-links and independent language selector -->
-    <nav class="mobile-panel" :class="{ 'mobile-panel-open': isOpen }">
-      <div class="close-btn" @click="closeMenu">
-        <span class="open"></span>
-        <span class="open"></span>
-        <span class="open"></span>
-      </div>
-      <div class="nav-container">
-        <ul class="nav-links">
-  <li v-for="(item, index) in ['header.dao', 'header.games', 'header.community', 'header.contact']" :key="index">
-    <a :style="{ '--index': index }">{{ t(item) }}</a>
-  </li>
-</ul>
+<script setup>
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import LanguageSelector from '@/components/LanguageSelector.vue';
 
-      </div>
-      <div class="language-selector-container">
-        <LanguageSelector />
-      </div>
-    </nav>
-  </template>
-  
-  
-  <script setup>
-  import { useI18n } from 'vue-i18n';
-  import LanguageSelector from '@/components/LanguageSelector.vue';
-  
-  const { t } = useI18n();
-  const emit = defineEmits(['closeMenu']);
-  const props = defineProps({
-    isOpen: {
-      type: Boolean,
-      required: true,
-    },
+// Import logos explicitly for each language
+import defaultLogo from '@/assets/icons/logo.svg';
+import logoCN from '@/assets/icons/logo-cn.svg';
+import logoKR from '@/assets/icons/logo-kr.svg';
+import logoJP from '@/assets/icons/logo-jp.svg';
+import logoRU from '@/assets/icons/logo-ru.svg';
+import logoAR from '@/assets/icons/logo-ar.svg';
+
+const { t, locale } = useI18n();
+const emit = defineEmits(['closeMenu']);
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+// Map the imported logos to language codes
+const additionalLogoMap = {
+  zh: logoCN,
+  ko: logoKR,
+  ja: logoJP,
+  ru: logoRU,
+  ar: logoAR,
+  default: defaultLogo
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
   });
-  const closeMenu = () => {
-    emit('closeMenu');
-  };
-  </script>
+};
+
+
+// Computed property to get the additional logo source based on the current language
+const additionalLogoSrc = computed(() => {
+  return additionalLogoMap[locale.value] || additionalLogoMap.default;
+});
+
+const closeMenu = () => {
+  emit('closeMenu');
+};
+</script>
+
+<template>
+  <!-- Overlay to close the menu, conditionally rendered -->
+  <div v-if="isOpen" class="overlay overlay-fade" @click="closeMenu"></div>
+  
+  <!-- Side panel for nav-links and independent language selector -->
+  <nav class="mobile-panel" :class="{ 'mobile-panel-open': isOpen }">
+    <div class="close-btn" @click="closeMenu">
+      <span class="open"></span>
+      <span class="open"></span>
+      <span class="open"></span>
+    </div>
+
+    <!-- Dynamic Language-Based Logo -->
+    <div class="additional-logo-mobile" @click="() => { closeMenu(); scrollToTop(); }">
+  <img :src="additionalLogoSrc" alt="Additional Logo" />
+</div>
+
+
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li v-for="(item, index) in ['header.dao', 'header.games', 'header.community', 'header.contact']" :key="index">
+          <a :style="{ '--index': index }">{{ t(item) }}</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="language-selector-container">
+      <LanguageSelector />
+    </div>
+  </nav>
+</template>
   
   <style scoped>
   /* Overlay Styling */
@@ -195,8 +234,27 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
   .language-selector-container {
+    position: flex;
     justify-content: right;
     padding: 2rem 0;
   }
+
+
+  /* Additional Logo for Mobile */
+.additional-logo-mobile {
+position: flex;
+margin-top: -2rem;
+margin-bottom: -1rem;
+}
+
+.additional-logo-mobile img {
+  width: 8rem;
+  transition: transform 0.25s ease, filter 0.1s ease;
+}
+
+.additional-logo-mobile img:hover {
+  transform: scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0px 0px 16px rgba(0, 195, 255, 0.18));
+}
   </style>
   

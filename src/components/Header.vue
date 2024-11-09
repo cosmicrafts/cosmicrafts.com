@@ -41,6 +41,7 @@ const additionalLogoMap = {
   default: defaultLogo
 };
 
+
 // Computed property to get the additional logo source based on the current language
 const additionalLogoSrc = computed(() => {
   return additionalLogoMap[locale.value] || additionalLogoMap.default;
