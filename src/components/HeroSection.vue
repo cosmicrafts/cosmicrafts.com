@@ -17,36 +17,31 @@
     >
       <!-- Content Wrapper -->
       <div class="hero-content">
-  <img 
-    :src="slide.heroImage" 
-    alt="Hero Image" 
-    class="hero-image" 
-    :style="{ 
-      transform: `translateY(${scrollY * -0.25}px) scale(${1 - scrollY * -0.00125})` 
-    }" 
-  />
-  
-  <!-- Conditional Opacity for the Logo -->
-  <img 
-    :src="slide.logo" 
-    alt="Game Logo" 
-    class="hero-logo" 
-    :style="{ 
-      transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00055})`,
-      opacity: currentSlide === 1 ? 0 : 1  /* Hide the logo only on the second slide */
-    }" 
-  />
-  
-  <h1 
-    class="hero-title" 
-    :style="{ 
-      transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.00105})` 
-    }" 
-  >
-    {{ slide.title }}
-  </h1>
-</div>
-
+        <img 
+          :src="slide.heroImage" 
+          alt="Hero Image" 
+          class="hero-image" 
+          :style="{ 
+            transform: `translateY(${scrollY * -0.25}px) scale(${1 - scrollY * -0.00125})` 
+          }" 
+        />
+        <img 
+          :src="slide.logo" 
+          alt="Game Logo" 
+          class="hero-logo" 
+          :style="{ 
+            transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00095})` 
+          }" 
+        />
+        <h1 
+          class="hero-title" 
+          :style="{ 
+            transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.00105})` 
+          }" 
+        >
+          {{ slide.title }}
+        </h1>
+      </div>
 
       <!-- CTA and Social Media Panel -->
       <div class="cta-panel">
@@ -94,8 +89,8 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import logo1 from '@/assets/webp/adventures.webp';
 import heroImage1 from '@/assets/webp/hero.webp';
-import logo2 from '@/assets/webp/hero.webp';
-import heroImage2 from '@/assets/icons/dao.svg';
+import logo2 from '@/assets/icons/dao-1.svg';
+import heroImage2 from '@/assets/icons/logo-ru.svg'; // Add your additional hero images
 
 const scrollY = ref(0);
 const starSpeed = ref(0.5); // Default speed
@@ -129,9 +124,9 @@ const slides = ref([
   {
     heroImage: heroImage2,
     logo: logo2,
-    title: 'The Party’s Here. Are you in or what?',
+    title: 'Discover the Unknown.',
     ctaButtons: [
-      { text: 'Participate on NNS', link: '#', style: 'primary' },
+      { text: 'Join the Beta', link: '#', style: 'primary' },
       { text: 'Learn More', link: '#', style: 'secondary' },
     ],
   },
@@ -299,7 +294,6 @@ onUnmounted(() => {
   margin-top: 0rem;
   z-index: 2;
   opacity: 0.95;
-  filter: drop-shadow(0px 0px 16px rgba(0, 119, 255, 0.144));
 }
 
 .hero-logo {
@@ -307,7 +301,6 @@ onUnmounted(() => {
   margin-top: -10rem;
   z-index: 3;
   opacity: 0.95;
-  filter: drop-shadow(0px 0px 12px rgba(0, 119, 255, 0.523));
 }
 
 .hero-title {
@@ -315,11 +308,11 @@ onUnmounted(() => {
   font-weight: bold;
   margin-top: -2rem;
   z-index: 3;
-  text-shadow: 0px 0px 16px rgba(0, 174, 255, 0.621);
+  text-shadow: 0px 0px 16px rgb(0, 174, 255);
 }
 
 .cta-panel {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%; /* Extend the panel to the full width of the viewport */

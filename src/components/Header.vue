@@ -1,10 +1,18 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import MobileMenu from '@/components/MobileMenu.vue';
 
-const { t } = useI18n();
+// Import logos explicitly for each language
+import defaultLogo from '@/assets/icons/logo.svg';
+import logoCN from '@/assets/icons/logo-cn.svg';
+import logoKR from '@/assets/icons/logo-kr.svg';
+import logoJP from '@/assets/icons/logo-jp.svg';
+import logoRU from '@/assets/icons/logo-ru.svg';
+import logoAR from '@/assets/icons/logo-ar.svg';
+
+const { t, locale } = useI18n();
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
@@ -22,6 +30,21 @@ const scrollToTop = () => {
     behavior: 'smooth' // Smooth scroll to the top
   });
 };
+
+// Map the imported logos to language codes
+const additionalLogoMap = {
+  zh: logoCN,
+  ko: logoKR,
+  ja: logoJP,
+  ru: logoRU,
+  ar: logoAR,
+  default: defaultLogo
+};
+
+// Computed property to get the additional logo source based on the current language
+const additionalLogoSrc = computed(() => {
+  return additionalLogoMap[locale.value] || additionalLogoMap.default;
+});
 </script>
 
 <template>
@@ -32,10 +55,20 @@ const scrollToTop = () => {
       <span :class="{ open: isMenuOpen }"></span>
       <span :class="{ open: isMenuOpen }"></span>
     </div>
+
     <!-- Logo with Click Event for Scrolling to Top -->
-    <div class="logo" @click="scrollToTop">
-      <img src="@/assets/icons/cosmicrafts.svg" alt="Cosmicrafts Logo" />
+    <div class="logo-wrapper" @click="scrollToTop">
+      <!-- Main Logo -->
+      <div class="logo">
+        <img src="@/assets/icons/cosmicrafts.svg" alt="Cosmicrafts Logo" />
+      </div>
+
+      <!-- Additional Logo SVG (Visible only on desktop) with dynamic source -->
+      <div class="additional-logo">
+        <img :src="additionalLogoSrc" alt="Additional Logo" />
+      </div>
     </div>
+
     <!-- Navigation Links (Desktop Only) -->
     <nav class="nav-links">
       <ul>
@@ -48,15 +81,15 @@ const scrollToTop = () => {
     <div class="desktop-language-selector header">
       <LanguageSelector direction="down-left" />
     </div>
+
     <!-- Connect Button -->
     <button class="button outline" @click="handleLogin">Connect</button>
     <!-- Language Selector, hidden on mobile -->
-    
   </header>
+
   <!-- MobileMenu Component -->
   <MobileMenu :isOpen="isMenuOpen" @closeMenu="toggleMenu" />
 </template>
-
 
 
 <style scoped>
@@ -104,6 +137,12 @@ header {
   box-shadow: 0 6px 12px rgba(0, 195, 255, 0.2); 
 }
 
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 
 /* Logo Styling */
 .logo img {
@@ -129,10 +168,22 @@ header {
   }
 }
 
+/* Additional Logo Styling */
+.additional-logo img {
+  width: 4rem;
+  margin-left: 0.55rem; /* Add space between the two logos */
+  transition: transform 0.25s ease, filter 0.1s ease;
+}
+
+.additional-logo img:hover {
+  transform: scale(1.1) rotate(-2deg);
+  filter: drop-shadow(0px 0px 16px rgba(0, 195, 255, 0.58));
+}
+
 /* Navigation Links */
 .nav-links ul {
   position: absolute;
-  left: 5rem;
+  left: 8rem;
   top: 1.5%;
   display: flex;
   gap: 2rem;
@@ -247,7 +298,6 @@ header {
 
 @media (max-width: 1080px) {
   .nav-links ul {
-  left: 4rem;
   top: 1.5%;
   gap: 1rem;
 }
@@ -260,6 +310,10 @@ header {
 
   .nav-links {
     display: none; /* Hide nav-links on mobile */
+  }
+
+  .additional-logo {
+    display: none;
   }
 
   .desktop-language-selector {
