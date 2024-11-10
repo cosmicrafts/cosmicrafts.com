@@ -6,65 +6,66 @@
     "games": "Games",
     "community": "Community",
     "contact": "Contact",
-    "support": "Support",
+    "support": "Need a Hand?",
     "language": "Language",
     "marketplace": "Marketplace",
     "spiral": "Spiral",
-    "dao": "DAO"
+    "dao": "DAO",
+    "dashboard": "Dashboard"
   },
-    "hero": {
-      "slides": [
-        {
-          "title": "This is ground zero. Alpha’s live!",
-          "ctaButtons": [
-            { "text": "Play Now" },
-            { "text": "Wishlist on Steam" }
-          ]
-        },
-        {
-          "title": "The Party’s Here. Are You In or What?",
-          "ctaButtons": [
-            { "text": "Go to NNS" },
-            { "text": "Read Whitepaper" }
-          ]
-        },
-        {
-          "title": "On-chain RTS. A Starlight Drift, Galactic Mayhem",
-          "ctaButtons": [
-            { "text": "Play Now!" },
-            { "text": "Learn more" }
-          ]
-        },
-        {
-          "title": "Lets get Social! Invite Now and Claim Exclusive Rewards!",
-          "ctaButtons": [
-            { "text": "Go to Dashboard" },
-            { "text": "Get Code" }
-          ]
-        }
-      ]
-    },
+  "hero": {
+    "slides": [
+      {
+        "title": "It all starts here. Alpha’s live—get in now!",
+        "ctaButtons": [
+          { "text": "Play Now!" },
+          { "text": "Wishlist on Epic Games" }
+        ]
+      },
+      {
+        "title": "The Party’s Here. Are You In or What?",
+        "ctaButtons": [
+          { "text": "Go to NNS" },
+          { "text": "Read Whitepaper" }
+        ]
+      },
+      {
+        "title": "On-chain RTS. A Starlight Drift, Galactic Mayhem",
+        "ctaButtons": [
+          { "text": "Download Now!" },
+          { "text": "Learn More!" }
+        ]
+      },
+      {
+        "title": "Time to team up! Invite friends and score exclusive rewards!",
+        "ctaButtons": [
+          { "text": "Go to Dashboard" },
+          { "text": "Get Referral Code" }
+        ]
+      }
+    ]
+  },
   "cta": "Try Cosmicrafts Adventures",
   "lore": {
     "title": "Cosmicrafts Lore",
-    "description": "Explore the rich lore of the Cosmicrafts universe, filled with heroes, battles, and mysteries."
+    "description": "Dive deep with us into the rich lore of Cosmicrafts—full of heroes, epic battles, and mysteries waiting to be uncovered."
   },
   "games": {
     "title": "Our Games",
     "battlegrounds": {
       "title": "Cosmicrafts Battlegrounds",
-      "description": "Engage in epic multiplayer battles in the Cosmicrafts universe."
+      "description": "Get in on epic multiplayer battles with friends in the Cosmicrafts universe!"
     },
     "adventures": {
       "title": "Cosmicrafts Adventures",
-      "description": "Embark on thrilling space quests and uncover the secrets of the galaxy."
+      "description": "Join thrilling space quests and unlock the secrets of the galaxy with us!"
     }
   },
   "carousel": {
     "slides": [
       {
         "title": "Cosmicrafts Adventures",
-        "description": "Explore a new universe in development with Cosmicrafts Adventures!",
+        "description": "Discover a new universe in development with Cosmicrafts Adventures!",
         "buttonText": "Learn More",
         "action": "adventures"
       },
@@ -76,7 +77,7 @@
       },
       {
         "title": "Latest News",
-        "description": "Stay updated with the latest news and updates about Cosmicrafts.",
+        "description": "Stay in the loop with the latest updates from Cosmicrafts.",
         "buttonText": "Read News",
         "action": "news"
       },
@@ -89,10 +90,10 @@
     ]
   },
   "footer": {
-    "stayConnected": "Stay Connected",
+    "stayConnected": "Let’s Stay Connected",
     "careers": "Careers",
     "about": "About",
-    "support": "Support",
+    "support": "Need a Hand?",
     "press": "Press",
     "creators": "Creators",
     "privacy": "Privacy",

@@ -6,19 +6,20 @@
     "games": "Juegos",
     "community": "Comunidad",
     "contact": "Contacto",
-    "support": "Soporte",
+    "support": "¿Necesitas ayuda?",
     "language": "Idioma",
     "marketplace": "Tienda",
     "spiral": "Spiral",
-    "dao": "DAO"
+    "dao": "DAO",
+    "dashboard": "Tablero"
   },
   "hero": {
     "slides": [
       {
-        "title": "Este es el comienzo. ¡El Alpha está en vivo!",
+        "title": "Aquí comienza todo. ¡El Alpha está en vivo, únete ya!",
         "ctaButtons": [
-          { "text": "Pruébalo Ya!" },
-          { "text": "Añadir a Wishlist en Steam" }
+          { "text": "¡Juega Ahora!" },
+          { "text": "Añadir a Wishlist en Epic Games" }
         ]
       },
       {
@@ -31,15 +32,15 @@
       {
         "title": "RTS en Blockchain. Una Deriva Estelar, Caos Galáctico",
         "ctaButtons": [
-          { "text": "Juega Ya!" },
-          { "text": "Saber más" }
+          { "text": "¡Descárgalo Ya!" },
+          { "text": "Saber Más!" }
         ]
       },
       {
-        "title": "Conoce a los Spirat Nomads: intrépidos nómadas del cosmos.",
+        "title": "¡Únete a la diversión! Invita y gana recompensas exclusivas.",
         "ctaButtons": [
-          { "text": "Leer Historia" },
-          { "text": "Cosmicrafts Wiki" }
+          { "text": "Ir al Panel" },
+          { "text": "Obtén tu Código de Referencia" }
         ]
       }
     ]
@@ -47,17 +48,17 @@
   "cta": "Prueba Cosmicrafts Adventures",
   "lore": {
     "title": "Lore de Cosmicrafts",
-    "description": "Explora el profundo lore del universo de Cosmicrafts, lleno de héroes, batallas y misterios."
+    "description": "Vamos juntos a descubrir el lore profundo del universo de Cosmicrafts, ¡lleno de héroes, batallas épicas y misterios!"
   },
   "games": {
     "title": "Nuestros Juegos",
     "battlegrounds": {
       "title": "Cosmicrafts Battlegrounds",
-      "description": "Enfréntate en épicas batallas multijugador en el universo de Cosmicrafts."
+      "description": "¡Únete a épicas batallas multijugador en el universo de Cosmicrafts!"
     },
     "adventures": {
       "title": "Cosmicrafts Adventures",
-      "description": "Emprende emocionantes misiones espaciales y descubre los secretos de la galaxia."
+      "description": "¡Emprende misiones espaciales emocionantes y descubre los secretos de la galaxia con nosotros!"
     }
   },
   "carousel": {
@@ -76,7 +77,7 @@
       },
       {
         "title": "Últimas Noticias",
-        "description": "Mantente al día con las últimas noticias y actualizaciones de Cosmicrafts.",
+        "description": "Mantente al tanto de las últimas novedades de Cosmicrafts.",
         "buttonText": "Leer Noticias",
         "action": "news"
       },
@@ -92,7 +93,7 @@
     "stayConnected": "Mantente Conectado",
     "careers": "Carreras",
     "about": "Acerca de",
-    "support": "Soporte",
+    "support": "¿Necesitas ayuda?",
     "press": "Prensa",
     "creators": "Creadores",
     "privacy": "Privacidad",

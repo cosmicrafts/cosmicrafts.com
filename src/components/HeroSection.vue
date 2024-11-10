@@ -12,14 +12,20 @@
     <div v-if="slides[currentSlide]" :key="currentSlide" class="slide">
       <!-- Content Wrapper -->
 <div class="hero-content">
-  <!-- Hero Image -->
-  <img
-    :src="slides[currentSlide].heroImage"
-    alt="Hero Image"
-    class="hero-image"
-    :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
-    :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * 0.000825})` }"
-  />
+<!-- Hero Image with Conditional Classes -->
+<img
+  :src="slides[currentSlide].heroImage"
+  alt="Hero Image"
+  class="hero-image"
+  :class="{
+    'enter-animation-next': isEntering && slideDirection === 'next',
+    'leave-animation-next': isLeaving && slideDirection === 'next',
+    'enter-animation-prev': isEntering && slideDirection === 'prev',
+    'leave-animation-prev': isLeaving && slideDirection === 'prev'
+  }"
+  :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * 0.000825})` }"
+/>
+
 
   <!-- Hero Logo -->
   <img
@@ -278,18 +284,22 @@ function resize() {
 const currentSlide = ref(0);
 const isEntering = ref(false);
 const isLeaving = ref(false);
+const slideDirection = ref("next");
 let slideInterval;
 
-function transitionSlides(newSlide) {
+// Function to transition slides with direction tracking
+function transitionSlides(newSlide, direction) {
+  slideDirection.value = direction; // Set the direction (either "next" or "prev")
   isLeaving.value = true;
+  
   setTimeout(() => {
     currentSlide.value = newSlide;
     isLeaving.value = false;
     isEntering.value = true;
     setTimeout(() => {
       isEntering.value = false;
-    }, 100); // Matches the CSS animation duration
-  }, 100); // Matches the CSS animation duration
+    }, 100); // Match with CSS animation duration
+  }, 100); // Match with CSS animation duration
 }
 
 // **Slide navigation functions**
@@ -305,21 +315,24 @@ function toggleFreeze() {
 }
 
 function nextSlide() {
-  if (isFrozen.value) return; // Prevent slide change if frozen
+  if (isFrozen.value) return;
   const newSlide = (currentSlide.value + 1) % slides.value.length;
-  transitionSlides(newSlide);
+  transitionSlides(newSlide, "next"); // Set direction as "next"
   resetAutoSlide();
 }
 
 function prevSlide() {
-  if (isFrozen.value) return; // Prevent slide change if frozen
+  if (isFrozen.value) return;
   const newSlide = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
-  transitionSlides(newSlide);
+  transitionSlides(newSlide, "prev"); // Set direction as "prev"
   resetAutoSlide();
 }
 
 function goToSlide(index) {
-  transitionSlides(index);
+  if (index === currentSlide.value) return; // Do nothing if the same slide is clicked
+  
+  const direction = index > currentSlide.value ? "next" : "prev";
+  transitionSlides(index, direction); // Pass the direction based on relative position
   resetAutoSlide();
 }
 
@@ -330,8 +343,6 @@ function startAutoSlide() {
 function stopAutoSlide() {
   clearInterval(slideInterval);
 }
-
-
 
 onMounted(() => {
   w = window.innerWidth;
@@ -385,14 +396,16 @@ onUnmounted(() => {
   max-width: 24rem;
   margin-top: -4rem;
   z-index: 2;
-  opacity: 0.95;
+  opacity: 0.85;
+  filter: drop-shadow(0px 0px 36px rgba(0, 119, 255, 0.5));
 }
 
 .hero-logo {
   max-width: 16rem;
   margin-top: -11rem;
   z-index: 3;
-  opacity: 0.95;
+  opacity: 0.85;
+  filter: drop-shadow(0px 0px 36px rgba(0, 119, 255, 0.5));
 }
 
 .hero-title {
@@ -522,7 +535,8 @@ onUnmounted(() => {
 }
 
 /* Hero Image Animation */
-@keyframes image-enter {
+/* Next Slide Animations */
+@keyframes image-enter-next {
   0% {
     opacity: 0;
     transform: translateX(-50%) rotate(-10deg) scale(0.8);
@@ -533,7 +547,7 @@ onUnmounted(() => {
   }
 }
 
-@keyframes image-leave {
+@keyframes image-leave-next {
   0% {
     opacity: 1;
     transform: translateX(0) rotate(0deg) scale(1);
@@ -544,6 +558,29 @@ onUnmounted(() => {
   }
 }
 
+/* Previous Slide Animations */
+@keyframes image-enter-prev {
+  0% {
+    opacity: 0;
+    transform: translateX(50%) rotate(10deg) scale(0.8);
+  }
+  100% {
+    opacity: .85;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes image-leave-prev {
+  0% {
+    opacity: .85;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(-10deg) scale(0.8);
+  }
+}
+
 /* Hero Logo Animation */
 @keyframes logo-enter {
   0% {
@@ -551,14 +588,14 @@ onUnmounted(() => {
     transform: scale(0.5) translateY(-30%);
   }
   100% {
-    opacity: 1;
+    opacity: .85;
     transform: scale(1) translateY(0);
   }
 }
 
 @keyframes logo-leave {
   0% {
-    opacity: 1;
+    opacity: .85;
     transform: scale(1) translateY(0);
   }
   100% {
@@ -574,14 +611,14 @@ onUnmounted(() => {
     transform: translateY(20%) scale(0.9);
   }
   100% {
-    opacity: 1;
+    opacity: .85;
     transform: translateY(0) scale(1);
   }
 }
 
 @keyframes title-leave {
   0% {
-    opacity: 1;
+    opacity: .85;
     transform: translateY(0) scale(1);
   }
   100% {
@@ -590,12 +627,20 @@ onUnmounted(() => {
   }
 }
 
-.hero-image.enter-animation {
-  animation: image-enter .1s ease forwards;
+.hero-image.enter-animation-next {
+  animation: image-enter-next 0.1s ease forwards;
 }
 
-.hero-image.leave-animation {
-  animation: image-leave .1s ease forwards;
+.hero-image.leave-animation-next {
+  animation: image-leave-next 0.1s ease forwards;
+}
+
+.hero-image.enter-animation-prev {
+  animation: image-enter-prev 0.1s ease forwards;
+}
+
+.hero-image.leave-animation-prev {
+  animation: image-leave-prev 0.1s ease forwards;
 }
 
 .hero-logo.enter-animation {
@@ -617,14 +662,14 @@ onUnmounted(() => {
 
 @keyframes enter {
   to {
-    opacity: 1;
+    opacity: .85;
     transform: scale(1);
   }
 }
 
 /* Leave Animation */
 .leave-animation {
-  opacity: 1;
+  opacity: .85;
   transform: scale(1);
   animation: leave .25s ease forwards;
 }
