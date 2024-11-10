@@ -1,62 +1,59 @@
 <template>
   <section class="hero">
     <!-- Background Canvas for Stars -->
-    <canvas 
-      id="starfield" 
-      ref="starfield" 
-      class="noise-canvas" 
+    <canvas
+      id="starfield"
+      ref="starfield"
+      class="noise-canvas"
       :style="{ top: `${scrollY * 0.5}px` }"
     ></canvas>
 
     <!-- Slide Wrapper -->
-    <div 
-      class="slide" 
-      v-for="(slide, index) in slides" 
-      :key="index" 
-      v-show="currentSlide === index"
-    >
+    <div v-if="slides[currentSlide]" :key="currentSlide" class="slide">
       <!-- Content Wrapper -->
       <div class="hero-content">
-        <img 
-          :src="slide.heroImage" 
-          alt="Hero Image" 
-          class="hero-image" 
-          :style="{ 
-            transform: `translateY(${scrollY * -0.25}px) scale(${1 - scrollY * -0.00125})` 
-          }" 
+        <!-- Hero Image -->
+        <img
+          :src="slides[currentSlide].heroImage"
+          alt="Hero Image"
+          class="hero-image"
+          :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
+          :style="{ transform: `translateY(${scrollY * -0.25}px) scale(${1 - scrollY * -0.00125})` }"
         />
-        <img 
-          :src="slide.logo" 
-          alt="Game Logo" 
-          class="hero-logo" 
-          :style="{ 
-            transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00095})` 
-          }" 
+
+        <!-- Hero Logo -->
+        <img
+          :src="slides[currentSlide].logo"
+          alt="Game Logo"
+          class="hero-logo"
+          :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
+          :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00095})` }"
         />
-        <h1 
-          class="hero-title" 
-          :style="{ 
-            transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.00105})` 
-          }" 
+
+        <!-- Hero Title -->
+        <h1
+          class="hero-title"
+          :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
+          :style="{ transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.00105})` }"
         >
-          {{ slide.title }}
+          {{ slides[currentSlide].title }}
         </h1>
       </div>
 
       <!-- CTA and Social Media Panel -->
       <div class="cta-panel">
         <div class="cta-buttons">
-          <button 
-            v-for="(button, i) in slide.ctaButtons" 
-            :key="i" 
-            :class="['button', button.style]" 
+          <button
+            v-for="(button, i) in slides[currentSlide].ctaButtons"
+            :key="i"
+            :class="['button', button.style]"
             @click="handleCTA(button.link)"
           >
             {{ button.text }}
           </button>
         </div>
 
-        <!-- Restored Social Media Links -->
+        <!-- Social Media Links -->
         <div class="social-links">
           <a href="#"><img src="@/assets/icons/x.svg" alt="Twitter" /></a>
           <a href="#"><img src="@/assets/icons/discord.svg" alt="Discord" /></a>
@@ -86,11 +83,40 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import logo1 from '@/assets/webp/adventures.webp';
 import heroImage1 from '@/assets/webp/hero.webp';
 import logo2 from '@/assets/icons/dao-1.svg';
-import heroImage2 from '@/assets/icons/logo-ru.svg'; // Add your additional hero images
+import heroImage2 from '@/assets/icons/logo.svg';
+import logo3 from '@/assets/icons/cosmicrafts.svg';
+import heroImage3 from '@/assets/webp/hero2.webp';
+import logo4 from '@/assets/icons/logo-c.svg';
+import heroImage4 from '@/assets/webp/hero1.webp';
+
+import heroImage2Default from '@/assets/icons/logo.svg';
+import heroImage2CN from '@/assets/icons/logo-cn.svg';
+import heroImage2KR from '@/assets/icons/logo-kr.svg';
+import heroImage2JP from '@/assets/icons/logo-jp.svg';
+import heroImage2RU from '@/assets/icons/logo-ru.svg';
+import heroImage2AR from '@/assets/icons/logo-ar.svg';
+
+const { locale } = useI18n();
+
+const heroImageMap = {
+  zh: heroImage2CN,
+  ko: heroImage2KR,
+  ja: heroImage2JP,
+  ru: heroImage2RU,
+  ar: heroImage2AR,
+  default: heroImage2Default
+};
+
+// Computed property for the dynamic hero image for the second slide
+const dynamicHeroImage2 = computed(() => {
+  return heroImageMap[locale.value] || heroImageMap.default;
+});
+
 
 const scrollY = ref(0);
 const starSpeed = ref(0.5); // Default speed
@@ -122,19 +148,35 @@ const slides = ref([
     ],
   },
   {
-    heroImage: heroImage2,
+    heroImage: dynamicHeroImage2,
     logo: logo2,
-    title: 'Discover the Unknown.',
+    title: 'The Party’s Here. Are You In or What?',
     ctaButtons: [
       { text: 'Join the Beta', link: '#', style: 'primary' },
       { text: 'Learn More', link: '#', style: 'secondary' },
     ],
   },
-  // Add more slides as needed
+  // Slide 3
+  {
+    heroImage: heroImage3,
+    logo: logo3,
+    title: 'Enter the Galaxy of Wonders.',
+    ctaButtons: [
+      { text: 'Pre-Order Now', link: '#', style: 'primary' },
+      { text: 'Explore More', link: '#', style: 'secondary' },
+    ],
+  },
+  // Slide 4
+  {
+    heroImage: heroImage4,
+    logo: logo4,
+    title: 'A Journey Beyond Stars.',
+    ctaButtons: [
+      { text: 'Start Adventure', link: '#', style: 'primary' },
+      { text: 'Follow on Socials', link: '#', style: 'secondary' },
+    ],
+  }
 ]);
-
-const currentSlide = ref(0);
-let slideInterval;
 
 // **Social Media Links**
 const socialLinks = [
@@ -220,26 +262,56 @@ function resize() {
   init();
 }
 
+const currentSlide = ref(0);
+const isEntering = ref(false);
+const isLeaving = ref(false);
+let slideInterval;
+
+function transitionSlides(newSlide) {
+  isLeaving.value = true;
+  setTimeout(() => {
+    currentSlide.value = newSlide;
+    isLeaving.value = false;
+    isEntering.value = true;
+    setTimeout(() => {
+      isEntering.value = false;
+    }, 500); // Matches the CSS animation duration
+  }, 500); // Matches the CSS animation duration
+}
+
 // **Slide navigation functions**
+function resetAutoSlide() {
+  stopAutoSlide(); // Clear the current interval
+  startAutoSlide(); // Restart the interval
+}
+
+// **Slide navigation functions with reset**
 function nextSlide() {
-  currentSlide.value = (currentSlide.value + 1) % slides.value.length;
+  const newSlide = (currentSlide.value + 1) % slides.value.length;
+  transitionSlides(newSlide);
+  resetAutoSlide();
 }
 
 function prevSlide() {
-  currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
+  const newSlide = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
+  transitionSlides(newSlide);
+  resetAutoSlide();
 }
 
 function goToSlide(index) {
-  currentSlide.value = index;
+  transitionSlides(index);
+  resetAutoSlide();
 }
 
 function startAutoSlide() {
-  slideInterval = setInterval(nextSlide, 5000);
+  slideInterval = setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
 }
 
 function stopAutoSlide() {
   clearInterval(slideInterval);
 }
+
+
 
 onMounted(() => {
   w = window.innerWidth;
@@ -404,14 +476,38 @@ onUnmounted(() => {
   cursor: pointer;
   margin: 0 0.25rem;
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.3);
+  width: 12px;
+  height: 12px;
+  background: rgb(74, 74, 74);
   border-radius: 50%;
 }
 
-.slide-indicators .active {
-  background: rgba(255, 255, 255, 1);
+/* Enter Animation */
+.enter-animation {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: enter .5s ease forwards;
+}
+
+@keyframes enter {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Leave Animation */
+.leave-animation {
+  opacity: 1;
+  transform: scale(1);
+  animation: leave .55s ease forwards;
+}
+
+@keyframes leave {
+  to {
+    opacity: 0;
+    transform: scale(0.75);
+  }
 }
 
 @media (max-width: 768px) {
@@ -455,9 +551,6 @@ onUnmounted(() => {
   .slide-indicators {
   top: 70%;
 }
-
-  
-
 }
 
 </style>
