@@ -12,7 +12,7 @@
     "spiral": "Spiral",
     "dao": "DAO",
     "dashboard": "Tablero",
-    "connect": "Conéctate"
+    "connect": "Enchúfate"
   },
   "hero": {
     "slides": [
@@ -31,7 +31,7 @@
         ]
       },
       {
-        "title": "RTS en Blockchain. Una Deriva Estelar, Caos Galáctico",
+        "title": "RTS en Blockchain. Una Guerra Estelar, Caos Galáctico.",
         "ctaButtons": [
           { "text": "¡Descárgalo Ya!" },
           { "text": "Saber Más!" }

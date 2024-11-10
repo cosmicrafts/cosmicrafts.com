@@ -396,7 +396,7 @@ onUnmounted(() => {
   max-width: 24rem;
   margin-top: -4rem;
   z-index: 2;
-  opacity: 0.85;
+  opacity: 0.95;
   filter: drop-shadow(0px 0px 36px rgba(0, 119, 255, 0.5));
 }
 
@@ -458,7 +458,7 @@ onUnmounted(() => {
   transform: scale(1.1);
   opacity: 1;
   border-radius: 8px;
-  filter: drop-shadow(0px 0px 4px rgba(0, 119, 255, 0.784));
+  filter: drop-shadow(0px 0px 24px rgba(0, 145, 255, 0.784));
 }
 
 .cta-button {
