@@ -38,7 +38,7 @@
       :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
       :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.00055})` }"
     >
-      {{ slides[currentSlide].title }}
+    {{ t(`hero.slides[${currentSlide}].title`) }}
     </h1>
 
     <!-- Slide Indicators -->
@@ -63,7 +63,8 @@
             :class="['button', button.style]"
             @click="handleCTA(button.link)"
           >
-            {{ button.text }}
+          {{ t(`hero.slides[${currentSlide}].ctaButtons[${i}].text`) }}
+
           </button>
         </div>
 
@@ -103,7 +104,7 @@ import logo2 from '@/assets/icons/dao-1.svg';
 import heroImage2 from '@/assets/icons/logo.svg';
 import logo3 from '@/assets/webp/battlegrounds.webp';
 import heroImage3 from '@/assets/webp/hero2.webp';
-import logo4 from '@/assets/webp/news.webp';
+import logo4 from '@/assets/icons/dashboard.svg';
 import heroImage4 from '@/assets/webp/hero4.webp';
 
 import heroImage2Default from '@/assets/icons/logo.svg';
@@ -113,7 +114,7 @@ import heroImage2JP from '@/assets/icons/logo-jp.svg';
 import heroImage2RU from '@/assets/icons/logo-ru.svg';
 import heroImage2AR from '@/assets/icons/logo-ar.svg';
 
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 
 const heroImageMap = {
   zh: heroImage2CN,
@@ -182,7 +183,7 @@ const slides = ref([
   {
     heroImage: heroImage4,
     logo: logo4,
-    title: 'Meet the Spirat Nomads: Fearless wanderers, roaming the stars.',
+    title: 'Lets get Social!, Invite Now and Claim Exclusive Rewards!',
     ctaButtons: [
       { text: 'Start Adventure', link: '#', style: 'primary' },
       { text: 'Follow on Socials', link: '#', style: 'secondary' },

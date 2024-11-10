@@ -1,45 +1,105 @@
 {
-    "header": {
+  "header": {
     "home": "Inicio",
     "features": "Características",
+    "play": "Jugar",
     "games": "Juegos",
     "community": "Comunidad",
     "contact": "Contacto",
-    "language": "Idioma"
+    "support": "Soporte",
+    "language": "Idioma",
+    "marketplace": "Tienda",
+    "spiral": "Spiral",
+    "dao": "DAO"
   },
-    "hero": {
-      "title": "Bienvenido al Universo de Cosmicrafts",
-      "description": "Tu puerta de entrada a aventuras cósmicas, batallas épicas y los misterios de la galaxia."
-    },
-    "cta": "Prueba Cosmicrafts Adventures",
-    "lore": {
-      "title": "Lore de Cosmicrafts",
-      "description": "Explora la rica historia del universo de Cosmicrafts, lleno de héroes, batallas y misterios."
-    },
-    "games": {
-      "title": "Nuestros Juegos",
-      "battlegrounds": {
-        "title": "Cosmicrafts Battlegrounds",
-        "description": "Participa en épicas batallas multijugador en el universo de Cosmicrafts."
+  "hero": {
+    "slides": [
+      {
+        "title": "Este es el comienzo. ¡El Alpha está en vivo!",
+        "ctaButtons": [
+          { "text": "Pruébalo Ya!" },
+          { "text": "Añadir a Wishlist en Steam" }
+        ]
       },
-      "adventures": {
-        "title": "Cosmicrafts Adventures",
-        "description": "Embárcate en emocionantes misiones espaciales y descubre los secretos de la galaxia."
+      {
+        "title": "La fiesta está aquí. ¿Te unes o qué?",
+        "ctaButtons": [
+          { "text": "Ir a NNS" },
+          { "text": "Leer el Whitepaper" }
+        ]
+      },
+      {
+        "title": "RTS en Blockchain. Una Deriva Estelar, Caos Galáctico",
+        "ctaButtons": [
+          { "text": "Juega Ya!" },
+          { "text": "Saber más" }
+        ]
+      },
+      {
+        "title": "Conoce a los Spirat Nomads: intrépidos nómadas del cosmos.",
+        "ctaButtons": [
+          { "text": "Leer Historia" },
+          { "text": "Cosmicrafts Wiki" }
+        ]
       }
+    ]
+  },
+  "cta": "Prueba Cosmicrafts Adventures",
+  "lore": {
+    "title": "Lore de Cosmicrafts",
+    "description": "Explora el profundo lore del universo de Cosmicrafts, lleno de héroes, batallas y misterios."
+  },
+  "games": {
+    "title": "Nuestros Juegos",
+    "battlegrounds": {
+      "title": "Cosmicrafts Battlegrounds",
+      "description": "Enfréntate en épicas batallas multijugador en el universo de Cosmicrafts."
     },
-    "footer": {
-      "stayConnected": "Mantente Conectado",
-      "careers": "Carreras",
-      "about": "Acerca de",
-      "support": "Soporte",
-      "press": "Prensa",
-      "creators": "Creadores",
-      "privacy": "Privacidad",
-      "legal": "Legal",
-      "terms": "Términos",
-      "cookiePolicy": "Política de Cookies",
-      "cookieSettings": "Configuración de Cookies",
-      "language": "Idioma"
+    "adventures": {
+      "title": "Cosmicrafts Adventures",
+      "description": "Emprende emocionantes misiones espaciales y descubre los secretos de la galaxia."
     }
+  },
+  "carousel": {
+    "slides": [
+      {
+        "title": "Cosmicrafts Adventures",
+        "description": "¡Explora un nuevo universo en desarrollo con Cosmicrafts Adventures!",
+        "buttonText": "Saber Más",
+        "action": "adventures"
+      },
+      {
+        "title": "Cosmicrafts Battleground",
+        "description": "¡Entra en acción y juega Cosmicrafts Battleground ahora!",
+        "buttonText": "Jugar Ahora",
+        "action": "battleground"
+      },
+      {
+        "title": "Últimas Noticias",
+        "description": "Mantente al día con las últimas noticias y actualizaciones de Cosmicrafts.",
+        "buttonText": "Leer Noticias",
+        "action": "news"
+      },
+      {
+        "title": "Tecnología ICP",
+        "description": "Descubre más sobre la tecnología innovadora ICP que impulsa Cosmicrafts.",
+        "buttonText": "Descubrir ICP",
+        "action": "technology"
+      }
+    ]
+  },
+  "footer": {
+    "stayConnected": "Mantente Conectado",
+    "careers": "Carreras",
+    "about": "Acerca de",
+    "support": "Soporte",
+    "press": "Prensa",
+    "creators": "Creadores",
+    "privacy": "Privacidad",
+    "legal": "Legal",
+    "terms": "Términos",
+    "cookiePolicy": "Política de Cookies",
+    "cookieSettings": "Configuración de Cookies",
+    "language": "Idioma"
   }
-  
+}

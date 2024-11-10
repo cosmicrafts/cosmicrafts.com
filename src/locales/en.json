@@ -12,10 +12,38 @@
     "spiral": "Spiral",
     "dao": "DAO"
   },
-  "hero": {
-    "title": "Welcome to the Cosmicrafts Universe",
-    "description": "Your gateway to cosmic adventures, epic battles, and the mysteries of the galaxy."
-  },
+    "hero": {
+      "slides": [
+        {
+          "title": "This is ground zero. Alpha’s live!",
+          "ctaButtons": [
+            { "text": "Play Now" },
+            { "text": "Wishlist on Steam" }
+          ]
+        },
+        {
+          "title": "The Party’s Here. Are You In or What?",
+          "ctaButtons": [
+            { "text": "Go to NNS" },
+            { "text": "Read Whitepaper" }
+          ]
+        },
+        {
+          "title": "On-chain RTS. A Starlight Drift, Galactic Mayhem",
+          "ctaButtons": [
+            { "text": "Play Now!" },
+            { "text": "Learn more" }
+          ]
+        },
+        {
+          "title": "Lets get Social! Invite Now and Claim Exclusive Rewards!",
+          "ctaButtons": [
+            { "text": "Go to Dashboard" },
+            { "text": "Get Code" }
+          ]
+        }
+      ]
+    },
   "cta": "Try Cosmicrafts Adventures",
   "lore": {
     "title": "Cosmicrafts Lore",
