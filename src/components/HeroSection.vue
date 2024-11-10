@@ -11,34 +11,48 @@
     <!-- Slide Wrapper -->
     <div v-if="slides[currentSlide]" :key="currentSlide" class="slide">
       <!-- Content Wrapper -->
-      <div class="hero-content">
-        <!-- Hero Image -->
-        <img
-          :src="slides[currentSlide].heroImage"
-          alt="Hero Image"
-          class="hero-image"
-          :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
-          :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * 0.000825})` }"
-        />
+<div class="hero-content">
+  <!-- Hero Image -->
+  <img
+    :src="slides[currentSlide].heroImage"
+    alt="Hero Image"
+    class="hero-image"
+    :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
+    :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * 0.000825})` }"
+  />
 
-        <!-- Hero Logo -->
-        <img
-          :src="slides[currentSlide].logo"
-          alt="Game Logo"
-          class="hero-logo"
-          :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
-          :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00055})` }"
-        />
+  <!-- Hero Logo -->
+  <img
+    :src="slides[currentSlide].logo"
+    alt="Game Logo"
+    class="hero-logo"
+    :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
+    :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00055})` }"
+  />
 
-        <!-- Hero Title -->
-        <h1
-          class="hero-title"
-          :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
-          :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.00055})` }"
-        >
-          {{ slides[currentSlide].title }}
-        </h1>
-      </div>
+  <!-- Hero Title and Indicators Wrapper -->
+  <div class="title-indicator-wrapper">
+    <!-- Hero Title -->
+    <h1
+      class="hero-title"
+      :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
+      :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.00055})` }"
+    >
+      {{ slides[currentSlide].title }}
+    </h1>
+
+    <!-- Slide Indicators -->
+    <div class="slide-indicators">
+      <span
+        v-for="(slide, i) in slides"
+        :key="i"
+        :class="{ active: currentSlide === i }"
+        @click="goToSlide(i)"
+      ></span>
+    </div>
+  </div>
+</div>
+
 
       <!-- CTA and Social Media Panel -->
       <div class="cta-panel">
@@ -52,9 +66,12 @@
             {{ button.text }}
           </button>
         </div>
+
+        <!--
         <button @click="toggleFreeze" class="freeze-button">
   {{ isFrozen ? 'Unfreeze Slide' : 'Freeze Slide' }}
 </button>
+-->
 
 
         <!-- Social Media Links -->
@@ -74,15 +91,6 @@
       <button @click="nextSlide">&#10095;</button>
     </div>
 
-    <!-- Slide Indicators -->
-    <div class="slide-indicators">
-      <span
-        v-for="(slide, i) in slides"
-        :key="i"
-        :class="{ active: currentSlide === i }"
-        @click="goToSlide(i)"
-      ></span>
-    </div>
   </section>
 </template>
 
@@ -93,10 +101,10 @@ import logo1 from '@/assets/webp/adventures.webp';
 import heroImage1 from '@/assets/webp/hero.webp';
 import logo2 from '@/assets/icons/dao-1.svg';
 import heroImage2 from '@/assets/icons/logo.svg';
-import logo3 from '@/assets/icons/cosmicrafts.svg';
+import logo3 from '@/assets/webp/battlegrounds.webp';
 import heroImage3 from '@/assets/webp/hero2.webp';
-import logo4 from '@/assets/icons/logo-c.svg';
-import heroImage4 from '@/assets/webp/hero1.webp';
+import logo4 from '@/assets/webp/news.webp';
+import heroImage4 from '@/assets/webp/hero4.webp';
 
 import heroImage2Default from '@/assets/icons/logo.svg';
 import heroImage2CN from '@/assets/icons/logo-cn.svg';
@@ -145,7 +153,7 @@ const slides = ref([
   {
     heroImage: heroImage1,
     logo: logo1,
-    title: 'This Ain’t Normal. But That’s the Point.',
+    title: 'This is ground zero. Alpha’s live!',
     ctaButtons: [
       { text: 'Play Now', link: '#', style: 'primary' },
       { text: 'Wishlist on Steam', link: '#', style: 'secondary' },
@@ -164,7 +172,7 @@ const slides = ref([
   {
     heroImage: heroImage3,
     logo: logo3,
-    title: 'Enter the Galaxy of Wonders.',
+    title: 'On-chain RTS. A Starlight Drift, Galactic Mayhem',
     ctaButtons: [
       { text: 'Pre-Order Now', link: '#', style: 'primary' },
       { text: 'Explore More', link: '#', style: 'secondary' },
@@ -174,7 +182,7 @@ const slides = ref([
   {
     heroImage: heroImage4,
     logo: logo4,
-    title: 'A Journey Beyond Stars.',
+    title: 'Meet the Spirat Nomads: Fearless wanderers, roaming the stars.',
     ctaButtons: [
       { text: 'Start Adventure', link: '#', style: 'primary' },
       { text: 'Follow on Socials', link: '#', style: 'secondary' },
@@ -279,8 +287,8 @@ function transitionSlides(newSlide) {
     isEntering.value = true;
     setTimeout(() => {
       isEntering.value = false;
-    }, 500); // Matches the CSS animation duration
-  }, 500); // Matches the CSS animation duration
+    }, 100); // Matches the CSS animation duration
+  }, 100); // Matches the CSS animation duration
 }
 
 // **Slide navigation functions**
@@ -374,20 +382,21 @@ onUnmounted(() => {
 
 .hero-image {
   max-width: 24rem;
-  margin-top: 0rem;
+  margin-top: -4rem;
   z-index: 2;
   opacity: 0.95;
 }
 
 .hero-logo {
   max-width: 16rem;
-  margin-top: -10rem;
+  margin-top: -11rem;
   z-index: 3;
   opacity: 0.95;
 }
 
 .hero-title {
-  font-size: 2rem;
+  width: 99%;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-top: -2rem;
   z-index: 3;
@@ -439,7 +448,6 @@ onUnmounted(() => {
   filter: drop-shadow(0px 0px 4px rgba(0, 119, 255, 0.784));
 }
 
-
 .cta-button {
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
@@ -472,6 +480,45 @@ onUnmounted(() => {
 .nav-controls button:hover {
   color: #00c3ff;
 }
+.title-indicator-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem; /* Add space between title and indicators */
+}
+
+/* **Slide Indicators Container** */
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem; /* Adjust spacing as needed */
+}
+
+/* Slide Indicator Styling */
+.slide-indicators span {
+  cursor: pointer;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(180deg, rgb(58, 58, 58), rgb(42, 42, 42));
+  border-radius: 50%;
+  transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.574);
+}
+
+/* Hover Effect */
+.slide-indicators span:hover {
+  transform: scale(1.1);
+  background: linear-gradient(180deg, rgb(121, 121, 121), rgb(60, 60, 60));
+}
+
+/* Active Slide Indicator */
+.slide-indicators span.active {
+  background: linear-gradient(180deg, rgb(0, 191, 255), rgb(0, 132, 255));
+  box-shadow: 0 0 4px rgba(0, 174, 255, 0.75);
+  transform: scale(1.4);
+}
 
 /* Hero Image Animation */
 @keyframes image-enter {
@@ -501,10 +548,6 @@ onUnmounted(() => {
   0% {
     opacity: 0;
     transform: scale(0.5) translateY(-30%);
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.1) translateY(10%);
   }
   100% {
     opacity: 1;
@@ -547,27 +590,27 @@ onUnmounted(() => {
 }
 
 .hero-image.enter-animation {
-  animation: image-enter 0.5s ease forwards;
+  animation: image-enter .1s ease forwards;
 }
 
 .hero-image.leave-animation {
-  animation: image-leave 0.5s ease forwards;
+  animation: image-leave .1s ease forwards;
 }
 
 .hero-logo.enter-animation {
-  animation: logo-enter 0.5s ease forwards;
+  animation: logo-enter .1s ease forwards;
 }
 
 .hero-logo.leave-animation {
-  animation: logo-leave 0.5s ease forwards;
+  animation: logo-leave .1s ease forwards;
 }
 
 .hero-title.enter-animation {
-  animation: title-enter 0.5s ease forwards;
+  animation: title-enter .1s ease forwards;
 }
 
 .hero-title.leave-animation {
-  animation: title-leave 0.5s ease forwards;
+  animation: title-leave .1s ease forwards;
 }
 
 
