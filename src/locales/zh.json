@@ -11,7 +11,8 @@
     "marketplace": "商城",
     "spiral": "螺旋",
     "dao": "DAO",
-    "dashboard": "控制面板"
+    "dashboard": "控制面板",
+    "connect": "连接"
   },
   "hero": {
     "slides": [

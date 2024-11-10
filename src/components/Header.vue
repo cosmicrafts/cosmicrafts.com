@@ -77,16 +77,18 @@ const additionalLogoSrc = computed(() => {
       <ul>
         <li><a href="#">{{ t('header.dao') }}</a></li>
         <li><a href="#">{{ t('header.games') }}</a></li>
+        <li><a href="#">{{ t('header.dashboard') }}</a></li>
         <li><a href="#">{{ t('header.community') }}</a></li>
-        <li><a href="#">{{ t('header.contact') }}</a></li>
       </ul>
     </nav>
-    <div class="desktop-language-selector header">
-      <LanguageSelector direction="down-left" />
-    </div>
+<!-- Flex Container for Connect Button and Language Selector -->
+<div class="connect-container">
+  <div class="desktop-language-selector header">
+    <LanguageSelector direction="down-left" />
+  </div>
+  <button class="button outline" @click="handleLogin">{{ t('header.connect') }}</button>
+</div>
 
-    <!-- Connect Button -->
-    <button class="button outline" @click="handleLogin">Connect</button>
     <!-- Language Selector, hidden on mobile -->
   </header>
 
@@ -117,10 +119,9 @@ header {
 }
 
 .desktop-language-selector {
-  position: absolute;
-  right: 9rem;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  width: auto;
+  height: auto;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -244,6 +245,16 @@ header {
   box-shadow: 0px 0px 5px rgba(255, 162, 0, 0.6);
 }
 
+.connect-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjust spacing as needed */
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* Log In Button Styling */
 .login-button {
   position: absolute;
@@ -301,8 +312,12 @@ header {
 
 @media (max-width: 1080px) {
   .nav-links ul {
-  top: 1.5%;
+    left: 7.5rem;
   gap: 1rem;
+}
+
+.nav-links a {
+  font-size: .85rem;
 }
 }
 /* Responsive Design */

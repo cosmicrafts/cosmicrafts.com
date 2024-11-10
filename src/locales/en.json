@@ -11,7 +11,8 @@
     "marketplace": "Marketplace",
     "spiral": "Spiral",
     "dao": "DAO",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "connect": "Connect"
   },
   "hero": {
     "slides": [

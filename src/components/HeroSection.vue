@@ -337,7 +337,7 @@ function goToSlide(index) {
 }
 
 function startAutoSlide() {
-  slideInterval = setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+  slideInterval = setInterval(nextSlide, 8888); // Auto-slide every 5 seconds
 }
 
 function stopAutoSlide() {
@@ -409,7 +409,6 @@ onUnmounted(() => {
 }
 
 .hero-title {
-  width: 99%;
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: -2rem;
@@ -695,8 +694,9 @@ onUnmounted(() => {
 
   /* Slightly smaller hero title text */
   .hero-title {
-    font-size: 1rem;
+    font-size: .85rem;
     margin-top: -1rem;
+    padding: 0 1rem
   }
 
   /* Stack CTA panel items in rows */
