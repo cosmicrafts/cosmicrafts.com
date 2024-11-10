@@ -46,9 +46,11 @@
     >
     {{ t(`hero.slides[${currentSlide}].title`) }}
     </h1>
+  </div>
+</div>
 
-    <!-- Slide Indicators -->
-    <div class="slide-indicators">
+ <!-- Slide Indicators -->
+ <div class="slide-indicators">
       <span
         v-for="(slide, i) in slides"
         :key="i"
@@ -56,8 +58,6 @@
         @click="goToSlide(i)"
       ></span>
     </div>
-  </div>
-</div>
 
 
       <!-- CTA and Social Media Panel -->
@@ -404,7 +404,6 @@ onUnmounted(() => {
   max-width: 16rem;
   margin-top: -11rem;
   z-index: 3;
-  opacity: 0.85;
   filter: drop-shadow(0px 0px 36px rgba(0, 119, 255, 0.5));
 }
 
@@ -413,14 +412,14 @@ onUnmounted(() => {
   font-weight: bold;
   margin-top: -2rem;
   z-index: 3;
-  text-shadow: 0px 0px 16px rgb(0, 174, 255);
+  text-shadow: 0px 0px 36px rgba(0, 174, 255, 0.507);
 }
 
 .cta-panel {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; /* Extend the panel to the full width of the viewport */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -430,6 +429,7 @@ onUnmounted(() => {
   backdrop-filter: blur(4px);
   border-top: 1px solid #ffffff12;
   z-index: 6;
+  box-sizing: border-box;
 }
 
 /* CTA Buttons */
@@ -479,33 +479,40 @@ onUnmounted(() => {
   display: flex;
   justify-content: space-between;
   z-index: 7;
+  transform: translateY(-50%);
 }
 
 .nav-controls button {
   background: none;
+  filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.5));
   border: none;
   font-size: 2rem;
   cursor: pointer;
   color: #fff;
   padding: 0 1rem;
+  width: 4rem;
+  height: 3rem;
 }
 
 .nav-controls button:hover {
   color: #00c3ff;
+  filter: drop-shadow(0px 0px 4px rgba(0, 119, 255, 0.9));
 }
 .title-indicator-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem; /* Add space between title and indicators */
 }
 
 /* **Slide Indicators Container** */
 .slide-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem; /* Adjust spacing as needed */
+  gap: 1rem;
+  z-index: 6;
+  margin-top: .25rem;
 }
 
 /* Slide Indicator Styling */
@@ -680,48 +687,65 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 768px) {
-  /* Smaller logo and hero image */
+@media (max-width: 1024px) {
   .hero-image {
-    max-width: 18rem;
+    max-width: 24rem;
     margin-top: -8rem;
   }
 
   .hero-logo {
-    max-width: 12rem;
-    margin-top: -8rem;
+    max-width: 16rem;
+    margin-top: -10.5rem;
   }
 
   /* Slightly smaller hero title text */
   .hero-title {
-    font-size: .85rem;
-    margin-top: -1rem;
-    padding: 0 1rem
+    font-size: 2rem;
+    padding: 0 1rem;
+    margin-top: -2rem;
   }
-
-  /* Stack CTA panel items in rows */
-  .cta-panel {
+    /* Stack CTA panel items in rows */
+    .cta-panel {
     flex-direction: column;
-    gap: .25rem; /* Less space between rows */
+    gap: .25rem;
     padding: 1rem;
   }
+
+  .slide-indicators span {
+  width: 32px;
+  height: 32px;
+}
 
   /* Each button takes full width in its row */
   .cta-buttons {
     flex-direction: column;
-    width:80%;
+    width:88%;
     margin-bottom: .25rem;
   }
+}
 
-  .cta-button {
-    width: 100%;
-    padding: .5rem 1;
-    font-size: 1.25rem;
+@media (max-width: 768px) {
+  .hero-image {
+    max-width: 21rem;
+    margin-top: -12rem;
   }
 
-  .slide-indicators {
-  top: 70%;
-}
+  .hero-logo {
+    max-width: 16rem;
+    margin-top: -10rem;
+  }
+
+  /* Slightly smaller hero title text */
+  .hero-title {
+    font-size: 1.25rem;
+    margin-top: -1rem;
+    padding: 0 1rem
+  }
+
+  .slide-indicators span {
+  width: 24px;
+  height: 24px;
 }
 
+}
 </style>
