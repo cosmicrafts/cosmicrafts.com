@@ -18,7 +18,7 @@
           alt="Hero Image"
           class="hero-image"
           :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
-          :style="{ transform: `translateY(${scrollY * -0.25}px) scale(${1 - scrollY * -0.00125})` }"
+          :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * 0.000825})` }"
         />
 
         <!-- Hero Logo -->
@@ -27,14 +27,14 @@
           alt="Game Logo"
           class="hero-logo"
           :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
-          :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00095})` }"
+          :style="{ transform: `translateY(${scrollY * -0.05}px) scale(${1 - scrollY * -0.00055})` }"
         />
 
         <!-- Hero Title -->
         <h1
           class="hero-title"
           :class="{ 'enter-animation': isEntering, 'leave-animation': isLeaving }"
-          :style="{ transform: `translateY(${scrollY * -0.025}px) scale(${1 - scrollY * 0.00105})` }"
+          :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.00055})` }"
         >
           {{ slides[currentSlide].title }}
         </h1>
@@ -52,6 +52,10 @@
             {{ button.text }}
           </button>
         </div>
+        <button @click="toggleFreeze" class="freeze-button">
+  {{ isFrozen ? 'Unfreeze Slide' : 'Freeze Slide' }}
+</button>
+
 
         <!-- Social Media Links -->
         <div class="social-links">
@@ -285,14 +289,21 @@ function resetAutoSlide() {
   startAutoSlide(); // Restart the interval
 }
 
-// **Slide navigation functions with reset**
+const isFrozen = ref(false); // Add this line
+
+function toggleFreeze() {
+  isFrozen.value = !isFrozen.value;
+}
+
 function nextSlide() {
+  if (isFrozen.value) return; // Prevent slide change if frozen
   const newSlide = (currentSlide.value + 1) % slides.value.length;
   transitionSlides(newSlide);
   resetAutoSlide();
 }
 
 function prevSlide() {
+  if (isFrozen.value) return; // Prevent slide change if frozen
   const newSlide = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
   transitionSlides(newSlide);
   resetAutoSlide();
@@ -462,32 +473,103 @@ onUnmounted(() => {
   color: #00c3ff;
 }
 
-/* **Slide Indicators** */
-.slide-indicators {
-  position: absolute;
-  top: 85%;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  z-index: 7;
+/* Hero Image Animation */
+@keyframes image-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(-10deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
 }
 
-.slide-indicators span {
-  cursor: pointer;
-  margin: 0 0.25rem;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background: rgb(74, 74, 74);
-  border-radius: 50%;
+@keyframes image-leave {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50%) rotate(10deg) scale(0.8);
+  }
 }
 
-/* Enter Animation */
-.enter-animation {
-  opacity: 0;
-  transform: scale(0.5);
-  animation: enter .5s ease forwards;
+/* Hero Logo Animation */
+@keyframes logo-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-30%);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1) translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
+
+@keyframes logo-leave {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-30%);
+  }
+}
+
+/* Hero Title Animation */
+@keyframes title-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(20%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes title-leave {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20%) scale(0.9);
+  }
+}
+
+.hero-image.enter-animation {
+  animation: image-enter 0.5s ease forwards;
+}
+
+.hero-image.leave-animation {
+  animation: image-leave 0.5s ease forwards;
+}
+
+.hero-logo.enter-animation {
+  animation: logo-enter 0.5s ease forwards;
+}
+
+.hero-logo.leave-animation {
+  animation: logo-leave 0.5s ease forwards;
+}
+
+.hero-title.enter-animation {
+  animation: title-enter 0.5s ease forwards;
+}
+
+.hero-title.leave-animation {
+  animation: title-leave 0.5s ease forwards;
+}
+
 
 @keyframes enter {
   to {
@@ -500,7 +582,7 @@ onUnmounted(() => {
 .leave-animation {
   opacity: 1;
   transform: scale(1);
-  animation: leave .55s ease forwards;
+  animation: leave .25s ease forwards;
 }
 
 @keyframes leave {
