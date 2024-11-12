@@ -743,8 +743,8 @@ onUnmounted(() => {
   }
 
   .slide-indicators span {
-  width: 24px;
-  height: 24px;
+  width: 21px;
+  height: 21px;
 }
 
 }

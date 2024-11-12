@@ -55,16 +55,6 @@ const handleCtaClick = (action) => {
 
 
 <style scoped>
-.hero-wrapper {
-  position: relative;
-  z-index: 2;
-  margin-bottom: -12rem; /* Adjust as needed for the overlap */
-}
-
-.transition-wrapper {
-  position: relative;
-  z-index: 1;
-}
 
 .hero {
   position: relative;
@@ -77,19 +67,7 @@ const handleCtaClick = (action) => {
   padding-top: 2rem;
   background: linear-gradient(to bottom, rgba(12, 24, 46, 0.8), rgba(25, 24, 24, 0.9));
   color: #fff;
-  z-index: 1;
 }
-
-.fade-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px; /* Adjust the height as needed */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(12, 24, 46, 1));
-  z-index: 3;
-}
-
 
 .carousel {
   margin-top: 0rem;
