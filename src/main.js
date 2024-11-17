@@ -1,6 +1,7 @@
-import { createApp } from 'vue';
+import { createApp, ref, provide } from 'vue';
 import App from './App.vue';
 import { createI18n } from 'vue-i18n';
+import router from './router';
 import './style.css';
 
 // Import language files
@@ -18,8 +19,8 @@ import zh from './locales/zh.json';
 import tr from './locales/tr.json';
 
 const i18n = createI18n({
-  legacy: false,  // Enable Composition API usage
-  locale: 'en',   // Set the default language
+  legacy: false,
+  locale: 'en',
   fallbackLocale: 'en',
   messages: {
     en,
@@ -33,8 +34,14 @@ const i18n = createI18n({
     ko,
     ja,
     zh,
-    tr
-  }
+    tr,
+  },
 });
 
-createApp(App).use(i18n).mount('#app');
+const app = createApp(App);
+
+// Define `selectedLanguage` as a global state
+const selectedLanguage = ref('en');
+app.provide('selectedLanguage', selectedLanguage); // Provide it globally
+
+app.use(router).use(i18n).mount('#app');

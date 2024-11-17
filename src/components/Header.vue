@@ -13,6 +13,7 @@ import logoRU from '@/assets/icons/logo-ru.svg';
 import logoAR from '@/assets/icons/logo-ar.svg';
 import { inject } from 'vue';
 const selectedLanguage = inject('selectedLanguage');
+import { useRouter, useRoute } from 'vue-router';
 
 const { t, locale } = useI18n();
 const isMenuOpen = ref(false);
@@ -26,11 +27,20 @@ const handleLogin = () => {
 };
 
 // Scroll to the top of the page when the logo is clicked
+const router = useRouter();
+const route = useRoute();
+
 const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth' // Smooth scroll to the top
-  });
+  if (route.path !== '/') {
+    // Redirect to the home page if not already there
+    router.push('/');
+  } else {
+    // Scroll to the top if already on the home page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 };
 
 // Map the imported logos to language codes
@@ -75,7 +85,7 @@ const additionalLogoSrc = computed(() => {
     <!-- Navigation Links (Desktop Only) -->
     <nav class="nav-links">
       <ul>
-        <li><a href="#">{{ t('header.dao') }}</a></li>
+        <li><router-link to="/dao">{{ t('header.dao') }}</router-link></li>
         <li><a href="#">{{ t('header.games') }}</a></li>
         <li><a href="#">{{ t('header.dashboard') }}</a></li>
         <li><a href="#">{{ t('header.community') }}</a></li>

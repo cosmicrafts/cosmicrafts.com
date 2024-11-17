@@ -103,5 +103,32 @@
     "cookiePolicy": "Cookie Policy",
     "cookieSettings": "Cookie Settings",
     "language": "Language"
-  }
+  },
+    "dao": {
+      "title": "Cosmicrafts DAO",
+      "subtitle": "Collaborative governance for the future of decentralised gaming.",
+      "cta_join": "Join the DAO",
+      "cta_learn_more": "Learn More",
+      "features": {
+        "decentralised_voting": "Decentralised Voting",
+        "decentralised_voting_desc": "Empowering stakeholders to shape the project collectively.",
+        "community_ownership": "Community Ownership",
+        "community_ownership_desc": "Cosmicrafts is governed by its members, ensuring shared success.",
+        "transparency": "Transparency",
+        "transparency_desc": "Every decision is public and traceable on-chain."
+      },
+      "proposals": {
+        "title": "Active Proposals",
+        "view": "View Proposal",
+        "no_proposals": "No proposals available at the moment.",
+        "sample1": {
+          "title": "Expand Community Rewards",
+          "summary": "Introduce new reward tiers for active DAO members."
+        },
+        "sample2": {
+          "title": "Develop New Game Features",
+          "summary": "Allocate funding for enhanced in-game functionality."
+        }
+      }
+    }
 }
