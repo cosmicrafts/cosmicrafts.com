@@ -60,6 +60,7 @@ footer {
   border-top: 1px solid #3a3a3a;
   text-align: center;
   color: #e2e8f0;
+  z-index: 12;
 }
 
 .social-section {

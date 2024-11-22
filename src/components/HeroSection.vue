@@ -106,7 +106,7 @@ import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import logo1 from '@/assets/webp/adventures.webp';
 import heroImage1 from '@/assets/webp/hero.webp';
-import logo2 from '@/assets/icons/dao-1.svg';
+import logo2 from '@/assets/icons/DAO-1.svg';
 import heroImage2 from '@/assets/icons/logo.svg';
 import logo3 from '@/assets/webp/battlegrounds.webp';
 import heroImage3 from '@/assets/webp/hero2.webp';

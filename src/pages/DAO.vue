@@ -4,7 +4,7 @@
     <div class="section-header">
       <div class="logo-and-overview">
         <!-- Logo -->
-        <img src="@/assets/icons/dao.svg" alt="Cosmicrafts DAO Logo" class="dao-logo" />
+        <img src="@/assets/icons/DAO.svg" alt="Cosmicrafts DAO Logo" class="dao-logo" />
 
         <!-- Title and Mission -->
         <div class="mission">

@@ -63,6 +63,7 @@ const handleCtaClick = (action) => {
   .games,
   .cta-section {
     margin-top: 2rem;
+    z-index: 100;
   }
   
   .cta-button {
