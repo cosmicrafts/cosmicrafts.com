@@ -1,47 +1,43 @@
 <template>
-    <div>
-      <!-- Hero Section -->
-      <div class="hero-wrapper">
-        <HeroSection @ctaClick="handleCtaClick" />
-      </div>
-  
-      <!-- Transition Section for Storytelling -->
-      <div class="transition-wrapper">
-        <TransitionSection />
-      </div>
-  
-      <!-- Other Sections (Lore, Games, etc.) -->
-      <section class="lore">
-        <h2>{{ $t('lore.title') }}</h2>
-        <p>{{ $t('lore.description') }}</p>
-      </section>
-  
-      <section class="games">
-        <h2>{{ $t('games.title') }}</h2>
-        <div class="game-highlight">
-          <h3>{{ $t('games.battlegrounds.title') }}</h3>
-          <p>{{ $t('games.battlegrounds.description') }}</p>
-        </div>
-        <div class="game-highlight">
-          <h3>{{ $t('games.adventures.title') }}</h3>
-          <p>{{ $t('games.adventures.description') }}</p>
-        </div>
-      </section>
-  
-      <section class="cta-section">
-        <button class="cta-button">{{ $t('cta') }}</button>
-      </section>
+  <div>
+    <!-- Hero Section -->
+    <div class="hero-wrapper">
+      <HeroSection @ctaClick="handleCtaClick" />
     </div>
-  </template>
-  
-  <script setup>
-  import HeroSection from '@/components/HeroSection.vue';
-  import TransitionSection from '@/components/TransitionSection.vue';
-  
-  const handleCtaClick = (action) => {
-    console.log(`CTA button clicked with action: ${action}`);
-  };
-  </script>
+
+    <!-- Lore Section -->
+    <div class="lore-wrapper">
+      <Lore />
+    </div>
+
+    <!-- Other Sections (Games, etc.) -->
+    <section class="games">
+      <h2>{{ $t('games.title') }}</h2>
+      <div class="game-highlight">
+        <h3>{{ $t('games.battlegrounds.title') }}</h3>
+        <p>{{ $t('games.battlegrounds.description') }}</p>
+      </div>
+      <div class="game-highlight">
+        <h3>{{ $t('games.adventures.title') }}</h3>
+        <p>{{ $t('games.adventures.description') }}</p>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <button class="cta-button">{{ $t('cta') }}</button>
+    </section>
+  </div>
+</template>
+
+<script setup>
+import HeroSection from '@/components/HeroSection.vue';
+import Lore from '@/components/Lore.vue';
+
+const handleCtaClick = (action) => {
+  console.log(`CTA button clicked with action: ${action}`);
+};
+</script>
+
   
   <style scoped>
 

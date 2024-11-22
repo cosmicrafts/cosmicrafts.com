@@ -105,30 +105,27 @@
     "language": "Language"
   },
     "dao": {
-      "title": "Cosmicrafts DAO",
-      "subtitle": "Collaborative governance for the future of decentralised gaming.",
-      "cta_join": "Join the DAO",
-      "cta_learn_more": "Learn More",
-      "features": {
-        "decentralised_voting": "Decentralised Voting",
-        "decentralised_voting_desc": "Empowering stakeholders to shape the project collectively.",
-        "community_ownership": "Community Ownership",
-        "community_ownership_desc": "Cosmicrafts is governed by its members, ensuring shared success.",
-        "transparency": "Transparency",
-        "transparency_desc": "Every decision is public and traceable on-chain."
-      },
-      "proposals": {
-        "title": "Active Proposals",
-        "view": "View Proposal",
-        "no_proposals": "No proposals available at the moment.",
-        "sample1": {
-          "title": "Expand Community Rewards",
-          "summary": "Introduce new reward tiers for active DAO members."
-        },
-        "sample2": {
-          "title": "Develop New Game Features",
-          "summary": "Allocate funding for enhanced in-game functionality."
-        }
-      }
+    "mission": {
+      "title": "Decentralized governance, united vision.",
+      "description": "Set a course, take it slow, make it happen."
+    },
+    "cta_title": "Join the DAO",
+    "cta_join": "Get Started",
+    "cta_learn_more": "Learn More",
+    "features": {
+      "decentralised_voting": "Decentralized Voting",
+      "decentralised_voting_desc": "Participate in key decisions with transparency.",
+      "community_ownership": "Community Ownership",
+      "community_ownership_desc": "Own and influence the direction of Cosmicrafts.",
+      "transparency": "Transparency",
+      "transparency_desc": "Clear and open governance for everyone."
+    },
+    "proposals": {
+      "title": "Current Proposals",
+      "sample1": { "title": "Proposal 1", "summary": "Details about proposal 1." },
+      "sample2": { "title": "Proposal 2", "summary": "Details about proposal 2." },
+      "no_proposals": "No proposals available at this time.",
+      "view": "View Proposal"
     }
+  }
 }

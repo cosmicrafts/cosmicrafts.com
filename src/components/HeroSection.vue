@@ -704,8 +704,22 @@ onUnmounted(() => {
     padding: 0 1rem;
     margin-top: -2rem;
   }
-    /* Stack CTA panel items in rows */
-    .cta-panel {
+
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    max-width: 21rem;
+    margin-top: -12rem;
+  }
+
+  .hero-logo {
+    max-width: 16rem;
+    margin-top: -10rem;
+  }
+
+      /* Stack CTA panel items in rows */
+      .cta-panel {
     flex-direction: column;
     gap: .25rem;
     padding: 1rem;
@@ -721,18 +735,6 @@ onUnmounted(() => {
     flex-direction: column;
     width:88%;
     margin-bottom: .25rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-image {
-    max-width: 21rem;
-    margin-top: -12rem;
-  }
-
-  .hero-logo {
-    max-width: 16rem;
-    margin-top: -10rem;
   }
 
   /* Slightly smaller hero title text */
