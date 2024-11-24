@@ -10,6 +10,11 @@
       <Lore />
     </div>
 
+    <!-- Lore2 Section -->
+    <div class="lore-wrapper">
+      <Lore2 />
+    </div>
+
     <!-- Other Sections (Games, etc.) -->
     <section class="games">
       <h2>{{ $t('games.title') }}</h2>
@@ -32,6 +37,7 @@
 <script setup>
 import HeroSection from '@/components/HeroSection.vue';
 import Lore from '@/components/Lore.vue';
+import Lore2 from '@/components/Lore2.vue';
 
 const handleCtaClick = (action) => {
   console.log(`CTA button clicked with action: ${action}`);
@@ -47,13 +53,7 @@ const handleCtaClick = (action) => {
     margin-top: 0;
   }
   
-  .transition-section {
-    position: relative;
-    padding-top: 2rem;
-    background: linear-gradient(to bottom, rgba(12, 24, 46, 0.8), rgba(25, 24, 24, 0.9));
-    color: #fff;
-  }
-  
+
   .carousel {
     margin-top: 0rem;
     height: 24rem;

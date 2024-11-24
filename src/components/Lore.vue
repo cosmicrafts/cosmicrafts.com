@@ -137,8 +137,8 @@ export default {
       )
       .fromTo(
         parallaxSceneEl.querySelector(".further-text"),
-        { y: "-100", },
-        { y: "600", rotation: 2, duration: 2 }, // Moves further down slightly
+        { y: "-100", opacity: .95 },
+        { y: "600", rotation: 8, duration: 2, scale: 1.6, opacity: -1.5 }, // Moves further down slightly
         .5
       );
   },
