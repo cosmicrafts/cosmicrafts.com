@@ -130,15 +130,16 @@ export default {
       // Add parallax effect to texts
       .fromTo(
         parallaxSceneEl.querySelector(".explore-text"),
-        { y: "-150" },
+        { y: "-100", opacity: 0 },
+        {duration: .5, opacity: 1},
         { y: "400",scale: .55, rotation: -8, duration: 2 }, // Moves down slightly
-        -.1
+        -.25
       )
       .fromTo(
         parallaxSceneEl.querySelector(".further-text"),
-        { y: "50", },
-        { y: "70%", rotation: 2, duration: 2 }, // Moves further down slightly
-        1.5
+        { y: "-100", },
+        { y: "600", rotation: 2, duration: 2 }, // Moves further down slightly
+        .5
       );
   },
 };
