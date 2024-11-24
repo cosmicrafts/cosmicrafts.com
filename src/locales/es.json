@@ -103,5 +103,9 @@
     "cookiePolicy": "Política de Cookies",
     "cookieSettings": "Configuración de Cookies",
     "language": "Idioma"
+  },
+  "darkRift": {
+    "title": "La Fisura Oscura",
+    "discover": "Descubre"
   }
 }

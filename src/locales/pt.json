@@ -103,5 +103,10 @@
     "cookiePolicy": "Política de Cookies",
     "cookieSettings": "Configurações de Cookies",
     "language": "Idioma"
-  }
+  },
+  "darkRift": {
+  "title": "A Fenda Sombria",
+  "discover": "Descubra"
+}
+
 }

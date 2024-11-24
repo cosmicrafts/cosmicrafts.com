@@ -103,5 +103,10 @@
     "cookiePolicy": "Chính Sách Cookie",
     "cookieSettings": "Cài Đặt Cookie",
     "language": "Ngôn Ngữ"
-  }
+  },
+  "darkRift": {
+  "title": "Khe Nứt Bóng Tối",
+  "discover": "Khám Phá"
+}
+
 }

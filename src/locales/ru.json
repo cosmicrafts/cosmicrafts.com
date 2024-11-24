@@ -103,5 +103,10 @@
     "cookiePolicy": "Политика файлов cookie",
     "cookieSettings": "Настройки файлов cookie",
     "language": "Язык"
-  }
+  },
+  "darkRift": {
+  "title": "Тёмный Разлом",
+  "discover": "Откройте"
+}
+
 }

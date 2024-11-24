@@ -127,5 +127,9 @@
       "no_proposals": "No proposals available at this time.",
       "view": "View Proposal"
     }
+  },
+  "darkRift": {
+    "title": "The Dark Rift",
+    "discover": "Discover"
   }
 }

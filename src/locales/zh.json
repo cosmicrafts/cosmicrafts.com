@@ -103,5 +103,10 @@
     "cookiePolicy": "Cookie政策",
     "cookieSettings": "Cookie设置",
     "language": "语言"
-  }
+  },
+  "darkRift": {
+  "title": "黑暗裂隙",
+  "discover": "发现"
+}
+
 }

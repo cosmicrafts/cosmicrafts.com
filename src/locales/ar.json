@@ -103,5 +103,10 @@
     "cookiePolicy": "سياسة الكوكيز",
     "cookieSettings": "إعدادات الكوكيز",
     "language": "اللغة"
-  }
+  },
+  "darkRift": {
+  "title": "الصدع المظلم",
+  "discover": "اكتشف"
+}
+
 }

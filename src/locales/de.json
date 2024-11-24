@@ -103,5 +103,10 @@
     "cookiePolicy": "Cookie-Richtlinie",
     "cookieSettings": "Cookie-Einstellungen",
     "language": "Sprache"
-  }
+  },
+  "darkRift": {
+  "title": "Die Dunkle Kluft",
+  "discover": "Entdecken"
+}
+
 }

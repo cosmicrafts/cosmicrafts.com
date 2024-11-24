@@ -103,5 +103,10 @@
     "cookiePolicy": "Politique de Cookies",
     "cookieSettings": "Paramètres de Cookies",
     "language": "Langue"
-  }
+  },
+  "darkRift": {
+  "title": "La Faille Obscure",
+  "discover": "Découvrir"
+}
+
 }

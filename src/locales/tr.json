@@ -103,5 +103,10 @@
     "cookiePolicy": "Çerez Politikası",
     "cookieSettings": "Çerez Ayarları",
     "language": "Dil"
-  }
+  },
+  "darkRift": {
+  "title": "Karanlık Yarık",
+  "discover": "Keşfet"
+}
+
 }

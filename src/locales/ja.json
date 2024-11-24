@@ -103,5 +103,10 @@
     "cookiePolicy": "クッキーポリシー",
     "cookieSettings": "クッキー設定",
     "language": "言語"
-  }
+  },
+  "darkRift": {
+  "title": "ダークリフト",
+  "discover": "発見する"
+}
+
 }
