@@ -1,220 +1,1155 @@
 <template>
-  <section id="dao" class="dao-section">
-    <!-- Section Title and Overview -->
-    <div class="section-header">
-      <div class="logo-and-overview">
-        <!-- Logo -->
-        <img src="@/assets/icons/DAO.svg" alt="Cosmicrafts DAO Logo" class="dao-logo" />
+  <div class="dao-page">
+    <!-- Headline Section -->
+    <section class="headline">
+      <div class="content">
+        <h1 class="primary-headline">The DAO you command.</h1>
+        <h2 class="secondary-headline">The dawn of a legacy.</h2>
+        <p class="cta-subtext">It’s yours to take now.</p>
+        <button class="cta-button" @click="handleJoin">Claim Your Command</button>
+      </div>
+    </section>
 
-        <!-- Title and Mission -->
-        <div class="mission">
-          <h2 class="mission-title">{{ t('dao.mission.title') }}</h2>
-          <p class="mission-description">{{ t('dao.mission.description') }}</p>
+    <!-- Why Cosmicrafts Matters -->
+    <section class="why-it-matters">
+      <h2>Cosmicrafts: A Catalyst for ICP's Growth</h2>
+      <p class="vision">
+        Cosmicrafts isn’t just a project—it’s a movement. Built on the Internet Computer, it represents a new era where gaming, NFTs, and decentralized innovation converge to create tangible impact. By leading this charge, Cosmicrafts pioneers the future of Web3, powered by ICP’s unmatched infrastructure.
+      </p>
+      <div class="impact">
+        <h3>Why It Matters for ICP</h3>
+        <ul>
+          <li>
+            <strong>A Beacon for Developers:</strong>
+            Cosmicrafts uses ICP’s ultra-scalable infrastructure and seamless SNS integration to attract top-tier developers. Every tool and success becomes a beacon for others to build on ICP.
+          </li>
+          <li>
+            <strong>A Gateway for Users:</strong>
+            Cosmicrafts combines engaging gameplay, a thriving NFT marketplace, and seamless transactions to onboard new users into the ICP ecosystem.
+          </li>
+          <li>
+            <strong>A Revenue Engine:</strong>
+            Cosmicrafts’ innovative tokenomics and revenue streams—marketplace fees, staking, and NFTs—directly tie back to ICP, driving network-wide growth.
+          </li>
+        </ul>
+      </div>
+      <p class="cta">
+        This is more than an investment—it’s your chance to be part of something transformative. By joining Cosmicrafts DAO, you empower a community, drive innovation, and fuel ICP’s growth. The future of Web3 starts here, and it’s yours to take now.
+      </p>
+    </section>
+
+     <!-- A DAO for Investors -->
+     <section class="investor-focus">
+  <h2 class="section-title">A DAO Designed for Visionaries</h2>
+  <h3 class="highlight">"We've done it before, we'll make it again."</h3>
+
+  <div class="proven-track-record">
+    <h3>Proven Success</h3>
+    <p>
+      In 2022, Cosmicrafts established itself as a blue-chip project on ICP, achieving success despite challenging market conditions. Our resilience and innovation positioned us as leaders in Web3 gaming and NFTs. Now, we're ready to build on that foundation and shine brighter than ever.
+    </p>
+  </div>
+
+  <div class="investor-empowerment">
+    <h3>Empowering the Investor Community</h3>
+    <p>
+      Cosmicrafts DAO puts investors in the driver’s seat. With the power to vote on key decisions, shape the roadmap, and influence fund allocation, this DAO is more than an opportunity—it’s a platform for creating the future. Your participation isn’t just rewarded; it’s integral to our success.
+    </p>
+  </div>
+
+  <ul class="key-points">
+    <li>
+      <h3>Active Participation</h3>
+      <p>
+        Shape the future of Cosmicrafts by voting on major decisions like fund allocation, roadmap priorities, and governance strategies.
+      </p>
+    </li>
+    <li>
+      <h3>Exclusive Rewards</h3>
+      <p>
+        Unlock exclusive benefits such as early access to groundbreaking features, governance rights, and NFT drops tailored for DAO members.
+      </p>
+    </li>
+    <li>
+      <h3>Long-Term Profitability</h3>
+      <p>
+        Benefit from sustainable revenue streams like NFT royalties, marketplace fees, and treasury staking. Together, we’ll reignite the spark and deliver lasting value.
+      </p>
+    </li>
+  </ul>
+
+  <div class="community-callout">
+    <h3>Join a Thriving Community</h3>
+    <p>
+      Be part of a movement that connects like-minded individuals passionate about shaping the future of Web3. Collaborate, innovate, and thrive together in a community-driven ecosystem.
+    </p>
+  </div>
+
+  <div class="call-to-action">
+    <p>
+      Join a DAO built on proven success and ready to shape the future. Together, we’ll redefine what’s possible in decentralized gaming and innovation.
+    </p>
+    <button class="cta-button" @click="joinDao">Shape the Future</button>
+    <!-- Optional Countdown Timer -->
+    <div class="countdown">
+      <p>Limited spots available. Act now to secure your place in the DAO.</p>
+      <progress value="75" max="100"></progress>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Revenue Streams and Tokenomics -->
+    <section class="revenue-streams">
+  <h2 class="section-title">Revenue Streams and Tokenomics: A Sustainable Future</h2>
+  <p class="intro">
+    Cosmicrafts’ tokenomics are designed with sustainability and investor rewards at their core. Each revenue stream directly supports the DAO’s growth while delivering value to token holders.
+  </p>
+  
+  <ul class="streams">
+    <li>
+      <h3>NFT Economy</h3>
+      <p>
+        Generate significant revenue through the sale of unique in-game assets, fostering a vibrant community of collectors and traders. Each NFT purchase strengthens the DAO treasury and grows the ecosystem.
+      </p>
+    </li>
+    <li>
+      <h3>Marketplace Fees</h3>
+      <p>
+        A thriving marketplace for in-game items and NFTs ensures consistent revenue. Every transaction supports future development and fuels the DAO’s treasury.
+      </p>
+    </li>
+    <li>
+      <h3>Treasury Staking</h3>
+      <p>
+        Maximize the value of the DAO’s assets through strategic staking on ICP. This creates a steady stream of passive income for token holders, directly benefiting the community.
+      </p>
+    </li>
+  </ul>
+
+  <div class="tokenomics-model">
+    <h3>A Tokenomics Model Designed for Success</h3>
+    <ul>
+      <li><strong>Deflationary Tokenomics:</strong> Reduce the circulating supply over time, increasing token value and investor returns.</li>
+      <li><strong>Exclusive Benefits:</strong> Unlock special privileges, including early access to new features and rare NFT drops.</li>
+      <li><strong>Community Governance:</strong> Shape the project’s future with voting rights and active participation in decision-making.</li>
+    </ul>
+  </div>
+
+  <div class="visual-representation">
+    <h3>How It All Works</h3>
+    <img src="@/assets/webp/tokenomics.webp" alt="Tokenomics Flow Diagram" class="infographic">
+    <p class="caption">
+      Revenue from NFTs, marketplace fees, and staking flows into the treasury, fueling ecosystem growth and returning value to the community through rewards and dividends.
+    </p>
+  </div>
+
+  <div class="call-to-action">
+    <p>
+      Be part of a sustainable future powered by innovative tokenomics. Invest now to unlock rewards and secure your place in the Cosmicrafts DAO.
+    </p>
+    <button class="cta-button" @click="joinDao">Unlock Your Rewards</button>
+  </div>
+</section>
+
+
+    <!-- Building ICP -->
+<section class="building-icp">
+  <h2 class="section-title">Building ICP Through Strategic Partnerships</h2>
+  <p class="intro">
+    Cosmicrafts isn’t just a game—it’s a flagship ICP project driving collaboration, innovation, and ecosystem growth. By partnering with developers, DAOs, and users, we’re showcasing the transformative potential of the Internet Computer.
+  </p>
+
+  <ul class="partnership-goals">
+    <li>
+      <h3>Onboarding Developers</h3>
+      <p>
+        Empower developers with tools, funding opportunities, and technical support to build groundbreaking projects on ICP. Cosmicrafts has already inspired <strong>10+ new projects</strong>, driving innovation across the ecosystem.
+      </p>
+    </li>
+    <li>
+      <h3>Collaborating with DAOs and DeFi Projects</h3>
+      <p>
+        Strengthen the ecosystem by connecting with ICP-based projects. Recent collaborations have unlocked <strong>cross-project integrations</strong> and expanded the reach of decentralized applications.
+      </p>
+    </li>
+    <li>
+      <h3>Attracting New Users</h3>
+      <p>
+        Showcase ICP’s capabilities through Cosmicrafts’ immersive gaming experience and thriving NFT marketplace. Over <strong>50,000 users</strong> have already joined, highlighting the platform’s potential for mass adoption.
+      </p>
+    </li>
+  </ul>
+
+  <div class="visual-representation">
+    <h3>How We Build Together</h3>
+    <img src="@/assets/webp/tokenomics.webp" alt="Cosmicrafts Ecosystem Diagram" class="infographic">
+    <p class="caption">
+      Partnerships with developers, DAOs, and users create a vibrant ecosystem where innovation thrives, benefiting all stakeholders and driving ICP’s growth.
+    </p>
+  </div>
+
+  <div class="call-to-action">
+    <p>
+      Join the movement shaping the future of ICP. Whether you’re a developer, DAO leader, or user, Cosmicrafts offers a platform to innovate, collaborate, and thrive.
+    </p>
+    <button class="cta-button" @click="joinDao">Build the Future of Web3</button>
+  </div>
+</section>
+
+
+
+    <!-- How to Join -->
+    <section class="how-to-join">
+  <h2 class="section-title">Your Journey to the Future Starts Here</h2>
+  <p class="intro">
+    Embark on a thrilling journey into the future of Web3 gaming. By joining Cosmicrafts DAO, you're not just investing—you’re shaping the future of the industry.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-icon">
+        <img src="@/assets/icons/spiral.svg" alt="Purchase Token Icon">
+      </div>
+      <h3>Step 1: Purchase Your Ticket to the Future</h3>
+      <p>
+        Acquire Cosmicrafts DAO tokens on <strong>[Platform Name]</strong>. Gain voting rights and influence over the project's direction.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">
+        <img src="@/assets/icons/spiral.svg" alt="Stake Token Icon">
+      </div>
+      <h3>Step 2: Stake Your Claim</h3>
+      <p>
+        Lock your tokens to earn passive rewards while contributing to the DAO’s treasury. Boost your earnings and secure your stake in the DAO.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-icon">
+        <img src="@/assets/icons/spiral.svg" alt="Shape the Future Icon">
+      </div>
+      <h3>Step 3: Shape the Future</h3>
+      <p>
+        Participate in governance proposals and community discussions. Directly influence the development of Cosmicrafts and the broader Web3 ecosystem.
+      </p>
+    </div>
+  </div>
+
+  <div class="call-to-action">
+    <p class="cta-text">
+      Limited-time rewards and exclusive benefits await early members. Don’t miss your chance to shape the future of Web3 gaming.
+    </p>
+    <button class="cta-button" @click="joinDao">Join the Revolution Now</button>
+  </div>
+</section>
+
+
+
+    <!-- Roadmap -->
+<!-- Roadmap -->
+<section class="roadmap">
+  <h2 class="section-title">A Visionary Roadmap: Shaping the Future of Web3</h2>
+  <p class="intro">
+    Explore our ambitious roadmap as we chart the course for a sustainable and impactful future in Web3 gaming. Each milestone represents a step closer to building a thriving ecosystem on the Internet Computer.
+  </p>
+
+  <div class="timeline">
+    <!-- Milestone 1 -->
+    <div 
+      class="milestone" 
+      @mouseover="showTooltip('Q1 2024')" 
+      @mouseleave="hideTooltip"
+    >
+      <div class="icon">
+        <img src="@/assets/icons/spiral.svg" alt="Q1 2024 Icon">
+      </div>
+      <div class="content">
+        <h3>Q1 2024: Empowering the Community</h3>
+        <p>
+          Launch a fully decentralized DAO, giving investors direct control over the project’s future.
+        </p>
+        <p class="impact"><strong>Impact:</strong> Strengthen community engagement and foster a sense of ownership.</p>
+        <div v-if="tooltip === 'Q1 2024'" class="tooltip">
+          <p><strong>Completion:</strong> 50%</p>
+          <p><strong>Lead:</strong> Jane Doe, DAO Strategist</p>
         </div>
       </div>
     </div>
 
-    <!-- Call-to-Action Buttons -->
-    <div class="cta-wrapper">
-      <h3 class="cta-title">{{ t('dao.cta_title') }}</h3>
-      <button class="cta-button primary" @click="joinDao">
-        {{ t('dao.cta_join') }}
-      </button>
-      <button class="cta-button secondary" @click="learnMore">
-        {{ t('dao.cta_learn_more') }}
-      </button>
-    </div>
-
-    <!-- Key Features -->
-    <div class="features-grid">
-      <div v-for="feature in features" :key="feature.title" class="feature">
-        <img :src="feature.icon" :alt="feature.title" class="feature-icon" />
-        <h3 class="feature-title">{{ feature.title }}</h3>
-        <p class="feature-description">{{ feature.description }}</p>
+    <!-- Milestone 2 -->
+    <div 
+      class="milestone" 
+      @mouseover="showTooltip('Q2 2024')" 
+      @mouseleave="hideTooltip"
+    >
+      <div class="icon">
+        <img src="@/assets/icons/spiral.svg" alt="Q2 2024 Icon">
       </div>
-    </div>
-
-    <!-- Proposal Highlights -->
-    <div class="proposals-section">
-      <h3 class="proposals-title">{{ t('dao.proposals.title') }}</h3>
-      <div v-if="proposals.length" class="proposals-list">
-        <div v-for="proposal in proposals" :key="proposal.id" class="proposal-item">
-          <h4 class="proposal-title">{{ proposal.title }}</h4>
-          <p class="proposal-summary">{{ proposal.summary }}</p>
-          <button class="proposal-view-button" @click="viewProposal(proposal.id)">
-            {{ t('dao.proposals.view') }}
-          </button>
+      <div class="content">
+        <h3>Q2 2024: Fueling the Ecosystem</h3>
+        <p>
+          Introduce a cutting-edge NFT marketplace, enabling seamless trading of in-game assets.
+        </p>
+        <p class="impact"><strong>Impact:</strong> Drive user adoption and generate significant revenue for the DAO.</p>
+        <div v-if="tooltip === 'Q2 2024'" class="tooltip">
+          <p><strong>Completion:</strong> 30%</p>
+          <p><strong>Focus:</strong> UI Development, Smart Contract Finalization</p>
         </div>
       </div>
-      <div v-else>
-        <p>{{ t('dao.proposals.no_proposals') }}</p>
+    </div>
+
+    <!-- Milestone 3 -->
+    <div 
+      class="milestone" 
+      @mouseover="showTooltip('Q3 2024')" 
+      @mouseleave="hideTooltip"
+    >
+      <div class="icon">
+        <img src="@/assets/icons/spiral.svg" alt="Q3 2024 Icon">
+      </div>
+      <div class="content">
+        <h3>Q3 2024: Strategic Partnerships</h3>
+        <p>
+          Collaborate with leading ICP projects to expand the ecosystem and create synergies.
+        </p>
+        <p class="impact"><strong>Impact:</strong> Accelerate growth and solidify Cosmicrafts' position as a leading Web3 project.</p>
+        <div v-if="tooltip === 'Q3 2024'" class="tooltip">
+          <p><strong>Completion:</strong> 20%</p>
+          <p><strong>Focus:</strong> Establishing Agreements and Cross-Integrations</p>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- Milestone 4 -->
+    <div 
+      class="milestone" 
+      @mouseover="showTooltip('Beyond 2024')" 
+      @mouseleave="hideTooltip"
+    >
+      <div class="icon">
+        <img src="@/assets/icons/spiral.svg" alt="Beyond 2024 Icon">
+      </div>
+      <div class="content">
+        <h3>Beyond 2024: A Sustainable Future</h3>
+        <p>
+          Continue to innovate and expand, introducing new features and partnerships to drive mass adoption.
+        </p>
+        <p class="impact"><strong>Impact:</strong> Ensure the long-term success of the project and maximize returns for investors.</p>
+        <div v-if="tooltip === 'Beyond 2024'" class="tooltip">
+          <p><strong>Completion:</strong> Planned</p>
+          <p><strong>Focus:</strong> Ecosystem Expansion and Community-Driven Innovation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Community Involvement -->
+  <div class="community-involvement">
+    <h3>Shape the Future with Us</h3>
+    <p>
+      Have your say in what Cosmicrafts should prioritize next. Vote or share your feedback to directly influence the roadmap.
+    </p>
+    <button class="cta-button" @click="openFeedbackForm">Share Your Ideas</button>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="call-to-action">
+    <p>
+      Be part of this visionary journey. Join Cosmicrafts DAO today and help shape the future of Web3 innovation.
+    </p>
+    <button class="cta-button" @click="joinDao">Join the Revolution</button>
+  </div>
+</section>
+
+
+
+
+    <!-- Closing CTA -->
+    <section class="closing-cta">
+  <div class="content">
+    <h2 class="headline">Join the Future of Web3</h2>
+    <p class="subtext">
+      Be part of a community shaping the future of gaming and decentralized finance. Unlock exclusive benefits and contribute to the growth of the Internet Computer.
+    </p>
+    <div class="cta-container">
+      <button class="cta-button" @click="joinDao">Secure Your Future</button>
+      <div class="progress-bar-container" @mouseover="showTooltip" @mouseleave="hideTooltip">
+        <p class="progress-text">Limited Time Offer: 75% of tokens claimed.</p>
+        <progress value="75" max="100" class="progress-bar"></progress>
+        <div v-if="tooltipVisible" class="tooltip">
+          <p>15,000/20,000 tokens claimed.</p>
+          <p>Offer ends in {{ countdown }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-carousel">
+      <blockquote>
+        "Joining Cosmicrafts DAO has been a game-changer. I've gained valuable insights, connected with amazing people, and earned significant rewards."
+      </blockquote>
+      <p class="testimonial-name">- Alex, Satisfied DAO Member</p>
+    </div>
+    <div class="community-stats">
+      <p>📈 <strong>{{ membersCount }}</strong> DAO Members</p>
+      <p>💰 Total Value Locked: <strong>{{ totalValueLocked }}</strong></p>
+    </div>
+    <div class="countdown-timer">
+      <p>Early Bird Benefits End In:</p>
+      <p class="timer">{{ countdown }}</p>
+    </div>
+  </div>
+</section>
+
+
+
+  </div>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n();
-
-const features = ref([
-  {
-    title: t('dao.features.decentralised_voting'),
-    description: t('dao.features.decentralised_voting_desc'),
-    icon: '@/assets/icons/voting.svg',
+<script>
+export default {
+  name: "ClosingCTA",
+  data() {
+    return {
+      tooltipVisible: false,
+      countdown: "",
+      membersCount: "12,340",
+      totalValueLocked: "$1.2M",
+      offerEndTime: new Date().getTime() + 48 * 60 * 60 * 1000, // 48 hours from now
+    };
   },
-  {
-    title: t('dao.features.community_ownership'),
-    description: t('dao.features.community_ownership_desc'),
-    icon: '@/assets/icons/ownership.svg',
-  },
-  {
-    title: t('dao.features.transparency'),
-    description: t('dao.features.transparency_desc'),
-    icon: '@/assets/icons/transparency.svg',
-  },
-]);
+  methods: {
+    showTooltip() {
+      this.tooltipVisible = true;
+    },
+    hideTooltip() {
+      this.tooltipVisible = false;
+    },
+    updateCountdown() {
+      const now = new Date().getTime();
+      const distance = this.offerEndTime - now;
 
-const proposals = ref([
-  {
-    id: 1,
-    title: t('dao.proposals.sample1.title'),
-    summary: t('dao.proposals.sample1.summary'),
+      if (distance > 0) {
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        this.countdown = `${hours}h ${minutes}m ${seconds}s`;
+      } else {
+        this.countdown = "Offer Expired";
+      }
+    },
   },
-  {
-    id: 2,
-    title: t('dao.proposals.sample2.title'),
-    summary: t('dao.proposals.sample2.summary'),
+  mounted() {
+    this.updateCountdown();
+    setInterval(this.updateCountdown, 1000);
   },
-]);
-
-const joinDao = () => {
-  window.location.href = '#'; // Replace with actual DAO join link
-};
-
-const learnMore = () => {
-  window.location.href = '#'; // Replace with learn more section or page
-};
-
-const viewProposal = (id) => {
-  console.log(`View proposal with ID: ${id}`); // Implement actual logic to navigate to proposal details
 };
 </script>
 
 <style scoped>
-.dao-section {
-  padding: 4rem 2rem;
-  background-image: url('/src/assets/webp/space.webp');
+.dao-page {
+  font-family: 'Arial', sans-serif;
   color: #fff;
+  background-color: #0a0c27;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
-.section-header {
+.headline {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-  text-align: left;
+  text-align: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0b132b, #1c2541);
+  background-image: url('https://source.unsplash.com/1600x900/?space,galaxy');
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-.dao-logo {
-  width: 8rem;
-  margin-top: 2rem;
+.headline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 12, 39, 0.7);
+  z-index: 1;
 }
 
-.mission {
-  margin-left: 1.5rem;
+.content {
+  position: relative;
+  z-index: 2;
 }
 
-.mission-title {
-  font-size: 3rem;
+.primary-headline {
+  font-size: 4rem;
   font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.mission-description {
+.secondary-headline {
   font-size: 2rem;
-  color: #bbb;
+  font-weight: 400;
+  margin: 1rem 0;
 }
 
-.cta-wrapper {
-  margin: 2rem 2rem;
-  text-align: left;
-}
-
-.cta-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.cta-subtext {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-style: italic;
 }
 
 .cta-button {
-  margin-right: 1rem;
-  padding: 0.75rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  color: #fff;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
-.cta-button.primary {
-  background: #00c3ff;
-  color: #fff;
+.cta-button:hover {
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  transform: scale(1.05);
 }
 
-.cta-button.primary:hover {
-  background: #0094ff;
-}
-
-.cta-button.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.cta-button.secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.feature {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+.why-it-matters {
+  background: #1c2541;
   padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  color: #e0e0e0;
+}
+
+.why-it-matters h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.feature-icon {
-  width: 3rem;
-  margin-bottom: 1rem;
+.why-it-matters p {
+  margin: 1rem 0;
+  line-height: 1.6;
+  font-size: 1.2rem;
 }
 
-.feature-title {
-  font-size: 1.5rem;
+.why-it-matters .impact h3 {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: #b0c4de;
+}
+
+.why-it-matters ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.why-it-matters ul li {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.why-it-matters ul li strong {
+  color: #4caf50;
+}
+
+.why-it-matters .cta {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.investor-focus {
+  background: linear-gradient(135deg, #1c2541, #0b132b);
+  color: #e0e0e0;
+  padding: 3rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
   font-weight: bold;
+}
+
+.highlight {
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.proven-track-record, .investor-empowerment, .community-callout {
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: #b0c4de;
   margin-bottom: 0.5rem;
 }
 
-.feature-description {
+p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.key-points {
+  list-style: none;
+  padding: 0;
+}
+
+.key-points li {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.key-points h3 {
+  color: #4caf50;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.key-points p {
+  margin: 0;
+}
+
+.call-to-action {
+  margin-top: 3rem;
+}
+
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  transform: scale(1.05);
+}
+
+.countdown {
+  margin-top: 1rem;
+}
+
+.countdown p {
   font-size: 1rem;
-  color: #aaa;
+  color: #b0c4de;
+  margin-bottom: 0.5rem;
 }
 
-@media (max-width: 768px) {
-  .section-header,
-  .cta-wrapper {
-    text-align: center;
-    align-items: center;
-  }
-
-  .mission {
-    margin-left: 0;
-  }
+progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
 }
+
+progress::-webkit-progress-bar {
+  background: #e0e0e0;
+}
+
+progress::-webkit-progress-value {
+  background: #4caf50;
+}
+
+.revenue-streams {
+  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  color: #e0e0e0;
+  padding: 3rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.intro {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.streams, .tokenomics-model ul {
+  list-style: none;
+  padding: 0;
+}
+
+.streams li, .tokenomics-model ul li {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.streams h3, .tokenomics-model h3 {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.streams p, .tokenomics-model ul li {
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.visual-representation {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.visual-representation img {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.caption {
+  font-size: 1rem;
+  color: #b0c4de;
+  margin-top: 1rem;
+}
+
+.call-to-action {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  transform: scale(1.05);
+}
+
+
+.building-icp {
+  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  color: #e0e0e0;
+  padding: 3rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.partnership-goals {
+  list-style: none;
+  padding: 0;
+}
+
+.partnership-goals li {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.partnership-goals h3 {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.partnership-goals p {
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.visual-representation {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.visual-representation img {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.caption {
+  font-size: 1rem;
+  color: #b0c4de;
+  margin-top: 1rem;
+}
+
+.call-to-action {
+  margin-top: 3rem;
+}
+
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  transform: scale(1.05);
+}
+
+
+.how-to-join {
+  background: linear-gradient(135deg, #0b132b, #1a1f3d);
+  color: #e0e0e0;
+  padding: 3rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.step-icon img {
+  width: 64px;
+  height: 64px;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.call-to-action {
+  margin-top: 3rem;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  transform: scale(1.05);
+}
+
+
+.roadmap {
+  background: linear-gradient(135deg, #0b132b, #1a1f3d);
+  color: #e0e0e0;
+  padding: 3rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 10px;
+  background: linear-gradient(to right, #4caf50, #0288d1);
+  border-radius: 5px;
+  margin-top: 1rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar::before {
+  content: '';
+  display: block;
+  width: var(--progress);
+  height: 100%;
+  background: #4caf50;
+}
+
+.details {
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.icon img {
+  width: 64px;
+  height: 64px;
+}
+
+.content h3 {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.impact {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #b0c4de;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.community-involvement {
+  margin-top: 3rem;
+}
+
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  transform: scale(1.05);
+}
+
+.closing-cta {
+  background: linear-gradient(135deg, #0b132b, #1c2541);
+  color: #e0e0e0;
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.closing-cta .headline {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.closing-cta .subtext {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  transform: scale(1.05);
+}
+
+.progress-bar-container {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background: #e0e0e0;
+}
+
+progress::-webkit-progress-value {
+  background: #4caf50;
+}
+
+.tooltip {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.testimonial-carousel {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #b0c4de;
+}
+
+.testimonial-carousel blockquote {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.testimonial-carousel .testimonial-name {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-top: 0.5rem;
+}
+
+.community-stats {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #b0c4de;
+}
+
+.countdown-timer {
+  margin-top: 2rem;
+}
+
+.countdown-timer .timer {
+  font-size: 1.5rem;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+
 </style>

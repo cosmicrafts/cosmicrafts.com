@@ -1,7 +1,5 @@
 <template>
   <div class="parallax-wrapper">
-    <!-- Semi-Transparent Overlay -->
-    <div class="color-overlay"></div>
 
     <div class="parallax-scene">
       <div class="scrollDist"></div>
@@ -139,7 +137,7 @@ export default {
         parallaxSceneEl.querySelector(".further-text"),
         { y: "-100", opacity: .95 },
         { y: "600", rotation: 8, duration: 2, scale: 1.6, opacity: -1.5 }, // Moves further down slightly
-        .5
+        -.5
       );
   },
 };
@@ -216,15 +214,6 @@ image {
   opacity: .75;
 }
 
-.color-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.041); /* Blue with 2% transparency */
-  pointer-events: none; /* Ensures it doesn’t interfere with clicks or interactions */
-  z-index: 2; /* Place it above all content */
-}
+
 
 </style>
