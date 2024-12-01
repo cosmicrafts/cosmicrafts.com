@@ -10,6 +10,96 @@
       </div>
     </section>
 
+<!-- Vision and Mission Section -->
+<section class="vision-mission">
+  <h2 class="section-title">Our Purpose: Vision and Mission</h2>
+  
+  <!-- Vision Explanation -->
+  <div class="content">
+    <h3 class="subheading">Vision: The Future We’re Building</h3>
+    <p class="vision-statement">
+      Cosmicrafts is building a gamer-owned universe where players directly influence the development of persistent worlds, economies, and narratives. 
+      <strong>Your digital legacy is reflected in the appreciating value of in-game assets and the thriving Cosmicrafts DAO ecosystem.</strong>
+    </p>
+    <p class="context">
+      <em>What does this mean?</em> This vision highlights how Cosmicrafts empowers players to leave a lasting impact—not just on the game, but on the Web3 ecosystem itself. It’s about ownership, influence, and creating something meaningful that endures.
+    </p>
+  </div>
+  
+  <!-- Mission Explanation -->
+  <div class="content">
+    <h3 class="subheading">Mission: How We Make It Happen</h3>
+    <p class="mission-statement">
+      We empower players, developers, and investors to co-create the future of gaming on the Internet Computer. 
+      Leveraging unparalleled scalability and security, Cosmicrafts ensures a thriving ecosystem where every participant shares in the collective success.
+    </p>
+    <p class="context">
+      <em>What does this mean?</em> Our mission lays out the actionable steps—through governance, innovation, and partnerships—to achieve our vision. We’re using the Internet Computer's unique capabilities to build a future-proof ecosystem.
+    </p>
+  </div>
+  
+  <div class="visual-placeholder">
+    <img src="@/assets/icons/spiral.svg" alt="Vision Illustration">
+    <p class="caption">Illustration of players shaping the game and DAO ecosystem through their influence.</p>
+  </div>
+</section>
+
+
+   <!-- Core Value Proposition Section -->
+<section class="core-value">
+  <h2 class="section-title">Our Core Values: Why Cosmicrafts Matters</h2>
+  
+  <!-- Value Explanation -->
+  <div class="value-item">
+    <h3>Forge the Metaverse</h3>
+    <p>
+      Directly shape Cosmicrafts' future through on-chain governance. 
+      <strong>Your vote determines pivotal features, compelling narratives, and strategic partnerships, directly impacting the game's evolution and its value.</strong>
+    </p>
+    <p class="context">
+      <em>Why does this matter?</em> This value emphasizes your power to influence and lead, making Cosmicrafts more than just a game—it’s a platform for meaningful creation.
+    </p>
+    <div class="visual-placeholder">
+      <img src="@/assets/icons/spiral.svg" alt="Forge Illustration">
+      <p class="caption">Visualizing player voting directly affecting game mechanics and lore.</p>
+    </div>
+  </div>
+
+  <div class="value-item">
+    <h3>Exclusive Founder's Circle</h3>
+    <p>
+      Unlock rare in-game assets, prioritized access to new content releases, and privileged invitations to exclusive community events, private developer Q&As, and pre-investment opportunities.
+    </p>
+    <p class="context">
+      <em>Why does this matter?</em> Membership in the Founder's Circle provides tangible benefits and prestige, fostering a sense of belonging in a tight-knit community of innovators.
+    </p>
+    <div class="visual-placeholder">
+      <img src="@/assets/icons/spiral.svg" alt="Exclusive Access Illustration">
+      <p class="caption">Representation of exclusive NFTs and access perks for DAO members.</p>
+    </div>
+  </div>
+
+  <div class="value-item">
+    <h3>Exponential Financial Returns</h3>
+    <p>
+      Participate in sustainable revenue streams, earn passive income through staking, and benefit from the exponential growth of a thriving Web3 gaming ecosystem. 
+      <strong>Our transparent tokenomics ensure predictable and sustainable returns.</strong>
+    </p>
+    <p class="context">
+      <em>Why does this matter?</em> Financial growth is key to attracting long-term investors. This value reassures stakeholders about the project’s profitability and transparency.
+    </p>
+    <div class="visual-placeholder">
+      <img src="@/assets/icons/spiral.svg" alt="Financial Returns Illustration">
+      <p class="caption">Infographic representing DAO treasury growth and member rewards.</p>
+    </div>
+  </div>
+  
+  <!-- CTA -->
+  <div class="call-to-action">
+    <button class="cta-button" @click="joinDao">Forge. Access. Prosper.</button>
+  </div>
+</section>
+
     <!-- Why Cosmicrafts Matters -->
     <section class="why-it-matters">
       <h2>Cosmicrafts: A Catalyst for ICP's Growth</h2>
@@ -448,13 +538,20 @@ export default {
 
 <style scoped>
 .dao-page {
-  font-family: 'Arial', sans-serif;
-  color: #fff;
+  color: #ffffff;
   background-color: #0a0c27;
-  padding: 0;
   margin: 0;
-  overflow: hidden;
+  padding: 0;
+  line-height: 1.2;
 }
+
+.section-title {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
 
 .headline {
   display: flex;
@@ -463,7 +560,7 @@ export default {
   flex-direction: column;
   text-align: center;
   height: 100vh;
-  background: linear-gradient(135deg, #0b132b, #1c2541);
+  background: linear-gradient(135deg, #253f8b, #1c2541);
   background-image: url('https://source.unsplash.com/1600x900/?space,galaxy');
   background-size: cover;
   background-position: center;
@@ -522,6 +619,131 @@ export default {
   transform: scale(1.05);
 }
 
+
+
+.vision-mission,
+.core-value {
+  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  text-align: center;
+  padding: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Subheadings */
+.subheading {
+  font-size: 1.8rem;
+  color: #b0c4de;
+  margin-top: 2rem;
+}
+
+/* Text Content */
+.vision-statement,
+.mission-statement {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+.context {
+  font-size: 1rem;
+  color: #b0c4de;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+strong {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Visual Placeholder */
+.visual-placeholder {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.visual-placeholder img {
+  width: 120px;
+  height: 120px;
+  margin: 1rem auto;
+  display: block;
+}
+
+.visual-placeholder .caption {
+  font-size: 0.9rem;
+  color: #b0c4de;
+  margin-top: 0.5rem;
+}
+
+/* Core Value Proposition */
+.value-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.value-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.value-item h3 {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.value-item p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  line-height: 1.8;
+}
+
+.value-item .context {
+  margin-top: 1rem;
+}
+
+/* Call to Action */
+.call-to-action {
+  margin-top: 3rem;
+}
+
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0288d1, #4caf50);
+  color: #ffffff;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #4caf50, #0288d1);
+  transform: scale(1.05);
+}
+
+
 .why-it-matters {
   background: #1c2541;
   padding: 2rem;
@@ -577,14 +799,6 @@ export default {
   margin: 2rem auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  color: #4caf50;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  font-weight: bold;
 }
 
 .highlight {
@@ -687,14 +901,6 @@ progress::-webkit-progress-value {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: #4caf50;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 .intro {
   font-size: 1.2rem;
   text-align: center;
@@ -776,13 +982,6 @@ progress::-webkit-progress-value {
   text-align: center;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: #4caf50;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-
 .intro {
   font-size: 1.2rem;
   margin-bottom: 2rem;
@@ -861,12 +1060,6 @@ progress::-webkit-progress-value {
   text-align: center;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: #4caf50;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
 
 .intro {
   font-size: 1.2rem;
