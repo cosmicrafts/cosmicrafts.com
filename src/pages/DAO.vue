@@ -537,22 +537,17 @@ export default {
 </script>
 
 <style scoped>
+/* DAO Page Specific Styles */
+
 .dao-page {
-  color: #ffffff;
-  background-color: #0a0c27;
+  color: var(--font-color);
+  background-color: var(--background-color);
   margin: 0;
   padding: 0;
   line-height: 1.2;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: #4caf50;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-
-
+/* Headline Section */
 .headline {
   display: flex;
   align-items: center;
@@ -585,7 +580,7 @@ export default {
 
 .primary-headline {
   font-size: 4rem;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -593,7 +588,7 @@ export default {
 
 .secondary-headline {
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: var(--font-weight-medium);
   margin: 1rem 0;
 }
 
@@ -606,23 +601,19 @@ export default {
 .cta-button {
   font-size: 1.5rem;
   padding: 1rem 2rem;
-  border: none;
-  border-radius: 5px;
-  background: linear-gradient(90deg, #4caf50, #0288d1);
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
   color: #fff;
   cursor: pointer;
-  transition: all 0.3s ease;
+  border-radius: var(--button-border-radius);
+  transition: background-color 0.1s;
 }
 
 .cta-button:hover {
-  background: linear-gradient(90deg, #0288d1, #4caf50);
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
-
-
-.vision-mission,
-.core-value {
+/* Vision and Mission Section */
+.vision-mission {
   background: linear-gradient(135deg, #1a1f3d, #0b132b);
   text-align: center;
   padding: 3rem;
@@ -630,22 +621,18 @@ export default {
 
 .section-title {
   font-size: 2.5rem;
-  color: #4caf50;
+  color: #fff;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  font-weight: bold;
 }
 
-/* Subheadings */
 .subheading {
   font-size: 1.8rem;
   color: #b0c4de;
   margin-top: 2rem;
 }
 
-/* Text Content */
-.vision-statement,
-.mission-statement {
+.vision-statement, .mission-statement {
   font-size: 1.2rem;
   color: #e0e0e0;
   margin: 1rem auto;
@@ -659,12 +646,6 @@ export default {
   font-style: italic;
 }
 
-strong {
-  color: #4caf50;
-  font-weight: bold;
-}
-
-/* Visual Placeholder */
 .visual-placeholder {
   margin: 2rem auto;
   text-align: center;
@@ -677,18 +658,17 @@ strong {
   display: block;
 }
 
-.visual-placeholder .caption {
+.caption {
   font-size: 0.9rem;
   color: #b0c4de;
   margin-top: 0.5rem;
 }
 
-/* Core Value Proposition */
-.value-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 2rem;
+/* Core Value Proposition Section */
+.core-value {
+  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  text-align: center;
+  padding: 3rem;
 }
 
 .value-item {
@@ -698,16 +678,12 @@ strong {
   text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.value-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  margin: 1rem auto;
 }
 
 .value-item h3 {
   font-size: 1.5rem;
-  color: #4caf50;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
@@ -721,7 +697,11 @@ strong {
   margin-top: 1rem;
 }
 
-/* Call to Action */
+.visual-placeholder img {
+  width: 64px;
+  height: 64px;
+}
+
 .call-to-action {
   margin-top: 3rem;
 }
@@ -729,21 +709,18 @@ strong {
 .cta-button {
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #0288d1, #4caf50);
-  color: #ffffff;
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
+  color: #fff;
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  border-radius: var(--button-border-radius);
+  transition: background-color 0.1s;
 }
 
 .cta-button:hover {
-  background: linear-gradient(90deg, #4caf50, #0288d1);
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
-
+/* Why Cosmicrafts Matters */
 .why-it-matters {
   background: #1c2541;
   padding: 2rem;
@@ -783,7 +760,7 @@ strong {
 }
 
 .why-it-matters ul li strong {
-  color: #4caf50;
+  color: #fff;
 }
 
 .why-it-matters .cta {
@@ -791,6 +768,8 @@ strong {
   font-size: 1.2rem;
   text-align: center;
 }
+
+/* A DAO for Investors */
 .investor-focus {
   background: linear-gradient(135deg, #1c2541, #0b132b);
   color: #e0e0e0;
@@ -812,16 +791,10 @@ strong {
   margin-bottom: 2rem;
 }
 
-h3 {
-  font-size: 1.8rem;
-  color: #b0c4de;
+.proven-track-record h3, .investor-empowerment h3, .community-callout h3 {
+  font-size: 1.5rem;
+  color: #fff;
   margin-bottom: 0.5rem;
-}
-
-p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
 }
 
 .key-points {
@@ -837,7 +810,7 @@ p {
 }
 
 .key-points h3 {
-  color: #4caf50;
+  color: #fff;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
@@ -850,21 +823,23 @@ p {
   margin-top: 3rem;
 }
 
+.call-to-action p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
 .cta-button {
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, #0288d1, #4caf50);
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
   color: #fff;
-  border: none;
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: background-color 0.1s;
 }
 
 .cta-button:hover {
-  background: linear-gradient(90deg, #4caf50, #0288d1);
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
 .countdown {
@@ -889,9 +864,10 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: #4caf50;
+  background: #4a90e2;
 }
 
+/* Revenue Streams and Tokenomics */
 .revenue-streams {
   background: linear-gradient(135deg, #1a1f3d, #0b132b);
   color: #e0e0e0;
@@ -921,7 +897,7 @@ progress::-webkit-progress-value {
 
 .streams h3, .tokenomics-model h3 {
   font-size: 1.5rem;
-  color: #4caf50;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
@@ -957,21 +933,18 @@ progress::-webkit-progress-value {
 .cta-button {
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, #0288d1, #4caf50);
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
   color: #fff;
-  border: none;
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: background-color 0.1s;
 }
 
 .cta-button:hover {
-  background: linear-gradient(90deg, #4caf50, #0288d1);
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
-
+/* Building ICP */
 .building-icp {
   background: linear-gradient(135deg, #1a1f3d, #0b132b);
   color: #e0e0e0;
@@ -1001,7 +974,7 @@ progress::-webkit-progress-value {
 
 .partnership-goals h3 {
   font-size: 1.5rem;
-  color: #4caf50;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
@@ -1036,21 +1009,18 @@ progress::-webkit-progress-value {
 .cta-button {
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, #0288d1, #4caf50);
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
   color: #fff;
-  border: none;
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: background-color 0.1s;
 }
 
 .cta-button:hover {
-  background: linear-gradient(90deg, #4caf50, #0288d1);
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
-
+/* How to Join */
 .how-to-join {
   background: linear-gradient(135deg, #0b132b, #1a1f3d);
   color: #e0e0e0;
@@ -1059,7 +1029,6 @@ progress::-webkit-progress-value {
   margin: 2rem auto;
   text-align: center;
 }
-
 
 .intro {
   font-size: 1.2rem;
@@ -1091,7 +1060,7 @@ progress::-webkit-progress-value {
 
 .step h3 {
   font-size: 1.5rem;
-  color: #4caf50;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
@@ -1113,21 +1082,18 @@ progress::-webkit-progress-value {
 .cta-button {
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, #0288d1, #4caf50);
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
   color: #fff;
-  border: none;
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: background-color 0.1s;
 }
 
 .cta-button:hover {
-  background: linear-gradient(90deg, #4caf50, #0288d1);
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
-
+/* Roadmap */
 .roadmap {
   background: linear-gradient(135deg, #0b132b, #1a1f3d);
   color: #e0e0e0;
@@ -1155,39 +1121,9 @@ progress::-webkit-progress-value {
   position: relative;
 }
 
-.progress-bar {
-  height: 10px;
-  background: linear-gradient(to right, #4caf50, #0288d1);
-  border-radius: 5px;
-  margin-top: 1rem;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-bar::before {
-  content: '';
-  display: block;
-  width: var(--progress);
-  height: 100%;
-  background: #4caf50;
-}
-
-.details {
-  margin-top: 1rem;
-  background: rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.icon img {
-  width: 64px;
-  height: 64px;
-}
-
 .content h3 {
   font-size: 1.5rem;
-  color: #4caf50;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
@@ -1220,23 +1156,25 @@ progress::-webkit-progress-value {
   margin-top: 3rem;
 }
 
+.call-to-action {
+  margin-top: 3rem;
+}
+
 .cta-button {
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, #0288d1, #4caf50);
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
   color: #fff;
-  border: none;
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: background-color 0.1s;
 }
 
 .cta-button:hover {
-  background: linear-gradient(90deg, #4caf50, #0288d1);
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
+/* Closing CTA */
 .closing-cta {
   background: linear-gradient(135deg, #0b132b, #1c2541);
   color: #e0e0e0;
@@ -1247,35 +1185,21 @@ progress::-webkit-progress-value {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.closing-cta .headline {
+.headline {
   font-size: 2.5rem;
-  color: #4caf50;
+  color: #fff;
   margin-bottom: 1rem;
   text-transform: uppercase;
-  font-weight: bold;
 }
 
-.closing-cta .subtext {
+.subtext {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   line-height: 1.8;
 }
 
-.cta-button {
-  font-size: 1.5rem;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(90deg, #0288d1, #4caf50);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  background: linear-gradient(90deg, #4caf50, #0288d1);
-  transform: scale(1.05);
+.cta-container {
+  margin-top: 2rem;
 }
 
 .progress-bar-container {
@@ -1290,12 +1214,10 @@ progress::-webkit-progress-value {
   overflow: hidden;
 }
 
-progress::-webkit-progress-bar {
-  background: #e0e0e0;
-}
-
-progress::-webkit-progress-value {
-  background: #4caf50;
+.progress-text {
+  font-size: 1rem;
+  color: #b0c4de;
+  margin-bottom: 0.5rem;
 }
 
 .tooltip {
@@ -1322,7 +1244,7 @@ progress::-webkit-progress-value {
   margin: 0;
 }
 
-.testimonial-carousel .testimonial-name {
+.testimonial-name {
   font-size: 1rem;
   color: #e0e0e0;
   margin-top: 0.5rem;
@@ -1338,11 +1260,14 @@ progress::-webkit-progress-value {
   margin-top: 2rem;
 }
 
-.countdown-timer .timer {
-  font-size: 1.5rem;
-  color: #4caf50;
-  font-weight: bold;
+.countdown-timer p {
+  font-size: 1rem;
+  color: #b0c4de;
 }
 
-
+.countdown-timer .timer {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: var(--font-weight-bold);
+}
 </style>
