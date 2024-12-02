@@ -1094,85 +1094,130 @@ progress::-webkit-progress-value {
 }
 
 /* Roadmap */
+/* Roadmap */
 .roadmap {
-  background: linear-gradient(135deg, #0b132b, #1a1f3d);
-  color: #e0e0e0;
-  padding: 3rem;
-  border-radius: 12px;
-  margin: 2rem auto;
-  text-align: center;
+  background: linear-gradient(135deg, #1b1d36, #0e0f1b);
+}
+
+.roadmap .intro {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
 }
 
 .timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  position: relative;
+  margin: 4rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-50%);
 }
 
 .milestone {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  margin-bottom: 2rem;
   position: relative;
+  width: 50%;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.content h3 {
-  font-size: 1.5rem;
-  color: #fff;
+.milestone:nth-child(odd) {
+  left: 0;
+  transform: translateX(-10%);
+}
+
+.milestone:nth-child(even) {
+  left: 50%;
+  transform: translateX(10%);
+}
+
+.milestone::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -12px;
+  width: 20px;
+  height: 20px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.milestone:nth-child(even)::after {
+  left: -12px;
+  right: auto;
+}
+
+.milestone .icon {
+  display: none; /* Removed icons for cleaner look */
+}
+
+.milestone .content h3 {
+  font-size: 1.6rem;
+  color: var(--accent-color-light);
   margin-bottom: 0.5rem;
 }
 
-.content p {
-  font-size: 1.2rem;
+.milestone .content p {
+  font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 0.5rem;
 }
 
-.impact {
-  font-size: 1.1rem;
+.milestone .impact {
+  font-size: 1rem;
   font-style: italic;
-  color: #b0c4de;
+  color: var(--subheading-color);
 }
 
 .tooltip {
   position: absolute;
-  top: 100%;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 15, 27, 0.9);
   color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  margin-top: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  display: none;
+}
+
+.milestone:hover .tooltip {
+  display: block;
 }
 
 .community-involvement {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
-.call-to-action {
-  margin-top: 3rem;
+.community-involvement h3 {
+  font-size: 2rem;
+  color: var(--accent-color-light);
+  margin-bottom: 1rem;
 }
 
-.cta-button {
-  font-size: 1.5rem;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(to bottom, #4a90e2, #264f89);
-  color: #fff;
-  border-radius: var(--button-border-radius);
-  cursor: pointer;
-  transition: background-color 0.1s;
+.community-involvement p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-.cta-button:hover {
-  background: linear-gradient(to bottom, #3d92f3, #287aed);
+.community-involvement .cta-button {
+  font-size: 1.3rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
 }
+
 
 /* Closing CTA */
 .closing-cta {
