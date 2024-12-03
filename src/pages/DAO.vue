@@ -40,21 +40,23 @@
         </h1>
         <h2
           class="secondary-headline"
-          :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.000825})` }"
+          :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.000425})` }"
         >
-          A DAO you command
+          A DAO you Command
         </h2>
         <p
           class="cta-subtext"
-          :style="{ transform: `translateY(${scrollY * -0.055}px)` }"
+          :style="{ transform: `translateY(${scrollY * -0.005}px) scale(${1 - scrollY * -0.001225})` }"
         >
           It’s yours to take now!
         </p>
 
         <!-- Call-to-Action Button -->
+         <div>
         <button class="cta-button" @click="handleJoin">
-          Claim Your Command
+          Become a Stakeholder
         </button>
+      </div>
       </div>
     </section>
 
@@ -648,8 +650,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
+  background: linear-gradient(90deg, #08090c, #1d263c, #08090c), url('@/assets/webp/daoheadline.webp') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the area */
+  background-blend-mode: lighten; /* Blend the image with the gradient */
 }
+
 
 .content {
   position: relative;
@@ -660,54 +665,74 @@ export default {
   max-width: 20rem;
   margin-bottom: -10rem;
   transition: transform 0.5s ease;
+  filter: drop-shadow(0px 0px 8px rgba(0, 1, 18, 0.5));
+
 }
 
 .dao-image {
   max-width: 20rem;
   margin-bottom: -8rem;
-  filter: drop-shadow(0px 0px 36px rgba(0, 119, 255, 0.25));
+  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5));
   transition: transform 0.5s ease;
 }
 
 .primary-headline {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  color: #fff;
   text-transform: uppercase;
   margin: 0.5rem 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(180deg, #89c0ff, #007bff);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For non-WebKit browsers supporting background-clip */
+  color: transparent; 
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.95));
 }
 
 .secondary-headline {
-  font-size: 2rem;
-  font-weight: medium;
-  color: #b0c4de;
-  margin: 0.5rem 0;
+  margin-top: .25rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #8bd6fc, #8ac1ff, #a3c8ff);
+  -webkit-background-clip: text; /* Ensures the gradient is clipped to text */
+  -webkit-text-fill-color: transparent; /* Makes the text itself transparent */
+  background-clip: text; /* For non-WebKit browsers supporting background-clip */
+  color: transparent; 
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.95));
 }
 
 .cta-subtext {
   font-size: 1.2rem;
   color: #d1d9e6;
   font-style: italic;
-  margin-bottom: 1.5rem;
+  margin-top: -1.25rem;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.95));
+
 }
 
 .cta-button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.2rem;
+  display: inline-block;
+  padding: 15px 40px; /* Adjust for desired size */
+  font-size: 16px; 
   font-weight: bold;
-  color: #fff;
-  background: linear-gradient(to bottom, #4a90e2, #264f89);
-  border: none;
-  border-radius: 4px;
+  text-align: center;
+
+  color: #e0f7ff;
+  background: linear-gradient(135deg, #1e90ff, #0b3d91); /* Blue gradient */
+  border: 2px solid #4faeff; /* Outer glowing border */
+  border-radius: 50px; /* Fully rounded corners */
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2), /* Inner glow */
+              0 0 15px rgba(79, 174, 255, 0.6); /* Outer glow */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), /* Smooth scaling */
+              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth glow transition */
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
-  background: linear-gradient(to bottom, #3d92f3, #287aed);
-  transform: translateY(-4px);
+  transform: scale(1.01); /* Slight zoom effect */
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.4), 
+              0 0 20px rgba(79, 174, 255, 0.8); /* Brighter glow */
 }
+
 
 .noise-canvas {
   position: absolute;
