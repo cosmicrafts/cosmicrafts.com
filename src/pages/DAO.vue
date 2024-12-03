@@ -1,5 +1,8 @@
 <template>
   <div class="dao-page">
+
+    <!-- Background Canvas for Stars -->
+    <canvas id="starfield" class="noise-canvas"></canvas>
 <!-- Headline Section -->
 <section class="headline">
       <!-- Background Canvas for Stars -->
@@ -550,8 +553,6 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-// Import multi-language logos and DAO image
-import logo2 from '@/assets/icons/DAO-1.svg';
 import heroImage2Default from '@/assets/icons/logo.svg';
 import heroImage2CN from '@/assets/icons/logo-cn.svg';
 import heroImage2KR from '@/assets/icons/logo-kr.svg';
@@ -564,13 +565,7 @@ export default {
   setup() {
     const { locale } = useI18n();
 
-    // Reactive Properties
     const scrollY = ref(0);
-    const membersCount = ref(0); // Default value for membersCount
-    const totalValueLocked = ref('$0'); // Default value for totalValueLocked
-    const countdown = ref('00:00:00'); // Default value for countdown timer
-    const tooltip = ref(null); // To store the currently active tooltip
-    const tooltipVisible = ref(false); // To control tooltip visibility
 
     const heroLogoMap = {
       zh: heroImage2CN,
@@ -581,54 +576,88 @@ export default {
       default: heroImage2Default,
     };
 
-    const dynamicHeroLogo = computed(() => {
-      return heroLogoMap[locale.value] || heroLogoMap.default;
-    });
+    const dynamicHeroLogo = computed(() => heroLogoMap[locale.value] || heroLogoMap.default);
 
     function handleScroll() {
       scrollY.value = window.scrollY;
     }
 
-    // Tooltip control methods
-    function showTooltip(id) {
-      tooltip.value = id;
-      tooltipVisible.value = true;
-    }
+    // Starfield animation logic
+    const initializeStarfield = () => {
+  const canvas = document.getElementById("starfield");
+  const ctx = canvas.getContext("2d");
 
-    function hideTooltip() {
-      tooltip.value = null;
-      tooltipVisible.value = false;
-    }
+  // Create an array of stars with initial properties
+  const stars = Array.from({ length: 1000 }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    size: Math.random() * .5 + 0.1, // Star size
+    speed: Math.random() * 1 + 0.1, // Speed of the star movement
+    opacity: Math.random() * 0.8 + 0.2, // Opacity for blending effect
+  }));
+
+  // Resize the canvas dynamically based on window size
+  const resizeCanvas = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+
+  // Draw stars on the canvas
+  const drawStars = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+    ctx.globalCompositeOperation = "difference"; // Blending mode for smooth appearance
+
+    stars.forEach((star) => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2); // Draw star
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`; // Star color with opacity
+      ctx.fill();
+    });
+  };
+
+  // Update star positions and recycle when out of bounds
+  const updateStars = () => {
+    stars.forEach((star) => {
+      star.y -= star.speed; // Move star upwards
+      if (star.y < 0) {
+        // Recycle star to the bottom with new random properties
+        star.y = canvas.height;
+        star.x = Math.random() * canvas.width; // New random x position
+        star.size = Math.random() * .5 + 0.1; // New random size
+        star.speed = Math.random() * 2 + 0.1; // New random speed
+        star.opacity = Math.random() * 0.8 + 0.2; // New random opacity
+      }
+    });
+  };
+
+  // Animation loop for the starfield
+  const animateStars = () => {
+    drawStars(); // Draw stars
+    updateStars(); // Update star positions
+    requestAnimationFrame(animateStars); // Recursive animation call
+  };
+
+  resizeCanvas(); // Initial canvas setup
+  window.addEventListener("resize", resizeCanvas); // Handle window resizing
+  animateStars(); // Start the animation loop
+};
+
 
     onMounted(() => {
-      window.addEventListener('scroll', handleScroll);
-
-      // Example for simulating data updates (replace with real API calls)
-      setTimeout(() => {
-        membersCount.value = 1500; // Simulate fetched data
-        totalValueLocked.value = '$1,500,000'; // Simulate fetched data
-        countdown.value = '12:34:56'; // Simulate fetched data
-      }, 1000);
+      window.addEventListener("scroll", handleScroll);
+      initializeStarfield();
     });
 
     onUnmounted(() => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     });
 
     return {
       dynamicHeroLogo,
       scrollY,
-      membersCount,
-      totalValueLocked,
-      countdown,
-      tooltip,
-      tooltipVisible,
-      showTooltip,
-      hideTooltip,
     };
   },
 };
-
 </script>
 
 <style scoped>
@@ -641,6 +670,18 @@ export default {
   padding: 0;
   line-height: 1.2;
 }
+
+.noise-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: transparent;
+  pointer-events: none;
+}
+
 
 /* Headline Section Styles */
 .headline {
@@ -710,6 +751,7 @@ export default {
 }
 
 .cta-button {
+  z-index: 3;
   display: inline-block;
   padding: 15px 40px; /* Adjust for desired size */
   font-size: 16px; 
@@ -734,14 +776,7 @@ export default {
 }
 
 
-.noise-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+
 
 /* Vision and Mission Section */
 .vision-mission {
