@@ -1,5 +1,7 @@
 <template>
   <div class="parallax-wrapper">
+    <!-- Semi-Transparent Overlay -->
+    <div class="color-overlay"></div>
 
     <div class="parallax-scene">
       <div class="scrollDist"></div>
@@ -106,7 +108,7 @@ export default {
       scrollTrigger: {
         trigger: parallaxSceneEl.querySelector(".scrollDist"),
         start: "top center",
-        end: "bottom+=1700 top", // Control the scroll tempo
+        end: "bottom+=1200 top", // Control the scroll tempo
         scrub: 1,
       },
     })
@@ -134,11 +136,17 @@ export default {
         -.25
       )
       .fromTo(
-        parallaxSceneEl.querySelector(".further-text"),
-        { y: "-100", opacity: .95 },
-        { y: "600", rotation: 8, duration: 2, scale: 1.6, opacity: -1.5 }, // Moves further down slightly
-        -.5
-      );
+  parallaxSceneEl.querySelector(".further-text"),
+  { y: "-100" },
+  { y: "300", rotation: 2, duration: 2 }, // Moves to intermediate position
+  0.5 // Start time
+)
+.to(
+  parallaxSceneEl.querySelector(".further-text"),
+  { y: "300", rotation: 2, duration: 0 }, // Holds in place
+  "+=0" // Immediately after the first animation
+);
+
   },
 };
 </script>
@@ -215,5 +223,14 @@ image {
 }
 
 
-
+.color-overlay {/*
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.041); /* Blue with 2% transparency */
+  pointer-events: none; /* Ensures it doesn’t interfere with clicks or interactions */
+  z-index: 2; /* Place it above all content */
+}
 </style>
