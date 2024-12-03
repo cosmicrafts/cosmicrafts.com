@@ -36,19 +36,19 @@
           :style="{ transform: `translateY(${scrollY * -0.065}px) scale(${1 - scrollY * 0.000425})` }"
 
         >
-          The DAO you command.
+          The dawn of a legacy
         </h1>
         <h2
           class="secondary-headline"
           :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.000825})` }"
         >
-          The dawn of a legacy.
+          A DAO you command
         </h2>
         <p
           class="cta-subtext"
           :style="{ transform: `translateY(${scrollY * -0.055}px)` }"
         >
-          It’s yours to take now.
+          It’s yours to take now!
         </p>
 
         <!-- Call-to-Action Button -->
