@@ -1,12 +1,59 @@
 <template>
   <div class="dao-page">
-    <!-- Headline Section -->
-    <section class="headline">
+<!-- Headline Section -->
+<section class="headline">
+      <!-- Background Canvas for Stars -->
+      <canvas
+        id="starfield"
+        ref="starfield"
+        class="noise-canvas"
+        :style="{ top: `${scrollY * 0.5}px` }"
+      ></canvas>
+
+      <!-- Content Wrapper -->
       <div class="content">
-        <h1 class="primary-headline">The DAO you command.</h1>
-        <h2 class="secondary-headline">The dawn of a legacy.</h2>
-        <p class="cta-subtext">It’s yours to take now.</p>
-        <button class="cta-button" @click="handleJoin">Claim Your Command</button>
+        <div>
+        <!-- DAO Hero Logo -->
+        <img
+          :src="dynamicHeroLogo"
+          alt="DAO Logo"
+          class="hero-logo"
+          :style="{ transform: `translateY(${scrollY * 0.115}px) scale(${1.1 - scrollY * 0.00155})` }"
+        />
+      </div>
+      <div>
+        <!-- Hero Image -->
+        <img
+          src="@/assets/icons/DAO-1.svg"
+          alt="DAO Illustration"
+          class="dao-image"
+          :style="{ transform: `translateY(${scrollY * -0.10}px) scale(${1 - scrollY * 0.000825})` }"
+        />
+      </div>
+        <!-- Headline Titles -->
+        <h1
+          class="primary-headline"
+          :style="{ transform: `translateY(${scrollY * -0.155}px)` }"
+        >
+          The DAO you command.
+        </h1>
+        <h2
+          class="secondary-headline"
+          :style="{ transform: `translateY(${scrollY * -0.055}px)` }"
+        >
+          The dawn of a legacy.
+        </h2>
+        <p
+          class="cta-subtext"
+          :style="{ transform: `translateY(${scrollY * -0.055}px)` }"
+        >
+          It’s yours to take now.
+        </p>
+
+        <!-- Call-to-Action Button -->
+        <button class="cta-button" @click="handleJoin">
+          Claim Your Command
+        </button>
       </div>
     </section>
 
@@ -493,47 +540,92 @@
 </section>
 
 
-
   </div>
 </template>
+
 <script>
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+// Import multi-language logos and DAO image
+import logo2 from '@/assets/icons/DAO-1.svg';
+import heroImage2Default from '@/assets/icons/logo.svg';
+import heroImage2CN from '@/assets/icons/logo-cn.svg';
+import heroImage2KR from '@/assets/icons/logo-kr.svg';
+import heroImage2JP from '@/assets/icons/logo-jp.svg';
+import heroImage2RU from '@/assets/icons/logo-ru.svg';
+import heroImage2AR from '@/assets/icons/logo-ar.svg';
+
 export default {
-  name: "ClosingCTA",
-  data() {
+  name: "HeadlineSection",
+  setup() {
+    const { locale } = useI18n();
+
+    // Reactive Properties
+    const scrollY = ref(0);
+    const membersCount = ref(0); // Default value for membersCount
+    const totalValueLocked = ref('$0'); // Default value for totalValueLocked
+    const countdown = ref('00:00:00'); // Default value for countdown timer
+    const tooltip = ref(null); // To store the currently active tooltip
+    const tooltipVisible = ref(false); // To control tooltip visibility
+
+    const heroLogoMap = {
+      zh: heroImage2CN,
+      ko: heroImage2KR,
+      ja: heroImage2JP,
+      ru: heroImage2RU,
+      ar: heroImage2AR,
+      default: heroImage2Default,
+    };
+
+    const dynamicHeroLogo = computed(() => {
+      return heroLogoMap[locale.value] || heroLogoMap.default;
+    });
+
+    function handleScroll() {
+      scrollY.value = window.scrollY;
+    }
+
+    // Tooltip control methods
+    function showTooltip(id) {
+      tooltip.value = id;
+      tooltipVisible.value = true;
+    }
+
+    function hideTooltip() {
+      tooltip.value = null;
+      tooltipVisible.value = false;
+    }
+
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll);
+
+      // Example for simulating data updates (replace with real API calls)
+      setTimeout(() => {
+        membersCount.value = 1500; // Simulate fetched data
+        totalValueLocked.value = '$1,500,000'; // Simulate fetched data
+        countdown.value = '12:34:56'; // Simulate fetched data
+      }, 1000);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll);
+    });
+
     return {
-      tooltipVisible: false,
-      countdown: "",
-      membersCount: "12,340",
-      totalValueLocked: "$1.2M",
-      offerEndTime: new Date().getTime() + 48 * 60 * 60 * 1000, // 48 hours from now
+      dynamicHeroLogo,
+      scrollY,
+      membersCount,
+      totalValueLocked,
+      countdown,
+      tooltip,
+      tooltipVisible,
+      showTooltip,
+      hideTooltip,
     };
   },
-  methods: {
-    showTooltip() {
-      this.tooltipVisible = true;
-    },
-    hideTooltip() {
-      this.tooltipVisible = false;
-    },
-    updateCountdown() {
-      const now = new Date().getTime();
-      const distance = this.offerEndTime - now;
-
-      if (distance > 0) {
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        this.countdown = `${hours}h ${minutes}m ${seconds}s`;
-      } else {
-        this.countdown = "Offer Expired";
-      }
-    },
-  },
-  mounted() {
-    this.updateCountdown();
-    setInterval(this.updateCountdown, 1000);
-  },
 };
+
 </script>
 
 <style scoped>
@@ -547,69 +639,82 @@ export default {
   line-height: 1.2;
 }
 
-/* Headline Section */
+/* Headline Section Styles */
 .headline {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #253f8b, #1c2541);
-  background-image: url('https://source.unsplash.com/1600x900/?space,galaxy');
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  background: radial-gradient(circle, #1d263c, #08090c);
 }
 
-.headline::before {
-  content: '';
+.content {
+  position: relative;
+  text-align: center;
+}
+
+.hero-logo {
+  max-width: 20rem;
+  margin-bottom: -10rem;
+  transition: transform 0.5s ease;
+}
+
+.dao-image {
+  max-width: 20rem;
+  margin-bottom: -8rem;
+  filter: drop-shadow(0px 0px 36px rgba(0, 119, 255, 0.25));
+  transition: transform 0.5s ease;
+}
+
+.primary-headline {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.secondary-headline {
+  font-size: 2rem;
+  font-weight: medium;
+  color: #b0c4de;
+  margin: 0.5rem 0;
+}
+
+.cta-subtext {
+  font-size: 1.2rem;
+  color: #d1d9e6;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
+  transform: translateY(-4px);
+}
+
+.noise-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 12, 39, 0.7);
-  z-index: 1;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-}
-
-.primary-headline {
-  font-size: 4rem;
-  font-weight: var(--font-weight-bold);
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.secondary-headline {
-  font-size: 2rem;
-  font-weight: var(--font-weight-medium);
-  margin: 1rem 0;
-}
-
-.cta-subtext {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  font-style: italic;
-}
-
-.cta-button {
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  background: linear-gradient(to bottom, #4a90e2, #264f89);
-  color: #fff;
-  cursor: pointer;
-  border-radius: var(--button-border-radius);
-  transition: background-color 0.1s;
-}
-
-.cta-button:hover {
-  background: linear-gradient(to bottom, #3d92f3, #287aed);
+  z-index: -1;
 }
 
 /* Vision and Mission Section */
