@@ -57,10 +57,12 @@ const { locale } = useI18n();
 <style scoped>
 footer {
   padding: 2rem;
-  border-top: 1px solid #3a3a3a;
+ /* border-top: 1px solid #3a3a3a;*/
   text-align: center;
   color: #e2e8f0;
   z-index: 12;
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
+
 }
 
 .social-section {

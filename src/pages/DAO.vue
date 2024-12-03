@@ -18,7 +18,7 @@
           :src="dynamicHeroLogo"
           alt="DAO Logo"
           class="hero-logo"
-          :style="{ transform: `translateY(${scrollY * 0.115}px) scale(${1.1 - scrollY * 0.00155})` }"
+          :style="{ transform: `translateY(${scrollY * 0.075}px) scale(${1.1 - scrollY * 0.00155})` }"
         />
       </div>
       <div>
@@ -27,19 +27,20 @@
           src="@/assets/icons/DAO-1.svg"
           alt="DAO Illustration"
           class="dao-image"
-          :style="{ transform: `translateY(${scrollY * -0.10}px) scale(${1 - scrollY * 0.000825})` }"
+          :style="{ transform: `translateY(${scrollY * -0.065}px) scale(${1 - scrollY * 0.000825})` }"
         />
       </div>
         <!-- Headline Titles -->
         <h1
           class="primary-headline"
-          :style="{ transform: `translateY(${scrollY * -0.155}px)` }"
+          :style="{ transform: `translateY(${scrollY * -0.065}px) scale(${1 - scrollY * 0.000425})` }"
+
         >
           The DAO you command.
         </h1>
         <h2
           class="secondary-headline"
-          :style="{ transform: `translateY(${scrollY * -0.055}px)` }"
+          :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.000825})` }"
         >
           The dawn of a legacy.
         </h2>
@@ -647,7 +648,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, #1d263c, #08090c);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
 }
 
 .content {
@@ -719,9 +720,9 @@ export default {
 
 /* Vision and Mission Section */
 .vision-mission {
-  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
   text-align: center;
-  padding: 3rem;
+  padding: 4rem;
 }
 
 .section-title {
@@ -771,7 +772,7 @@ export default {
 
 /* Core Value Proposition Section */
 .core-value {
-  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
   text-align: center;
   padding: 3rem;
 }
@@ -827,10 +828,8 @@ export default {
 
 /* Why Cosmicrafts Matters */
 .why-it-matters {
-  background: #1c2541;
-  padding: 2rem;
-  margin: 2rem auto;
-  border-radius: 8px;
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
+  padding: 4rem;
   color: #e0e0e0;
 }
 
@@ -876,12 +875,9 @@ export default {
 
 /* A DAO for Investors */
 .investor-focus {
-  background: linear-gradient(135deg, #1c2541, #0b132b);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
   color: #e0e0e0;
   padding: 3rem;
-  border-radius: 12px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -974,12 +970,9 @@ progress::-webkit-progress-value {
 
 /* Revenue Streams and Tokenomics */
 .revenue-streams {
-  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
   color: #e0e0e0;
   padding: 3rem;
-  border-radius: 12px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .intro {
@@ -1051,12 +1044,9 @@ progress::-webkit-progress-value {
 
 /* Building ICP */
 .building-icp {
-  background: linear-gradient(135deg, #1a1f3d, #0b132b);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
   color: #e0e0e0;
   padding: 3rem;
-  border-radius: 12px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -1127,11 +1117,9 @@ progress::-webkit-progress-value {
 
 /* How to Join */
 .how-to-join {
-  background: linear-gradient(135deg, #0b132b, #1a1f3d);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
   color: #e0e0e0;
   padding: 3rem;
-  border-radius: 12px;
-  margin: 2rem auto;
   text-align: center;
 }
 
@@ -1198,10 +1186,12 @@ progress::-webkit-progress-value {
   background: linear-gradient(to bottom, #3d92f3, #287aed);
 }
 
-/* Roadmap */
+
+
 /* Roadmap */
 .roadmap {
-  background: linear-gradient(135deg, #1b1d36, #0e0f1b);
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
+  padding: 3rem;
 }
 
 .roadmap .intro {
@@ -1326,20 +1316,9 @@ progress::-webkit-progress-value {
 
 /* Closing CTA */
 .closing-cta {
-  background: linear-gradient(135deg, #0b132b, #1c2541);
-  color: #e0e0e0;
+  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
   padding: 3rem;
-  border-radius: 12px;
-  text-align: center;
-  margin: 2rem auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.headline {
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
+  color: #e0e0e0;
 }
 
 .subtext {
