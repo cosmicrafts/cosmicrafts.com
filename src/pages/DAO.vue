@@ -1,8 +1,5 @@
 <template>
   <div class="dao-page">
-
-    <!-- Background Canvas for Stars -->
-    <canvas id="starfield" class="noise-canvas"></canvas>
 <!-- Headline Section -->
 <section class="headline">
       <!-- Background Canvas for Stars -->
@@ -63,37 +60,107 @@
       </div>
     </section>
 
+<!-- A DAO for Investors -->
+<section class="investor-focus">
+  <h2 class="section-title">A DAO Designed for Visionaries</h2>
+  <h3 class="highlight">"We've done it before, we'll make it again."</h3>
+
+  <div class="proven-track-record">
+    <h3>Proven Success</h3>
+    <p>
+      In 2022, Cosmicrafts established itself as a blue-chip project on ICP, achieving success despite challenging market conditions. Our resilience and innovation positioned us as leaders in Web3 gaming and NFTs. Now, we're ready to build on that foundation and shine brighter than ever.
+    </p>
+  </div>
+
+  <div class="investor-empowerment">
+    <h3>Empowering the Investor Community</h3>
+    <p>
+      Cosmicrafts DAO puts investors in the driver’s seat. With the power to vote on key decisions, shape the roadmap, and influence fund allocation, this DAO is more than an opportunity—it’s a platform for creating the future. Your participation isn’t just rewarded; it’s integral to our success.
+    </p>
+  </div>
+
+  <ul class="key-points">
+    <li>
+      <h3>Active Participation</h3>
+      <p>
+        Shape the future of Cosmicrafts by voting on major decisions like fund allocation, roadmap priorities, and governance strategies.
+      </p>
+    </li>
+    <li>
+      <h3>Exclusive Rewards</h3>
+      <p>
+        Unlock exclusive benefits such as early access to groundbreaking features, governance rights, and NFT drops tailored for DAO members.
+      </p>
+    </li>
+    <li>
+      <h3>Long-Term Profitability</h3>
+      <p>
+        Benefit from sustainable revenue streams like NFT royalties, marketplace fees, and treasury staking. Together, we’ll reignite the spark and deliver lasting value.
+      </p>
+    </li>
+  </ul>
+
+  <div class="community-callout">
+    <h3>Join a Thriving Community</h3>
+    <p>
+      Be part of a movement that connects like-minded individuals passionate about shaping the future of Web3. Collaborate, innovate, and thrive together in a community-driven ecosystem.
+    </p>
+  </div>
+
+  <div class="call-to-action">
+    <p>
+      Join a DAO built on proven success and ready to shape the future. Together, we’ll redefine what’s possible in decentralized gaming and innovation.
+    </p>
+    <button class="cta-button" @click="joinDao">Shape the Future</button>
+    <!-- Optional Countdown Timer -->
+    <div class="countdown">
+      <p>Limited spots available. Act now to secure your place in the DAO.</p>
+      <progress value="75" max="100"></progress>
+    </div>
+  </div>
+</section>
+
+
 <!-- Vision and Mission Section -->
 <section class="vision-mission">
-  <h2 class="section-title">Our Purpose: Vision and Mission</h2>
-  
-  <!-- Vision Explanation -->
-  <div class="content">
-    <h3 class="subheading">Vision: The Future We’re Building</h3>
-    <p class="vision-statement">
-      Cosmicrafts is building a gamer-owned universe where players directly influence the development of persistent worlds, economies, and narratives. 
-      <strong>Your digital legacy is reflected in the appreciating value of in-game assets and the thriving Cosmicrafts DAO ecosystem.</strong>
-    </p>
-    <p class="context">
-      <em>What does this mean?</em> This vision highlights how Cosmicrafts empowers players to leave a lasting impact—not just on the game, but on the Web3 ecosystem itself. It’s about ownership, influence, and creating something meaningful that endures.
-    </p>
-  </div>
-  
-  <!-- Mission Explanation -->
-  <div class="content">
-    <h3 class="subheading">Mission: How We Make It Happen</h3>
-    <p class="mission-statement">
-      We empower players, developers, and investors to co-create the future of gaming on the Internet Computer. 
-      Leveraging unparalleled scalability and security, Cosmicrafts ensures a thriving ecosystem where every participant shares in the collective success.
-    </p>
-    <p class="context">
-      <em>What does this mean?</em> Our mission lays out the actionable steps—through governance, innovation, and partnerships—to achieve our vision. We’re using the Internet Computer's unique capabilities to build a future-proof ecosystem.
-    </p>
-  </div>
-  
-  <div class="visual-placeholder">
-    <img src="@/assets/icons/spiral.svg" alt="Vision Illustration">
-    <p class="caption">Illustration of players shaping the game and DAO ecosystem through their influence.</p>
+  <div class="container">
+    <h2 class="section-title">Our Mission</h2>
+    
+    <div class="content-wrapper">
+      <!-- Vision Section -->
+      <div class="card">
+        <div class="icon-container">
+          <img src="@/assets/icons/spiral.svg" alt="Vision Icon" />
+        </div>
+        <h3 class="subheading">Vision</h3>
+        <p>
+          Cosmicrafts is building a gamer-owned universe where players directly influence the development of persistent worlds, economies, and narratives. 
+          <strong>Your digital legacy is reflected in the appreciating value of in-game assets and the thriving Cosmicrafts DAO ecosystem.</strong>
+        </p>
+      </div>
+
+      <!-- Mission Section -->
+      <div class="card">
+        <div class="icon-container">
+          <img src="@/assets/icons/spiral.svg" alt="Mission Icon" />
+        </div>
+        <h3 class="subheading">Mission</h3>
+        <p>
+          We empower players, developers, and investors to co-create the future of gaming on the Internet Computer. Leveraging unparalleled scalability and security, Cosmicrafts ensures a thriving ecosystem where every participant shares in the collective success.
+        </p>
+      </div>
+
+      <!-- Goals Section -->
+      <div class="card">
+        <div class="icon-container">
+          <img src="@/assets/icons/spiral.svg" alt="Goals Icon" />
+        </div>
+        <h3 class="subheading">Goals</h3>
+        <p>
+          Participate in sustainable revenue streams, earn passive income through staking, and benefit from the exponential growth of a thriving Web3 gaming ecosystem. Together, we create a lasting legacy.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -180,67 +247,6 @@
         This is more than an investment—it’s your chance to be part of something transformative. By joining Cosmicrafts DAO, you empower a community, drive innovation, and fuel ICP’s growth. The future of Web3 starts here, and it’s yours to take now.
       </p>
     </section>
-
-     <!-- A DAO for Investors -->
-     <section class="investor-focus">
-  <h2 class="section-title">A DAO Designed for Visionaries</h2>
-  <h3 class="highlight">"We've done it before, we'll make it again."</h3>
-
-  <div class="proven-track-record">
-    <h3>Proven Success</h3>
-    <p>
-      In 2022, Cosmicrafts established itself as a blue-chip project on ICP, achieving success despite challenging market conditions. Our resilience and innovation positioned us as leaders in Web3 gaming and NFTs. Now, we're ready to build on that foundation and shine brighter than ever.
-    </p>
-  </div>
-
-  <div class="investor-empowerment">
-    <h3>Empowering the Investor Community</h3>
-    <p>
-      Cosmicrafts DAO puts investors in the driver’s seat. With the power to vote on key decisions, shape the roadmap, and influence fund allocation, this DAO is more than an opportunity—it’s a platform for creating the future. Your participation isn’t just rewarded; it’s integral to our success.
-    </p>
-  </div>
-
-  <ul class="key-points">
-    <li>
-      <h3>Active Participation</h3>
-      <p>
-        Shape the future of Cosmicrafts by voting on major decisions like fund allocation, roadmap priorities, and governance strategies.
-      </p>
-    </li>
-    <li>
-      <h3>Exclusive Rewards</h3>
-      <p>
-        Unlock exclusive benefits such as early access to groundbreaking features, governance rights, and NFT drops tailored for DAO members.
-      </p>
-    </li>
-    <li>
-      <h3>Long-Term Profitability</h3>
-      <p>
-        Benefit from sustainable revenue streams like NFT royalties, marketplace fees, and treasury staking. Together, we’ll reignite the spark and deliver lasting value.
-      </p>
-    </li>
-  </ul>
-
-  <div class="community-callout">
-    <h3>Join a Thriving Community</h3>
-    <p>
-      Be part of a movement that connects like-minded individuals passionate about shaping the future of Web3. Collaborate, innovate, and thrive together in a community-driven ecosystem.
-    </p>
-  </div>
-
-  <div class="call-to-action">
-    <p>
-      Join a DAO built on proven success and ready to shape the future. Together, we’ll redefine what’s possible in decentralized gaming and innovation.
-    </p>
-    <button class="cta-button" @click="joinDao">Shape the Future</button>
-    <!-- Optional Countdown Timer -->
-    <div class="countdown">
-      <p>Limited spots available. Act now to secure your place in the DAO.</p>
-      <progress value="75" max="100"></progress>
-    </div>
-  </div>
-</section>
-
 
     <!-- Revenue Streams and Tokenomics -->
     <section class="revenue-streams">
@@ -553,6 +559,8 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 
+// Import multi-language logos and DAO image
+import logo2 from '@/assets/icons/DAO-1.svg';
 import heroImage2Default from '@/assets/icons/logo.svg';
 import heroImage2CN from '@/assets/icons/logo-cn.svg';
 import heroImage2KR from '@/assets/icons/logo-kr.svg';
@@ -565,7 +573,13 @@ export default {
   setup() {
     const { locale } = useI18n();
 
+    // Reactive Properties
     const scrollY = ref(0);
+    const membersCount = ref(0); // Default value for membersCount
+    const totalValueLocked = ref('$0'); // Default value for totalValueLocked
+    const countdown = ref('00:00:00'); // Default value for countdown timer
+    const tooltip = ref(null); // To store the currently active tooltip
+    const tooltipVisible = ref(false); // To control tooltip visibility
 
     const heroLogoMap = {
       zh: heroImage2CN,
@@ -576,88 +590,60 @@ export default {
       default: heroImage2Default,
     };
 
-    const dynamicHeroLogo = computed(() => heroLogoMap[locale.value] || heroLogoMap.default);
+    const dynamicHeroLogo = computed(() => {
+      return heroLogoMap[locale.value] || heroLogoMap.default;
+    });
 
     function handleScroll() {
       scrollY.value = window.scrollY;
     }
 
-    // Starfield animation logic
-    const initializeStarfield = () => {
-  const canvas = document.getElementById("starfield");
-  const ctx = canvas.getContext("2d");
+    // Tooltip control methods
+    function showTooltip(id) {
+      tooltip.value = id;
+      tooltipVisible.value = true;
+    }
 
-  // Create an array of stars with initial properties
-  const stars = Array.from({ length: 1000 }, () => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    size: Math.random() * .5 + 0.1, // Star size
-    speed: Math.random() * 1 + 0.1, // Speed of the star movement
-    opacity: Math.random() * 0.8 + 0.2, // Opacity for blending effect
-  }));
-
-  // Resize the canvas dynamically based on window size
-  const resizeCanvas = () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  };
-
-  // Draw stars on the canvas
-  const drawStars = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-    ctx.globalCompositeOperation = "difference"; // Blending mode for smooth appearance
-
-    stars.forEach((star) => {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2); // Draw star
-      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`; // Star color with opacity
-      ctx.fill();
-    });
-  };
-
-  // Update star positions and recycle when out of bounds
-  const updateStars = () => {
-    stars.forEach((star) => {
-      star.y -= star.speed; // Move star upwards
-      if (star.y < 0) {
-        // Recycle star to the bottom with new random properties
-        star.y = canvas.height;
-        star.x = Math.random() * canvas.width; // New random x position
-        star.size = Math.random() * .5 + 0.1; // New random size
-        star.speed = Math.random() * 2 + 0.1; // New random speed
-        star.opacity = Math.random() * 0.8 + 0.2; // New random opacity
-      }
-    });
-  };
-
-  // Animation loop for the starfield
-  const animateStars = () => {
-    drawStars(); // Draw stars
-    updateStars(); // Update star positions
-    requestAnimationFrame(animateStars); // Recursive animation call
-  };
-
-  resizeCanvas(); // Initial canvas setup
-  window.addEventListener("resize", resizeCanvas); // Handle window resizing
-  animateStars(); // Start the animation loop
-};
-
+    function hideTooltip() {
+      tooltip.value = null;
+      tooltipVisible.value = false;
+    }
 
     onMounted(() => {
-      window.addEventListener("scroll", handleScroll);
-      initializeStarfield();
+      const parallaxEffect = () => {
+    const section = document.querySelector('.vision-mission');
+    if (!section) return;
+    const offset = window.scrollY * 0.2;
+    section.style.backgroundPositionY = `${offset}px`;
+  };
+      window.addEventListener('scroll',  handleScroll, parallaxEffect);
+
+      // Example for simulating data updates (replace with real API calls)
+      setTimeout(() => {
+        membersCount.value = 1500; // Simulate fetched data
+        totalValueLocked.value = '$1,500,000'; // Simulate fetched data
+        countdown.value = '12:34:56'; // Simulate fetched data
+      }, 1000);
     });
 
     onUnmounted(() => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     });
 
     return {
       dynamicHeroLogo,
       scrollY,
+      membersCount,
+      totalValueLocked,
+      countdown,
+      tooltip,
+      tooltipVisible,
+      showTooltip,
+      hideTooltip,
     };
   },
 };
+
 </script>
 
 <style scoped>
@@ -671,17 +657,15 @@ export default {
   line-height: 1.2;
 }
 
+
 .noise-canvas {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  background: transparent;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
-
 
 /* Headline Section Styles */
 .headline {
@@ -751,7 +735,6 @@ export default {
 }
 
 .cta-button {
-  z-index: 3;
   display: inline-block;
   padding: 15px 40px; /* Adjust for desired size */
   font-size: 16px; 
@@ -776,59 +759,204 @@ export default {
 }
 
 
-
-
-/* Vision and Mission Section */
-.vision-mission {
-  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
+/* A DAO for Investors */
+.investor-focus {
+  background: linear-gradient(90deg, #08090c, #1d263c, #08090c), url('@/assets/webp/daomission.webp') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the area */
+  background-blend-mode: lighten; /* Blend the image with the gradient */
   text-align: center;
   padding: 4rem;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-
-.subheading {
+.highlight {
   font-size: 1.8rem;
-  color: #b0c4de;
-  margin-top: 2rem;
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 2rem;
 }
 
-.vision-statement, .mission-statement {
+.proven-track-record, .investor-empowerment, .community-callout {
+  margin-bottom: 2rem;
+}
+
+.proven-track-record h3, .investor-empowerment h3, .community-callout h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.key-points {
+  list-style: none;
+  padding: 0;
+}
+
+.key-points li {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.key-points h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.key-points p {
+  margin: 0;
+}
+
+.call-to-action {
+  margin-top: 3rem;
+}
+
+.call-to-action p {
   font-size: 1.2rem;
-  color: #e0e0e0;
-  margin: 1rem auto;
-  max-width: 800px;
+  margin-bottom: 1rem;
 }
 
-.context {
+.cta-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(to bottom, #4a90e2, #264f89);
+  color: #fff;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.cta-button:hover {
+  background: linear-gradient(to bottom, #3d92f3, #287aed);
+}
+
+.countdown {
+  margin-top: 1rem;
+}
+
+.countdown p {
   font-size: 1rem;
   color: #b0c4de;
-  margin-top: 1rem;
-  font-style: italic;
+  margin-bottom: 0.5rem;
 }
 
-.visual-placeholder {
-  margin: 2rem auto;
+progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background: #e0e0e0;
+}
+
+progress::-webkit-progress-value {
+  background: #4a90e2;
+}
+
+
+/* Vision and Mission Section */
+.vision-mission {
+  position: relative;
+  padding: 5rem 2rem;
+  background: linear-gradient(90deg, #08090c, #1d263c, #08090c);
   text-align: center;
+  color: #e0e0e0;
+  overflow: hidden;
 }
 
-.visual-placeholder img {
-  width: 120px;
-  height: 120px;
-  margin: 1rem auto;
-  display: block;
+.vision-mission .container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.caption {
-  font-size: 0.9rem;
-  color: #b0c4de;
-  margin-top: 0.5rem;
+.vision-mission .section-title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
 }
+
+.vision-mission .content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.vision-mission .card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  flex: 1;
+  max-width: 320px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.vision-mission .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+}
+
+.vision-mission .icon-container {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #4faeff, #1d263c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(79, 174, 255, 0.8);
+}
+
+.vision-mission .icon-container img {
+  width: 40px;
+  height: 40px;
+}
+
+.vision-mission .subheading {
+  font-size: 1.8rem;
+  color: #8ac1ff;
+  margin-bottom: 1rem;
+}
+
+.vision-mission .card p {
+  font-size: 1rem;
+  color: #d1d9e6;
+  line-height: 1.6;
+}
+
+.vision-mission::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
+  background: url('@/assets/webp/daomission.webp') center/cover no-repeat;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.vision-mission::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  z-index: 3;
+}
+
 
 /* Core Value Proposition Section */
 .core-value {
@@ -931,101 +1059,6 @@ export default {
   margin-top: 2rem;
   font-size: 1.2rem;
   text-align: center;
-}
-
-/* A DAO for Investors */
-.investor-focus {
-  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
-  color: #e0e0e0;
-  padding: 3rem;
-  text-align: center;
-}
-
-.highlight {
-  font-size: 1.8rem;
-  font-style: italic;
-  color: #fff;
-  margin-bottom: 2rem;
-}
-
-.proven-track-record, .investor-empowerment, .community-callout {
-  margin-bottom: 2rem;
-}
-
-.proven-track-record h3, .investor-empowerment h3, .community-callout h3 {
-  font-size: 1.5rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-
-.key-points {
-  list-style: none;
-  padding: 0;
-}
-
-.key-points li {
-  margin-bottom: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.key-points h3 {
-  color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.key-points p {
-  margin: 0;
-}
-
-.call-to-action {
-  margin-top: 3rem;
-}
-
-.call-to-action p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.cta-button {
-  font-size: 1.5rem;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(to bottom, #4a90e2, #264f89);
-  color: #fff;
-  border-radius: var(--button-border-radius);
-  cursor: pointer;
-  transition: background-color 0.1s;
-}
-
-.cta-button:hover {
-  background: linear-gradient(to bottom, #3d92f3, #287aed);
-}
-
-.countdown {
-  margin-top: 1rem;
-}
-
-.countdown p {
-  font-size: 1rem;
-  color: #b0c4de;
-  margin-bottom: 0.5rem;
-}
-
-progress {
-  width: 100%;
-  height: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-progress::-webkit-progress-bar {
-  background: #e0e0e0;
-}
-
-progress::-webkit-progress-value {
-  background: #4a90e2;
 }
 
 /* Revenue Streams and Tokenomics */

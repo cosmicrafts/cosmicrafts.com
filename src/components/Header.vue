@@ -116,7 +116,7 @@ header {
   justify-content: space-between;
   padding: 1.5rem 2rem;
   border: 1px solid #ffffff12;
-  background: linear-gradient(to bottom, rgba(30, 43, 56, 0.88), rgba(23, 33, 43, 0.77));
+  background: linear-gradient(to bottom, rgba(30, 43, 56, 0.2), rgba(23, 33, 43, 0.4));
   position: fixed;
   z-index: 12;
   border-radius: 16px;
