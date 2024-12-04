@@ -37,55 +37,63 @@
           </aside>
         </div>
       </div>
-</template>
+    </template>
     
-<script>
-import MarkdownRenderer from "@/components/MarkdownRenderer.vue";
-
-export default {
-  components: {
-    MarkdownRenderer,
+    <script>
+    import MarkdownRenderer from "@/components/MarkdownRenderer.vue";
+    
+    export default {
+      components: {
+        MarkdownRenderer,
+      },
+      data() {
+        return {
+          activeSection: "welcome", // Default to the first section
+          sections: [
+            { id: "welcome", title: "Welcome" },
+            { id: "executive-summary", title: "Executive Summary" },
+            { id: "core-features", title: "Core Features" },
+            { id: "architecture", title: "Architecture" },
+          ],
+          toc: [], // Table of Contents for the right sidebar
+        };
+      },
+      methods: {
+  changeSection(sectionId) {
+    this.activeSection = sectionId;
+    this.toc = []; // Reset TOC when switching sections
   },
-  data() {
-    return {
-      activeSection: "welcome", // Default to the first section
-      sections: [
-        { id: "welcome", title: "Welcome" },
-        { id: "executive-summary", title: "Executive Summary" },
-        { id: "core-features", title: "Core Features" },
-        { id: "architecture", title: "Architecture" },
-      ],
-      toc: [], // Table of Contents for the right sidebar
-    };
-  },
-  methods: {
-    changeSection(sectionId) {
-      this.activeSection = sectionId;
-      this.toc = []; // Reset TOC when switching sections
-    },
-    generateTOC() {
+  generateTOC() {
     const headings = document.querySelectorAll(".content h2, .content h3");
-    this.toc = Array.from(headings).map((heading, index) => ({
-      id: heading.id || `heading-${index}`,
-      text: heading.textContent,
-    }));
 
-      // Ensure all headings have unique IDs
-      headings.forEach((heading, index) => {
+    // Ensure unique IDs and populate TOC
+    this.toc = Array.from(headings).map((heading, index) => {
       if (!heading.id) {
-        heading.id = `heading-${index}`;
+        heading.id = `heading-${index}`; // Assign a unique ID if missing
       }
+      return {
+        id: heading.id,
+        text: heading.textContent,
+      };
     });
   },
   scrollToHeading(id) {
     const target = document.getElementById(id);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 80; // Adjust this value to match your header height
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   },
 },
-};
-</script>
+
+    };
+    </script>
 
 <style scoped>
 .whitepaper-layout {
