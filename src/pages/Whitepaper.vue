@@ -20,6 +20,26 @@
           <div class="content">
             <h2>{{ sections.find(section => section.id === activeSection)?.title }}</h2>
             <MarkdownRenderer :fileName="activeSection" @rendered="generateTOC" />
+    
+            <!-- Navigation Buttons -->
+            <div class="navigation-buttons">
+              <button
+                v-if="previousSection"
+                class="button prev"
+                @click="changeSection(previousSection.id)"
+              >
+                <span>{{ previousSection.title }}</span>
+                <small>Previous</small>
+              </button>
+              <button
+                v-if="nextSection"
+                class="button next"
+                @click="changeSection(nextSection.id)"
+              >
+                <span>{{ nextSection.title }}</span>
+                <small>Next</small>
+              </button>
+            </div>
           </div>
     
           <!-- Right Sidebar -->
@@ -58,43 +78,58 @@
           toc: [], // Table of Contents for the right sidebar
         };
       },
+      computed: {
+        previousSection() {
+          const currentIndex = this.sections.findIndex(
+            (section) => section.id === this.activeSection
+          );
+          return currentIndex > 0 ? this.sections[currentIndex - 1] : null;
+        },
+        nextSection() {
+          const currentIndex = this.sections.findIndex(
+            (section) => section.id === this.activeSection
+          );
+          return currentIndex < this.sections.length - 1
+            ? this.sections[currentIndex + 1]
+            : null;
+        },
+      },
       methods: {
-  changeSection(sectionId) {
-    this.activeSection = sectionId;
-    this.toc = []; // Reset TOC when switching sections
-  },
-  generateTOC() {
-    const headings = document.querySelectorAll(".content h2, .content h3");
-
-    // Ensure unique IDs and populate TOC
-    this.toc = Array.from(headings).map((heading, index) => {
-      if (!heading.id) {
-        heading.id = `heading-${index}`; // Assign a unique ID if missing
-      }
-      return {
-        id: heading.id,
-        text: heading.textContent,
-      };
-    });
-  },
-  scrollToHeading(id) {
-    const target = document.getElementById(id);
-    if (target) {
-      const headerOffset = 80; // Adjust this value to match your header height
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  },
-},
-
+        changeSection(sectionId) {
+          this.activeSection = sectionId;
+          this.toc = []; // Reset TOC when switching sections
+        },
+        generateTOC() {
+          const headings = document.querySelectorAll(".content h2, .content h3");
+    
+          // Ensure unique IDs and populate TOC
+          this.toc = Array.from(headings).map((heading, index) => {
+            if (!heading.id) {
+              heading.id = `heading-${index}`; // Assign a unique ID if missing
+            }
+            return {
+              id: heading.id,
+              text: heading.textContent,
+            };
+          });
+        },
+        scrollToHeading(id) {
+          const target = document.getElementById(id);
+          if (target) {
+            const headerOffset = 80; // Adjust this value to match your header height
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        },
+      },
     };
     </script>
-
+    
 <style scoped>
 .whitepaper-layout {
   display: flex;
@@ -105,7 +140,7 @@
   display: flex;
   flex: 1;
   overflow: hidden;
-  margin-top: 60px; /* Adjust for header */
+  margin-top: 60px;
 }
 
 /* Sidebar (Left) */
@@ -174,6 +209,44 @@
   color: #00c3ff;
 }
 
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 2rem; /* Add space between the buttons */
+  margin-top: 2rem;
+}
+
+.navigation-buttons .button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem; /* Add padding for a better button size */
+  border: none;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation-buttons .button:hover {
+  background-color: #00c3ff;
+}
+
+.navigation-buttons .button small {
+  font-size: 0.75rem;
+  color: #ccc;
+  margin-bottom: 0.25rem;
+}
+
+.navigation-buttons .button span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .main-content {
@@ -194,4 +267,6 @@
     padding: 1rem;
   }
 }
+
+
 </style>
