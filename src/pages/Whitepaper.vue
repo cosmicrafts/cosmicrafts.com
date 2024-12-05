@@ -18,35 +18,42 @@
     
           <!-- Main Content -->
           <div class="content">
-            <h2>{{ sections.find(section => section.id === activeSection)?.title }}</h2>
-            <MarkdownRenderer :fileName="activeSection" @rendered="generateTOC" />
-    
-            <!-- Navigation Buttons -->
-            <div class="navigation-buttons">
-  <button
-    v-if="previousSection"
-    class="button prev"
-    @click="changeSection(previousSection.id)"
-  >
-  <span class="arrow"><img src="/src/assets/icons/prev.svg" alt="arrow"></span>
-  <small>Previous</small>
-  <span>{{ previousSection.title }}</span>
-    
-  </button>
-  <button
-    v-if="nextSection"
-    class="button next"
-    @click="changeSection(nextSection.id)"
-  >
+  
+            <transition
+  name="fade-slide"
+>
+  <MarkdownRenderer
+    :fileName="activeSection"
+    @rendered="generateTOC"
+    :key="activeSection"
+  />
+</transition>
+
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <button
+      v-if="previousSection"
+      class="button prev"
+      @click="changeSection(previousSection.id)"
+    >
+      <span class="arrow"><img src="/src/assets/icons/prev.svg" alt="arrow"></span>
+      <small>Previous</small>
+      <span>{{ previousSection.title }}</span>
+    </button>
+    <button
+      v-if="nextSection"
+      class="button next"
+      @click="changeSection(nextSection.id)"
+    >
       <small>Next</small>
-    <span>{{ nextSection.title }}</span>
-    
-    <span class="arrow"><img src="/src/assets/icons/next.svg" alt="arrow"></span>
-  </button>
-</div>
+      <span>{{ nextSection.title }}</span>
+      <span class="arrow"><img src="/src/assets/icons/next.svg" alt="arrow"></span>
+    </button>
+  </div>
+
 
           </div>
-    
           <!-- Right Sidebar -->
           <aside class="right-sidebar">
             <ul>
@@ -196,7 +203,7 @@
       flex: 1;
       margin-left: 15%;
       margin-right: 12%;
-      padding: 4.5rem 8rem 8rem;
+      padding: 4.5rem 6rem 6rem;
       overflow-y: auto;
       
     }
@@ -207,7 +214,7 @@
       right: 0;
       width: 12%;
       height: 100vh;
-      background: linear-gradient(90deg, #090b12f7, #1d2537f8, #10141f),
+      background: linear-gradient(90deg, #171d2bf8, #1d2537f8, #171d2bf8),
                   url('@/assets/webp/bg-adventures.webp') no-repeat center center;
       background-size: cover; /* Ensure the image covers the area */
       background-blend-mode: normal; /* Use normal blend */
@@ -274,7 +281,7 @@
 }
 
 .navigation-buttons .button span {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-top: .25rem;
 }
@@ -282,8 +289,6 @@
 /* Arrows */
 .navigation-buttons .button .arrow {
   position: absolute;
-  font-size: 1.5rem;
-  color: white;
   top: 50%; /* Center vertically */
   transform: translateY(-50%);
 }
@@ -296,7 +301,42 @@
   right: 1rem; /* Position the arrow on the far right */
 }
 
-    
+
+.fade-slide-leave-active {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-slide-enter-active {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(20px); /* Enter from the right and slightly down */
+}
+
+.fade-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0); /* Settle into place */
+}
+
+.fade-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0); /* Start from its position */
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-20px); /* Exit to the left and slightly up */
+}
+
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
   .sidebar,

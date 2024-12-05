@@ -60,7 +60,6 @@ footer {
  border-top: 1px solid #3a3a3a;
   text-align: center;
   color: #e2e8f0;
-  background: linear-gradient(90deg,  #08090c, #1d263c, #08090c);
 
 }
 

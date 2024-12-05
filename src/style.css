@@ -209,9 +209,9 @@ a:hover {
 /* Code blocks */
 .markdown-content code {
   font-family: 'Courier New', monospace;
-  background: #1e1e1e;
+  background: #00000046;
   color: #00c3ff;
-  padding: 0.2rem 0.4rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 4px;
 }
 
@@ -220,7 +220,6 @@ a:hover {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   background: linear-gradient(180deg, #252c3f2a, #191e2b35);
-  border-radius: 0, 12px,12px;
   border-left: 4px solid #00c3ff;
   color: #ccc;
   font-style: italic;
