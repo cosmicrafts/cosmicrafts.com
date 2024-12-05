@@ -23,28 +23,30 @@
     
             <!-- Navigation Buttons -->
             <div class="navigation-buttons">
-              <button
-                v-if="previousSection"
-                class="button prev"
-                @click="changeSection(previousSection.id)"
-              >
-                <span>{{ previousSection.title }}</span>
-                <small>Previous</small>
-              </button>
-              <button
-                v-if="nextSection"
-                class="button next"
-                @click="changeSection(nextSection.id)"
-              >
-                <span>{{ nextSection.title }}</span>
-                <small>Next</small>
-              </button>
-            </div>
+  <button
+    v-if="previousSection"
+    class="button prev"
+    @click="changeSection(previousSection.id)"
+  >
+  <span class="arrow"><img src="/src/assets/icons/prev.svg" alt="arrow"></span>
+    <span>{{ previousSection.title }}</span>
+    <small>Previous</small>
+  </button>
+  <button
+    v-if="nextSection"
+    class="button next"
+    @click="changeSection(nextSection.id)"
+  >
+    <span>{{ nextSection.title }}</span>
+    <small>Next</small>
+    <span class="arrow"><img src="/src/assets/icons/next.svg" alt="arrow"></span>
+  </button>
+</div>
+
           </div>
     
           <!-- Right Sidebar -->
           <aside class="right-sidebar">
-            <h3>On This Page</h3>
             <ul>
               <li
                 v-for="cue in toc"
@@ -130,115 +132,140 @@
     };
     </script>
     
-<style scoped>
-.whitepaper-layout {
-  display: flex;
-  flex-direction: column;
-}
+    <style scoped>
+    .whitepaper-layout {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .main-content {
+      display: flex;
+      flex: 1;
+      color: white;
+      overflow: hidden;
+      background: linear-gradient(90deg, #08090cda, #1d263cf8, #08090cd8),
+                  url('@/assets/webp/daomission.webp') no-repeat center center;
+      background-size: cover; /* Ensure the image covers the area */
+      background-blend-mode: normal; /* Use normal blend */
+      opacity: 0.8;
+      }
 
-.main-content {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-  margin-top: 60px;
-}
+    
+    .sidebar {
+      position: fixed;
+      left: 0;
+      width: 15%;
+      height: 100vh;
+      background: linear-gradient(to right, rgba(26, 37, 47, 0.496), rgba(16, 24, 31, 0.578));
+      color: white;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center horizontally */
+      border-right: 1px solid #3a3a3a;
+      }
+    
+    .sidebar ul {
+      font-size: .8rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5rem;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .sidebar li {
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+    
+    .sidebar li.active {
+      font-weight: bold;
+      color: #00ffcc;
+    }
 
-/* Sidebar (Left) */
-.sidebar {
-  position: relative;
-  width: 250px;
-  background-color: #1e1e1e;
-  color: white;
-  padding: 1rem;
-  overflow-y: auto;
-  flex-shrink: 0;
-}
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
+    
+    /* Content */
+    .content {
+      flex: 1;
+      margin-left: 15%;
+      margin-right: 10%;
+      padding: 4.5rem 4rem 4rem;
+      overflow-y: auto;
+      
+    }
+    
+    /* Right Sidebar */
+    .right-sidebar {
+      position: fixed;
+      right: 0;
+      width: 10%;
+      height: 100vh;
+      background: linear-gradient(to right, rgba(26, 37, 47, 0.496), rgba(16, 24, 31, 0.578));
+      color: white;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-left: 1px solid #3a3a3a;
+      }
+    
+    .right-sidebar ul {
+      font-size: .7rem;
+      margin-top: 4.5rem;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .right-sidebar li {
+      cursor: pointer;
+      margin-bottom: 0.75rem;
+    }
+    
+    .right-sidebar li:hover {
+      color: #00c3ff;
+    }
+    
+    /* Navigation Buttons */
+    .navigation-buttons {
+      display: flex;
+      justify-content: center; /* Center the buttons horizontally */
+      gap: 2rem; /* Add space between the buttons */
+      margin-top: 2rem;
+    }
+    
+    .navigation-buttons .button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      justify-content: center;
+      padding: 1rem 2rem; /* Add padding for a better button size */
+      border: 1px solid #3a3a3a;
+      background: linear-gradient(180deg, #252C3F, #191e2b);
 
-.sidebar li {
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
-.sidebar li.active {
-  font-weight: bold;
-  color: #00ffcc;
-}
-
-/* Content */
-.content {
-  flex: 1;
-  padding: 2rem;
-  background-color: #0c1026;
-  overflow-y: auto;
-}
-
-/* Right Sidebar */
-.right-sidebar {
-  position: relative;
-  width: 200px;
-  background-color: #1e1e1e;
-  color: white;
-  padding: 1rem;
-  overflow-y: auto;
-  flex-shrink: 0;
-}
-
-.right-sidebar h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #00ffcc;
-}
-
-.right-sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.right-sidebar li {
-  cursor: pointer;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.right-sidebar li:hover {
-  color: #00c3ff;
-}
-
-/* Navigation Buttons */
-.navigation-buttons {
-  display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 2rem; /* Add space between the buttons */
-  margin-top: 2rem;
-}
-
-.navigation-buttons .button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2rem; /* Add padding for a better button size */
-  border: none;
-  background-color: #1e1e1e;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.1s ease;
+      position: relative;
+      }
 
 .navigation-buttons .button:hover {
-  background-color: #00c3ff;
+      background: linear-gradient(180deg, #265ef9, #007bff);
 }
 
-.navigation-buttons .button small {
-  font-size: 0.75rem;
+.navigation-buttons .button.prev {
+  align-items: flex-end; /* Align text to the right for previous button */
+  text-align: right; /* Ensure text aligns properly */
+}
+
+.navigation-buttons .button.small {
+  font-size: 1.75rem;
   color: #ccc;
-  margin-bottom: 0.25rem;
 }
 
 .navigation-buttons .button span {
@@ -246,27 +273,47 @@
   font-weight: bold;
 }
 
+/* Arrows */
+.navigation-buttons .button .arrow {
+  position: absolute;
+  font-size: 1.5rem;
+  color: white;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+}
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-  }
+.navigation-buttons .button.prev .arrow {
+  left: 1rem; /* Position the arrow on the far left */
+}
 
-  .sidebar {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 1rem;
-  }
+.navigation-buttons .button.next .arrow {
+  right: 1rem; /* Position the arrow on the far right */
+}
 
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+  .sidebar,
   .right-sidebar {
-    display: none; /* Hide on smaller screens */
+    display: none; /* Hide sidebars on smaller screens */
   }
 
   .content {
-    padding: 1rem;
+    margin: 0;
+    padding: 4.5rem 1rem 1rem;
+    width: 100%;
   }
+
+  .navigation-buttons .button {
+      padding: 1rem 1rem;
+      position: relative;
+      }
+  
+  .navigation-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
 }
-
-
-</style>
+    </style>
+    
