@@ -57,22 +57,27 @@
 </transition>
 
         </div>
-
-
           </div>
+
+
           <!-- Right Sidebar -->
           <aside class="right-sidebar">
-            <ul>
-              <li
-                v-for="cue in toc"
-                :key="cue.id"
-                @click="scrollToHeading(cue.id)"
-              >
-                {{ cue.text }}
-              </li>
-            </ul>
-          </aside>
+      <ul>
+      <li
+            v-for="cue in toc"
+            :key="cue.id"
+            :class="{ active: cue.id === activeHeading }"
+            @click="scrollToHeading(cue.id)"
+      >
+            {{ cue.text }}
+      </li>
+      </ul>
+      </aside>
+
+
         </div>
+
+        
       </div>
     </template>
     
@@ -93,6 +98,7 @@
             { id: "architecture", title: "Architecture" },
           ],
               toc: [],
+              activeHeading: null,
               showPreviousButton: false,
               showNextButton: false,
         };
@@ -138,20 +144,13 @@
         this.showNextButton = !!this.nextSection;
       }, 100);
     },
-        generateTOC() {
-          const headings = document.querySelectorAll(".content h2, .content h3");
-    
-          // Ensure unique IDs and populate TOC
-          this.toc = Array.from(headings).map((heading, index) => {
-            if (!heading.id) {
-              heading.id = `heading-${index}`; // Assign a unique ID if missing
-            }
-            return {
-              id: heading.id,
-              text: heading.textContent,
-            };
-          });
-        },
+    generateTOC() {
+  const headings = document.querySelectorAll(".content h2, .content h3");
+  this.toc = Array.from(headings).map((heading, index) => {
+    if (!heading.id) heading.id = `heading-${index}`; // Ensure each heading has an ID
+    return { id: heading.id, text: heading.textContent };
+  });
+},
         scrollToHeading(id) {
           const target = document.getElementById(id);
           if (target) {
@@ -166,8 +165,31 @@
           }
         },
       },
+      observeSections() {
+      const options = {
+        root: null, // Observe the viewport
+        rootMargin: "0px",
+        threshold: 0.5, // Trigger when 50% of the heading is visible
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.activeHeading = entry.target.id; // Update the active heading
+          }
+        });
+      }, options);
+
+      // Observe all headings in the content
+      const headings = document.querySelectorAll(".content h2, .content h3");
+      headings.forEach((heading) => {
+        observer.observe(heading);
+      });
+    },
       mounted() {
-    this.updateButtonVisibility();
+            this.updateButtonVisibility();
+            this.generateTOC(); // Generate TOC on load
+            this.$nextTick(() => this.observeSections());
   },
     };
     </script>
@@ -267,7 +289,14 @@
     .right-sidebar li {
       cursor: pointer;
       margin-bottom: 0.75rem;
+      transition: background-color 0.3s, color 0.3s;
     }
+
+    .right-sidebar li.active {
+      color: #00c3ff;
+      font-weight: bold;
+      background-color: rgba(0, 195, 255, 0.1);
+      }
     
     .right-sidebar li:hover {
       color: #00c3ff;
@@ -446,7 +475,7 @@
 
   .content {
     margin: 0;
-    padding: 4.5rem 1rem 1rem;
+    padding: 4.5rem 2rem 2rem;
     width: 100%;
   }
 
