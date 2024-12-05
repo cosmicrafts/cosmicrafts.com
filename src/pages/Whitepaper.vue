@@ -29,16 +29,18 @@
     @click="changeSection(previousSection.id)"
   >
   <span class="arrow"><img src="/src/assets/icons/prev.svg" alt="arrow"></span>
-    <span>{{ previousSection.title }}</span>
-    <small>Previous</small>
+  <small>Previous</small>
+  <span>{{ previousSection.title }}</span>
+    
   </button>
   <button
     v-if="nextSection"
     class="button next"
     @click="changeSection(nextSection.id)"
   >
+      <small>Next</small>
     <span>{{ nextSection.title }}</span>
-    <small>Next</small>
+    
     <span class="arrow"><img src="/src/assets/icons/next.svg" alt="arrow"></span>
   </button>
 </div>
@@ -158,8 +160,8 @@
       left: 0;
       width: 15%;
       height: 100vh;
-      background: linear-gradient(to right, rgba(26, 37, 47, 0.496), rgba(16, 24, 31, 0.578));
-      color: white;
+      background: linear-gradient(to left,
+       rgb(26, 37, 47), rgb(16, 24, 31));
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -193,7 +195,7 @@
       flex: 1;
       margin-left: 15%;
       margin-right: 10%;
-      padding: 4.5rem 4rem 4rem;
+      padding: 4.5rem 8rem 8rem;
       overflow-y: auto;
       
     }
@@ -204,8 +206,8 @@
       right: 0;
       width: 10%;
       height: 100vh;
-      background: linear-gradient(to right, rgba(26, 37, 47, 0.496), rgba(16, 24, 31, 0.578));
-      color: white;
+      background: linear-gradient(to right,
+       rgb(26, 37, 47), rgb(16, 24, 31));
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -264,13 +266,13 @@
 }
 
 .navigation-buttons .button.small {
-  font-size: 1.75rem;
   color: #ccc;
 }
 
 .navigation-buttons .button span {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
+  margin-top: .25rem;
 }
 
 /* Arrows */
@@ -313,7 +315,7 @@
     display: flex;
     gap: 1rem;
   }
-
+  
 }
     </style>
     

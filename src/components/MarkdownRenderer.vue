@@ -1,6 +1,7 @@
 <template>
-  <div v-html="htmlContent" @click="emitRendered"></div>
+  <div class="markdown-content" v-html="htmlContent" @click="emitRendered"></div>
 </template>
+
 
 <script>
 import MarkdownIt from "markdown-it";
@@ -59,5 +60,5 @@ export default {
 </script>
 
 <style scoped>
-/* Optional styles for Markdown content */
+
 </style>

@@ -8,3 +8,7 @@ The **Executive Summary** provides a quick overview of the project. This file is
 - Provide sustainable growth and value.
 
 Stay tuned for more updates.
+
+`inline code example`
+
+> This is a blockquote example.

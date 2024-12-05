@@ -136,19 +136,92 @@ a:hover {
   background-color: var(--button-bg-hover);
 }
 
-.markdown-content h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
 
-.markdown-content p {
-  font-size: 1.125rem;
+.markdown-content {
+  font-family: var(--font-family-default);
+  color: var(--font-color); /* Use your default text color */
   line-height: 1.6;
+}
+
+/* Headings */
+.markdown-content h1 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  border-bottom: 1px solid #00aeff;
+  padding-bottom: 0.25rem;
   margin-bottom: 1rem;
 }
 
+.markdown-content h2 {
+  font-size: 1.25rem;
+  color: #b0c4da;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.1rem;
+  color: #00a3cc;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+.markdown-content p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+  color: #ffffff;
+}
+
+/* Lists */
 .markdown-content ul {
-  list-style: disc;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.markdown-content li::marker {
+  color: #00a3cc;
+}
+
+/* Bold text */
+.markdown-content strong {
+  font-weight: bold;
+  color: #00ddff;
+}
+
+/* Links */
+.markdown-content a {
+  color: #00c3ff;
+  text-decoration: underline;
+}
+
+.markdown-content a:hover {
+  color: #00c3ff;
+  text-decoration: none;
+}
+
+/* Code blocks */
+.markdown-content code {
+  font-family: 'Courier New', monospace;
+  background: #1e1e1e;
+  color: #00c3ff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* Blockquotes */
+.markdown-content blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(180deg, #252c3f2a, #191e2b35);
+  border-radius: 0, 12px,12px;
+  border-left: 4px solid #00c3ff;
+  color: #ccc;
+  font-style: italic;
 }
