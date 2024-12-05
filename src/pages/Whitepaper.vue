@@ -147,7 +147,7 @@
       flex: 1;
       color: white;
       overflow: hidden;
-      background: linear-gradient(90deg, #08090cda, #1d263cf8, #08090cd8),
+      background: linear-gradient(90deg, #08090cda, rgba(29, 37, 55, 0.913), #08090cd8),
                   url('@/assets/webp/daomission.webp') no-repeat center center;
       background-size: cover; /* Ensure the image covers the area */
       background-blend-mode: normal; /* Use normal blend */
@@ -160,8 +160,11 @@
       left: 0;
       width: 15%;
       height: 100vh;
-      background: linear-gradient(to left,
-       rgb(26, 37, 47), rgb(16, 24, 31));
+      background: linear-gradient(90deg, #121725f8, #1d263cf8, #121725f8),
+                  url('@/assets/webp/hero.webp') no-repeat center center;
+      background-size: cover; /* Ensure the image covers the area */
+      background-blend-mode: normal; /* Use normal blend */
+
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -170,7 +173,7 @@
       }
     
     .sidebar ul {
-      font-size: .8rem;
+      font-size: .9rem;
       justify-content: center;
       align-items: center;
       margin-top: 5rem;
@@ -185,16 +188,14 @@
     
     .sidebar li.active {
       font-weight: bold;
-      color: #00ffcc;
+      color: #00c3ff;
     }
-
-
     
     /* Content */
     .content {
       flex: 1;
       margin-left: 15%;
-      margin-right: 10%;
+      margin-right: 12%;
       padding: 4.5rem 8rem 8rem;
       overflow-y: auto;
       
@@ -204,10 +205,13 @@
     .right-sidebar {
       position: fixed;
       right: 0;
-      width: 10%;
+      width: 12%;
       height: 100vh;
-      background: linear-gradient(to right,
-       rgb(26, 37, 47), rgb(16, 24, 31));
+      background: linear-gradient(90deg, #090b12f7, #1d2537f8, #10141f),
+                  url('@/assets/webp/bg-adventures.webp') no-repeat center center;
+      background-size: cover; /* Ensure the image covers the area */
+      background-blend-mode: normal; /* Use normal blend */
+
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -216,8 +220,8 @@
       }
     
     .right-sidebar ul {
-      font-size: .7rem;
-      margin-top: 4.5rem;
+      font-size: .8rem;
+      margin-top: 5rem;
       list-style: none;
       padding: 0;
     }
