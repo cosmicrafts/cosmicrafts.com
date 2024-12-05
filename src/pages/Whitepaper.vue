@@ -32,25 +32,29 @@
 
   <!-- Navigation Buttons -->
   <div class="navigation-buttons">
-    <button
-      v-if="previousSection"
-      class="button prev"
-      @click="changeSection(previousSection.id)"
-    >
-      <span class="arrow"><img src="/src/assets/icons/prev.svg" alt="arrow"></span>
-      <small>Previous</small>
-      <span>{{ previousSection.title }}</span>
-    </button>
-    <button
-      v-if="nextSection"
-      class="button next"
-      @click="changeSection(nextSection.id)"
-    >
-      <small>Next</small>
-      <span>{{ nextSection.title }}</span>
-      <span class="arrow"><img src="/src/assets/icons/next.svg" alt="arrow"></span>
-    </button>
-  </div>
+  <!-- Previous Button -->
+  <button
+    class="button prev"
+    :class="{ 'is-hidden': !previousSection }"
+    @click="changeSection(previousSection?.id)"
+  >
+    <span class="arrow"><img src="/src/assets/icons/prev.svg" alt="arrow"></span>
+    <small>Previous</small>
+    <span>{{ previousSection?.title }}</span>
+  </button>
+
+  <!-- Next Button -->
+  <button
+    class="button next"
+    :class="{ 'is-hidden': !nextSection }"
+    @click="changeSection(nextSection?.id)"
+  >
+    <small>Next</small>
+    <span>{{ nextSection?.title }}</span>
+    <span class="arrow"><img src="/src/assets/icons/next.svg" alt="arrow"></span>
+  </button>
+</div>
+
 
 
           </div>
@@ -78,38 +82,65 @@
         MarkdownRenderer,
       },
       data() {
-        return {
-          activeSection: "welcome", // Default to the first section
-          sections: [
-            { id: "welcome", title: "Welcome" },
-            { id: "executive-summary", title: "Executive Summary" },
-            { id: "core-features", title: "Core Features" },
-            { id: "architecture", title: "Architecture" },
-          ],
-          toc: [], // Table of Contents for the right sidebar
-        };
-      },
-      computed: {
-        previousSection() {
-          const currentIndex = this.sections.findIndex(
-            (section) => section.id === this.activeSection
-          );
-          return currentIndex > 0 ? this.sections[currentIndex - 1] : null;
-        },
-        nextSection() {
-          const currentIndex = this.sections.findIndex(
-            (section) => section.id === this.activeSection
-          );
-          return currentIndex < this.sections.length - 1
-            ? this.sections[currentIndex + 1]
-            : null;
-        },
-      },
-      methods: {
-        changeSection(sectionId) {
-          this.activeSection = sectionId;
-          this.toc = []; // Reset TOC when switching sections
-        },
+            return {
+    activeSection: "welcome",
+    delayedPreviousSection: null,
+    delayedNextSection: null,
+    sections: [
+      { id: "welcome", title: "Welcome" },
+      { id: "executive-summary", title: "Executive Summary" },
+      { id: "core-features", title: "Core Features" },
+      { id: "architecture", title: "Architecture" },
+    ],
+    toc: [],
+  };
+},
+computed: {
+  previousSection() {
+    const currentIndex = this.sections.findIndex(
+      (section) => section.id === this.activeSection
+    );
+    return currentIndex > 0 ? this.sections[currentIndex - 1] : null;
+  },
+  nextSection() {
+    const currentIndex = this.sections.findIndex(
+      (section) => section.id === this.activeSection
+    );
+    return currentIndex < this.sections.length - 1
+      ? this.sections[currentIndex + 1]
+      : null;
+  },
+},
+watch: {
+  previousSection(newVal) {
+    this.updateDelayedSections("previous", newVal);
+  },
+  nextSection(newVal) {
+    this.updateDelayedSections("next", newVal);
+  },
+},
+methods: {
+  changeSection(sectionId) {
+    this.activeSection = sectionId;
+    this.toc = [];
+    this.scrollToTop();
+  },
+  scrollToTop() {
+    const contentElement = document.querySelector(".content");
+    if (contentElement) {
+      contentElement.scrollTo({
+        top: 0,
+        behavior: "smooth", // Smooth scroll animation
+      });
+    }
+      },updateDelayedSections(type, value) {
+    setTimeout(() => {
+      if (type === "previous") this.delayedPreviousSection = value;
+      if (type === "next") this.delayedNextSection = value;
+    }, 600);
+  },
+
+  
         generateTOC() {
           const headings = document.querySelectorAll(".content h2, .content h3");
     
@@ -127,7 +158,7 @@
         scrollToHeading(id) {
           const target = document.getElementById(id);
           if (target) {
-            const headerOffset = 80; // Adjust this value to match your header height
+            const headerOffset = 80;
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.scrollY - headerOffset;
     
@@ -251,21 +282,29 @@
     }
     
     .navigation-buttons .button {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      justify-content: center;
-      padding: 1rem 2rem; /* Add padding for a better button size */
-      border: 1px solid #3a3a3a;
-      background: linear-gradient(180deg, #252C3F, #191e2b);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border: 1px solid #3a3a3a;
+  background: linear-gradient(180deg, #252C3F, #191e2b);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, opacity 0.8s ease-in, transform 0.4s ease-out;
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.1s ease;
-      position: relative;
-      }
+/* Hidden Buttons */
+.navigation-buttons .button.is-hidden {
+  opacity: 0;
+  pointer-events: none; /* Prevent interactions */
+  transition: opacity 0.05s ease-out; /* Separate leave timings */
+}
 
 .navigation-buttons .button:hover {
       background: linear-gradient(180deg, #265ef9, #007bff);
