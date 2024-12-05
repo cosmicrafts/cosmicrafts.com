@@ -154,7 +154,7 @@ a:hover {
 
 .markdown-content h2 {
   font-size: 1.25rem;
-  color: #b0c4da;
+  color: #e6e6e6;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -168,7 +168,7 @@ a:hover {
 
 /* Paragraphs */
 .markdown-content p {
-  font-size: 1rem;
+  font-size: .9rem;
   margin-bottom: 1rem;
   text-align: justify;
   color: #ffffff;
@@ -223,4 +223,36 @@ a:hover {
   border-left: 4px solid #00c3ff;
   color: #ccc;
   font-style: italic;
+}
+
+/* Lists */
+.markdown-content ul {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  list-style-type: disc; /* Default bullet style */
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+  font-size: .9rem; /* Adjust font size here */
+  color: #ffffff; /* Set text color */
+  line-height: 1.2; /* Control spacing between lines */
+}
+
+/* Bullet point marker customization */
+.markdown-content li::marker {
+  color: #ffffff; /* Set bullet color */
+  font-size: 1rem; /* Adjust bullet size */
+  font-weight: bold; /* Make the bullet bold */
+}
+
+/* For nested lists */
+.markdown-content ul ul {
+  list-style-type: circle; /* Change to circle for nested lists */
+  margin-left: 1rem;
+}
+
+.markdown-content ul ul li::marker {
+  color: #00ddff; /* Different color for nested bullets */
+  font-size: 1rem;
 }

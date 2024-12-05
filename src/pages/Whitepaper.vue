@@ -1,5 +1,5 @@
 <template>
-      <div class="whitepaper-layout">
+      <div class="whitepaper-layout animated">
         <!-- Main Layout -->
         <div class="main-content">
           <!-- Sidebar (Left) -->
@@ -28,7 +28,6 @@
     :key="activeSection"
   />
 </transition>
-
 
 <!-- Navigation Buttons -->
 <div class="navigation-buttons">
@@ -186,7 +185,7 @@
       flex: 1;
       color: white;
       overflow: hidden;
-      background: linear-gradient(90deg, #08090cda, rgba(29, 37, 55, 0.913), #08090cd8),
+      background: linear-gradient(90deg, #08090cda, rgba(29, 37, 55, 0.85), #08090cd8),
                   url('@/assets/webp/daomission.webp') no-repeat center center;
       background-size: cover; /* Ensure the image covers the area */
       background-blend-mode: normal; /* Use normal blend */
@@ -213,6 +212,7 @@
     
     .sidebar ul {
       font-size: .9rem;
+      font-weight: bold;
       justify-content: center;
       align-items: center;
       margin-top: 5rem;
@@ -226,7 +226,6 @@
     }
     
     .sidebar li.active {
-      font-weight: bold;
       color: #00c3ff;
     }
     
@@ -237,7 +236,6 @@
       margin-right: 12%;
       padding: 4.5rem 6rem 6rem;
       overflow-y: auto;
-      
     }
     
     /* Right Sidebar */
@@ -254,15 +252,16 @@
       padding: 1rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: right;
       border-left: 1px solid #3a3a3a;
       }
     
     .right-sidebar ul {
       font-size: .8rem;
-      margin-top: 5rem;
+      font-weight: bold;
+      margin-top: 4rem;
       list-style: none;
-      padding: 0;
+      padding: 1rem;
     }
     
     .right-sidebar li {
@@ -288,28 +287,22 @@
       align-items: flex-start;
       width: 100%;
       justify-content: center;
-      padding: 1rem 2rem; /* Add padding for a better button size */
+      padding: 1rem 1rem;
       border: 1px solid #3a3a3a;
       background: linear-gradient(180deg, #252C3F, #191e2b);
-
-      color: white;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.1s ease;
       position: relative;
       }
 
-.navigation-buttons .button:hover {
-      background: linear-gradient(180deg, #265ef9, #007bff);
-}
+      .navigation-buttons .button:hover {
+       background: linear-gradient(180deg, #265ef9, #007bff);
+      }
 
 .navigation-buttons .button.prev {
   align-items: flex-end; /* Align text to the right for previous button */
   text-align: right; /* Ensure text aligns properly */
-}
-
-.navigation-buttons .button.small {
-  color: #ccc;
 }
 
 .navigation-buttons .button span {
@@ -318,19 +311,23 @@
   margin-top: .25rem;
 }
 
+.navigation-buttons small {
+  color: gray;
+}
+
 /* Arrows */
 .navigation-buttons .button .arrow {
   position: absolute;
-  top: 50%; /* Center vertically */
+  top: 50%;
   transform: translateY(-50%);
 }
 
 .navigation-buttons .button.prev .arrow {
-  left: 1rem; /* Position the arrow on the far left */
+  left: 1rem;
 }
 
 .navigation-buttons .button.next .arrow {
-  right: 1rem; /* Position the arrow on the far right */
+  right: 1rem;
 }
 
 
@@ -367,6 +364,77 @@
   opacity: 0;
   transform: translateY(-20px); /* Exit to the left and slightly up */
 }
+
+
+/* Animation Keyframes */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page Container Animation */
+.animated .whitepaper-layout {
+  opacity: 0;
+  animation: fade-in 1.2s ease forwards;
+}
+
+/* Sidebar Animation */
+.animated .sidebar {
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: slide-in-left 0.8s ease forwards;
+}
+
+.animated .right-sidebar {
+  transform: translateX(100%);
+  opacity: 0;
+  animation: slide-in-right 0.8s ease forwards 0.2s; /* Add delay for staggered effect */
+}
+
+/* Content Animation */
+.animated .content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in 1s ease forwards 0.4s; /* Slight delay for smoother animation */
+}
+
+/* Sidebar Text Animation */
+.animated .sidebar ul li,
+.animated .right-sidebar ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in 0.6s ease forwards;
+  animation-delay: calc(0.2s + var(--index) * 0.1s); /* Staggered delay for each item */
+}
+
 
 
     /* Responsive Adjustments */
