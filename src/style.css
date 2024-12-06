@@ -259,3 +259,11 @@ a:hover {
   color: #00ddff; /* Different color for nested bullets */
   font-size: 1rem;
 }
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px; /* Optional for rounded corners */
+}

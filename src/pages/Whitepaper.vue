@@ -92,7 +92,7 @@ export default {
     return {
       activeSection: "welcome",
       sections: [
-        { id: "welcome", title: "Welcome" },
+        { id: "introduction", title: "Introduction" },
         { id: "executive-summary", title: "Executive Summary" },
         { id: "core-features", title: "Core Features" },
         { id: "architecture", title: "Architecture" },
