@@ -28,10 +28,10 @@ Cosmicrafts addresses these pain points by offering a **fun-first, quality-drive
 
 ## Vision for the Franchise
 
-At its core, Cosmicrafts is not just a single game—it's the foundation of a **multi-game franchise**. The vision is to build an interconnected ecosystem of games (RTS, adventure, RPG, racing, and more) that share:
+At its core, Cosmicrafts is the foundation of a **multi-game franchise**. The vision is to build an interconnected ecosystem of games (RTS, adventure, 4X, and more) that share:
 - **Unified Tokenomics**: The Spiral token serves as the economy's backbone across all games.
 - **Interoperable NFTs**: Players' assets, progress, and upgrades carry over between games.
-- **Shared Lore and Universe**: A rich, evolving narrative that spans multiple game genres.
+- **Shared Lore and Metaverse**: A rich, evolving narrative that spans multiple game genres.
 
 The ultimate goal is to create a franchise akin to **Star Wars** or **Marvel**, where each game contributes to a larger cultural and economic phenomenon.
 
@@ -46,7 +46,7 @@ Cosmicrafts DAO is designed to empower stakeholders with:
 2. **Economic Rewards**:
    - Staking Spiral tokens unlocks maturity-based rewards.
    - Revenue streams, such as NFT sales and marketplace fees, flow back to the DAO treasury, aligning incentives with long-term growth.
-   - A deflationary model ensures the Spiral token appreciates in value over time.
+   - A deflationary model designed for the Spiral token to appreciate in value over time.
 3. **Legacy Building**:
    - Becoming a stakeholder in Cosmicrafts is akin to owning a luxury asset that not only appreciates in value but also pays dividends.
 
@@ -61,7 +61,7 @@ Cosmicrafts leverages the **Internet Computer (ICP)** to deliver unmatched scala
 - **Free and Instant Transactions**:
   - Unlike other blockchains, ICP enables fee-free transactions, removing barriers for both players and stakeholders.
 - **SNS and DAO Integration**:
-  - The DAO is built using ICP's native SNS (Service Nervous System), ensuring seamless governance and treasury management.
+  - The DAO is built using ICP's native SNS (Service Nervous System), maintained by DFINITY Foundation, ensuring secure governance and treasury management.
 
 This robust technical foundation positions Cosmicrafts as a demonstration of **large-scale blockchain gaming at its finest**.
 

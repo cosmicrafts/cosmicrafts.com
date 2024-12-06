@@ -2,7 +2,6 @@
   <div class="markdown-content" v-html="htmlContent" @click="emitRendered"></div>
 </template>
 
-
 <script>
 import MarkdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
@@ -41,33 +40,49 @@ export default {
       }
     },
     renderMarkdown(content) {
-  const md = new MarkdownIt().use(markdownItAnchor, {
-    slugify: (s) =>
-      s
-        .trim()
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, "")
-        .replace(/\s+/g, "-"),
-    level: [2, 3],
-  });
+      const md = new MarkdownIt().use(markdownItAnchor, {
+        slugify: (s) =>
+          s
+            .trim()
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, "")
+            .replace(/\s+/g, "-"),
+        level: [2, 3],
+      });
 
-  // Override default image renderer to resolve Vite asset paths
-  const defaultRender = md.renderer.rules.image || function(tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options);
-  };
+      // Override default image renderer to resolve Vite asset paths
+      const defaultImageRender =
+        md.renderer.rules.image ||
+        function (tokens, idx, options, env, self) {
+          return self.renderToken(tokens, idx, options);
+        };
 
-  md.renderer.rules.image = function(tokens, idx, options, env, self) {
-    const token = tokens[idx];
-    const srcIndex = token.attrIndex('src');
-    if (srcIndex >= 0) {
-      const src = token.attrs[srcIndex][1];
-      // Resolve the image path using Vite's asset handling
-      token.attrs[srcIndex][1] = new URL(`../assets/webp/${src}`, import.meta.url).href;
-    }
-    return defaultRender(tokens, idx, options, env, self);
-  };
+      md.renderer.rules.image = function (tokens, idx, options, env, self) {
+        const token = tokens[idx];
+        const srcIndex = token.attrIndex("src");
+        if (srcIndex >= 0) {
+          const src = token.attrs[srcIndex][1];
+          // Resolve the image path using Vite's asset handling
+          token.attrs[srcIndex][1] = new URL(`../assets/webp/${src}`, import.meta.url).href;
+        }
+        return defaultImageRender(tokens, idx, options, env, self);
+      };
 
-  return md.render(content);
+      // Override default link renderer to add target="_blank" and rel="noopener noreferrer"
+      const defaultLinkRender =
+        md.renderer.rules.link_open ||
+        function (tokens, idx, options, env, self) {
+          return self.renderToken(tokens, idx, options);
+        };
+
+      md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+        const token = tokens[idx];
+        token.attrPush(["target", "_blank"]); // Add target="_blank"
+        token.attrPush(["rel", "noopener noreferrer"]); // Add rel for security
+        return defaultLinkRender(tokens, idx, options, env, self);
+      };
+
+      return md.render(content);
     },
     emitRendered() {
       this.$emit("rendered");
@@ -77,5 +92,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
