@@ -26,6 +26,7 @@
   <MarkdownRenderer
     :fileName="activeSection"
     @rendered="generateTOC"
+    @navigateToSection="handleNavigateToSection"
     :key="activeSection"
   />
 </transition>
@@ -137,6 +138,16 @@ export default {
     navigateNext() {
       if (this.nextSection) this.changeSection(this.nextSection.id);
     },
+    handleNavigateToSection(sectionId) {
+    const section = this.sections.find((s) => s.id === sectionId);
+    if (section) {
+      // Change to a new section
+      this.changeSection(sectionId);
+    } else {
+      // Scroll to heading within the current section
+      this.scrollToHeading(sectionId);
+    }
+  },
     updateButtonVisibility() {
       setTimeout(() => {
         this.showPreviousButton = !!this.previousSection;

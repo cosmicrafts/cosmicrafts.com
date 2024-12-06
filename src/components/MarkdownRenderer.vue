@@ -19,8 +19,21 @@ export default {
     };
   },
   mounted() {
-    this.loadMarkdown(this.$i18n.locale);
-  },
+  this.loadMarkdown(this.$i18n.locale);
+
+  // Add click listener for internal links
+  this.$el.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target.tagName === "A" && target.classList.contains("internal-link")) {
+      event.preventDefault(); // Prevent default anchor behavior
+      const href = target.getAttribute("href");
+      if (href.startsWith("#")) {
+        const sectionId = href.slice(1); // Remove the # symbol
+        this.$emit("navigateToSection", sectionId); // Emit event for parent to handle
+      }
+    }
+  });
+},
   watch: {
     fileName: "reloadMarkdown",
     "$i18n.locale": "reloadMarkdown",
@@ -40,49 +53,58 @@ export default {
       }
     },
     renderMarkdown(content) {
-      const md = new MarkdownIt().use(markdownItAnchor, {
-        slugify: (s) =>
-          s
-            .trim()
-            .toLowerCase()
-            .replace(/[^\w\s-]/g, "")
-            .replace(/\s+/g, "-"),
-        level: [2, 3],
-      });
+  const md = new MarkdownIt().use(markdownItAnchor, {
+    slugify: (s) =>
+      s
+        .trim()
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, "")
+        .replace(/\s+/g, "-"),
+    level: [2, 3],
+  });
 
-      // Override default image renderer to resolve Vite asset paths
-      const defaultImageRender =
-        md.renderer.rules.image ||
-        function (tokens, idx, options, env, self) {
-          return self.renderToken(tokens, idx, options);
-        };
+  // Default image renderer to resolve Vite paths
+  const defaultImageRender =
+    md.renderer.rules.image ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
 
-      md.renderer.rules.image = function (tokens, idx, options, env, self) {
-        const token = tokens[idx];
-        const srcIndex = token.attrIndex("src");
-        if (srcIndex >= 0) {
-          const src = token.attrs[srcIndex][1];
-          // Resolve the image path using Vite's asset handling
-          token.attrs[srcIndex][1] = new URL(`../assets/webp/${src}`, import.meta.url).href;
-        }
-        return defaultImageRender(tokens, idx, options, env, self);
-      };
+  md.renderer.rules.image = function (tokens, idx, options, env, self) {
+    const token = tokens[idx];
+    const srcIndex = token.attrIndex("src");
+    if (srcIndex >= 0) {
+      const src = token.attrs[srcIndex][1];
+      token.attrs[srcIndex][1] = new URL(`../assets/webp/${src}`, import.meta.url).href;
+    }
+    return defaultImageRender(tokens, idx, options, env, self);
+  };
 
-      // Override default link renderer to add target="_blank" and rel="noopener noreferrer"
-      const defaultLinkRender =
-        md.renderer.rules.link_open ||
-        function (tokens, idx, options, env, self) {
-          return self.renderToken(tokens, idx, options);
-        };
+  // Default link renderer to handle internal and external links
+  const defaultLinkRender =
+    md.renderer.rules.link_open ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
 
-      md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
-        const token = tokens[idx];
-        token.attrPush(["target", "_blank"]); // Add target="_blank"
-        token.attrPush(["rel", "noopener noreferrer"]); // Add rel for security
-        return defaultLinkRender(tokens, idx, options, env, self);
-      };
+  md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+    const token = tokens[idx];
+    const hrefIndex = token.attrIndex("href");
+    if (hrefIndex >= 0) {
+      const href = token.attrs[hrefIndex][1];
+      if (href.startsWith("#")) {
+        // Internal link: add a class to identify
+        token.attrPush(["class", "internal-link"]);
+      } else {
+        // External link: open in a new tab
+        token.attrPush(["target", "_blank"]);
+        token.attrPush(["rel", "noopener noreferrer"]);
+      }
+    }
+    return defaultLinkRender(tokens, idx, options, env, self);
+  };
 
-      return md.render(content);
+  return md.render(content);
     },
     emitRendered() {
       this.$emit("rendered");
