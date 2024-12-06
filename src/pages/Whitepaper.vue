@@ -21,6 +21,7 @@
   
             <transition
   name="fade-slide"
+  @after-leave="() => { generateTOC(); this.observeSections(); }"
 >
   <MarkdownRenderer
     :fileName="activeSection"
@@ -80,63 +81,63 @@
         
       </div>
     </template>
-    
-    <script>
-    import MarkdownRenderer from "@/components/MarkdownRenderer.vue";
-    
-    export default {
-      components: {
-        MarkdownRenderer,
-      },
-      data() {
-        return {
-          activeSection: "welcome", // Default to the first section
-          sections: [
-            { id: "welcome", title: "Welcome" },
-            { id: "executive-summary", title: "Executive Summary" },
-            { id: "core-features", title: "Core Features" },
-            { id: "architecture", title: "Architecture" },
-          ],
-              toc: [],
-              activeHeading: null,
-              showPreviousButton: false,
-              showNextButton: false,
-        };
-      },
-      computed: {
-        previousSection() {
-          const currentIndex = this.sections.findIndex(
-            (section) => section.id === this.activeSection
-          );
-          return currentIndex > 0 ? this.sections[currentIndex - 1] : null;
-        },
-        nextSection() {
-          const currentIndex = this.sections.findIndex(
-            (section) => section.id === this.activeSection
-          );
-          return currentIndex < this.sections.length - 1
-            ? this.sections[currentIndex + 1]
-            : null;
-        },
-      },
-      watch: {
+<script>
+import MarkdownRenderer from "@/components/MarkdownRenderer.vue";
+
+export default {
+  components: {
+    MarkdownRenderer,
+  },
+  data() {
+    return {
+      activeSection: "welcome",
+      sections: [
+        { id: "welcome", title: "Welcome" },
+        { id: "executive-summary", title: "Executive Summary" },
+        { id: "core-features", title: "Core Features" },
+        { id: "architecture", title: "Architecture" },
+      ],
+      toc: [],
+      activeHeading: null,
+      showPreviousButton: false,
+      showNextButton: false,
+      observer: null,
+    };
+  },
+  computed: {
+    previousSection() {
+      const currentIndex = this.sections.findIndex(
+        (section) => section.id === this.activeSection
+      );
+      return currentIndex > 0 ? this.sections[currentIndex - 1] : null;
+    },
+    nextSection() {
+      const currentIndex = this.sections.findIndex(
+        (section) => section.id === this.activeSection
+      );
+      return currentIndex < this.sections.length - 1
+        ? this.sections[currentIndex + 1]
+        : null;
+    },
+  },
+  watch: {
     activeSection() {
       this.updateButtonVisibility();
     },
   },
-      methods: {
-        changeSection(sectionId) {
-          this.activeSection = sectionId;
-          this.toc = []; // Reset TOC when switching sections
-            },
-            navigatePrevious() {
+  methods: {
+    changeSection(sectionId) {
+      this.activeSection = sectionId;
+      this.toc = []; // Reset TOC when switching sections
+      this.$nextTick(() => this.observeSections()); // Crucial: Observe after content updates
+    },
+    navigatePrevious() {
       if (this.previousSection) this.changeSection(this.previousSection.id);
     },
     navigateNext() {
       if (this.nextSection) this.changeSection(this.nextSection.id);
     },
     updateButtonVisibility() {
-      // Add slight delays to ensure smooth transitions
       setTimeout(() => {
         this.showPreviousButton = !!this.previousSection;
       }, 100);
@@ -145,54 +146,75 @@
       }, 100);
     },
     generateTOC() {
-  const headings = document.querySelectorAll(".content h2, .content h3");
-  this.toc = Array.from(headings).map((heading, index) => {
-    if (!heading.id) heading.id = `heading-${index}`; // Ensure each heading has an ID
-    return { id: heading.id, text: heading.textContent };
-  });
-},
-        scrollToHeading(id) {
-          const target = document.getElementById(id);
-          if (target) {
-            const headerOffset = 80; // Adjust this value to match your header height
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - headerOffset;
-    
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
-          }
-        },
-      },
-      observeSections() {
-      const options = {
-        root: null, // Observe the viewport
-        rootMargin: "0px",
-        threshold: 0.5, // Trigger when 50% of the heading is visible
-      };
+    this.toc = []; // Clear old TOC entries
+    const contentElement = this.$el.querySelector('.content');
+    const headings = contentElement.querySelectorAll('h2, h3');
+    this.toc = Array.from(headings).map((heading, index) => {
+      if (!heading.id) heading.id = `heading-${index}`; // Ensure each heading has an ID
+      return { id: heading.id, text: heading.textContent };
+    });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.activeHeading = entry.target.id; // Update the active heading
-          }
-        });
-      }, options);
-
-      // Observe all headings in the content
-      const headings = document.querySelectorAll(".content h2, .content h3");
-      headings.forEach((heading) => {
-        observer.observe(heading);
-      });
-    },
-      mounted() {
-            this.updateButtonVisibility();
-            this.generateTOC(); // Generate TOC on load
-            this.$nextTick(() => this.observeSections());
+    // Highlight the first heading if available
+    if (this.toc.length > 0) {
+      this.activeHeading = this.toc[0].id;
+    }
   },
+  scrollToHeading(id) {
+    const contentElement = this.$el.querySelector('.content');
+    const target = document.getElementById(id);
+    if (target) {
+      const headerOffset = 80; // Adjust for header
+      const targetPosition = target.offsetTop - headerOffset;
+
+      contentElement.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+      this.activeHeading = id; // Update the active heading
+    }
+  },
+  observeSections() {
+    // Clean up any previous observer
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+
+    const contentElement = this.$el.querySelector('.content');
+    if (!contentElement) return;
+
+    const options = {
+      root: contentElement,
+      rootMargin: "0px",
+      threshold: [0.5], // Trigger when 50% of the heading is visible
     };
-    </script>
+
+    // Create a new IntersectionObserver
+    this.observer = new IntersectionObserver((entries) => {
+      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+      if (visibleEntries.length > 0) {
+        // Sort entries by intersection ratio (most visible first)
+        visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        this.activeHeading = visibleEntries[0].target.id;
+      }
+    }, options);
+
+    // Observe all headings in the content
+    const headings = contentElement.querySelectorAll('h2, h3');
+    headings.forEach((heading) => this.observer.observe(heading));
+
+    // Automatically highlight the first heading if available
+    if (headings.length > 0) {
+      this.activeHeading = headings[0].id;
+    }
+  },
+},
+mounted() {
+  this.updateButtonVisibility();
+  this.generateTOC();
+  this.$nextTick(() => this.observeSections());
+},
+};
+</script>
     
     <style scoped>
     .whitepaper-layout {
@@ -253,12 +275,14 @@
     
     /* Content */
     .content {
-      flex: 1;
-      margin-left: 15%;
-      margin-right: 12%;
-      padding: 4.5rem 6rem 6rem;
-      overflow-y: auto;
-    }
+  flex: 1;
+  margin-left: 15%;
+  margin-right: 12%;
+  padding: 4.5rem 6rem 6rem;
+  overflow-y: scroll; /* Keep scroll behavior consistent */
+  scroll-behavior: smooth; /* Ensure smooth scrolling */
+}
+
     
     /* Right Sidebar */
     .right-sidebar {
@@ -271,7 +295,7 @@
       background-size: cover; /* Ensure the image covers the area */
       background-blend-mode: normal; /* Use normal blend */
 
-      padding: 1rem;
+      padding: 0.4rem 0.8rem;
       display: flex;
       flex-direction: column;
       align-items: right;
@@ -293,10 +317,14 @@
     }
 
     .right-sidebar li.active {
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
       color: #00c3ff;
       font-weight: bold;
-      background-color: rgba(0, 195, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.056);
+      transition: background-color 0.8s ease, color 0.3s ease; /* Smooth transitions */
       }
+
     
     .right-sidebar li:hover {
       color: #00c3ff;
@@ -326,7 +354,7 @@
       }
 
       .navigation-buttons .button:hover {
-       background: linear-gradient(180deg, #265ef9, #007bff);
+       background: linear-gradient(180deg, #007bff, #265ef9);
       }
 
 .navigation-buttons .button.prev {
@@ -341,7 +369,7 @@
 }
 
 .navigation-buttons small {
-  color: gray;
+  color: rgb(176, 176, 176);
 }
 
 /* Arrows */
