@@ -90,7 +90,7 @@ export default {
   },
   data() {
     return {
-      activeSection: "welcome",
+      activeSection: "introduction",
       sections: [
         { id: "introduction", title: "Introduction" },
         { id: "executive-summary", title: "Executive Summary" },
