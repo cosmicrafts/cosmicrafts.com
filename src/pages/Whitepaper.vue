@@ -157,19 +157,23 @@ export default {
       }, 100);
     },
     generateTOC() {
-    this.toc = []; // Clear old TOC entries
-    const contentElement = this.$el.querySelector('.content');
-    const headings = contentElement.querySelectorAll('h2');
-    this.toc = Array.from(headings).map((heading, index) => {
-      if (!heading.id) heading.id = `heading-${index}`; // Ensure each heading has an ID
-      return { id: heading.id, text: heading.textContent };
-    });
+  this.toc = []; // Clear old TOC entries
+  const contentElement = this.$el.querySelector('.content');
+  const headings = contentElement.querySelectorAll('h2');
+  
+  this.toc = Array.from(headings).map((heading, index) => {
+    if (!heading.id) heading.id = `heading-${index}`; // Ensure each heading has an ID
+    return { id: heading.id, text: heading.textContent };
+  });
 
-    // Highlight the first heading if available
-    if (this.toc.length > 0) {
-      this.activeHeading = this.toc[0].id;
-    }
-  },
+  // Highlight the first heading if available
+  if (this.toc.length > 0) {
+    this.activeHeading = this.toc[0].id;
+  }
+
+  // Re-attach the observer after generating TOC
+  this.$nextTick(() => this.observeSections());
+},
   scrollToHeading(id) {
     const contentElement = this.$el.querySelector('.content');
     const target = document.getElementById(id);
@@ -288,7 +292,7 @@ mounted() {
     .content {
   flex: 1;
   margin-left: 15%;
-  margin-right: 12%;
+  margin-right: 14%;
   padding: 4.5rem 6rem 6rem;
   overflow-y: scroll; /* Keep scroll behavior consistent */
   scroll-behavior: smooth; /* Ensure smooth scrolling */
