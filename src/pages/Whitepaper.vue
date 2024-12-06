@@ -293,13 +293,83 @@ mounted() {
     }
     
     .sidebar li {
-      cursor: pointer;
-      margin-bottom: 1rem;
-    }
-    
-    .sidebar li.active {
-      color: #00c3ff;
-    }
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out, text-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
+  padding: 0.4rem 1rem; /* Adjust padding for better spacing */
+  text-align: center; /* Center the text for a cleaner look */
+}
+
+/* Hover Effect for Sidebar Items */
+.sidebar li:hover {
+  color: #00c3ff; /* Change text color on hover */
+  border-bottom: 1px solid #00c3ff; /* Add bottom border */
+  border-top: 1px solid #00c3ff; /* Add top border */
+  text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686); /* Add slight glow */
+  padding-bottom: 0.5rem; /* Adjust padding to account for border size */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Add Orange Lines Animation on Hover */
+.sidebar li::before,
+.sidebar li::after {
+  content: '';
+  position: absolute;
+  height: 1.5px;
+  width: 50%;
+  background-color: #ffa200; /* Orange color for the lines */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0px 0px 4px rgba(255, 162, 0, 0.948); /* Subtle shadow effect */
+  transform: scaleX(0); /* Start hidden */
+}
+
+.sidebar li::before {
+  top: -1px; /* Offset top line above text */
+  left: -.25rem; /* Adjust horizontal offset */
+  transform-origin: left; /* Line grows from the left */
+}
+
+.sidebar li::after {
+  bottom: -1px; /* Offset bottom line below text */
+  right: -.25rem; 
+  transform-origin: right; /* Line grows from the right */
+}
+
+/* Orange Lines Animate on Hover */
+.sidebar li:hover::before,
+.sidebar li:hover::after {
+  transform: scaleX(1.5); /* Grow the lines */
+  box-shadow: 0px 0px 8px rgb(255, 162, 0); /* Add glow to lines */
+}
+
+/* Active Sidebar Item */
+.sidebar li.active {
+  color: #00c3ff;
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.88); /* Glow for active state */
+  background-color: rgba(255, 255, 255, 0.056); /* Add background for active item */
+  border-radius: 8px; /* Rounded corners for background */
+  padding: 0.4rem 1rem; /* Maintain consistent padding */
+  border-top: 1.5px solid #00c3ff; /* Keep blue border on top */
+  border-bottom: 3px solid rgb(255, 162, 0);
+}
+
+/* Remove Orange Lines for Active Item */
+.sidebar li.active::before,
+.sidebar li.active::after {
+  display: none; /* Disable orange lines for active state */
+}
+
+/* Add smooth transitions */
+.sidebar li,
+.sidebar li:hover,
+.sidebar li.active {
+  transition: all 0.3s ease-in-out; /* Smooth transition for all states */
+}
     
     /* Content */
     .content {
@@ -362,7 +432,7 @@ mounted() {
   left: -0.5rem; /* Add extra space to the left */
   right: -0.5rem; /* Add extra space to the right */
   bottom: 0; /* Align with the bottom of the list item */
-  border-radius: 6px; /* Make the pseudo-element's background look smooth */
+  border-radius: 8px; /* Make the pseudo-element's background look smooth */
   background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background to create a halo effect */
   z-index: -1; /* Place the pseudo-element behind the text */
   transition: all 0.3s ease-in-out; /* Smooth transition for hover and state changes */
