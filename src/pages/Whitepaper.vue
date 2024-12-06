@@ -64,17 +64,20 @@
 
           <!-- Right Sidebar -->
           <aside class="right-sidebar">
-      <ul>
+  <transition name="fade-slide-toc">
+    <ul v-if="toc.length > 0">
       <li
-            v-for="cue in toc"
-            :key="cue.id"
-            :class="{ active: cue.id === activeHeading }"
-            @click="scrollToHeading(cue.id)"
+        v-for="cue in toc"
+        :key="cue.id"
+        :class="{ active: cue.id === activeHeading }"
+        @click="scrollToHeading(cue.id)"
       >
-            {{ cue.text }}
+        {{ cue.text }}
       </li>
-      </ul>
-      </aside>
+    </ul>
+  </transition>
+</aside>
+
 
 
         </div>
@@ -130,7 +133,17 @@ export default {
     changeSection(sectionId) {
       this.activeSection = sectionId;
       this.toc = []; // Reset TOC when switching sections
-      this.$nextTick(() => this.observeSections()); // Crucial: Observe after content updates
+      this.$nextTick(() => {
+      this.generateTOC(); // Generate TOC and re-attach observer
+      });
+    // Smooth scroll to the top of the content
+    const contentElement = this.$el.querySelector('.content');
+    if (contentElement) {
+      contentElement.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
     },
     navigatePrevious() {
       if (this.previousSection) this.changeSection(this.previousSection.id);
@@ -189,33 +202,33 @@ export default {
     }
   },
   observeSections() {
-    // Clean up any previous observer
-    if (this.observer) {
-      this.observer.disconnect();
+  // Clean up any previous observer
+  if (this.observer) {
+    this.observer.disconnect();
+  }
+
+  const contentElement = this.$el.querySelector('.content');
+  if (!contentElement) return;
+
+  const options = {
+    root: contentElement,
+    rootMargin: "0px",
+    threshold: [0.4], // Trigger when 40% of the heading is visible
+  };
+
+  // Create a new IntersectionObserver
+  this.observer = new IntersectionObserver((entries) => {
+    const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+    if (visibleEntries.length > 0) {
+      // Sort entries by intersection ratio (most visible first)
+      visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      this.activeHeading = visibleEntries[0].target.id;
     }
+  }, options);
 
-    const contentElement = this.$el.querySelector('.content');
-    if (!contentElement) return;
-
-    const options = {
-      root: contentElement,
-      rootMargin: "0px",
-      threshold: [0.5], // Trigger when 50% of the heading is visible
-    };
-
-    // Create a new IntersectionObserver
-    this.observer = new IntersectionObserver((entries) => {
-      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-      if (visibleEntries.length > 0) {
-        // Sort entries by intersection ratio (most visible first)
-        visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        this.activeHeading = visibleEntries[0].target.id;
-      }
-    }, options);
-
-    // Observe all headings in the content
-    const headings = contentElement.querySelectorAll('h2');
-    headings.forEach((heading) => this.observer.observe(heading));
+  // Observe all headings in the content
+  const headings = contentElement.querySelectorAll('h2');
+  headings.forEach((heading) => this.observer.observe(heading));
 
     // Automatically highlight the first heading if available
     if (headings.length > 0) {
@@ -318,9 +331,9 @@ mounted() {
       }
     
     .right-sidebar ul {
-      font-size: .8rem;
+      font-size: .7rem;
       font-weight: bold;
-      margin-top: 4rem;
+      margin-top: 4.5rem;
       list-style: none;
       padding: 0.4rem 0.4rem;
     }
@@ -328,22 +341,76 @@ mounted() {
     .right-sidebar li {
       cursor: pointer;
       margin-bottom: 0.75rem;
-      transition: background-color 0.3s, color 0.3s;
+      transition: all 0.3s ease-in-out;
     }
 
     .right-sidebar li.active {
-      padding: 0.4rem 0.4rem;
-      border-radius: 4px;
-      color: #00c3ff;
-      font-weight: bold;
-      background-color: rgba(255, 255, 255, 0.056);
-      transition: background-color 0.8s ease, color 0.3s ease; /* Smooth transitions */
-      }
+  position: relative; /* Required for the pseudo-element to position relative to the list item */
+  padding: 0.4rem 0.4rem;
+  border-radius: 4px;
+  color: #00c3ff;
+  font-weight: bold;
+  transform: scale(1.05); /* Slightly enlarge the active item */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow for focus */
+  transition: all 0.3s ease-in-out; /* Smooth transition for state changes */
+}
 
-    
-    .right-sidebar li:hover {
-      color: #ffffff;
+.right-sidebar li.active::before {
+  content: ''; /* Required for the pseudo-element */
+  position: absolute;
+  top: 0; /* Align with the top of the list item */
+  left: -0.5rem; /* Add extra space to the left */
+  right: -0.5rem; /* Add extra space to the right */
+  bottom: 0; /* Align with the bottom of the list item */
+  border-radius: 6px; /* Make the pseudo-element's background look smooth */
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background to create a halo effect */
+  z-index: -1; /* Place the pseudo-element behind the text */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover and state changes */
+}
+
+
+.right-sidebar li:hover {
+  color: #00c3ff;
+  transform: scale(1.02); /* Slight scale on hover */
+}
+
+    /* TOC Fade-Slide Animation */
+
+    .fade-slide-toc-enter-active {
+      top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
     }
+
+.fade-slide-toc-leave-active {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-slide-toc-enter-from {
+  opacity: 0;
+  transform: translateY(20px); /* Enter from slightly below */
+}
+
+.fade-slide-toc-enter-to {
+  opacity: 1;
+  transform: translateY(0); /* Settle into place */
+}
+
+.fade-slide-toc-leave-from {
+  opacity: 1;
+  transform: translateY(0); /* Start from its current position */
+}
+
+.fade-slide-toc-leave-to {
+  opacity: 0;
+  transform: translateY(-20px); /* Exit slightly above */
+}
+
     
     /* Navigation Buttons */
     .navigation-buttons {
@@ -507,7 +574,22 @@ mounted() {
   animation-delay: calc(0.2s + var(--index) * 0.1s); /* Staggered delay for each item */
 }
 
+@media (max-width: 1024px) {
 
+  .content {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 4.5rem 5rem 5rem;
+}
+
+
+  .sidebar ul {
+      font-size: .8rem;
+    }
+  .right-sidebar ul {
+      font-size: .65rem;
+    }
+}
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
