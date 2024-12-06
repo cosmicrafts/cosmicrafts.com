@@ -18,6 +18,15 @@ The transition to a [DAO](https://en.wikipedia.org/wiki/Decentralized_autonomous
 - **Benefit economically** from staking rewards, marketplace fees, and a deflationary token economy.
 - **Own a legacy**, not just a game, as we build an interconnected franchise that redefines Web3 gaming.
 
-This whitepaper outlines the core features, architecture, and governance of the Cosmicrafts DAO, as well as the value it brings to stakeholders and the Internet Computer ecosystem. 
+This whitepaper outlines the core features, architecture, and governance of the Cosmicrafts DAO, as well as the value it brings to stakeholders and the [Internet Computer ecosystem](https://internetcomputer.org/ecosystem). 
 
 >Join us in shaping the future of gaming and Web3 innovation.
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Executive Summary](#executive-summary)
+4. [Core Features](#core-features)
+5. [Architecture](#architecture)
+
+---

@@ -53,15 +53,17 @@ export default {
       }
     },
     renderMarkdown(content) {
-  const md = new MarkdownIt().use(markdownItAnchor, {
-    slugify: (s) =>
-      s
-        .trim()
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, "")
-        .replace(/\s+/g, "-"),
-    level: [2, 3],
-  });
+      const md = new MarkdownIt({
+  html: true, // Enable HTML in Markdown
+}).use(markdownItAnchor, {
+  slugify: (s) =>
+    s
+      .trim()
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-"),
+  level: [2, 3],
+});
 
   // Default image renderer to resolve Vite paths
   const defaultImageRender =

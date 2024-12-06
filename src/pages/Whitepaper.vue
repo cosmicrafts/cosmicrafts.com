@@ -159,7 +159,7 @@ export default {
     generateTOC() {
     this.toc = []; // Clear old TOC entries
     const contentElement = this.$el.querySelector('.content');
-    const headings = contentElement.querySelectorAll('h2, h3');
+    const headings = contentElement.querySelectorAll('h2');
     this.toc = Array.from(headings).map((heading, index) => {
       if (!heading.id) heading.id = `heading-${index}`; // Ensure each heading has an ID
       return { id: heading.id, text: heading.textContent };
@@ -210,7 +210,7 @@ export default {
     }, options);
 
     // Observe all headings in the content
-    const headings = contentElement.querySelectorAll('h2, h3');
+    const headings = contentElement.querySelectorAll('h2');
     headings.forEach((heading) => this.observer.observe(heading));
 
     // Automatically highlight the first heading if available
@@ -318,7 +318,7 @@ mounted() {
       font-weight: bold;
       margin-top: 4rem;
       list-style: none;
-      padding: 1rem;
+      padding: 0.4rem 0.4rem;
     }
     
     .right-sidebar li {
@@ -328,7 +328,7 @@ mounted() {
     }
 
     .right-sidebar li.active {
-      padding: 0.4rem 0.8rem;
+      padding: 0.4rem 0.4rem;
       border-radius: 4px;
       color: #00c3ff;
       font-weight: bold;
@@ -338,7 +338,7 @@ mounted() {
 
     
     .right-sidebar li:hover {
-      color: #00c3ff;
+      color: #ffffff;
     }
     
     /* Navigation Buttons */
