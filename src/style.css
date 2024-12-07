@@ -156,7 +156,7 @@ a:hover {
 .markdown-content h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #e6e6e6;
+  color: #ffffff;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -181,7 +181,7 @@ a:hover {
   font-size: 1rem;
   margin-bottom: 1rem;
   text-align: justify;
-  color: #dddddd;
+  color: #cdcdcd;
   line-height: 1.6;
 }
 
@@ -237,7 +237,7 @@ a:hover {
   padding: 0.5rem 1rem;
   background: linear-gradient(180deg, #252c3f2a, #191e2b35);
   border-left: 4px solid #00c3ff;
-  color: #ccc;
+  color: #ff0000;
   font-style: italic;
 }
 
@@ -245,15 +245,13 @@ a:hover {
 .markdown-content ul {
   margin-left: .1rem;
   margin-bottom: 1rem;
-  list-style-type: disc; /* Default bullet style */
+  color: #cdcdcd;
+  list-style-type: disc;
 }
 
 .markdown-content li {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   font-size: 1rem; /* Adjust font size here */
-  color: #ffffff; /* Set text color */
-  line-height: 1.6;
+  color: #cdcdcd; /* Set text color */
 }
 
 /* Bullet point marker customization */

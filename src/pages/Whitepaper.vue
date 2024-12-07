@@ -143,12 +143,12 @@ export default {
           // Calculate scaling factor based on element's position in the viewport
           const midpoint = viewportHeight * 0.5; // Midpoint of the viewport
           const distanceFromMidpoint = Math.abs(boundingClientRect.top - midpoint);
-          const scaleFactor = 1 + Math.max(0, 1 - distanceFromMidpoint / (viewportHeight * 0.8)) * 0.1; // Scale up to 1.1
+          const scaleFactor = 1 + Math.max(0, 1 - distanceFromMidpoint / (viewportHeight * 0.75)) * 0.05; // Scale up to 1.1
 
           // Apply scaling only when the element is visible in the viewport
           if (boundingClientRect.top < viewportHeight && boundingClientRect.bottom > 0) {
             entry.target.style.transform = `scale(${scaleFactor})`;
-            entry.target.style.opacity = `${0.8 + Math.min(0.2, 1 - distanceFromMidpoint / viewportHeight)}`; // Subtle opacity adjustment
+            entry.target.style.opacity = `${0.75 + Math.min(1, 1 - distanceFromMidpoint / viewportHeight)}`; // Subtle opacity adjustment
           } else {
             entry.target.style.transform = `scale(1)`;
             entry.target.style.opacity = `1`; // Reset opacity
@@ -229,54 +229,49 @@ export default {
   // Re-attach the observer after generating TOC
   this.$nextTick(() => this.observeSections());
 },
-  scrollToHeading(id) {
-    const contentElement = this.$el.querySelector('.content');
-    const target = document.getElementById(id);
-    if (target) {
-      const headerOffset = 80; // Adjust for header
-      const targetPosition = target.offsetTop - headerOffset;
+scrollToHeading(id) {
+  const target = document.getElementById(id);
+  if (target) {
+    const headerOffset = 80; // Adjust for any fixed header height
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-      contentElement.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-      this.activeHeading = id; // Update the active heading
-    }
-  },
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+
+    this.activeHeading = id; // Update active heading in the TOC
+  }
+},
   observeSections() {
   // Clean up any previous observer
   if (this.observer) {
     this.observer.disconnect();
   }
 
-  const contentElement = this.$el.querySelector('.content');
-  if (!contentElement) return;
-
+  // Use the entire document as the root for observing
   const options = {
-    root: contentElement,
+    root: null, // Observe based on the viewport, not the `.content` div
     rootMargin: "0px",
     threshold: [0.4], // Trigger when 40% of the heading is visible
   };
 
-  // Create a new IntersectionObserver
   this.observer = new IntersectionObserver((entries) => {
     const visibleEntries = entries.filter((entry) => entry.isIntersecting);
     if (visibleEntries.length > 0) {
-      // Sort entries by intersection ratio (most visible first)
       visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
       this.activeHeading = visibleEntries[0].target.id;
     }
   }, options);
 
-  // Observe all headings in the content
-  const headings = contentElement.querySelectorAll('h2');
+  // Observe all headings inside the content area
+  const headings = document.querySelectorAll(".content h2"); // Adjust selector if needed
   headings.forEach((heading) => this.observer.observe(heading));
 
-    // Automatically highlight the first heading if available
-    if (headings.length > 0) {
-      this.activeHeading = headings[0].id;
-    }
-  },
+  if (headings.length > 0) {
+    this.activeHeading = headings[0].id;
+  }
+},
 },
 mounted() {
   this.updateButtonVisibility();
@@ -293,19 +288,32 @@ mounted() {
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
+      height: auto;
     }
     
     .main-content {
-      display: flex;
-      flex: 1;
-      color: white;
-      overflow: hidden;
-      background: linear-gradient(90deg, #08090cda, rgba(29, 37, 55, 0.85), #08090cd8),
-                  url('@/assets/webp/daomission.webp') no-repeat center center;
-      background-size: cover; /* Ensure the image covers the area */
-      background-blend-mode: normal; /* Use normal blend */
-      opacity: 0.8;
-      }
+  display: flex;
+  flex: 1;
+  color: white;
+  overflow: hidden;
+  width: 100vw; /* Ensure full viewport width */
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(90deg, #08090cda, rgba(29, 37, 55, 0.85), #08090cd8),
+              url('@/assets/webp/daomission.webp') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the viewport */
+  background-attachment: fixed; /* Fix the background position */
+  background-blend-mode: normal; /* Maintain normal blending */
+  opacity: 0.8;
+}
+
+
+          /* Content */
+          .content {
+  flex: 1;
+  margin-left: 15%;
+  margin-right: 12%;
+  padding: 4.5rem 6rem 6rem;
+}
 
     
     .sidebar {
@@ -313,10 +321,6 @@ mounted() {
       left: 0;
       width: 15%;
       height: 100vh;
-      background: linear-gradient(90deg, #121725f8, #1d263cf8, #121725f8),
-                  url('@/assets/webp/hero.webp') no-repeat center center;
-      background-size: cover; /* Ensure the image covers the area */
-      background-blend-mode: normal; /* Use normal blend */
 
       padding: 1rem;
       display: flex;
@@ -416,15 +420,6 @@ mounted() {
   transition: all 0.3s ease-in-out; /* Smooth transition for all states */
 }
     
-    /* Content */
-    .content {
-  flex: 1;
-  margin-left: 15%;
-  margin-right: 14%;
-  padding: 4.5rem 6rem 6rem;
-  overflow-y: scroll; /* Keep scroll behavior consistent */
-  scroll-behavior: smooth; /* Ensure smooth scrolling */
-}
 
     
     /* Right Sidebar */
@@ -433,10 +428,6 @@ mounted() {
       right: 0;
       width: 12%;
       height: 100vh;
-      background: linear-gradient(90deg, #171d2bf8, #1d2537f8, #171d2bf8),
-                  url('@/assets/webp/bg-adventures.webp') no-repeat center center;
-      background-size: cover; /* Ensure the image covers the area */
-      background-blend-mode: normal; /* Use normal blend */
 
       padding: 0.4rem 0.8rem;
       display: flex;
