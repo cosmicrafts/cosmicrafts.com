@@ -130,6 +130,48 @@ export default {
     },
   },
   methods: {
+    applyDynamicParallaxEffect() {
+    const contentElement = this.$el.querySelector('.content');
+    const mdContent = contentElement.querySelectorAll('.markdown-content > *');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const boundingClientRect = entry.target.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+
+          // Calculate scaling factor based on element's position in the viewport
+          const midpoint = viewportHeight * 0.25; // Midpoint of the viewport
+          const distanceFromMidpoint = Math.abs(boundingClientRect.top - midpoint);
+          const scaleFactor = 1 + Math.max(0, 1 - distanceFromMidpoint / (viewportHeight * 0.6)) * 0.1; // Scale up to 1.1
+
+          // Apply scaling only when the element is visible in the viewport
+          if (boundingClientRect.top < viewportHeight && boundingClientRect.bottom > 0) {
+            entry.target.style.transform = `scale(${scaleFactor})`;
+            entry.target.style.opacity = `${0.6 + Math.min(0.6, 1 - distanceFromMidpoint / viewportHeight)}`; // Subtle opacity adjustment
+          } else {
+            entry.target.style.transform = `scale(1)`;
+            entry.target.style.opacity = `1`; // Reset opacity
+          }
+        });
+      },
+      {
+        root: contentElement,
+        threshold: 0, // Trigger for all elements
+      }
+    );
+
+    mdContent.forEach((el) => observer.observe(el));
+  },
+  observeRenderedContent() {
+    const contentElement = this.$el.querySelector('.content');
+
+    const observer = new MutationObserver(() => {
+      this.applyDynamicParallaxEffect();
+    });
+
+    observer.observe(contentElement, { childList: true, subtree: true });
+  },
     changeSection(sectionId) {
       this.activeSection = sectionId;
       this.toc = []; // Reset TOC when switching sections
@@ -240,6 +282,7 @@ mounted() {
   this.updateButtonVisibility();
   this.generateTOC();
   this.$nextTick(() => this.observeSections());
+  this.observeRenderedContent();
 },
 };
 </script>
@@ -700,6 +743,34 @@ mounted() {
   animation-delay: calc(0.2s + var(--index) * 0.1s); /* Staggered delay for each item */
 }
 
+/* Star Wars Scrolling Effect */
+@keyframes starWarsScroll {
+  0% {
+    transform: perspective(800px) rotateX(25deg) translateY(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(800px) rotateX(25deg) translateY(-200%);
+    opacity: 0;
+  }
+}
+
+.content .scrolling-text {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.5;
+  animation: starWarsScroll 15s linear infinite;
+  transform-origin: 50% 100%;
+}
+
+
+
 @media (max-width: 1024px) {
 
   .content {
@@ -715,6 +786,17 @@ mounted() {
 
       }
 
+}
+
+
+
+
+
+
+/* Markdown Content Styling */
+.markdown-content > * {
+  transform-origin: bottom top;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
     /* Responsive Adjustments */
