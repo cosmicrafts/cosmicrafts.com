@@ -141,14 +141,14 @@ export default {
           const viewportHeight = window.innerHeight;
 
           // Calculate scaling factor based on element's position in the viewport
-          const midpoint = viewportHeight * 0.25; // Midpoint of the viewport
+          const midpoint = viewportHeight * 0.5; // Midpoint of the viewport
           const distanceFromMidpoint = Math.abs(boundingClientRect.top - midpoint);
-          const scaleFactor = 1 + Math.max(0, 1 - distanceFromMidpoint / (viewportHeight * 0.6)) * 0.1; // Scale up to 1.1
+          const scaleFactor = 1 + Math.max(0, 1 - distanceFromMidpoint / (viewportHeight * 0.8)) * 0.1; // Scale up to 1.1
 
           // Apply scaling only when the element is visible in the viewport
           if (boundingClientRect.top < viewportHeight && boundingClientRect.bottom > 0) {
             entry.target.style.transform = `scale(${scaleFactor})`;
-            entry.target.style.opacity = `${0.6 + Math.min(0.6, 1 - distanceFromMidpoint / viewportHeight)}`; // Subtle opacity adjustment
+            entry.target.style.opacity = `${0.8 + Math.min(0.2, 1 - distanceFromMidpoint / viewportHeight)}`; // Subtle opacity adjustment
           } else {
             entry.target.style.transform = `scale(1)`;
             entry.target.style.opacity = `1`; // Reset opacity
