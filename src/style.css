@@ -182,6 +182,7 @@ a:hover {
   margin-bottom: 1rem;
   text-align: justify;
   color: #dddddd;
+  line-height: 1.6;
 }
 
 /* Lists */
@@ -191,7 +192,7 @@ a:hover {
 }
 
 .markdown-content li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
 }
 
@@ -208,13 +209,18 @@ a:hover {
 .markdown-content a {
   font-weight: 600;
   color: #00c3ff;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, border 0.25s ease, padding 0.25s ease;
+  border-bottom: 1px solid transparent; /* Initial border state */
+  border-top: 1px solid transparent;   /* Initial border state */
 }
 
 .markdown-content a:hover {
   color: #ff9900;
-  text-decoration: none;
+  border-bottom: 1px solid #00c3ff; /* Animate the bottom border */
+  border-top: 1px solid #00c3ff;    /* Animate the top border */
+  padding: 0.16rem 0.1rem;           /* Subtle padding adjustment */
 }
+
 
 /* Code blocks */
 .markdown-content code {
@@ -243,11 +249,11 @@ a:hover {
 }
 
 .markdown-content li {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   font-size: 1rem; /* Adjust font size here */
   color: #ffffff; /* Set text color */
-  line-height: 1.2; /* Control spacing between lines */
+  line-height: 1.6;
 }
 
 /* Bullet point marker customization */
