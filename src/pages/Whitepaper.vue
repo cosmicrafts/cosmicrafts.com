@@ -100,6 +100,8 @@ export default {
         { id: "executive-summary", title: "Executive Summary" },
         { id: "core-features", title: "Core Features" },
         { id: "architecture", title: "Architecture" },
+        { id: "tokenomics", title: "Tokenomics" },
+        { id: "governance", title: "Governance" },
       ],
       toc: [],
       activeHeading: null,
