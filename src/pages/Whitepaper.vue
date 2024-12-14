@@ -78,13 +78,12 @@
   </transition>
 </aside>
 
-
-
         </div>
 
-        
       </div>
     </template>
+
+
 <script>
 import MarkdownRenderer from "@/components/MarkdownRenderer.vue";
 
@@ -776,17 +775,23 @@ mounted() {
   padding: 4.5rem 5rem 5rem;
 }
 
+.content {
+    margin-right: 1rem;
+    margin-left: 12rem;
+    padding: 4.5rem 2rem 1rem;
+    width: 100%;
+  }
+
+
+.right-sidebar {
+    display: none;
+  }
+
 .sidebar {
-
-
       padding: 1.5rem;
-
       }
 
 }
-
-
-
 
 
 
