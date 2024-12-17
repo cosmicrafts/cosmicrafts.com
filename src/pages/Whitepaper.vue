@@ -1,88 +1,90 @@
 <template>
-      <div class="whitepaper-layout animated">
-        <!-- Main Layout -->
-        <div class="main-content">
-          <!-- Sidebar (Left) -->
-          <aside class="sidebar">
-            <ul>
-              <li
-                v-for="section in sections"
-                :key="section.id"
-                :class="{ active: activeSection === section.id }"
-                @click="changeSection(section.id)"
-              >
-                {{ section.title }}
-              </li>
-            </ul>
-          </aside>
-    
-          <!-- Main Content -->
-          <div class="content">
-  
-            <transition
-  name="fade-slide"
-  @after-leave="() => { generateTOC(); this.observeSections(); }"
->
-  <MarkdownRenderer
-    :fileName="activeSection"
-    @rendered="generateTOC"
-    @navigateToSection="handleNavigateToSection"
-    :key="activeSection"
-  />
-</transition>
+  <div class="whitepaper-layout animated">
+    <!-- Main Layout -->
+    <div class="main-content">
 
-<!-- Navigation Buttons -->
-<div class="navigation-buttons">
-          <!-- Previous Button -->
+      <!-- Sidebar (Left) -->
+      <aside class="sidebar">
+        <ul>
+          <li
+            v-for="section in sections"
+            :key="section.id"
+            :class="{ active: activeSection === section.id }"
+            @click="changeSection(section.id)"
+          >
+            {{ section.title }}
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="content">
+
+        <!-- Content Transition and Markdown Rendering -->
+        <transition
+          name="fade-slide"
+          @after-leave="() => { generateTOC(); this.observeSections(); }"
+        >
+          <MarkdownRenderer
+            :fileName="activeSection"
+            @rendered="generateTOC"
+            @navigateToSection="handleNavigateToSection"
+            :key="activeSection"
+          />
+        </transition>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
           <transition name="fade-button">
-  <button
-    v-if="showPreviousButton"
-    class="button prev"
-    @click="navigatePrevious"
-  >
-    <span class="arrow"><img src="/src/assets/icons/prev.svg" alt="arrow"></span>
-    <small>Previous</small>
-    <span>{{ previousSection?.title }}</span>
-  </button>
-</transition>
+            <button
+              v-if="showPreviousButton"
+              class="button prev"
+              @click="navigatePrevious"
+            >
+              <span class="arrow">
+                <img src="/src/assets/icons/prev.svg" alt="arrow" />
+              </span>
+              <small>Previous</small>
+              <span>{{ previousSection?.title }}</span>
+            </button>
+          </transition>
 
-<transition name="fade-button">
-  <button
-    v-if="showNextButton"
-    class="button next"
-    @click="navigateNext"
-  >
-    <small>Next</small>
-    <span>{{ nextSection?.title }}</span>
-    <span class="arrow"><img src="/src/assets/icons/next.svg" alt="arrow"></span>
-  </button>
-</transition>
-
-        </div>
-          </div>
-
-
-          <!-- Right Sidebar -->
-          <aside class="right-sidebar">
-  <transition name="fade-slide-toc">
-    <ul v-if="toc.length > 0">
-      <li
-        v-for="cue in toc"
-        :key="cue.id"
-        :class="{ active: cue.id === activeHeading }"
-        @click="scrollToHeading(cue.id)"
-      >
-        {{ cue.text }}
-      </li>
-    </ul>
-  </transition>
-</aside>
-
+          <transition name="fade-button">
+            <button
+              v-if="showNextButton"
+              class="button next"
+              @click="navigateNext"
+            >
+              <small>Next</small>
+              <span>{{ nextSection?.title }}</span>
+              <span class="arrow">
+                <img src="/src/assets/icons/next.svg" alt="arrow" />
+              </span>
+            </button>
+          </transition>
         </div>
 
       </div>
-    </template>
 
+      <!-- Right Sidebar (Table of Contents) -->
+      <aside class="right-sidebar">
+        <transition name="fade-slide-toc">
+          <ul v-if="toc.length > 0">
+            <li
+              v-for="cue in toc"
+              :key="cue.id"
+              :class="{ active: cue.id === activeHeading }"
+              @click="scrollToHeading(cue.id)"
+            >
+              {{ cue.text }}
+            </li>
+          </ul>
+        </transition>
+      </aside>
+
+    </div>
+  </div>
+</template>
 
 <script>
 import MarkdownRenderer from "@/components/MarkdownRenderer.vue";
@@ -135,352 +137,328 @@ export default {
     },
   },
   methods: {
+    // Handles the dynamic parallax effect
     applyDynamicParallaxEffect() {
-    const contentElement = this.$el.querySelector('.content');
-    const mdContent = contentElement.querySelectorAll('.markdown-content > *');
+      const contentElement = this.$el.querySelector(".content");
+      const mdContent = contentElement.querySelectorAll(".markdown-content > *");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const boundingClientRect = entry.target.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const boundingClientRect = entry.target.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
 
-          // Calculate scaling factor based on element's position in the viewport
-          const midpoint = viewportHeight * 0.5; // Midpoint of the viewport
-          const distanceFromMidpoint = Math.abs(boundingClientRect.top - midpoint);
-          const scaleFactor = 1 + Math.max(0, 1 - distanceFromMidpoint / (viewportHeight * 0.75)) * 0.05; // Scale up to 1.1
+            const midpoint = viewportHeight * 0.5;
+            const distanceFromMidpoint = Math.abs(
+              boundingClientRect.top - midpoint
+            );
+            const scaleFactor =
+              1 + Math.max(0, 1 - distanceFromMidpoint / (viewportHeight * 0.75)) * 0.05;
 
-          // Apply scaling only when the element is visible in the viewport
-          if (boundingClientRect.top < viewportHeight && boundingClientRect.bottom > 0) {
-            entry.target.style.transform = `scale(${scaleFactor})`;
-            entry.target.style.opacity = `${0.75 + Math.min(1, 1 - distanceFromMidpoint / viewportHeight)}`; // Subtle opacity adjustment
-          } else {
-            entry.target.style.transform = `scale(1)`;
-            entry.target.style.opacity = `1`; // Reset opacity
-          }
-        });
-      },
-      {
-        root: contentElement,
-        threshold: 0, // Trigger for all elements
-      }
-    );
+            if (boundingClientRect.top < viewportHeight && boundingClientRect.bottom > 0) {
+              entry.target.style.transform = `scale(${scaleFactor})`;
+              entry.target.style.opacity = `${
+                0.75 + Math.min(1, 1 - distanceFromMidpoint / viewportHeight)
+              }`;
+            } else {
+              entry.target.style.transform = `scale(1)`;
+              entry.target.style.opacity = `1`;
+            }
+          });
+        },
+        { root: contentElement, threshold: 0 }
+      );
 
-    mdContent.forEach((el) => observer.observe(el));
-  },
-  observeRenderedContent() {
-    const contentElement = this.$el.querySelector('.content');
+      mdContent.forEach((el) => observer.observe(el));
+    },
 
-    const observer = new MutationObserver(() => {
-      this.applyDynamicParallaxEffect();
-    });
+    // Observes rendered content for changes
+    observeRenderedContent() {
+      const contentElement = this.$el.querySelector(".content");
+      const observer = new MutationObserver(() => {
+        this.applyDynamicParallaxEffect();
+      });
 
-    observer.observe(contentElement, { childList: true, subtree: true });
-  },
+      observer.observe(contentElement, { childList: true, subtree: true });
+    },
+
+    // Changes the active section
     changeSection(sectionId) {
       this.activeSection = sectionId;
-      this.toc = []; // Reset TOC when switching sections
-      this.$nextTick(() => {
-      this.generateTOC(); // Generate TOC and re-attach observer
-      });
-    // Smooth scroll to the top of the content
-    const contentElement = this.$el.querySelector('.content');
-    if (contentElement) {
-      contentElement.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
+      this.toc = [];
+      this.$nextTick(() => this.generateTOC());
+      const contentElement = this.$el.querySelector(".content");
+      if (contentElement) {
+        contentElement.scrollTo({ top: 0, behavior: "smooth" });
+      }
     },
+
+    // Navigation controls
     navigatePrevious() {
       if (this.previousSection) this.changeSection(this.previousSection.id);
     },
     navigateNext() {
       if (this.nextSection) this.changeSection(this.nextSection.id);
     },
+
+    // Handles TOC navigation
     handleNavigateToSection(sectionId) {
-    const section = this.sections.find((s) => s.id === sectionId);
-    if (section) {
-      // Change to a new section
-      this.changeSection(sectionId);
-    } else {
-      // Scroll to heading within the current section
-      this.scrollToHeading(sectionId);
-    }
-  },
+      const section = this.sections.find((s) => s.id === sectionId);
+      section ? this.changeSection(sectionId) : this.scrollToHeading(sectionId);
+    },
+
+    // Updates the visibility of navigation buttons
     updateButtonVisibility() {
       setTimeout(() => {
         this.showPreviousButton = !!this.previousSection;
-      }, 100);
-      setTimeout(() => {
         this.showNextButton = !!this.nextSection;
       }, 100);
     },
+
+    // Generates the table of contents
     generateTOC() {
-  this.toc = []; // Clear old TOC entries
-  const contentElement = this.$el.querySelector('.content');
-  const headings = contentElement.querySelectorAll('h2');
-  
-  this.toc = Array.from(headings).map((heading, index) => {
-    if (!heading.id) heading.id = `heading-${index}`; // Ensure each heading has an ID
-    return { id: heading.id, text: heading.textContent };
-  });
+      this.toc = [];
+      const contentElement = this.$el.querySelector(".content");
+      const headings = contentElement.querySelectorAll("h2");
 
-  // Highlight the first heading if available
-  if (this.toc.length > 0) {
-    this.activeHeading = this.toc[0].id;
-  }
+      this.toc = Array.from(headings).map((heading, index) => {
+        if (!heading.id) heading.id = `heading-${index}`;
+        return { id: heading.id, text: heading.textContent };
+      });
 
-  // Re-attach the observer after generating TOC
-  this.$nextTick(() => this.observeSections());
-},
-scrollToHeading(id) {
-  const target = document.getElementById(id);
-  if (target) {
-    const headerOffset = 80; // Adjust for any fixed header height
-    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      if (this.toc.length > 0) this.activeHeading = this.toc[0].id;
+      this.$nextTick(() => this.observeSections());
+    },
 
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
+    // Scrolls to a specific heading
+    scrollToHeading(id) {
+      const target = document.getElementById(id);
+      if (target) {
+        const headerOffset = 80;
+        const targetPosition =
+          target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-    this.activeHeading = id; // Update active heading in the TOC
-  }
-},
-  observeSections() {
-  // Clean up any previous observer
-  if (this.observer) {
-    this.observer.disconnect();
-  }
+        window.scrollTo({ top: targetPosition, behavior: "smooth" });
+        this.activeHeading = id;
+      }
+    },
 
-  // Use the entire document as the root for observing
-  const options = {
-    root: null, // Observe based on the viewport, not the `.content` div
-    rootMargin: "0px",
-    threshold: [0.4], // Trigger when 40% of the heading is visible
-  };
+    // Observes sections for active heading
+    observeSections() {
+      if (this.observer) this.observer.disconnect();
 
-  this.observer = new IntersectionObserver((entries) => {
-    const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-    if (visibleEntries.length > 0) {
-      visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      this.activeHeading = visibleEntries[0].target.id;
-    }
-  }, options);
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: [0.4],
+      };
 
-  // Observe all headings inside the content area
-  const headings = document.querySelectorAll(".content h2"); // Adjust selector if needed
-  headings.forEach((heading) => this.observer.observe(heading));
+      this.observer = new IntersectionObserver((entries) => {
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          this.activeHeading = visibleEntries[0].target.id;
+        }
+      }, options);
 
-  if (headings.length > 0) {
-    this.activeHeading = headings[0].id;
-  }
-},
-},
-mounted() {
-  this.updateButtonVisibility();
-  this.generateTOC();
-  this.$nextTick(() => this.observeSections());
-  this.observeRenderedContent();
-},
+      const headings = document.querySelectorAll(".content h2");
+      headings.forEach((heading) => this.observer.observe(heading));
+
+      if (headings.length > 0) this.activeHeading = headings[0].id;
+    },
+  },
+
+  // Lifecycle hooks
+  mounted() {
+    this.updateButtonVisibility();
+    this.generateTOC();
+    this.$nextTick(() => this.observeSections());
+    this.observeRenderedContent();
+  },
 };
 </script>
-    
-    <style scoped>
-    .whitepaper-layout {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      overflow: hidden;
-      height: auto;
-    }
-    
-    .main-content {
+
+<style scoped>
+.whitepaper-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  height: auto;
+}
+
+.main-content {
   display: flex;
   flex: 1;
   color: white;
   overflow: hidden;
-  width: 100vw; /* Ensure full viewport width */
-  height: 100vh; /* Full viewport height */
+  width: 100vw;
+  height: 100vh;
   background: linear-gradient(90deg, #08090cda, rgba(29, 37, 55, 0.85), #08090cd8),
-              url('@/assets/webp/daomission.webp') no-repeat center center;
-  background-size: cover; /* Ensure the image covers the viewport */
-  background-attachment: fixed; /* Fix the background position */
-  background-blend-mode: normal; /* Maintain normal blending */
+    url('@/assets/webp/daomission.webp') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: normal;
   opacity: 0.8;
 }
 
-
-          /* Content */
-          .content {
+.content {
   flex: 1;
   margin-left: 15%;
   margin-right: 12%;
   padding: 4.5rem 6rem 6rem;
 }
 
-    
-    .sidebar {
-      position: fixed;
-      left: 0;
-      width: 15%;
-      height: 100vh;
+.sidebar {
+  position: fixed;
+  left: 0;
+  width: 15%;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #3a3a3a3d;
+}
 
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center horizontally */
-      border-right: 1px solid #3a3a3a3d;
-      }
-    
-    .sidebar ul {
-      font-size: .9rem;
-      font-weight: bold;
-      justify-content: center;
-      align-items: center;
-      margin-top: 5rem;
-      list-style: none;
-      padding: 0;
-    }
-    
-    .sidebar li {
+.sidebar ul {
+  font-size: 0.9rem;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
   position: relative;
   cursor: pointer;
   margin-bottom: 1rem;
   font-weight: bold;
   color: #ffffff;
-  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out, text-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
-  padding: 0.4rem 1rem; /* Adjust padding for better spacing */
-  text-align: left; /* Center the text for a cleaner look */
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out,
+    text-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
+  padding: 0.4rem 1rem;
+  text-align: left;
 }
 
-/* Hover Effect for Sidebar Items */
 .sidebar li:hover {
-  color: #00c3ff; /* Change text color on hover */
-  border-bottom: 1px solid #00c3ff; /* Add bottom border */
-  border-top: 1px solid #00c3ff; /* Add top border */
-  text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686); /* Add slight glow */
-  padding-bottom: 0.5rem; /* Adjust padding to account for border size */
-  font-size: .925rem;
-  margin-left: .25rem
+  color: #00c3ff;
+  border-bottom: 1px solid #00c3ff;
+  border-top: 1px solid #00c3ff;
+  text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686);
+  padding-bottom: 0.5rem;
+  font-size: 0.925rem;
+  margin-left: 0.25rem;
 }
 
-/* Add Orange Lines Animation on Hover */
 .sidebar li::before,
 .sidebar li::after {
   content: '';
   position: absolute;
   height: 1.5px;
   width: 50%;
-  background-color: #ffa200; /* Orange color for the lines */
+  background-color: #ffa200;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0px 0px 4px rgba(255, 162, 0, 0.948); /* Subtle shadow effect */
-  transform: scaleX(0); /* Start hidden */
+  box-shadow: 0px 0px 4px rgba(255, 162, 0, 0.948);
+  transform: scaleX(0);
 }
 
 .sidebar li::before {
-  top: -1px; /* Offset top line above text */
-  left: -.25rem; /* Adjust horizontal offset */
-  transform-origin: left; /* Line grows from the left */
+  top: -1px;
+  left: -0.25rem;
+  transform-origin: left;
 }
 
 .sidebar li::after {
-  bottom: -1px; /* Offset bottom line below text */
-  right: -.25rem; 
-  transform-origin: right; /* Line grows from the right */
+  bottom: -1px;
+  right: -0.25rem;
+  transform-origin: right;
 }
 
-/* Orange Lines Animate on Hover */
 .sidebar li:hover::before,
 .sidebar li:hover::after {
-  transform: scaleX(1.5); /* Grow the lines */
-  box-shadow: 0px 0px 8px rgb(255, 162, 0); /* Add glow to lines */
+  transform: scaleX(1.5);
+  box-shadow: 0px 0px 8px rgb(255, 162, 0);
 }
 
-/* Active Sidebar Item */
 .sidebar li.active {
   color: #00c3ff;
   font-weight: bold;
   font-size: 1rem;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.88); /* Glow for active state */
-  background-color: rgba(255, 255, 255, 0.056); /* Add background for active item */
-  border-radius: 8px; /* Rounded corners for background */
-  padding: 0.8rem 1rem; /* Maintain consistent padding */
-  border-top: 1.5px solid #00c3ff; /* Keep blue border on top */
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.88);
+  background-color: rgba(255, 255, 255, 0.056);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  border-top: 1.5px solid #00c3ff;
   border-bottom: 3px solid rgb(255, 162, 0);
-  margin-left: -.5rem
+  margin-left: -0.5rem;
 }
 
-/* Remove Orange Lines for Active Item */
 .sidebar li.active::before,
 .sidebar li.active::after {
-  display: none; /* Disable orange lines for active state */
+  display: none;
 }
 
-/* Add smooth transitions */
 .sidebar li,
 .sidebar li:hover,
 .sidebar li.active {
-  transition: all 0.3s ease-in-out; /* Smooth transition for all states */
+  transition: all 0.3s ease-in-out;
 }
-    
 
-    
-    /* Right Sidebar */
-    .right-sidebar {
-      position: fixed;
-      right: 0;
-      width: 12%;
-      height: 100vh;
+.right-sidebar {
+  position: fixed;
+  right: 0;
+  width: 12%;
+  height: 100vh;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  border-left: 1px solid #3a3a3a58;
+}
 
-      padding: 0.4rem 0.8rem;
-      display: flex;
-      flex-direction: column;
-      align-items: right;
-      border-left: 1px solid #3a3a3a58;
-      }
-    
-    .right-sidebar ul {
-      font-size: .8rem;
-      font-weight: bold;
-      margin-top: 4.5rem;
-      list-style: none;
-      padding: 0.4rem 0.4rem;
-    }
-    
-    .right-sidebar li {
-  position: relative; /* Required for pseudo-elements */
+.right-sidebar ul {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 4.5rem;
+  list-style: none;
+  padding: 0.4rem 0.4rem;
+}
+
+.right-sidebar li {
+  position: relative;
   cursor: pointer;
   margin-bottom: 0.75rem;
   font-weight: bold;
   color: #ffffff;
-  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out, text-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
-  padding: 0.4rem .1rem; /* Adjust padding for better spacing */
-  text-align: left; /* Align the text for a cleaner look */
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out,
+    text-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
+  padding: 0.4rem 0.1rem;
+  text-align: left;
 }
 
-
 .right-sidebar li.active::before {
-  content: ''; /* Required for the pseudo-element */
+  content: '';
   position: absolute;
-  top: 0; /* Align with the top of the list item */
-  left: -0.5rem; /* Add extra space to the left */
-  right: -0.5rem; /* Add extra space to the right */
-  bottom: 0; /* Align with the bottom of the list item */
-  border-radius: 8px; /* Make the pseudo-element's background look smooth */
-  background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background to create a halo effect */
-  z-index: -1; /* Place the pseudo-element behind the text */
-  transition: all 0.3s ease-in-out; /* Smooth transition for hover and state changes */
+  top: 0;
+  left: -0.5rem;
+  right: -0.5rem;
+  bottom: 0;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
 }
 
 .right-sidebar li:hover {
-  color: #00c3ff; /* Change text color on hover */
-  border-bottom: 1px solid #00c3ff; /* Add bottom border */
-  border-top: 1px solid #00c3ff; /* Add top border */
-  text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686); /* Add slight glow */
-  padding-bottom: 0.5rem; /* Adjust padding to account for border size */
-  transform: scale(1.05); /* Slight scaling effect */
+  color: #00c3ff;
+  border-bottom: 1px solid #00c3ff;
+  border-top: 1px solid #00c3ff;
+  text-shadow: 0px 0px 2px rgba(0, 191, 255, 0.686);
+  padding-bottom: 0.5rem;
+  transform: scale(1.05);
 }
 
 .right-sidebar li::before,
@@ -489,65 +467,59 @@ mounted() {
   position: absolute;
   height: 1.5px;
   width: 50%;
-  background-color: #ffa200; /* Orange color for the lines */
+  background-color: #ffa200;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0px 0px 4px rgba(255, 162, 0, 0.948); /* Subtle shadow effect */
-  transform: scaleX(0); /* Start hidden */
+  box-shadow: 0px 0px 4px rgba(255, 162, 0, 0.948);
+  transform: scaleX(0);
 }
 
 .right-sidebar li::before {
-  top: -1px; /* Offset top line above text */
-  left: -0.25rem; /* Adjust horizontal offset */
-  transform-origin: left; /* Line grows from the left */
+  top: -1px;
+  left: -0.25rem;
+  transform-origin: left;
 }
 
 .right-sidebar li::after {
-  bottom: -1px; /* Offset bottom line below text */
+  bottom: -1px;
   right: -0.25rem;
-  transform-origin: right; /* Line grows from the right */
+  transform-origin: right;
 }
 
-/* Orange Lines Animate on Hover */
 .right-sidebar li:hover::before,
 .right-sidebar li:hover::after {
-  transform: scaleX(1.5); /* Grow the lines */
-  box-shadow: 0px 0px 8px rgb(255, 162, 0); /* Add glow to lines */
+  transform: scaleX(1.5);
+  box-shadow: 0px 0px 8px rgb(255, 162, 0);
 }
 
-/* Active Right Sidebar Item */
 .right-sidebar li.active {
   color: #00c3ff;
   font-weight: bold;
-  font-size: .75rem;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.88); /* Glow for active state */
-  background-color: rgba(255, 255, 255, 0.056); /* Add background for active item */
-  border-radius: 8px; /* Rounded corners for background */
-  padding: 0.4rem .5rem; /* Maintain consistent padding */
-  border-top: 1.5px solid #00c3ff; /* Keep blue border on top */
-  border-bottom: 3px solid rgb(255, 162, 0); /* Orange border on the bottom */
+  font-size: 0.75rem;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.88);
+  background-color: rgba(255, 255, 255, 0.056);
+  border-radius: 8px;
+  padding: 0.4rem 0.5rem;
+  border-top: 1.5px solid #00c3ff;
+  border-bottom: 3px solid rgb(255, 162, 0);
 }
 
-/* Remove Orange Lines for Active Item */
 .right-sidebar li.active::before,
 .right-sidebar li.active::after {
-  display: none; /* Disable orange lines for active state */
+  display: none;
 }
 
-/* Add smooth transitions */
 .right-sidebar li,
 .right-sidebar li:hover,
 .right-sidebar li.active {
-  transition: all 0.3s ease-in-out; /* Smooth transition for all states */
+  transition: all 0.3s ease-in-out;
 }
-    /* TOC Fade-Slide Animation */
 
-    .fade-slide-toc-enter-active {
-      top: 0;
+.fade-slide-toc-enter-active {
+  top: 0;
   left: 0;
   width: 100%;
   transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-
-    }
+}
 
 .fade-slide-toc-leave-active {
   top: 0;
@@ -558,68 +530,65 @@ mounted() {
 
 .fade-slide-toc-enter-from {
   opacity: 0;
-  transform: translateY(20px); /* Enter from slightly below */
+  transform: translateY(20px);
 }
 
 .fade-slide-toc-enter-to {
   opacity: 1;
-  transform: translateY(0); /* Settle into place */
+  transform: translateY(0);
 }
 
 .fade-slide-toc-leave-from {
   opacity: 1;
-  transform: translateY(0); /* Start from its current position */
+  transform: translateY(0);
 }
 
 .fade-slide-toc-leave-to {
   opacity: 0;
-  transform: translateY(-20px); /* Exit slightly above */
+  transform: translateY(-20px);
 }
 
-    
-    /* Navigation Buttons */
-    .navigation-buttons {
-      display: flex;
-      justify-content: center; /* Center the buttons horizontally */
-      gap: 2rem; /* Add space between the buttons */
-      margin-top: 2rem;
-    }
-    
-    .navigation-buttons .button {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      justify-content: center;
-      padding: 1rem 1rem;
-      border: 1px solid #3a3a3a76;
-      background: linear-gradient(180deg, #252C3F, #191e2b);
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.1s ease;
-      position: relative;
-      }
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-      .navigation-buttons .button:hover {
-       background: linear-gradient(180deg, #007bff, #265ef9);
-      }
+.navigation-buttons .button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: center;
+  padding: 1rem 1rem;
+  border: 1px solid #3a3a3a76;
+  background: linear-gradient(180deg, #252c3f, #191e2b);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  position: relative;
+}
+
+.navigation-buttons .button:hover {
+  background: linear-gradient(180deg, #007bff, #265ef9);
+}
 
 .navigation-buttons .button.prev {
-  align-items: flex-end; /* Align text to the right for previous button */
-  text-align: right; /* Ensure text aligns properly */
+  align-items: flex-end;
+  text-align: right;
 }
 
 .navigation-buttons .button span {
   font-size: 1rem;
   font-weight: bold;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
 }
 
 .navigation-buttons small {
   color: rgb(176, 176, 176);
 }
 
-/* Arrows */
 .navigation-buttons .button .arrow {
   position: absolute;
   top: 50%;
@@ -633,7 +602,6 @@ mounted() {
 .navigation-buttons .button.next .arrow {
   right: 1rem;
 }
-
 
 .fade-slide-leave-active {
   top: 0;
@@ -651,26 +619,24 @@ mounted() {
 
 .fade-slide-enter-from {
   opacity: 0;
-  transform: translateY(20px); /* Enter from the right and slightly down */
+  transform: translateY(20px);
 }
 
 .fade-slide-enter-to {
   opacity: 1;
-  transform: translateY(0); /* Settle into place */
+  transform: translateY(0);
 }
 
 .fade-slide-leave-from {
   opacity: 1;
-  transform: translateY(0); /* Start from its position */
+  transform: translateY(0);
 }
 
 .fade-slide-leave-to {
   opacity: 0;
-  transform: translateY(-20px); /* Exit to the left and slightly up */
+  transform: translateY(-20px);
 }
 
-
-/* Animation Keyframes */
 @keyframes slide-in-left {
   from {
     transform: translateX(-100%);
@@ -704,13 +670,11 @@ mounted() {
   }
 }
 
-/* Page Container Animation */
 .animated .whitepaper-layout {
   opacity: 0;
   animation: fade-in 1.2s ease forwards;
 }
 
-/* Sidebar Animation */
 .animated .sidebar {
   transform: translateX(-100%);
   opacity: 0;
@@ -720,26 +684,23 @@ mounted() {
 .animated .right-sidebar {
   transform: translateX(100%);
   opacity: 0;
-  animation: slide-in-right 0.8s ease forwards 0.2s; /* Add delay for staggered effect */
+  animation: slide-in-right 0.8s ease forwards 0.2s;
 }
 
-/* Content Animation */
 .animated .content {
   opacity: 0;
   transform: translateY(20px);
-  animation: fade-in 1s ease forwards 0.4s; /* Slight delay for smoother animation */
+  animation: fade-in 1s ease forwards 0.4s;
 }
 
-/* Sidebar Text Animation */
 .animated .sidebar ul li,
 .animated .right-sidebar ul li {
   opacity: 0;
   transform: translateY(20px);
   animation: fade-in 0.6s ease forwards;
-  animation-delay: calc(0.2s + var(--index) * 0.1s); /* Staggered delay for each item */
+  animation-delay: calc(0.2s + var(--index) * 0.1s);
 }
 
-/* Star Wars Scrolling Effect */
 @keyframes starWarsScroll {
   0% {
     transform: perspective(800px) rotateX(25deg) translateY(100%);
@@ -765,47 +726,38 @@ mounted() {
   transform-origin: 50% 100%;
 }
 
-
-
 @media (max-width: 1024px) {
+  .content {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 4.5rem 5rem 5rem;
+  }
 
   .content {
-  margin-left: 15%;
-  margin-right: 15%;
-  padding: 4.5rem 5rem 5rem;
-}
-
-.content {
     margin-right: 1rem;
     margin-left: 12rem;
     padding: 4.5rem 2rem 1rem;
     width: 100%;
   }
 
-
-.right-sidebar {
+  .right-sidebar {
     display: none;
   }
 
-.sidebar {
-      padding: 1.5rem;
-      }
-
+  .sidebar {
+    padding: 1.5rem;
+  }
 }
 
-
-
-/* Markdown Content Styling */
 .markdown-content > * {
   transform-origin: bottom top;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   .sidebar,
   .right-sidebar {
-    display: none; /* Hide sidebars on smaller screens */
+    display: none;
   }
 
   .content {
@@ -815,15 +767,15 @@ mounted() {
   }
 
   .navigation-buttons .button {
-      padding: 1rem 1rem;
-      position: relative;
-      }
-  
+    padding: 1rem 1rem;
+    position: relative;
+  }
+
   .navigation-buttons {
     display: flex;
     gap: 1rem;
   }
-  
 }
-    </style>
+</style>
+
     
