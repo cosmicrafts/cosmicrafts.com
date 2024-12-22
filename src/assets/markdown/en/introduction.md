@@ -2,31 +2,32 @@
 
 ![DAO Mission](daobanner.webp)
 
-**Cosmicrafts DAO** represents a groundbreaking shift in governance, empowering stakeholders to take an active role in shaping the future of a **Web3 gaming franchise**. Built entirely on the [Internet Computer](https://internetcomputer.org), the DAO is designed to leverage the scalability, security, and innovation of blockchain technology.
-
-For more details, check the [Executive Summary](#executive-summary).
-
-
-**Cosmicrafts is more than a game** — it's an [expanding franchise](https://www.investopedia.com/terms/f/franchise.asp). With a growing base of interconnected games, smart contracts and assets, the DAO provides stakeholders with unparalleled opportunities for governance, rewards, and ownership. By combining cutting-edge [blockchain infrastructure](https://en.wikipedia.org/wiki/Blockchain) with engaging gameplay.
-
-> Cosmicrafts aims to bridge the gap [between traditional and Web3 gaming](https://www.forbes.com/councils/forbestechcouncil/2023/09/22/how-web3-gaming-is-transforming-the-gaming-landscape-through-p2e-and-in-game-economies/).
+**Cosmicrafts DAO** represents a groundbreaking shift in governance, empowering stakeholders to take an active role in shaping the future of a **Web3 gaming franchise**. Built entirely on the [Internet Computer](https://internetcomputer.org), the DAO is designed to leverage ICP's unmatched speed, scalability, security, and innovation of blockchain technology.
 
 ## Why DAO?
 
-The transition to a [DAO](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) structure aligns with our vision of decentralization and community-driven growth. Through the DAO, stakeholders can:
-- **Shape the future** of Cosmicrafts by voting on key decisions like treasury allocation and project priorities.
-- **Benefit economically** from staking rewards, marketplace fees, and a deflationary token economy.
-- **Own a legacy**, not just a game, as we build an interconnected franchise that redefines Web3 gaming.
+A great product deserves its moment to shine. **Cosmicrafts** is that product – with years of development complete, a fully-built, game franchise – and the **Cosmicrafts DAO** is now turning its focus to the most exciting phase: reaching its audience. The games are live, the infrastructure is solid, and the framework is in place.
 
-This whitepaper outlines the core features, architecture, and governance of the Cosmicrafts DAO, as well as the value it brings to stakeholders and the [Internet Computer ecosystem](https://internetcomputer.org/ecosystem). 
 
->Join us in shaping the future of gaming and Web3 innovation.
+>This isn’t about funding development anymore; it’s about driving adoption and scaling up, together.
+
+Here’s what the DAO brings to the table:
+
+-   **Strategic Input:** Contribute directly to decisions on marketing campaigns, community engagement, and outreach strategies to connect with Cosmicrafts' audience.
+-   **Franchise Ownership:** Own a legacy with measurable outcomes, benefit from royalties, staking rewards, marketplace fees, and a deflationary token economy.
+-   **Collective Growth:** The foundation is set, and Cosmicrafts is ready to expand. You're now part of the team.
+
+> The following sections outline the DAO structure, tokenomics, and your role in Cosmicrafts' growth. Explore what’s ahead to see how your insights and investment can help shape the future of this franchise—while creating meaningful rewards for you.
 
 ## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Executive Summary](#executive-summary)
+3. [Architecture](#architecture)
 4. [Core Features](#core-features)
-5. [Architecture](#architecture)
+5. [Governance](#governance)
+6. [Tokenomics](#tokenomics)
+7. [Community](#community)
+8. [Sustainability](#sustainability)
 
 ---

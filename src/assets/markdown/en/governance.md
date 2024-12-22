@@ -4,6 +4,9 @@
 
 In the Cosmicrafts DAO, **you hold the reins**. We’ve designed governance to put the community at the center, giving everyone with Spiral tokens a real say in how the franchise grows. Built on the Internet Computer’s **Service Nervous System (SNS)**, the DAO uses fairness, transparency, and community-driven decision-making to ensure Cosmicrafts stays true to its vision.
 
+- **SNS and DAO Integration**:
+  - The DAO is built using ICP's native [SNS (Service Nervous System)](https://internetcomputer.org/docs/current/developer-docs/daos/sns/overview), maintained by the [DFINITY Foundation](https://dfinity.org/), with secure governance and treasury management.
+
 ---
 
 ## Core Principles within the SNS Framework
@@ -56,6 +59,52 @@ We believe decentralization is a journey, not a switch you flip. Here’s how we
 3. **Fully Decentralized:** Eventually, the community holds the reins entirely. All major decisions come from Spiral holders like you.
 
 ---
+
+
+## Governance and Treasury
+
+The Cosmicrafts DAO leverages the Internet Computer's [SNS (Service Nervous System)](https://internetcomputer.org/docs/current/developer-docs/daos/sns/overview) framework, enabling robust and transparent decentralized governance and treasury management. Here's how it works:
+
+### **Decentralized Governance**
+- The DAO empowers stakeholders by granting them voting rights to shape the project's future. 
+- Decisions include:
+  - Allocation of treasury funds to initiatives like marketing, game development, or partnerships.
+  - Establishing economic policies such as tokenomics adjustments, staking rates, and fee structures.
+  - Prioritization of development milestones to align with the community's vision.
+- Voting is conducted through the [NNS (Network Nervous System)](https://internetcomputer.org/docs/current/developer-docs/daos/nns/overview), an intuitive interface, making governance accessible to all token holders.
+
+### **Treasury Management**
+- Funds are managed transparently and securely via smart contracts, ensuring:
+  - **Immutable Records**: Every action taken by the DAO is recorded on-chain for complete transparency.
+  - **Fair Distribution**: Allocation of funds is determined through community voting, preventing centralized control.
+  - **Sustainability**: Mechanisms like deflationary tokenomics and staking rewards contribute to long-term ecosystem growth.
+- The treasury is also staked in [Neurons](https://internetcomputer.org/docs/current/developer-docs/daos/nns/concepts/neurons/neuron-overview), earning rewards that feed back into the DAO to support ongoing and future initiatives.
+
+### **Maturity-Based Staking**
+- **Neuron Staking**: Stakeholders lock tokens in [neurons](https://internetcomputer.org/docs/current/developer-docs/daos/nns/concepts/neurons/neuron-overview) to participate in governance and earn rewards.
+  - The longer tokens are staked, the greater the maturity of the neuron, directly impacting:
+    - **Voting Power**: Higher maturity grants greater influence in governance decisions.
+    - **Rewards**: Maturity-based staking provides [compounding returns](https://internetcomputer.org/docs/current/developer-docs/daos/nns/concepts/neurons/staking-voting-rewards), incentivizing long-term commitment.
+  - Neuron holders can [dissolve neurons to unlock tokens](https://internetcomputer.org/docs/current/developer-docs/daos/nns/concepts/neurons/neuron-management), with dissolving durations adjustable to balance liquidity and governance participation.
+- **Governance Participation Rewards**: Active participation in proposals and voting enhances individual rewards, promoting engagement within the community.
+
+### **SNS and NNS Integration**
+- The SNS framework integrates seamlessly with the Internet Computer's **NNS (Network Nervous System)**, leveraging its:
+  - Proven track record in secure, decentralized governance.
+  - Scalable and cost-effective infrastructure, supporting a large number of stakeholders.
+  - Advanced staking and reward mechanisms to incentivize both economic and governance participation.
+
+### **Vision for the Treasury**
+- The treasury acts as the lifeblood of the DAO, enabling:
+  - Funding for ecosystem expansion, including new games and features.
+  - Support for partnerships that drive adoption and value for the franchise.
+  - Long-term growth through reinvestment in the ICP ecosystem.
+- Transparency and community-driven decisions ensure alignment with stakeholder interests, fostering trust and collaboration.
+
+> Cosmicrafts' governance and treasury model exemplify the power of decentralized decision-making, empowering stakeholders to shape a sustainable and profitable future for the franchise.
+
+---
+
 
 ## Why This Governance Model Works
 

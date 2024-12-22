@@ -99,14 +99,15 @@ export default {
       sections: [
         { id: "introduction", title: "Introduction" },
         { id: "executive-summary", title: "Executive Summary" },
-        { id: "core-features", title: "Core Features" },
         { id: "architecture", title: "Architecture" },
+        { id: "core-features", title: "Core Features" },       
         { id: "tokenomics", title: "Tokenomics" },
         { id: "governance", title: "Governance" },
         { id: "treasurymanagement", title: "Treasury Management" },
         { id: "proposalprocess", title: "Proposal Process" },
         { id: "stakingrewards", title: "Staking Rewards" },
         { id: "sustainability", title: "Sustainability" },
+        { id: "community", title: "Community" },
       ],
       toc: [],
       activeHeading: null,
@@ -184,14 +185,24 @@ export default {
 
     // Changes the active section
     changeSection(sectionId) {
-      this.activeSection = sectionId;
-      this.toc = [];
-      this.$nextTick(() => this.generateTOC());
-      const contentElement = this.$el.querySelector(".content");
-      if (contentElement) {
-        contentElement.scrollTo({ top: 0, behavior: "smooth" });
+  this.activeSection = sectionId;
+  this.toc = [];
+  
+  this.$nextTick(() => {
+    this.generateTOC();
+    
+    setTimeout(() => {
+      const target = document.querySelector(".content");
+      if (target) {
+        const headerOffset = 80; // Adjust for fixed headers
+        const targetPosition =
+          target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          
+        window.scrollTo({ top: targetPosition, behavior: "smooth" });
       }
-    },
+    }, 10); // Delay matches transition timing
+  });
+},
 
     // Navigation controls
     navigatePrevious() {
