@@ -42,7 +42,7 @@ Let’s keep it real—most projects claim to be “unique,” but we know execu
 
 ---
 
-
+![Executive Summary](dao1.webp)
 ## The Power of Stakeholders
 
 Joining the Cosmicrafts DAO is about being the owner of brand, a franchise that's designed to expand, evolve, and reward those who help shape its future.  This is where your investment translates into real influence and tangible returns.
@@ -86,9 +86,9 @@ Cosmicrafts is ready to grow, and this is your opportunity to be part of that ex
 
 *   **Core Features:**  This is where you'll discover what makes Cosmicrafts fun to play. We'll explore the multi-game universe, the evolving NFTs, and the gameplay that sets us apart.
 
-*   **Governance in Action:**  You'll see exactly how the DAO works, how voting happens, and how you can directly influence the future of the franchise.
+*   **Governance**  You'll see exactly how the DAO works, how voting happens, and how you can directly influence the future of the franchise.
 
-*   **Tokenomics: The Spiral Token:**  This section details the tokenomics, explaining how Spiral powers the in-game economy, enables governance, and rewards active participation.
+*   **Tokenomics:**  This section details the economic model, explaining distribution, how Spiral powers the in-game economy, enables governance, and rewards active participation.
 
 *   **Engagement:**  Learn how we're building a community around Cosmicrafts and how you can get involved from day one.
 

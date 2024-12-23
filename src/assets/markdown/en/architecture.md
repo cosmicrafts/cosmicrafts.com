@@ -10,35 +10,39 @@ Unlike traditional games reliant on [centralized servers](https://www.geeksforge
 >This section outlines the key [architectural components](https://en.wikipedia.org/wiki/Software_architecture) of Cosmicrafts, showcasing its technical superiority over traditional software architectures.
 ---
 
-## Fully On-Chain
 
+## Fully On-Chain
 
 All [critical operations](https://tokenminds.co/blog/web3-development/the-benfefits-of-on-chain-web) are conducted entirely on-chain, ensuring transparency, security, and scalability.
 
 > You can [view our public smart contracts on the Internet Computer dashboard](https://dashboard.internetcomputer.org/canister/opcce-byaaa-aaaak-qcgda-cai) along with our [open-source code](https://github.com/worldofunreal/cosmicrafts-motoko-backend) to explore how we achieve this level of trust and decentralization.
 
+![DAO On-chain Architecture](archfullyonchain.webp)
 
-### **Key Components of Fully On-Chain Architecture**
-1. **Game State Management**
-   - All game logic, states, and leaderboards are stored directly on the blockchain, ensuring consistency and fairness.
-   - Players can verify outcomes or game states independently, enhancing trust and eliminating the risk of centralized manipulation.
-   - On-chain game states ensure continuity, allowing players to pick up right where they left off, even across devices.
+### Key Components of Fully On-Chain Architecture
 
-2. **User Profiles**
-   - Player accounts, statistics, and progress are securely stored on-chain, providing permanence and accessibility.
-   - Unlike centralized systems, user data remains under their control, with no risk of loss due to server outages or data breaches.
-   - Profiles are accessible globally and integrate seamlessly with other on-chain applications, creating a broader ecosystem for players.
+#### **1. Web App (User Frontend)**
+- Provides a graphic interface for players to interact with the game.
+- Fetches real-time data from on-chain component.
+- Designed for accessibility across devices with responsive UI.
 
-3. **NFT and Token Management**
-   - All NFT transactions, including minting, ownership transfers, and metadata upgrades, are executed via smart contracts.
-   - On-chain metadata ensures NFTs remain dynamic, supporting evolving features like game upgrades, skins, and event access.
-   - The **iCRC-2 Spiral Token** ensures that in-game economies remain transparent, tamper-proof, and compatible with both DEXs and CEXs.
+#### **2. DAO (SNS Canisters)**
+- **Governance:** Enables stakeholder decision-making.
+- **Ledger:** Manages token transactions, with recorded and transparent operations.
+- **Index:** Provides a comprehensive map of stakeholder activity.
+- **Root:** Oversees upgrading other SNS canisters and the Core canisters that the SNS governs.
 
-4. **Matchmaking**
-   - The matchmaking system operates in real-time, connecting players without relying on centralized servers.
-   - On-chain matchmaking enhances fairness by removing hidden algorithms and providing verifiable pairing systems.
-   - It supports global operations, ensuring fast, efficient pairing regardless of user location.
+#### **3. Game Logic (Core Canisters)**
+- **Rewards:** Automates distribution of in-game rewards like XP, tokens and NFTs.
+- **Matchmaking:** Facilitates real-time player pairing based on skill levels.
+- **Statistics:** Tracks game progress, leaderboards, and player achievements.
+- **Progress:** Stores player states and ensures continuity across games.
 
+#### **4. Economy Canisters**
+- **Spiral Token:** The main token for in-game transactions, compatible with DEXs and CEXs for trading.
+- **NFTs:** Handles dynamic metadata, enabling upgrades, rarity traits, and cross-game utilities.
+
+>This architecture ensures trust, enhances transparency, and establishes a robust foundation for expanding the Cosmicrafts ecosystem.
 
 ---
 
@@ -123,7 +127,6 @@ The **Internet Computer** stands apart from other [blockchains](https://chainspe
 
 
 ![DAO Architecture2](archimg2.webp)
-
 
 ## Canister Architecture
 
