@@ -10,11 +10,41 @@ Unlike traditional games reliant on [centralized servers](https://www.geeksforge
 >This section outlines the key [architectural components](https://en.wikipedia.org/wiki/Software_architecture) of Cosmicrafts, showcasing its technical superiority over traditional software architectures.
 ---
 
+## Fully On-Chain
+
+
+All [critical operations](https://tokenminds.co/blog/web3-development/the-benfefits-of-on-chain-web) are conducted entirely on-chain, ensuring transparency, security, and scalability.
+
+> You can [view our public smart contracts on the Internet Computer dashboard](https://dashboard.internetcomputer.org/canister/opcce-byaaa-aaaak-qcgda-cai) along with our [open-source code](https://github.com/worldofunreal/cosmicrafts-motoko-backend) to explore how we achieve this level of trust and decentralization.
+
+
+### **Key Components of Fully On-Chain Architecture**
+1. **Game State Management**
+   - All game logic, states, and leaderboards are stored directly on the blockchain, ensuring consistency and fairness.
+   - Players can verify outcomes or game states independently, enhancing trust and eliminating the risk of centralized manipulation.
+   - On-chain game states ensure continuity, allowing players to pick up right where they left off, even across devices.
+
+2. **User Profiles**
+   - Player accounts, statistics, and progress are securely stored on-chain, providing permanence and accessibility.
+   - Unlike centralized systems, user data remains under their control, with no risk of loss due to server outages or data breaches.
+   - Profiles are accessible globally and integrate seamlessly with other on-chain applications, creating a broader ecosystem for players.
+
+3. **NFT and Token Management**
+   - All NFT transactions, including minting, ownership transfers, and metadata upgrades, are executed via smart contracts.
+   - On-chain metadata ensures NFTs remain dynamic, supporting evolving features like game upgrades, skins, and event access.
+   - The **iCRC-2 Spiral Token** ensures that in-game economies remain transparent, tamper-proof, and compatible with both DEXs and CEXs.
+
+4. **Matchmaking**
+   - The matchmaking system operates in real-time, connecting players without relying on centralized servers.
+   - On-chain matchmaking enhances fairness by removing hidden algorithms and providing verifiable pairing systems.
+   - It supports global operations, ensuring fast, efficient pairing regardless of user location.
+
+
+---
+
 ## Advanced Internet Computer Features
 
 The **Internet Computer** stands apart from other [blockchains](https://chainspect.app/compare/icp-vs-solana) by eliminating the need for traditional cloud services to operate at scale. Its [architecture](https://internetcomputer.org/how-it-works/architecture-of-the-internet-computer/) allows it to run applications natively on-chain, combining the speed and ease of cloud platforms with the trust and transparency of blockchain. 
-
->This eliminates many of the limitations found in other blockchains and cloud services, creating a foundation for faster, more efficient, and more secure applications.
 
 ### 1. Scalability
 - **Dynamic Resource Allocation**: Automatically adapts to meet [growing demand]().  
@@ -89,134 +119,127 @@ The **Internet Computer** stands apart from other [blockchains](https://chainspe
   </tbody>
 </table>
 
+>This eliminates many of the limitations found in other blockchains and cloud services, creating a foundation for faster, more efficient, and more secure applications.
 
-## Fully On-Chain
 
 ![DAO Architecture2](archimg2.webp)
 
-All [critical operations](https://tokenminds.co/blog/web3-development/the-benfefits-of-on-chain-web) are conducted entirely on-chain, ensuring transparency, security, and scalability.
 
-> You can [view our public smart contracts on the Internet Computer dashboard](https://dashboard.internetcomputer.org/canister/opcce-byaaa-aaaak-qcgda-cai) along with our [open-source code](https://github.com/worldofunreal/cosmicrafts-motoko-backend) to explore how we achieve this level of trust and decentralization.
+## Canister Architecture
 
-
-### **Key Components of Fully On-Chain Architecture**
-1. **Game State Management**
-   - All game logic, states, and leaderboards are stored directly on the blockchain, ensuring consistency and fairness.
-   - Players can verify outcomes or game states independently, enhancing trust and eliminating the risk of centralized manipulation.
-   - On-chain game states ensure continuity, allowing players to pick up right where they left off, even across devices.
-
-2. **User Profiles**
-   - Player accounts, statistics, and progress are securely stored on-chain, providing permanence and accessibility.
-   - Unlike centralized systems, user data remains under their control, with no risk of loss due to server outages or data breaches.
-   - Profiles are accessible globally and integrate seamlessly with other on-chain applications, creating a broader ecosystem for players.
-
-3. **NFT and Token Management**
-   - All NFT transactions, including minting, ownership transfers, and metadata upgrades, are executed via smart contracts.
-   - On-chain metadata ensures NFTs remain dynamic, supporting evolving features like game upgrades, skins, and event access.
-   - The **iCRC-2 Spiral Token** ensures that in-game economies remain transparent, tamper-proof, and compatible with both DEXs and CEXs.
-
-4. **Matchmaking**
-   - The matchmaking system operates in real-time, connecting players without relying on centralized servers.
-   - On-chain matchmaking enhances fairness by removing hidden algorithms and providing verifiable pairing systems.
-   - It supports global operations, ensuring fast, efficient pairing regardless of user location.
-
----
-
-### Canister Architecture
-
-The **Internet Computer** introduces a new approach to smart contracts through its **canister architecture**. Canisters are the Internet Computer’s version of smart contracts, designed to provide greater functionality and scalability than traditional blockchain contracts.
+The **Internet Computer** introduces a new approach to smart contracts through its **canister architecture**. [Canisters](https://internetcomputer.org/docs/current/tutorials/developer-journey/level-0/intro-canisters) are the Internet Computer’s version of smart contracts, designed to provide greater functionality and scalability than traditional blockchain contracts.
 
 ### **What Are Canisters?**
-- **Smart Contracts on Steroids**: Canisters are a combination of code (logic) and state (data), encapsulated in a way that makes them highly efficient for decentralized applications.
+- **Smart Contracts on Steroids**: [Canisters](https://internetcomputer.org/docs/current/developer-docs/smart-contracts/overview/introduction) are a combination of code (logic) and state (data), encapsulated in a way that makes them highly efficient for decentralized applications.
 - **Self-Sufficient Units**: Each canister contains everything it needs to execute functions, interact with other canisters, and process user requests.
 - **Unlimited Capacity**: Canisters can dynamically grow in size, supporting large-scale applications without hitting traditional blockchain limitations.
 
 ### **How Canisters Enable Smart Contracts**
 - **Native Execution**: Canisters are directly hosted and executed on the Internet Computer, eliminating the need for external servers or cloud solutions.
-- **High Performance**: Unlike traditional blockchains that process transactions in batches, canisters can handle multiple requests concurrently, enabling real-time interactions and near-instant responses.
+- **High Performance**: Unlike traditional blockchains that process transactions in batches, canisters can handle [multiple requests concurrently](https://dashboard.internetcomputer.org/canisters), enabling real-time interactions and near-instant responses.
 - **Scalable Design**: Canisters scale automatically with demand, ensuring consistent performance as applications grow.
 
 ### **Developer-Friendly Features**
-- **Flexible Language Support**: Canisters can be developed using [Motoko](https://github.com/dfinity/motoko) or Rust, catering to diverse developer needs.
+- **Flexible Language Support**: Canisters can be developed using [Motoko](https://github.com/dfinity/motoko) or [Rust](https://www.rust-lang.org/), serving diverse developer needs.
 - **Interoperability**: Canisters integrate seamlessly with other on-chain and off-chain services, enabling a wide range of use cases.
 - **Continuous Improvement**: The architecture is actively maintained and improved by the [DFINITY Foundation](https://dfinity.org/), ensuring cutting-edge performance and features.
 
 
->With canisters at its core, the Internet Computer redefines what smart contracts can achieve, supporting complex applications such as games, DeFi platforms, and enterprise-grade systems—all without relying on traditional cloud infrastructure.
+>With canisters at its core, the Internet Computer redefines what smart contracts can achieve, supporting complex applications such as games, DeFi platforms, and enterprise-grade systems—all [without relying on traditional cloud infrastructure](https://internetcomputer.org/docs/current/tutorials/developer-journey/level-1/1.6-managing-canisters).
 
----
 
 ## Smart Contracts
 
-### **Motoko**
-The Internet Computer’s native programming language, [Motoko](https://github.com/dfinity/motoko), powers advanced smart contracts with the following features:
+### Motoko
+Cosmicrafts backend is coded in the Internet Computer’s native programming language, [Motoko](https://github.com/dfinity/motoko), it powers advanced smart contracts with the following features:
 
 - **Robust Security**: Built specifically for blockchain, it includes features like type checking and memory safety to minimize vulnerabilities.
 - **Optimal Performance**: Ensures efficient contract execution, maximizing speed and minimizing resource usage.
 - **Scalability**: Designed to handle large-scale applications, enabling smart contracts to run at web speed.
 - **Continuous Evolution**: Actively maintained by the [DFINITY Foundation’s R&D team](https://dfinity.org/#team) with regular updates and new features.
 
-### **NFTs**
+### NFTs
 Cosmicrafts employs the [iCRC-7 standard](https://github.com/dfinity/ICRC/blob/main/ICRCs/ICRC-7/ICRC-7.md) for its **Non-Fungible Tokens (NFTs)**, offering features that go beyond basic ownership representation:
 
-- **Programmability**: iCRC-7 NFTs support custom smart contracts, enabling dynamic behavior and functionality. Examples include evolving artwork, fractional ownership, and membership access tied to NFT ownership.
-- **Interoperability**: These NFTs are designed to function seamlessly with other dApps built on the Internet Computer, avoiding the common issue of NFT siloing and promoting an interconnected ecosystem.
+- **Programmability**: iCRC-7 NFTs support custom smart contracts, enabling dynamic behavior and functionality.
+- **Interoperability**: These NFTs are designed to function with other dApps built on the Internet Computer, promoting an interconnected ecosystem.
 - **Improved Security**: The iCRC-7 standard incorporates best practices for security, minimizing vulnerabilities and ensuring the safety of assets.
 - **Metadata Standards**: iCRC-7 includes robust and standardized metadata storage mechanisms, ensuring accurate, consistent, and easily searchable information associated with NFTs, enhancing their discoverability and usability.
 
-### **iCRC Spiral Token**
+### Tokens
 The native Spiral token adheres to the [iCRC standards](https://internetcomputer.org/docs/current/developer-docs/defi/tokens/token-standards) with the following benefits:
 
 - **Standard Compliance**: Ensures compatibility with Internet Computer infrastructure and other dApps.
-- **Exchange Integration**: Designed for easy trading on both centralized (CEX) and decentralized exchanges (DEX).
+- **Exchange Integration**: Designed for compatibility on both centralized (CEX) and decentralized exchanges (DEX).
 
-### Frontend Integration
+## Frontend Integration
 
 The [frontend architecture](https://www.maibornwolff.de/en/know-how/good-frontend-architecture/) focuses on delivering a responsive and efficient experience using modern technologies.
 
-### **Web and Game Clients**
+### Web and Game Clients
 Lightweight clients retrieve data directly from the blockchain for real-time updates:
 
-- **Unity for Game Development**:
+#### Unity for Game Development:
   - Supports [cross-platform compatibility](https://unity.com/solutions/multiplatform), targeting web, desktop, and mobile platforms with one codebase.
   - Uses [WebAssembly and WebGL](https://docs.unity3d.com/6000.1/Documentation/Manual/webgl-intro.html) for high-performance browser gameplay.
   - Offers a vast [ecosystem of plugins and tools](https://assetstore.unity.com/) to accelerate development.
   - Enables real-time [rendering capabilities](https://docs.unity3d.com/6000.0/Documentation/Manual/render-pipelines-overview.html) for visually stunning graphics.
 
-### **Cross-Platform Compatibility**
-The Internet Computer ensures broad accessibility across platforms:
+### Cross-Platform Compatibility
+The Internet Computer makes it easy to access games across different platforms, no matter where you play:
 
 - **Web Browsers**:
-  - **Decentralized Hosting**: Entire Unity games are hosted on the Internet Computer’s decentralized network, eliminating server dependencies.
-  - **Performance**: WebAssembly runs at near-native speeds for resource-intensive applications.
-  - **Data Integrity**: Immutable on-chain hosting guarantees authenticity and resilience.
+  - **Decentralized Hosting**: The entire game can be hosted on the Internet Computer’s, so there’s no need for traditional servers.
+  - **Performance**: WebAssembly games run almost as fast as they would on your own device, even for demanding applications.
+  - **Data Integrity**: On-chain hosting guarantees the data is secure and can’t be hacked.
   - **Accessibility**: Games run directly in browsers, avoiding the need for large downloads.
 
-- **Desktop Clients**: Provides optimized applications for PC, Mac, and Linux with enhanced performance and features.
-- **Mobile Game Releases**: Ensures mobile compatibility for users on the go, maintaining consistent functionality across devices.
+- **Desktop Clients**: Optimized apps are available for PC, Mac, and Linux, giving players extra features and better performance when they want a richer experience.
+- **Mobile Games**: Mobile versions let players enjoy the game on the go while keeping the experience consistent with other platforms.
 
----
-
-
-## Architectural Diagram
-
-Below is a simplified representation of Cosmicrafts' architecture:
+### Interaction Diagram
 
 ![DAO Architecture Diagram](archdiagram.webp)
 
+### Layers Explained
 
-### Layers Explained:
-1. **User Layer**: Players interact with Cosmicrafts through game clients or web browsers.
-2. **Frontend Layer**: Lightweight and optimized user interfaces fetch data directly from the blockchain for real-time updates.
-3. **Backend Layer**: The Internet Computer handles all core operations, from game logic to token management, ensuring a fully decentralized experience.
+### 1. **Frontend Layer**
+The **User Layer** represents the entry point for users, allowing them to access Cosmicrafts, includes lightweight and optimized user interfaces that:
+- **Mobile**: Players can use smartphones or tablets to connect to the game via dedicated apps or browser-based interfaces.
+- **Desktop**: Desktop users enjoy the full gaming experience through web browsers or standalone clients.
+- **Web Application**: Offer web-based access from within the blockchain without downloading additional software.
 
-
+### 2. **Backend Layer**
+The **Backend Layer** is powered entirely by the **Internet Computer** and handles all critical operations, including:
+- **Governance**: Implements the DAO for decentralized decision-making and voting mechanisms.
+- **Game Logic**: Manages all in-game mechanics, rules, and interactions directly on-chain.
+- **Assets**: Handles NFT management, in-game currency, and other digital assets.
 
 ---
 
 ## Future Expansions
 
-Cosmicrafts' architecture is designed to evolve with the franchise's growth:
-- **Cross-Chain Interoperability**: While ICP is the primary blockchain, future updates may enable [compatibility with other blockchains](https://internetcomputer.org/chainfusion) for broader asset utility.
-- **AI Agents**: Additional features, such as advanced [AI-driven](https://internetcomputer.org/ai) gameplay along with advanced data analytics, will be supported by ICP's evolving capabilities.
-- **Developer Tools**: The Roadmap plans to integrate development kits to from partners and third-party developers into Cosmicrafts like [BOOM DAO](https://docs.boomdao.xyz/) and [OpenChat](https://oc.app/home).
+The architecture is designed to evolve with ICP's latest integrations:
+
+### Cross-Chain Interoperability
+The Internet Computer (ICP) is leading the way in building a multichain future, where blockchains are no longer isolated but interconnected networks. While ICP serves as the foundation, its [Chain Fusion technology]((https://internetcomputer.org/chainfusion)) enables integration with other blockchains, unlocking new possibilities for developers and users.
+
+
+### On-Chain AI
+Additional features, such as advanced **AI-driven gameplay** along with advanced **data analytics**, will be supported by ICP's evolving capabilities, enabling smart contracts to directly run [AI models on-chain](https://internetcomputer.org/ai). This innovation unlocks a range of possibilities as ICP evolves, the potential for integrating AI into decentralized applications grows exponentially.
+
+### Developer Tools
+
+The roadmap includes plans to integrate development kits from partners and third-party developers into Cosmicrafts. These tools aim to enhance the developer experience and expand the project's ecosystem. 
+
+#### Key integrations include:
+
+- **[ORIGYN](https://www.origyn.com/)**: An **RWA blockchain protocol** providing advanced tools for tokenizing real-world and digital assets, ensuring transparency, fractional ownership, and secure asset certification through its fully on-chain platform.
+- **[BOOM DAO](https://docs.boomdao.xyz/)**: A collective dedicated to building foundational infrastructure for **fully on-chain games**. Developers can integrate the **World Protocol** as a "game server" using BOOM DAO's World canisters.
+- **[OpenChat](https://oc.app/home)**: Enabling **decentralized communication** tools like chat and voice chat that allow for real-time interactions, powered entirely by the Internet Computer.
+- **[Dmail](https://dmail.ai/)**: An AI-powered decentralized communication platform offering **encrypted emails**, cross-chain notifications, and NFT domain accounts. Dmail integrates secure messaging, asset interactions, and notifications.
+- **[Neutrinite](https://icpcoins.com)**: A DAO-controlled platform **sourcing data** from DEXes, DAOs, and DeFi applications, promoting transparency and innovation in the ecosystem.  
+ - **[Bitfinity](https://bitfinity.network/)**: A high-performance Bitcoin **Layer-2 platform** offering fast transactions, EVM compatibility, and tools like BitFusion SDK for seamless cross-chain development.
+ - **[WaterNeuron](https://waterneuron.fi/)**: A **liquid staking protocol** for the Internet Computer that provides nICP tokens, allowing users to earn NNS rewards while maintaining liquidity for DeFi applications.
+
+>These integrations empower developers to build, innovate, and expand the functionalities with a collaborative and thriving ecosystem.

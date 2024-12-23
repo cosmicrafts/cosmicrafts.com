@@ -1,5 +1,5 @@
 # Executive Summary
-
+![Executive Summary](executivesummary.webp)
 ## Overview
 
 Cosmicrafts offers you a seat at the table of a Metaverse franchise built entirely on the [Internet Computer (ICP)](https://internetcomputer.org), we're introducing a new era of franchise ownership, stakeholder participation, and meaningful economic rewards. With cutting-edge technology and 8 years of development behind it, we’ve got a brand ready to grow, backed by a solid foundation and a system designed for action.

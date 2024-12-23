@@ -185,24 +185,24 @@ export default {
 
     // Changes the active section
     changeSection(sectionId) {
-  this.activeSection = sectionId;
-  this.toc = [];
-  
-  this.$nextTick(() => {
-    this.generateTOC();
-    
-    setTimeout(() => {
-      const target = document.querySelector(".content");
-      if (target) {
-        const headerOffset = 80; // Adjust for fixed headers
-        const targetPosition =
-          target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-          
-        window.scrollTo({ top: targetPosition, behavior: "smooth" });
-      }
-    }, 10); // Delay matches transition timing
-  });
-},
+      this.activeSection = sectionId;
+      this.toc = [];
+      
+      this.$nextTick(() => {
+        this.generateTOC();
+        
+        setTimeout(() => {
+          const target = document.querySelector(".content");
+          if (target) {
+            const headerOffset = 80; // Adjust for fixed headers
+            const targetPosition =
+              target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+              
+            window.scrollTo({ top: targetPosition, behavior: "smooth" });
+          }
+        }, 100);
+      });
+    },
 
     // Navigation controls
     navigatePrevious() {
