@@ -21,25 +21,25 @@ All [critical operations](https://tokenminds.co/blog/web3-development/the-benfef
 
 ### Key Components of Fully On-Chain Architecture
 
-#### **1. Web App (User Frontend)**
+#### **1. Web App ([User Frontend](https://elevatex.de/blog/it-insights/frontend-explained/))**
 - Provides a graphic interface for players to interact with the game.
 - Fetches real-time data from on-chain component.
 - Designed for accessibility across devices with responsive UI.
 
-#### **2. DAO (SNS Canisters)**
+#### **2. DAO ([SNS Canisters](https://internetcomputer.org/docs/current/developer-docs/daos/sns/overview))**
 - **Governance:** Enables stakeholder decision-making.
 - **Ledger:** Manages token transactions, with recorded and transparent operations.
 - **Index:** Provides a comprehensive map of stakeholder activity.
 - **Root:** Oversees upgrading other SNS canisters and the Core canisters that the SNS governs.
 
-#### **3. Game Logic (Core Canisters)**
+#### **3. Game Logic ([Core Canisters](https://dashboard.internetcomputer.org/canister/opcce-byaaa-aaaak-qcgda-cai))**
 - **Rewards:** Automates distribution of in-game rewards like XP, tokens and NFTs.
 - **Matchmaking:** Facilitates real-time player pairing based on skill levels.
 - **Statistics:** Tracks game progress, leaderboards, and player achievements.
 - **Progress:** Stores player states and ensures continuity across games.
 
-#### **4. Economy Canisters**
-- **Spiral Token:** The main token for in-game transactions, compatible with DEXs and CEXs for trading.
+#### **4. Economy Canisters ([ICRCs](https://github.com/dfinity/ICRC))**
+- **Tokens:** The tokens for in-game transactions, compatible with DEXs and CEXs for trading.
 - **NFTs:** Handles dynamic metadata, enabling upgrades, rarity traits, and cross-game utilities.
 
 >This architecture ensures trust, enhances transparency, and establishes a robust foundation for expanding the Cosmicrafts ecosystem.
@@ -99,12 +99,12 @@ The **Internet Computer** stands apart from other [blockchains](https://chainspe
     <tr>
       <td><strong>Cost-Efficiency</strong></td>
       <td>High server maintenance and operational costs</td>
-      <td>Lower costs of <a href="https://www.atlassian.com/devops/what-is-devops/devops-engineer" target="_blank" rel="noopener noreferrer">DevOps Team</a> due to automated infrastructure</td>
-      <td>Reduced <a href="https://scaleupally.io/blog/cloud-app-development-cost/" target="_blank" rel="noopener noreferrer">infrastructure costs</a> for both development and operation</td>
+      <td>Lower costs of DevOps Team due to automated infrastructure</td>
+      <td>Reduced infrastructure costs for both development and operation</td>
     </tr>
     <tr>
       <td><strong>Security</strong></td>
-      <td>Vulnerable to <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack" target="_blank" rel="noopener noreferrer">DDoS attacks</a>, <a href="https://en.wikipedia.org/wiki/Data_breach" target="_blank" rel="noopener noreferrer">data breaches</a></td>
+      <td>Vulnerable to DDoS attacks and data breaches</td>
       <td>Enhanced security through cryptographic consensus</td>
       <td>Mitigation of hacking, increased trust and transparency</td>
     </tr>
@@ -138,7 +138,7 @@ The **Internet Computer** introduces a new approach to smart contracts through i
 - **Unlimited Capacity**: Canisters can dynamically grow in size, supporting large-scale applications without hitting traditional blockchain limitations.
 
 ### **How Canisters Enable Smart Contracts**
-- **Native Execution**: Canisters are directly hosted and executed on the Internet Computer, eliminating the need for external servers or cloud solutions.
+- **Native Execution**: Canisters are directly hosted and [executed](https://es.quarkus.io/guides/building-native-image) on the Internet Computer, eliminating the need for external servers or cloud solutions.
 - **High Performance**: Unlike traditional blockchains that process transactions in batches, canisters can handle [multiple requests concurrently](https://dashboard.internetcomputer.org/canisters), enabling real-time interactions and near-instant responses.
 - **Scalable Design**: Canisters scale automatically with demand, ensuring consistent performance as applications grow.
 
@@ -156,9 +156,8 @@ The **Internet Computer** introduces a new approach to smart contracts through i
 ### Motoko
 Cosmicrafts backend is coded in the Internet Computer’s native programming language, [Motoko](https://github.com/dfinity/motoko), it powers advanced smart contracts with the following features:
 
-- **Robust Security**: Built specifically for blockchain, it includes features like type checking and memory safety to minimize vulnerabilities.
-- **Optimal Performance**: Ensures efficient contract execution, maximizing speed and minimizing resource usage.
-- **Scalability**: Designed to handle large-scale applications, enabling smart contracts to run at web speed.
+- **Robust Security**: Built specifically for blockchain, it includes features like [type checking](https://internetcomputer.org/docs/current/motoko/main/getting-started/basic-concepts) and [memory safety](https://internetcomputer.org/docs/current/motoko/main/stable-memory/stablememory) to minimize vulnerabilities.
+- **Optimal Performance**: Motoko canisters are [compiled, not interpreted](https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/), producing small binaries with good performance.
 - **Continuous Evolution**: Actively maintained by the [DFINITY Foundation’s R&D team](https://dfinity.org/#team) with regular updates and new features.
 
 ### NFTs
@@ -172,7 +171,7 @@ Cosmicrafts employs the [iCRC-7 standard](https://github.com/dfinity/ICRC/blob/m
 ### Tokens
 The native Spiral token adheres to the [iCRC standards](https://internetcomputer.org/docs/current/developer-docs/defi/tokens/token-standards) with the following benefits:
 
-- **Standard Compliance**: Ensures compatibility with Internet Computer infrastructure and other dApps.
+- **Standard Compliance**: Ensures compliance with Internet Computer infrastructure and other dApps.
 - **Exchange Integration**: Designed for compatibility on both centralized (CEX) and decentralized exchanges (DEX).
 
 ## Frontend Integration
@@ -192,8 +191,8 @@ Lightweight clients retrieve data directly from the blockchain for real-time upd
 The Internet Computer makes it easy to access games across different platforms, no matter where you play:
 
 - **Web Browsers**:
-  - **Decentralized Hosting**: The entire game can be hosted on the Internet Computer’s, so there’s no need for traditional servers.
-  - **Performance**: WebAssembly games run almost as fast as they would on your own device, even for demanding applications.
+  - **Decentralized Hosting**: The entire game can be [hosted](https://internetcomputer.org/capabilities/serve-web-content/) on the Internet Computer’s, so there’s no need for traditional servers.
+  - **Performance**: [WebAssembly](https://medium.com/dfinity/webassembly-on-the-internet-computer-a1d0c71c5b94) run almost as [fast](https://www.adservio.fr/post/how-fast-and-efficient-is-wasm) as they would on your own device, even for demanding applications.
   - **Data Integrity**: On-chain hosting guarantees the data is secure and can’t be hacked.
   - **Accessibility**: Games run directly in browsers, avoiding the need for large downloads.
 
@@ -233,7 +232,7 @@ Additional features, such as advanced **AI-driven gameplay** along with advanced
 
 ### Developer Tools
 
-The roadmap includes plans to integrate development kits from partners and third-party developers into Cosmicrafts. These tools aim to enhance the developer experience and expand the project's ecosystem. 
+The roadmap includes plans to integrate [development kits](https://github.com/dfinity/awesome-internet-computer) from partners and third-party developers into Cosmicrafts. These tools aim to enhance the developer experience and expand the project's ecosystem. 
 
 #### Key integrations include:
 

@@ -62,17 +62,6 @@ The Spiral token is the engine of this franchise. It's designed for utility, fro
    - **Real Utility**: Use Spiral for purchases, upgrades, and governance decisions. It’s the backbone of the entire franchise.
    - **Deflationary Mechanisms**: We don’t mint more tokens. Instead, transaction fees burn Spiral, reducing supply and increasing value over time. 
 
-
-## Vision for the Franchise
-
-At its core, Cosmicrafts is the foundation of a **multi-game franchise**. The vision is to build an interconnected Metavers where every title connects to a shared economy, evolving storylines, and a player-driven ecosystem that share:
-
-- **Unified Tokenomics**: The Spiral token as the economic engine that powers every aspect of the franchise.
-- **Interoperable Data**: Players' assets like Tokens and NFTs, game progress, and upgrades carry over between games.
-- **Shared Lore and Metaverse**: Becoming part of a story that spans multiple games.
-
-> The ultimate goal is to create a franchise akin to [Star Wars](https://www.starwars.com/) or [Marvel](https://www.marvel.com/), where each creation contributes to a larger cultural and economic phenomenon.
-
 ---
 
 ## The Path Forward
