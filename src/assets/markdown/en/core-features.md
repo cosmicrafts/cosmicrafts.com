@@ -1,5 +1,5 @@
 # Core Features
-
+![Core Features](corebanner.webp)
 ## Overview
 
 At its core, **Cosmicrafts DAO** revolves around building a franchise that integrates **fun-first gameplay**, **functional NFTs**, **deflationary tokenomics**, and a an **interconnected backend** where players' profiles, progress, and assets carry over across all games in the franchise.
@@ -46,6 +46,7 @@ Cosmicrafts' backend architecture serves as the foundation for its interconnecte
 > You can [view our public smart contracts on the Internet Computer dashboard](https://dashboard.internetcomputer.org/canister/opcce-byaaa-aaaak-qcgda-cai) along with our [open-source code](https://github.com/worldofunreal/cosmicrafts-motoko-backend) to explore how we achieve this level of trust and decentralization.
 
 ---
+![Core Features](core-progress.webp)
 
 ## 2. Player System
 
@@ -127,7 +128,7 @@ Cosmicrafts NFTs are the cornerstone of the franchise, designed to provide **mul
    - Awarded for exceptional accomplishments in tournaments or seasonal events.
    - Serve as collectibles and can be displayed in player profiles.
 
----
+![Core Features](avatars.webp)
 
 ### Metadata and NFT Evolution
 
@@ -166,7 +167,7 @@ Metadata is the backbone of Cosmicrafts NFTs, defining their attributes and enab
    - Tradable in the Cosmicrafts marketplace, fostering a player-driven economy.
    - Fully ICRC7 compatible with decentralized marketplaces.
 
----
+![Core Features](chests.webp)
 
 ### Mechanics: Upgrading, Opening Chests, and Crafting
 
@@ -192,7 +193,6 @@ Metadata is the backbone of Cosmicrafts NFTs, defining their attributes and enab
 
 ---
 
-
 ## 5. Matchmaking 
 
 The Matchmaking and Competitive Play system ensures fair, balanced, and engaging experiences across all Cosmicrafts games.
@@ -214,10 +214,8 @@ The Matchmaking and Competitive Play system ensures fair, balanced, and engaging
 - **Dynamic Status Updates**:
   - Player statuses are tracked in real-time, from searching for a match to completing the game.
 
-### Use Case
 
-A player joins a tournament in the RTS game, competes in a series of matches against similarly ranked opponents, and wins an exclusive NFT trophy. Their updated ELO ranking reflects their improved skills, which carries over to the matchmaking system in the adventure game.
-
+![Core Features](stardustbanner.webp)
 ## 6. Stardust
 
 Stardust (STDs) is the freemium currency of the Cosmicrafts universe, designed to empower players by providing a versatile resource for upgrades, crafting, and marketplace transactions.
@@ -251,9 +249,11 @@ Stardust (STDs) is the freemium currency of the Cosmicrafts universe, designed t
 
 A player earns Stardust by completing a weekly mission in the RTS game. They use it to upgrade their spaceship NFT, enhancing its stats for better performance. Later, they spend additional Stardust to craft a unique item usable in both the RTS and adventure games.
 
+![Core Features](spiralbanner.webp)
 ## 7. Spiral
 
 The Spiral Token is the cornerstone of Cosmicrafts' economy, enabling stakeholder empowerment and seamless in-game transactions.
+
 
 ### Key Features
 
@@ -333,13 +333,13 @@ Cosmicrafts promotes community engagement and competition through structured tou
   - Players can provide tournament feedback or file disputes for matches.
   - Disputes are tracked and resolved by admins for transparency.
 
-### Use Case
-
-A player participates in a Cosmicrafts tournament, progressing through rounds in a bracket system. After winning, they receive an exclusive NFT trophy as part of the prize pool. If they encounter an issue during the event, they can submit a dispute for admin review.
+---
 
 ## 10. Connecting Players
 
 Cosmicrafts simplifies how players interact with blockchain technology, providing an intuitive system that serves to both Web3 enthusiasts and traditional gamers. By integrating various authentication methods, the platform ensures accessibility and user-friendliness without compromising on security or functionality.
+
+![Core Features](registration.webp)
 
 ### Key Features
 
@@ -366,7 +366,6 @@ Cosmicrafts simplifies how players interact with blockchain technology, providin
   - Players can log in with a Google account and immediately access the game, with their blockchain wallet created in the background.
   - Advanced users can link external wallets (MetaMask, Phantom, Internet Identity) for enhanced control.
 
----
 
 ### Benefits of This System
 
