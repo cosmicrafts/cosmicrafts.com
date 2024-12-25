@@ -191,7 +191,7 @@ Metadata is the backbone of Cosmicrafts NFTs, defining their attributes and enab
    - **Example**:
      - Craft a "Galactic Armor" for a spaceship, providing both stat boosts and a visually design.
 
----
+![Core Features](matchmaking.webp)
 
 ## 5. Matchmaking 
 
@@ -245,11 +245,8 @@ Stardust (STDs) is the freemium currency of the Cosmicrafts universe, designed t
     - Minted as rewards for gameplay.
     - Burned during crafting and high-tier upgrades, ensuring economic balance.
 
-### Use Case
-
-A player earns Stardust by completing a weekly mission in the RTS game. They use it to upgrade their spaceship NFT, enhancing its stats for better performance. Later, they spend additional Stardust to craft a unique item usable in both the RTS and adventure games.
-
 ![Core Features](spiralbanner.webp)
+
 ## 7. Spiral
 
 The Spiral Token is the cornerstone of Cosmicrafts' economy, enabling stakeholder empowerment and seamless in-game transactions.
@@ -269,9 +266,6 @@ The Spiral Token is the cornerstone of Cosmicrafts' economy, enabling stakeholde
   - Aligns stakeholder rewards with the franchise's success by ensuring a sustainable token economy.
   - Deflationary mechanics drive scarcity, increasing token value as demand grows.
 
-### Use Case
-
-A player uses Spiral tokens to purchase an exclusive in-game skin with lower fees than fiat options. As a stakeholder, they also participate in a DAO vote to decide the next expansion of the Cosmicrafts universe.
 
 ## 8. Logging System
 
@@ -302,10 +296,6 @@ The Transparent Logging System ensures accountability and trust by tracking all 
 
 - **Auditability**:
   - Enables administrators to review logs for fair distribution, transparency, and potential issue resolution.
-
-### Use Case
-
-A player completes a mission and earns Stardust. The transaction is logged with their `Principal`, the Stardust quantity, and a timestamp. They can later view this transaction to verify their reward history.
 
 ## 9. Tournaments and Events
 
