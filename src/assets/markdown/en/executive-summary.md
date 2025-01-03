@@ -60,7 +60,7 @@ Joining the Cosmicrafts DAO is about being the owner of brand, a franchise that'
 3. **Sustainable Tokenomics**:
 The Spiral token is the engine of this franchise. It's designed for utility, from in-game purchases to governance power. And with built-in deflationary mechanisms, we're focused on a sustainable economy and long-term value, not short-term gains.
    - **Real Utility**: Use Spiral for purchases, upgrades, and governance decisions. It’s the backbone of the entire franchise.
-   - **Deflationary Mechanisms**: We don’t mint more tokens. Instead, transaction fees burn Spiral, reducing supply and increasing value over time. 
+   - **Deflationary Mechanisms**: We don’t mint more tokens. Instead, transaction fees burn Spiral, reducing supply and increasing demand over time.
 
 ---
 

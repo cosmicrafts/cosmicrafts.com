@@ -1,64 +1,66 @@
 <template>
   <div class="dao-page">
 <!-- Headline Section -->
-<section class="headline">
-      <!-- Background Canvas for Stars -->
-      <canvas
-        id="starfield"
-        ref="starfield"
-        class="noise-canvas"
-        :style="{ top: `${scrollY * 0.5}px` }"
-      ></canvas>
+<section
+  class="headline"
+  :style="{ backgroundPositionY: `${scrollY * -0.15}px` }"
+>
+  <!-- Background Canvas for Stars -->
+  <canvas
+    id="starfield"
+    ref="starfield"
+    class="noise-canvas"
+    :style="{ top: `${scrollY * 0.5}px` }"
+  ></canvas>
 
-      <!-- Content Wrapper -->
-      <div class="content">
-        <div>
-        <!-- DAO Hero Logo -->
-        <img
-          :src="dynamicHeroLogo"
-          alt="DAO Logo"
-          class="hero-logo"
-          :style="{ transform: `translateY(${scrollY * 0.075}px) scale(${1.1 - scrollY * 0.00155})` }"
-        />
-      </div>
-      <div>
-        <!-- Hero Image -->
-        <img
-          src="@/assets/icons/DAO-1.svg"
-          alt="DAO Illustration"
-          class="dao-image"
-          :style="{ transform: `translateY(${scrollY * -0.065}px) scale(${1 - scrollY * 0.000825})` }"
-        />
-      </div>
-        <!-- Headline Titles -->
-        <h1
-          class="primary-headline"
-          :style="{ transform: `translateY(${scrollY * -0.065}px) scale(${1 - scrollY * 0.000425})` }"
+  <!-- Content Wrapper -->
+  <div class="content">
+    <div>
+      <!-- DAO Hero Logo -->
+      <img
+        :src="dynamicHeroLogo"
+        alt="DAO Logo"
+        class="hero-logo"
+        :style="{ transform: `translateY(${scrollY * 0.075}px) scale(${1.1 - scrollY * 0.00155})` }"
+      />
+    </div>
+    <div>
+      <!-- Hero Image -->
+      <img
+        src="@/assets/icons/DAO-1.svg"
+        alt="DAO Illustration"
+        class="dao-image"
+        :style="{ transform: `translateY(${scrollY * -0.065}px) scale(${1 - scrollY * 0.000825})` }"
+      />
+    </div>
+    <!-- Headline Titles -->
+    <h1
+      class="primary-headline"
+      :style="{ transform: `translateY(${scrollY * -0.065}px) scale(${1 - scrollY * 0.000425})` }"
+    >
+      The dawn of a legacy
+    </h1>
+    <h2
+      class="secondary-headline"
+      :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.000425})` }"
+    >
+      A DAO you Command
+    </h2>
+    <p
+      class="cta-subtext"
+      :style="{ transform: `translateY(${scrollY * -0.005}px) scale(${1 - scrollY * -0.001225})` }"
+    >
+      It's DAO or NEVER!
+    </p>
+    <!-- Call-to-Action Button -->
+    <div>
+      <button class="cta-button" @click="handleJoin">
+        Become a Stakeholder
+      </button>
+    </div>
+  </div>
+</section>
 
-        >
-          The dawn of a legacy
-        </h1>
-        <h2
-          class="secondary-headline"
-          :style="{ transform: `translateY(${scrollY * -0.055}px) scale(${1 - scrollY * -0.000425})` }"
-        >
-          A DAO you Command
-        </h2>
-        <p
-          class="cta-subtext"
-          :style="{ transform: `translateY(${scrollY * -0.005}px) scale(${1 - scrollY * -0.001225})` }"
-        >
-          It’s yours to take now!
-        </p>
-
-        <!-- Call-to-Action Button -->
-         <div>
-        <button class="cta-button" @click="handleJoin">
-          Become a Stakeholder
-        </button>
-      </div>
-      </div>
-    </section>
 
 <!-- A DAO for Investors -->
 <section class="investor-focus">
@@ -655,6 +657,7 @@ export default {
   margin: 0;
   padding: 0;
   line-height: 1.2;
+  
 }
 
 
@@ -664,7 +667,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
 }
 
 /* Headline Section Styles */
@@ -678,6 +680,7 @@ export default {
   background: linear-gradient(90deg, #08090c, #1d263c, #08090c), url('@/assets/webp/daoheadline.webp') no-repeat center center;
   background-size: cover; /* Ensure the image covers the area */
   background-blend-mode: lighten; /* Blend the image with the gradient */
+  z-index: 2;
 }
 
 
@@ -761,11 +764,14 @@ export default {
 
 /* A DAO for Investors */
 .investor-focus {
+
   background: linear-gradient(90deg, #08090c, #1d263c, #08090c), url('@/assets/webp/daomission.webp') no-repeat center center;
   background-size: cover; /* Ensure the image covers the area */
   background-blend-mode: lighten; /* Blend the image with the gradient */
   text-align: center;
+
   padding: 4rem;
+  z-index: 2;
 }
 
 .highlight {

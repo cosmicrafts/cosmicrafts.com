@@ -37,8 +37,7 @@ Cosmicrafts' backend architecture serves as the foundation for its interconnecte
 ### Key Features
 
 *   **Modular and Reusable Design:** A highly adaptable architecture that supports diverse game genres, enabling rapid development without compromising quality or consistency.
-*   **Fully On-Chain Infrastructure:**  By leveraging the power of the Internet Computer, we've put everything on-chain: game logic, player profiles, assets, and more. This delivers transparency, security, and a truly decentralized gaming experience.
-*   **Unified Core Systems:**  This is where Cosmicrafts truly shines. Players can move between different games within the franchise, carrying their progress, achievements, and assets with them.
+*   **One Account, Multiple Games:**  This is where Cosmicrafts truly shines, the modular backend allows assets and progress to remain accessible across the franchise and other games.
 
 
 **In short, the Cosmicrafts backend is a powerful engine for growth, enabling us to deliver a unique gaming experience while maximizing efficiency and long-term value.**
@@ -46,25 +45,23 @@ Cosmicrafts' backend architecture serves as the foundation for its interconnecte
 > You can [view our public smart contracts on the Internet Computer dashboard](https://dashboard.internetcomputer.org/canister/opcce-byaaa-aaaak-qcgda-cai) along with our [open-source code](https://github.com/worldofunreal/cosmicrafts-motoko-backend) to explore how we achieve this level of trust and decentralization.
 
 ---
+
 ![Core Features](core-progress.webp)
 
 ## 2. Player System
 
-The Player System manages all aspects of user interaction within the Cosmicrafts ecosystem, ensuring a unified progress across multiple games.
+The Player System manages all aspects of user interaction and unified progress across multiple games.
 
 ### Key Features
 
 - **Unified Profiles**: 
-Players maintain one account that spans the entire Cosmicrafts franchise, simplifying interactions and preserving progress.
+Unified profiles consolidate all player stats, avatars, and friend lists for a consistent and personalized experience across all games
   - **Profile Highlights**: Username, customizable avatar, ELO ranking for matchmaking, and dynamic friend lists.
   - **Cross-Game Consistency**: Achievements, stats, and titles are carried across all games, ensuring continuity and personalization
 
 - **Privacy and Notifications**:
 Robust privacy settings allow players to control their social interactions:
   - Configurable privacy settings:
-    - `#acceptAll`: Accepts friend requests from anyone.
-    - `#blockAll`: Blocks all incoming requests.
-    - `#friendsOfFriends`: Allows requests only from friends of existing friends.
   - Notifications for new friend requests, privacy setting updates, and mission rewards.
 
 - **Friend Management**:
@@ -102,8 +99,6 @@ The Progress and Achievements system is at the heart of player engagement in Cos
 - **Soul of NFTs**
 As players progress, their Soul NFTs evolve to reflect milestones, gameplay statistics, and achievements:
  - **Personalized Progress**: Combat experience, victories, and key accomplishments dynamically update the metadata of Soul NFTs.
- - **Cross-Game Integration**: Soul NFTs retain their evolution and value across all games, becoming an enduring representation of player identity.
-
 
 ## 4. NFTs
 
@@ -162,17 +157,17 @@ Metadata is the backbone of Cosmicrafts NFTs, defining their attributes and enab
    - A spaceship NFT from the RTS game doubles as a mount in the adventure game.
    - Titles earned in one game are visible in all others, ensuring a unified player identity.
 
-4. **Ownership and Marketplace Integration**:
-   - NFTs are stored on the Internet Computer blockchain, ensuring true ownership.
-   - Tradable in the Cosmicrafts marketplace, fostering a player-driven economy.
-   - Fully ICRC7 compatible with decentralized marketplaces.
+4. **Compatibility and Marketplace Integration**:
+   - [ORIGYN](https://github.com/ORIGYN-SA/origyn_nft) and [EXT](https://github.com/Toniq-Labs/extendable-token) **compliant**.
+   - Tradable across decentralized Marketplaces.
+
 
 ![Core Features](chests.webp)
 
 ### Mechanics: Upgrading, Opening Chests, and Crafting
 
 1. **Upgrading NFTs**:
-   - **Process**: Players can upgrade NFTs by spending Stardust tokens.
+   - **Process**: Players can upgrade NFTs by spending tokens.
    - **Example**: 
      - Upgrade a Level 1 spaceship with 100 health to Level 2 with 110 health.
      - Boost combat experience and unlock new abilities for higher-tier units.
@@ -186,7 +181,7 @@ Metadata is the backbone of Cosmicrafts NFTs, defining their attributes and enab
 
 3. **Crafting and Customization**:
    - **Mechanics**:
-     - Players use Stardust to forge unique items, combine resources, and unlock powerful upgrades.
+     - Players use tokens to forge unique items, combine resources, and unlock powerful upgrades.
      - Skins and visual customizations can be crafted to personalize units.
    - **Example**:
      - Craft a "Galactic Armor" for a spaceship, providing both stat boosts and a visually design.
@@ -218,14 +213,13 @@ The Matchmaking and Competitive Play system ensures fair, balanced, and engaging
 ![Core Features](stardustbanner.webp)
 ## 6. Stardust
 
-Stardust (STDs) is the freemium currency of the Cosmicrafts universe, designed to empower players by providing a versatile resource for upgrades, crafting, and marketplace transactions.
+Stardust (STDs) is the freemium currency of Cosmicrafts designed as a versatile resource for upgrades, crafting, and marketplace transactions.
 
 ### Key Features
 
 - **Name and Symbol**:
   - **Name**: Stardust
   - **Symbol**: STDs
-  - **Decimals**: 8, ensuring precise transaction calculations.
 
 - **Earning Stardust**:
   - Players collect Stardust through:
@@ -249,7 +243,7 @@ Stardust (STDs) is the freemium currency of the Cosmicrafts universe, designed t
 
 ## 7. Spiral
 
-The Spiral Token is the cornerstone of Cosmicrafts' economy, enabling stakeholder empowerment and seamless in-game transactions.
+The Spiral Token is the cornerstone of Cosmicrafts' economy, enabling governance and payment for microtransactions.
 
 
 ### Key Features
@@ -269,7 +263,7 @@ The Spiral Token is the cornerstone of Cosmicrafts' economy, enabling stakeholde
 
 ## 8. Logging System
 
-The Transparent Logging System ensures accountability and trust by tracking all interactions, transactions, and rewards within the Cosmicrafts ecosystem.
+The Transparent Logging System ensures accountability and trust by tracking all interactions, transactions, and rewards.
 
 ### Key Features
 
@@ -289,13 +283,13 @@ The Transparent Logging System ensures accountability and trust by tracking all 
 
 - **Expandability**:
   - Supports new token types or events as the ecosystem evolves.
-  - New log categories can be easily added for future features or systems.
+  - New log categories can be added for future features or systems.
 
 - **Player Access**:
   - Players can query their transaction history to verify rewards, view minted items, and track progress.
 
 - **Auditability**:
-  - Enables administrators to review logs for fair distribution, transparency, and potential issue resolution.
+  - Enables everyone to review logs for fair distribution, transparency, and potential issue resolution.
 
 ## 9. Tournaments and Events
 
@@ -360,22 +354,18 @@ Cosmicrafts simplifies how players interact with blockchain technology, providin
 ### Benefits of This System
 
 1. **User-Friendly**:
-   - Players engage with Cosmicrafts using familiar tools, reducing barriers to entry.
-   - Traditional gamers can experience Web3 benefits without technical hurdles.
+   - Players use familiar tools, lowering barriers to entry.
 
-2. **Inclusive Design**:
-   - Supports both Web2 and Web3 players by bridging traditional OAuth and blockchain-based authentication.
+2. **All-Inclusive**:
+   - Supports both Web2 and Web3 players by bridging OAuth and cryptographic authentication.
 
-3. **Streamlined Experience**:
-   - Players focus on gameplay, not the complexities of blockchain.
+3. **Familiar Experience**:
+   - Players focus on gaming, not blockchain complexities.
 
 4. **Future-Proof**:
-   - Built to integrate additional authentication providers and blockchain systems as the ecosystem evolves.
+   - Built to integrate additional authentication providers as the ICP ecosystem evolves.
 
 ---
-
-Cosmicrafts' connection system combines accessibility and innovation, ensuring that every player—whether a blockchain enthusiast or a casual gamer—can seamlessly participate in the evolving metaverse.
-
 
 
 ## TLDR: Core Features Summary

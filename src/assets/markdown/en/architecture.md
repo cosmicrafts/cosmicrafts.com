@@ -224,7 +224,7 @@ The **Backend Layer** is powered entirely by the **Internet Computer** and handl
 The architecture is designed to evolve with ICP's latest integrations:
 
 ### Cross-Chain Interoperability
-The Internet Computer (ICP) is leading the way in building a multichain future, where blockchains are no longer isolated but interconnected networks. While ICP serves as the foundation, its [Chain Fusion technology]((https://internetcomputer.org/chainfusion)) enables integration with other blockchains, unlocking new possibilities for developers and users.
+The **Internet Computer (ICP)** is leading the way in building a **multichain** future, where blockchains are no longer isolated but interconnected networks. While ICP serves as the foundation, its [Chain Fusion technology]((https://internetcomputer.org/chainfusion)) enables integration with other blockchains, unlocking new possibilities for developers and users.
 
 
 ### On-Chain AI

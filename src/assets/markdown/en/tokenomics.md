@@ -1,137 +1,246 @@
-# Tokenomics: The Economic Engine of the Cosmicrafts DAO
+# Tokenomics
+![Tokenomics](spiralbanner.webp)
+## Introduction
 
-The **Spiral token** isn’t just a currency—it’s the beating heart of the Cosmicrafts DAO. Every Spiral token empowers you to shape the franchise’s future, from decision-making to economic rewards, while connecting every player, investor, and builder across the Cosmicrafts universe. Designed for scalability and sustainability on the [Internet Computer (ICP)](https://internetcomputer.org), Spiral fuels governance, gameplay, and economic incentives across the ecosystem.
+The **Spiral Token (SPL)** is the foundation of Cosmicrafts, powering governance, gameplay, and the economic incentives of the franchise. Designed for scalability, sustainability, and engagement, Spiral integrates utility, governance, and rewards while maintaining economic equilibrium through deflationary mechanics.
+
+>This section details the token allocation, utility, and economic model that make Spiral a powerful asset.
+---
+
+## Initial Distribution
+
+A total of **1 billion Spiral tokens** will be minted for a fair distribution, sustainable growth, and alignment of incentives among all contributors.
+
+![Tokenomics](tokenomics.webp)
+
+### Allocation Breakdown:
+| **Category**               | **Percentage** | **Details**                                                                                           | **Purpose**                                                                                          |
+|-----------------------------|----------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| **Community Treasury**      | **52%**        | Managed by the DAO for development, marketing, partnerships, staking rewards, and initiatives.        | Ensures resources for long-term project sustainability and empowers community-driven decisions.      |
+| **Decentralization Sale**   | **20%**        | Tokens sold in public sales to encourage widespread participation and fund DAO operations.            | Promotes fair distribution, strengthens governance, and secures initial funding for expansion.       |
+| **Team Allocation**         | **10%**        | Reserved for team members with a **10-year vesting schedule**.                                         | Aligns team incentives with long-term growth and franchise success.                                 |
+| **DFINITY Foundation**      | **8%**        | Recognizes DFINITY’s foundational support and collaboration since inception.                         | Demonstrates commitment to ICP’s ecosystem and ensures alignment with foundational goals.           |
+| **Seed Round Investors**    | **10%**        | Reserved for early backers and supporters who believed in Cosmicrafts from the start.                 | Rewards early supporters while ensuring their long-term commitment to the project’s success.        |
+
+### SNS Parameters
+
+![SNS Parameters](SNSParameters.webp)
+
+Key metrics for the Spiral token economy include:  
+- **Token Name**: Spiral (`SPL`)  
+- **Ledger Fee**: 0.1 SPL per transaction  
+- **Inflation Rate**: 0%  
+- **Initial Supply**: 1 Billion SPL  
+
+Staking Parameters:  
+- **Min Stake**: 1,000 SPL  
+- **Dissolve Delay**: 1 month (minimum) to 10 years (maximum)  
+- **Bonus Multiplier**: Up to 2x for longer staking periods  
+
+### Valuation Range
+The Spiral token initial price will depend on the ICP raised during the decentralization sale. With **200,000,000 SPL** allocated to the sale and an figurative price of **$10 USD per ICP**:  
+- **Minimum ICP Raised (40,000 ICP)**: $0.01 per SPL  
+- **Mid Range (80,000 ICP)**: $0.02 per SPL  
+- **Maximum ICP Raised (120,000 ICP)**: $0.03 per SPL 
+
+![Tokenomics](ValuationRange.webp)
+
+## Vesting Periods
+
+To ensure long-term commitment and alignment with project goals, Spiral tokens are subject to structured vesting schedules. Below are the key details:
+
+![SNS Vesting Periods](VestingPeriod.webp)
+
+- **DFINITY Allocation**: 
+  - Tokens are locked under a **6 month cliff period**, gradually disbursed each year over the course of 8 years. 
+  - Each year, 3,125,000 SPL tokens are released for DFINITY, neuron dissolving is at DFINITY's own discretion.
+
+- **Team Allocation**: 
+  - 80% Tokens are permanent locked in a 8 year non dissolving neuron. 
+  - The remaining 20% of Team tokens have **1 year cliff period**, gradually disbursed each quarter. 
+  - Each quarter, 625,000 SPL tokens are released, ensuring measured and responsible distribution.
+
+- **Seed Investors**: 
+  - Tokens are quarterly released in increments of **12,500,000 SPL** after an **initial 3 month cliff** period.
+
+- **SNS Sale Participants**: 
+  - Tokens allocated during the sale are released in quarters, **without cliff** starting with **25,000,000 SPL** at each disbursement period for 2 years.
+
+- **Key Milestones**: 
+  - Responsible vesting periods to provide room to react against expected market demand.
+  - Match unlocks with LPs allocation.
+
+This systematic approach balances rewards for early contributors while maintaining project stability and trustworthiness.
+
+
+>These figures ensure transparency and provide stakeholders with a clear understanding of potential valuations.
 
 ---
 
-## Token Allocation: A Community-Centric Design
+## Liquidity Management
 
-A total of **1 billion Spiral tokens** will be minted, strategically allocated to ensure sustainable growth, community empowerment, and long-term project development.
+To ensure market stability and safeguard Spiral's token price, the liquidity pool (LP) will be managed responsibly with allocations directly aligned to token unlock schedules and expected trading activity.
 
-**70%+ of tokens** are dedicated to community ownership and decentralization efforts. The detailed breakdown is as follows:
-
-![Token Allocation Pie Chart - Placeholder](tokenomics-piechart.webp)
-
-| **Allocation**          | **Percentage** | **Details**                                                                                         | **Rationale**                                                                                                                    |
-|--------------------------|----------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| **Community Treasury**   | **50%**        | Managed by the DAO for development, marketing, partnerships, staking rewards, and initiatives.      | Grants the community direct control over project direction and ensures resources for sustainable development and expansion.       |
-| **Decentralization Sale**| **20%**        | Public sale to promote participation and allocate proceeds to the Community Fund.                    | Promotes wide distribution, strengthens network security, and provides initial capital for DAO operations.                       |
-| **Team**                 | **10%**        | Vesting over 4 years (1-year cliff, linear thereafter).                                             | Aligns team incentives with long-term project success, driving continued development and innovation.                              |
-| **DFINITY Foundation**   | **10%**        | Recognizing ICP’s foundational support, with a 2-year lockup.                                       | Reinforces commitment to the Internet Computer ecosystem and acknowledges its pivotal technological role.                         |
-| **Seed Round Investors** | **10%**        | Rewards early supporters with a 1-year lockup period.                                               | Recognizes and rewards early believers who took on greater risk. The lockup period ensures their continued support during the initial stages. |
+### Main Objectives
+- **Stability**: The LP provides liquidity for buyers and sellers, reducing volatility and ensuring a healthy market.
+- **Responsibility**: Treasury-funded LPs ensure no additional burden on investors while stabilizing early trading phases.
+- **Growth**: A well-funded LP encourages trading activity and confidence, driving demand for the Spiral token.
 
 ---
 
-## Revenue Streams Supporting Treasury Growth
+### Initial LP Setup
+A proposal for the initial LP to be funded from the treasury.
 
-To ensure sustainable treasury growth, Spiral leverages multiple revenue streams:
+- **Treasury-Backed Liquidity**:
+  - Both SPL and ICP tokens for the LP are funded by the treasury, ensuring no additional burden is placed on investors.
+  - The treasury allocates a specific percentage of its reserves to support liquidity during the first year of token unlocks.
 
-- **In-game purchases**: Skins, upgrades, and seasonal Battle Pass access.  
-- **NFT sales and marketplace commissions**.  
-- **Transaction fees**: A percentage of transactions (e.g., 2%) is burned, ensuring deflationary mechanics.  
-- **Cross-ecosystem integrations**: Partnerships with Web3 projects to expand Spiral’s utility.  
-- **Liquidity rewards**: DEX trading and liquidity incentives.
-- **Cosmicrafts DAO** may pursue additional revenue sources, including grants, venture capital initiatives, or partnerships to strengthen long-term treasury sustainability.
+- **Initial LP Allocation**:
+  - A robust initial allocation is made, comprising **10-25% of the total ICP raised**, paired with SPL tokens from the treasury.
+  - This ensures the LP meets projected market demand during the early stages.
 
----
-
-## Spiral Utility: Driving Engagement and Ecosystem Growth
-
-### Governance: Empowering Stakeholders  
-- **Proposal Submission**: Stakeholders propose updates, features, and policies with a small Spiral deposit to deter spam.  
-- **Voting Power**: Voting weight increases with staked Spiral, neuron age (duration), and dissolve delay (commitment period).  
-- **Governance Rewards**: Participants earn Spiral tokens for voting, fostering consistent engagement and contribution.
+- **Quarterly Reassessments**:
+  - Trading volumes and market behavior are monitored each quarter to dynamically adjust LP contributions.
+  - This flexibility allows the treasury to respond to market conditions and maintain stability.
 
 ---
 
-### In-Game Economy: Enhancing Player Experience  
-Spiral drives the in-game economy, connecting players across the Cosmicrafts franchise:  
+### Matching Unlocks with LP Requirements
 
-- **Discounts**: Use Spiral for a **10% discount** on spaceship upgrades, skins, and more.  
-- **Battle Pass Access**: Unlock seasonal rewards, rare cosmetics, and limited-time event participation.  
-- **Guild Upgrades**: Expand player-owned guilds, unlocking shared bonuses, faster progression, and competitive advantages.  
-- **Unified Franchise Economy**: Shared currency across all games enhances interoperability and utility.  
+The vesting schedule is designed to align with liquidity needs, ensuring that token unlocks are supported by adequate LP funding.
 
----
+#### **1. DFINITY Allocation**
+- **Foundational**: We don’t expect DFINITY to sell our tokens, though they have the discretion to do so if needed. Instead, we see this allocation as a way to provide guidance in governance, ensuring Cosmicrafts stays aligned with the foundational values of the Internet Computer.
 
-### DeFi Integration: Expanding Economic Opportunities  
-- **Trading and Liquidity**: Spiral will trade on decentralized exchanges (DEXs), with rewards for liquidity providers.  
-- **Cross-Staking Partnerships**: Holders can stake Spiral in partnered ecosystems to earn additional rewards.  
+#### **2. Team Allocation**
+- **Locked Neurons**: 
+  - **80% of team tokens** are permanently locked in non-dissolving neurons, ensuring no market impact from this portion.
+  - This demonstrates long-term commitment and alignment with the project's success.
+- **Quarterly Unlocks**: 
+  - The remaining **20% of team tokens** are released quarterly after a **1-year cliff**, at a rate of **625,000 SPL per quarter**.
+  - This measured release matches LP growth, avoiding market flooding.
 
----
+#### **3. Seed Investors**
+- **Cliff Period**: A **3-month cliff** provides an initial buffer before token unlocks begin.
+- **Quarterly Releases**: Tokens are unlocked in increments of **12,500,000 SPL** per quarter, spreading the impact over time.
+- **Treasury Support**: LP contributions from the treasury absorb sales pressure, ensuring market stability during these releases.
 
-## Tokenomics Mechanisms: Ensuring Long-Term Value  
+#### **4. SNS Sale Participants**
+- **No Cliff**: Tokens are unlocked immediately, allowing SNS participants access to liquidity.
+- **Quarterly Releases**: **25,000,000 SPL** tokens are released each quarter for 2 years.
+- **Dynamic Matching**: Treasury LP contributions are adjusted quarterly to match trading volumes, stabilizing the market.
 
-### Deflationary Mechanics  
-To maintain scarcity and long-term value:  
 
-- **Burning Fees**: 2% of in-game purchases and transaction fees will be burned.  
-  **Example**: *For a 100 Spiral transaction, 2 Spiral tokens are removed from circulation forever.*  
+### How Liquidity Aligns with Token Unlocks
+- **Unlock Schedule**: Spiral tokens are released quarterly based on a structured vesting plan.
+- **Market Volume Estimate**: On average, 10%~25% of unlocked tokens are expected to trade each quarter.
+- **Liquidity Provision**: The LP is funded to match the expected trading volume to stabilize the market.
 
----
 
-### Staking and Rewards  
-- **Non-Minting Rewards**: Rewards are sourced from the Community Treasury, avoiding inflationary pressure.  
-- **Maturity-Based Rewards**: Long-term stakers receive greater rewards, incentivizing sustained commitment.
+#### Example: Q1 Liquidity Pairing
 
----
-
-### Interoperable Ecosystem  
-- **Cross-Game Functionality**: Example: *A spaceship NFT earned in one Cosmicrafts game provides speed boosts in another.*  
-- **NFT Integration**: Spiral enhances the utility of interoperable NFTs, connecting assets across the ecosystem.  
-
----
-
-## Metrics for Success  
-
-To track Spiral's adoption and ecosystem growth, the DAO will monitor:  
-
-- **Percentage of Spiral tokens staked**.  
-- **Treasury balance and growth rate**.  
-- **Token burn rate**: Projected annual reduction of 5% of total supply.  
-- **Governance participation rate**: Active proposals and voting engagement.  
-- **ADSS/PA**: Average Daily Spiral Spending per Active Player, measuring real-time in-game token adoption.
+- **Token Price**: $0.01
+- **Unlocked Tokens**: 25,000,000 SPL
+- **Expected Trading Volume**: 5,000,000 SPL (25% of unlocked tokens)
+- **LP Contribution**:
+  - SPL: 5,000,000 SPL from the treasury
+  - ICP: 5,000 ICP (to pair with SPL at $0.01)
 
 ---
 
-## Addressing Risks and Challenges  
+## Spiral Token Utility
 
-- **Whale Control**: Dynamic voting caps and diminishing voting power beyond a threshold.  
-- **Voter Apathy**: Incentives for participation, reputation-based voting boosts, and gamified leaderboards.  
-- **System Exploits**: Bug bounty programs and iterative DAO governance ensure system integrity.  
+Spiral tokens are designed for multi-faceted utility across governance, gameplay, and DeFi, driving ecosystem growth and user engagement.
 
----
+### 1. Governance: Empowering Stakeholders
 
-## Visual Enhancements  
+Spiral enables a decentralized governance model, granting stakeholders direct control over Cosmicrafts’ future.
 
-To make Spiral’s utility and flow tangible, the following visuals will be included:  
+- **Proposal Submission**: Stakeholders can propose updates, new game modes, expansions, or partnerships by submitting a small Spiral deposit to deter spam.
+- **Voting Power**: Weighted by the amount of Spiral staked, neuron age (how long it’s been staked), and dissolve delay (commitment period).
+- **Governance Rewards**: Active participation in voting earns Spiral rewards, incentivizing consistent engagement.
 
-1. **Token Allocation Pie Chart**: Visualizing the percentage breakdown of token distribution.  
-2. **Token Flow Diagram**: Mapping Spiral’s journey from acquisition → staking → rewards → burning.  
-   ![Token Flow Diagram - Placeholder](spiral-token-flow.webp)  
-3. **Governance Flowchart**: Depicting proposal submission, voting, and reward distribution.  
+### 2. Gaming Economy: Enhancing Player Experience
 
----
+Spiral integrates seamlessly into the Cosmicrafts franchise, acting as a universal currency for in-game activities:
 
-## Key Benefits for Stakeholders  
+- **Discounted Purchases**: Players receive a **10% discount** on in-game items, upgrades, and skins when using Spiral.
+- **Battle Pass Access**: Unlock seasonal rewards, exclusive content, and limited-time events.
+- **Guild Upgrades**: Expand guild capabilities, unlock shared bonuses, and gain competitive advantages.
+- **Unified Ecosystem**: Spiral tokens function across all Cosmicrafts games, with consistent utility and interoperability.
 
-- **Empowered Participation**: Influence franchise decisions through governance.  
-- **Economic Rewards**: Earn Spiral via staking, voting, and in-game activities.  
-- **Long-Term Sustainability**: Deflationary mechanics and robust utility ensure Spiral’s relevance and value appreciation.  
+### 3. DeFi Integration: Expanding Economic Opportunities
 
----
+Spiral’s integration with DeFi platforms enhances its liquidity and utility:
 
-*The Spiral token is more than a currency. It’s a tool for empowerment, innovation, and shared success—uniting stakeholders to build the future of the Cosmicrafts franchise.*  
-
----
-
-## Next Steps  
-
-- **Final Refinement**: Review treasury diversification, deflationary balance, and governance incentives with targeted input from Gemini.  
-- **Visual Production**: Design the Token Flow Diagram, Governance Flowchart, and Token Allocation visuals.  
-- **Community Presentation**: Publish the tokenomics to stakeholders for transparency and feedback.  
+- **Trading and Liquidity**: Spiral will be listed on decentralized exchanges, enabling trading with ICP and other tokens.
+- **Liquidity Rewards**: Stakeholders providing liquidity earn rewards and transaction fees, incentivizing ecosystem growth.
+- **Cross-Project Staking**: Partner projects may accept Spiral for staking, creating additional opportunities for rewards.
 
 ---
 
-**Ready to stake your claim? Join the DAO and shape the future of Cosmicrafts. 🚀**
+## Tokenomics Mechanics
 
+### 1. Deflationary Design
+
+To maintain scarcity and long-term value, Spiral incorporates deflationary mechanisms:
+
+- **Burning Mechanisms**:
+  - A portion of transaction fees (e.g., transfers, marketplace sales) is burned, permanently reducing token supply.
+  - Example: *For every 100 Spiral tokens used in a transaction, 2 tokens are burned.*
+
+- **In-Game Economy Burns**:
+  - Fees from in-game activities such as crafting, upgrades, or marketplace trades are burned to sustain token scarcity.
+
+### 2. Staking and Governance Rewards
+
+- **Maturity-Based Rewards**:
+  - Rewards increase with the length of time Spiral tokens are staked, incentivizing long-term commitment.
+- **Non-Minting Rewards**:
+  - Staking and governance rewards are sourced from the Community Treasury, avoiding inflationary pressure on the total supply.
+
+### 3. Multi-Game Integration
+
+Spiral operates as the backbone of Cosmicrafts’ interconnected gaming ecosystem:
+
+- **Cross-Game Currency**:
+  - Players use Spiral for transactions, upgrades, and premium content across all Cosmicrafts titles.
+- **Interoperable Assets**:
+  - Spiral enables NFTs and other digital assets to retain utility across multiple games, enhancing their value and versatility.
+
+---
+
+## Security and Stability
+
+Spiral’s design incorporates safeguards to ensure a secure, stable, and fair deal for all participants.
+
+
+### 1. Smart Contract Security
+
+- **Immutable Token Contracts**: Spiral’s canisters are "blackholed," ensuring they cannot be tampered with post-deployment.
+- **Audits**: Regular third-party audits are conducted to maintain the integrity of governance and treasury smart contracts.
+
+### 2. Voter Engagement
+
+- **Participation Incentives**: Additional rewards for active governance participation.
+- **Clear Communication**: Regular updates and notifications about proposals and voting timelines.
+- **Reputation System**: Rewards consistent participation, reducing the impact of large, passive stakeholders.
+
+---
+
+## Advantages of Spiral Tokenomics
+
+### For Stakeholders:
+- **Earn Rewards**: Stake your tokens to earn passive income and benefit from the DAO’s growth.
+- **Have a Voice**: Play a key role in shaping the franchise and making strategic decisions through governance.
+- **Build Long-Term Value**: Deflationary mechanics and increasing use cases mean your investment grows over time.
+
+### For Players:
+- **Enhanced Gameplay**: Access exclusive content, take part in DAO governance, and enjoy premium features with Spiral.
+- **Unified Economy**: Free transactions and the same great utility across the entire Internet Computer Ecosystem.
+
+### For Developers:
+- **Sustainable Growth**: With a strong treasury, there’s always room for growth and new ideas.
+- **Grow Together**: Player-focused decisions by the DAO keep the community thriving and adaptable.
+
+---

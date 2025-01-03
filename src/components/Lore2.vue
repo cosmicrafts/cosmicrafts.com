@@ -40,7 +40,7 @@
 
             <!-- Centered Explore Text -->
             <text class="explore-text" x="50%" y="30%" text-anchor="middle" dominant-baseline="middle">
-              {{ $t('darkRift.discover') }}
+              {{ ('Lore') }}
             </text>
           </svg>
         </main>
@@ -175,6 +175,6 @@ image {
   font-weight: 800;
   font-size: 6vw;
   text-transform: uppercase;
-  fill: #111b29;
+  fill: #ffffff;
 }
 </style>
