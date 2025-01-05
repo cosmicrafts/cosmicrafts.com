@@ -13,39 +13,29 @@ A total of **1 billion Spiral tokens** will be minted for a fair distribution, s
 
 ![Tokenomics](tokenomics.webp)
 
-### Allocation Breakdown:
-| **Category**               | **Percentage** | **Details**                                                                                           | **Purpose**                                                                                          |
-|-----------------------------|----------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| **Community Treasury**      | **52%**        | Managed by the DAO for development, marketing, partnerships, staking rewards, and initiatives.        | Ensures resources for long-term project sustainability and empowers community-driven decisions.      |
-| **Decentralization Sale**   | **20%**        | Tokens sold in public sales to encourage widespread participation and fund DAO operations.            | Promotes fair distribution, strengthens governance, and secures initial funding for expansion.       |
-| **Team Allocation**         | **10%**        | Reserved for team members with a **10-year vesting schedule**.                                         | Aligns team incentives with long-term growth and franchise success.                                 |
-| **DFINITY Foundation**      | **8%**        | Recognizes DFINITY’s foundational support and collaboration since inception.                         | Demonstrates commitment to ICP’s ecosystem and ensures alignment with foundational goals.           |
-| **Seed Round Investors**    | **10%**        | Reserved for early backers and supporters who believed in Cosmicrafts from the start.                 | Rewards early supporters while ensuring their long-term commitment to the project’s success.        |
+### Allocation Breakdown
 
-### SNS Parameters
+#### Community Treasury (52%)
+Managed by the DAO for development, marketing, partnerships, staking rewards, and other initiatives.  
+**Purpose**: Ensures resources for long-term project sustainability and empowers community-driven decisions.
 
-![SNS Parameters](SNSParameters.webp)
+#### Decentralization Sale (20%)
+Tokens sold in public sales to encourage widespread participation and fund DAO operations.  
+**Purpose**: Promotes fair distribution, strengthens governance, and secures initial funding for expansion.
 
-Key metrics for the Spiral token economy include:  
-- **Token Name**: Spiral (`SPL`)  
-- **Ledger Fee**: 0.1 SPL per transaction  
-- **Inflation Rate**: 0%  
-- **Initial Supply**: 1 Billion SPL  
+#### Team Allocation (10%)
+Reserved for team members with a **10-year vesting schedule**.  
+**Purpose**: Aligns team incentives with long-term growth and franchise success.
 
-Staking Parameters:  
-- **Min Stake**: 1,000 SPL  
-- **Dissolve Delay**: 1 month (minimum) to 10 years (maximum)  
-- **Bonus Multiplier**: Up to 2x for longer staking periods  
+#### DFINITY Foundation (8%)
+Recognizes DFINITY’s foundational support and collaboration since inception.  
+**Purpose**: Demonstrates commitment to ICP’s ecosystem and ensures alignment with foundational goals.
 
-### Valuation Range
-The Spiral token initial price will depend on the ICP raised during the decentralization sale. With **200,000,000 SPL** allocated to the sale and an figurative price of **$10 USD per ICP**:  
-- **Minimum ICP Raised (40,000 ICP)**: $0.01 per SPL  
-- **Mid Range (80,000 ICP)**: $0.02 per SPL  
-- **Maximum ICP Raised (120,000 ICP)**: $0.03 per SPL 
+#### Seed Round Investors (10%)
+Reserved for early backers and supporters who believed in Cosmicrafts from the start.  
+**Purpose**: Rewards early supporters while ensuring their long-term commitment to the project’s success.
 
-![Tokenomics](ValuationRange.webp)
-
-## Vesting Periods
+### Vesting Period
 
 To ensure long-term commitment and alignment with project goals, Spiral tokens are subject to structured vesting schedules. Below are the key details:
 
@@ -70,10 +60,15 @@ To ensure long-term commitment and alignment with project goals, Spiral tokens a
   - Responsible vesting periods to provide room to react against expected market demand.
   - Match unlocks with LPs allocation.
 
-This systematic approach balances rewards for early contributors while maintaining project stability and trustworthiness.
-
-
 >These figures ensure transparency and provide stakeholders with a clear understanding of potential valuations.
+
+
+### Valuation Range
+The Spiral token initial price will depend on the ICP raised during the decentralization sale. With **200,000,000 SPL** allocated to the sale and an figurative price of **$10 USD per ICP**:
+![Tokenomics](ValuationRange.webp)
+- **Minimum ICP Raised (40,000 ICP)**: $0.01 per SPL  
+- **Mid Range (80,000 ICP)**: $0.02 per SPL  
+- **Maximum ICP Raised (120,000 ICP)**: $0.03 per SPL 
 
 ---
 
@@ -183,21 +178,53 @@ Spiral’s integration with DeFi platforms enhances its liquidity and utility:
 
 ### 1. Deflationary Design
 
-To maintain scarcity and long-term value, Spiral incorporates deflationary mechanisms:
+To maintain scarcity and drive long-term value, Spiral incorporates **deflationary mechanisms** designed to remove tokens from circulation sustainably. These mechanisms are tailored to the infrastructure of our games and platforms, while leveraging the capabilities of the SNS, NNS, and ICP ecosystem.
 
-- **Burning Mechanisms**:
-  - A portion of transaction fees (e.g., transfers, marketplace sales) is burned, permanently reducing token supply.
-  - Example: *For every 100 Spiral tokens used in a transaction, 2 tokens are burned.*
+---
 
-- **In-Game Economy Burns**:
-  - Fees from in-game activities such as crafting, upgrades, or marketplace trades are burned to sustain token scarcity.
+#### **Specific Burning Mechanisms**
+
+1. **Transaction Fee Burns**
+   - Each Spiral transaction incurs a **fixed fee** (e.g., 0.1 Spiral) that is permanently burned, reducing the overall supply.  
+   - This ensures regular usage of Spiral consistently contributes to token scarcity.  
+
+2. **Microtransaction Burns (Games and Platforms)**
+   - In-game microtransactions paid in Spiral will include a burning mechanism:  
+     - **10% of the Spiral payment** is burned.  
+     - The remaining 90% is sent to the DAO treasury to provide **staking rewards (maturity)** for Spiral holders.  
+   - This applies to activities like upgrading NFTs, crafting items, or purchasing in-game goods, directly linking token utility to deflation.
+
+3. **Marketplace Integration Burns**
+   - For Spiral-based transactions in third-party marketplaces, the fee recipient address can be configured as a contract with the following behavior:
+     - **10% of the fee is burned** permanently.
+     - The remaining 90% is sent to the DAO treasury.  
+   - This ensures a consistent burn rate for transactions while providing additional staking rewards for the community.  
+
+4. **Utility-Driven Token Burns**
+   - Burns will be incentivized by increasing Spiral’s **utility** within the ecosystem, encouraging token holders to use Spiral for:  
+     - **NFT upgrades**: Upgrading items, skins, or abilities that require Spiral, burning a fixed portion of the cost.  
+     - **Exclusive Access**: Unlocking premium game content or limited-time events where a portion of the Spiral used is burned.  
+   - This approach removes tokens from circulation through increased demand and engagement.  
+
+5. **Event-Based Burning Campaigns**
+   - Host **special events or challenges** where users voluntarily spend Spiral on in-game activities or community goals, with a portion burned.  
+   - Examples:  
+     - Seasonal upgrades or recipes that burn higher Spiral amounts.  
+     - Community milestones where collective Spiral usage unlocks rewards while burning tokens.  
+
+---
+
+#### **Focus on Circulating Supply**
+- Unlike treasury burns, which affect non-circulating supply, these mechanisms are designed to actively remove tokens **already in circulation**.
+- This ensures that Spiral’s deflationary design is effective in maintaining scarcity and increasing its value as usage grows.  
+
 
 ### 2. Staking and Governance Rewards
 
 - **Maturity-Based Rewards**:
   - Rewards increase with the length of time Spiral tokens are staked, incentivizing long-term commitment.
 - **Non-Minting Rewards**:
-  - Staking and governance rewards are sourced from the Community Treasury, avoiding inflationary pressure on the total supply.
+  - Staking and governance rewards are sourced from the DAO Treasury, avoiding inflationary pressure on the total supply.
 
 ### 3. Multi-Game Integration
 
@@ -207,24 +234,6 @@ Spiral operates as the backbone of Cosmicrafts’ interconnected gaming ecosyste
   - Players use Spiral for transactions, upgrades, and premium content across all Cosmicrafts titles.
 - **Interoperable Assets**:
   - Spiral enables NFTs and other digital assets to retain utility across multiple games, enhancing their value and versatility.
-
----
-
-## Security and Stability
-
-Spiral’s design incorporates safeguards to ensure a secure, stable, and fair deal for all participants.
-
-
-### 1. Smart Contract Security
-
-- **Immutable Token Contracts**: Spiral’s canisters are "blackholed," ensuring they cannot be tampered with post-deployment.
-- **Audits**: Regular third-party audits are conducted to maintain the integrity of governance and treasury smart contracts.
-
-### 2. Voter Engagement
-
-- **Participation Incentives**: Additional rewards for active governance participation.
-- **Clear Communication**: Regular updates and notifications about proposals and voting timelines.
-- **Reputation System**: Rewards consistent participation, reducing the impact of large, passive stakeholders.
 
 ---
 
@@ -241,6 +250,6 @@ Spiral’s design incorporates safeguards to ensure a secure, stable, and fair d
 
 ### For Developers:
 - **Sustainable Growth**: With a strong treasury, there’s always room for growth and new ideas.
-- **Grow Together**: Player-focused decisions by the DAO keep the community thriving and adaptable.
+- **Collaboration**: Player-focused decisions by the DAO keep the community thriving and adaptable.
 
 ---

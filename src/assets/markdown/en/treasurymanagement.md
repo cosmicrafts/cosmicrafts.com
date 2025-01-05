@@ -1,4 +1,58 @@
-# Treasury Management: Fueling the Future of Cosmicrafts
+# Treasury Management
+
+The DAO treasury is the lifeblood of its operations, ensuring the sustainability and growth of the project. Effective treasury management is critical to balancing innovation, stability, and community engagement.
+
+## Purpose of the Treasury
+The treasury exists to support the DAO’s objectives by funding initiatives, rewarding contributors, and ensuring long-term sustainability. It serves several key purposes:
+- **Development and Innovation**: Supporting product development, research, and technological advancements.  
+- **Marketing and Partnerships**: Funding campaigns, partnerships, and community-building efforts to expand Cosmicrafts’ reach.  
+- **Staking and Rewards**: Allocating Spiral rewards for active participants and incentivizing governance engagement.  
+- **Reserves for Market Stability**: Maintaining liquidity to stabilize the token’s market value during critical events.  
+- **Operational Costs**: Covering legal, administrative, and other essential operational expenses.
+
+
+### Governance Over Treasury Management
+The DAO governs the treasury to ensure transparency, inclusivity, and accountability. Treasury management is guided by the following principles:
+
+- **Proposal-Driven Allocation**:  
+  Any allocation or expenditure of treasury funds requires an approved proposal.  
+  - Proposals must outline the purpose, amount requested, and expected outcomes.  
+  - The DAO reviews and votes on each proposal before implementation.
+
+- **Community Oversight**:  
+  Treasury activities are monitored by the community, ensuring decisions align with the DAO’s principles and goals. Regular updates and reports are shared with members to maintain transparency.  
+
+- **Strategic Reserves**:  
+  A portion of the treasury is reserved for unforeseen circumstances or high-impact opportunities. Access to these reserves requires supermajority approval by the DAO.
+
+### Voting and Decision-Making
+Treasury-related proposals follow a structured process to ensure fair decision-making:
+1. **Public Review**:  
+   The community discusses the proposal during a public review period to refine and assess its viability.   
+2. **Proposal Submission**:
+   Stakeholders submit a detailed proposal, including the requested amount, justification, and benefits to the DAO. 
+3. **Voting**:  
+   Spiral holders vote on the proposal. The weight of each vote is determined by the staked tokens in the neuron.  
+4. **Implementation**:  
+   Approved proposals are executed, with funds released from the treasury to the specified initiative.
+
+### Sustainability Measures
+To ensure the long-term health of the treasury:
+- **Revenue Streams**:  
+  The DAO continuously generates revenue through game transactions, NFTs, marketplace fees, and staking rewards.  
+- **Controlled Spending**:  
+  Expenditures are prioritized based on the potential return on investment and alignment with the DAO’s mission.  
+- **Periodic Audits**:  
+  Regular audits are conducted to evaluate treasury performance, ensuring funds are utilized effectively and transparently.
+
+
+### Emergency Protocols
+In case of emergencies, such as market instability or urgent funding needs:
+- The DAO may bypass the standard proposal process for immediate action, requiring supermajority approval.  
+- Emergency expenditures are strictly documented and reported to the community.  
+
+
+> Treasury management ensures the DAO operates efficiently, transparently, and sustainably by empowering the community to oversee and govern the treasure.
 
 The **Community Treasury** is what fuels Cosmicrafts' growth, giving us the resources to build amazing things, innovate, and make sure the ecosystem thrives for years to come. With 50% of all Spiral tokens allocated to the treasury, it’s the largest single funding source for everything from game development to staking rewards.
 
@@ -6,28 +60,7 @@ Managed through the **Service Nervous System (SNS)**, the treasury is fully tran
 
 ---
 
-## Here's How We’ll Manage the Treasury
-
-Here's how we'll make sure the treasury is managed responsibly and effectively:
-
-### You’re in charge
-Every decision about the treasury goes through the DAO. You propose, you vote, you decide.
-
-### Open books
-Every penny spent, every allocation made—it’s all recorded on the blockchain for everyone to see. You’ll never have to wonder where the funds are going.
-
-### We’re keeping track
-If someone proposes to use treasury funds, they’ll need to lay out a clear plan with goals, timelines, and ways to measure success. Regular updates will keep everyone in the loop.
-
-### Built to adapt
-The treasury is flexible, so it can meet the DAO’s changing needs. Whether it’s funding new Cosmicrafts games or forming partnerships to expand the ecosystem, the treasury is ready.
-
-### Safe and sound
-Your funds are stored in an **SNS ledger canister**, protected by secure code and strict governance rules. No one can access the funds without DAO approval.
-
----
-
-## How It Works: Treasury Governance
+## How It Works
 
 Have an idea that could boost the Cosmicrafts ecosystem? It all starts with a community proposal. Here’s the process:
 
@@ -39,7 +72,7 @@ As a Spiral token holder, you can submit a proposal to use treasury funds. Make 
 - **Impact**: How will this help the Cosmicrafts ecosystem?
 - **Success Metrics**: How will we know it worked?
 
-A small Spiral deposit is required to submit your proposal. If the proposal is valid but doesn’t pass, the deposit is typically refunded. This discourages spam while keeping the system fair.
+A small Spiral deposit from your Neuron is required to submit your proposal. This discourages spam while keeping the system fair.
 
 ### Step 2: Review and Feedback
 Everyone can review, ask questions, and suggest improvements to your proposal. This ensures that only the best ideas move forward.
