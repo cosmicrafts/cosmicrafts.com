@@ -109,7 +109,7 @@ export default {
         trigger: parallaxSceneEl.querySelector(".scrollDist"),
         start: "top center",
         end: "bottom+=1200 top", // Control the scroll tempo
-        scrub: 1,
+        scrub: 2,
       },
     })
       .fromTo(parallaxSceneEl.querySelector(".darkrift"), { y: 0, x: 50 }, { rotation: -4, y: -390, scale: .85, x: 200, duration: 2 }, 0)
@@ -157,11 +157,12 @@ export default {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  z-index: 0;
 }
 
 .parallax-scene {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .scrollDist {
