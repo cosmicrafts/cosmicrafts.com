@@ -70,8 +70,15 @@ const closeMenu = () => {
 
     <div class="nav-container">
       <ul class="nav-links">
-        <li v-for="(item, index) in ['header.dao', 'header.games', 'header.community', 'header.contact']" :key="index">
-          <a :style="{ '--index': index }">{{ t(item) }}</a>
+        <li v-for="(item, index) in [
+          { label: 'header.games', path: '/games' },
+          { label: 'header.dao', path: '/dao' },
+          { label: 'header.whitepaper', path: '/whitepaper' },
+          { label: 'header.dashboard', path: '/dashboard' }
+        ]" :key="index">
+          <router-link :to="item.path" :style="{ '--index': index }" @click="closeMenu">
+            {{ t(item.label) }}
+          </router-link>
         </li>
       </ul>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="parallax-wrapper">
+  <div class="parallax-wrapper" @scroll="handleScroll">
     <!-- Semi-Transparent Overlay -->
     <div class="color-overlay"></div>
 
@@ -29,18 +29,33 @@
               :width="image.width"
               :height="image.height"
               preserveAspectRatio="xMidYMid slice"
+              :style="getTransform(image)"
             />
           </g>
 
           <!-- Centered Explore Text -->
-          <text class="explore-text" x="50%" y="45%" text-anchor="middle" dominant-baseline="middle">
+          <text
+            class="explore-text"
+            x="50%"
+            y="45%"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            :style="getTextStyle('explore-text')"
+          >
             {{ $t('darkRift.discover') }}
           </text>
 
           <!-- Masked FURTHER Text -->
           <g mask="url(#m)">
             <rect fill="#fff" width="1200" height="800" />
-            <text class="further-text" x="50%" y="45%" text-anchor="middle" dominant-baseline="middle">
+            <text
+              class="further-text"
+              x="50%"
+              y="45%"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              :style="getTextStyle('further-text')"
+            >
               {{ $t('darkRift.title') }}
             </text>
           </g>
@@ -50,12 +65,8 @@
   </div>
 </template>
 
-
 <script>
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-// Import your local assets
+import { ref, onMounted, onUnmounted } from "vue";
 import skyImage from "@/assets/webp/go.webp";
 import darkrift from "@/assets/webp/darkrift.webp";
 import stars from "@/assets/webp/starsbig.webp";
@@ -64,109 +75,86 @@ import asteroids from "@/assets/webp/asteroids.webp";
 import nebula from "@/assets/webp/nebula1.webp";
 import planet1 from "@/assets/webp/planet1.webp";
 import planet2 from "@/assets/webp/planet3.webp";
-import darkRift from '@/assets/webp/darkrift.webp';
-
-// Import remote assets or consider storing their URLs in the data structure
-const remoteImages = {
-  cloud1: "https://assets.codepen.io/721952/cloud1.png",
-  cloud3: "https://assets.codepen.io/721952/cloud3.png",
-};
 
 export default {
   name: "ParallaxScene",
-  data() {
+  setup() {
+    const scrollY = ref(0);
+
+    // Define the animations for each layer
+    const images = [
+      { class: "sky", src: skyImage, y: -390, x: 200, scale: 0.85, rotation: -4 },
+      { class: "darkrift", src: darkrift, y: -390, x: 200, scale: 0.85, rotation: -4 },
+      { class: "stars", src: stars, y: 100, x: 150, scale: 1.85, rotation: -25 },
+      { class: "cloud1", src: asteroids, y: -800, x: 0, scale: 1, rotation: 0 },
+      { class: "nebula", src: nebula, y: 0, x: 0, scale: 0.25, rotation: 0 },
+      { class: "cloud3", src: cloud1Mask, y: -650, x: 0, scale: 1, rotation: 0 },
+      { class: "planet1", src: planet1, y: 0, x: -200, scale: 0.25, rotation: -25 },
+      { class: "planet2", src: planet2, y: 350, x: 1200, scale: 0.25, rotation: 25 },
+    ];
+
+    const handleScroll = () => {
+      scrollY.value = window.scrollY;
+    };
+
+    // Get transformation styles for each image layer
+    const getTransform = (image) => {
+      const y = scrollY.value * (image.y / 1000);
+      const x = scrollY.value * (image.x / 1000);
+      const scale = 1 + scrollY.value * (image.scale / 10000);
+      const rotation = scrollY.value * (image.rotation / 1000);
+      return {
+        transform: `translate(${x}px, ${y}px) scale(${scale}) rotate(${rotation}deg)`,
+      };
+    };
+
+    // Text-specific transformations
+    const getTextStyle = (textClass) => {
+      if (textClass === "explore-text") {
+        return {
+          transform: `translateY(${scrollY.value * 0.05}px)`,
+          opacity: Math.min(1, scrollY.value / 300),
+        };
+      } else if (textClass === "further-text") {
+        return {
+          transform: `translateY(${scrollY.value * 0.1}px)`,
+          opacity: Math.min(1, scrollY.value / 400),
+        };
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener("scroll", handleScroll);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("scroll", handleScroll);
+    });
+
     return {
-      images: [
-        { class: "sky", src: skyImage, width: "100%", height: "auto" },
-        { class: "darkrift", src: darkrift, width: "100%", height: "auto" },
-        { class: "stars", src: stars, width: "100%", height: "auto" },
-        { class: "planet1", src: planet1, width: "100%", height: "auto" },
-        { class: "nebula", src: nebula, width: "100%", height: "auto" },
-        { class: "planet2", src: planet2, width: "100%", height: "auto" },
-        { class: "asteroids", src: asteroids, width: "100%", height: "auto" },
-        { class: "cloud1", src: remoteImages.cloud1, width: "100%", height: "auto" },
-        { class: "cloud3", src: remoteImages.cloud3, width: "100%", height: "auto" },
-      ],
+      scrollY,
+      images,
+      getTransform,
+      getTextStyle,
       maskImage: cloud1Mask,
     };
-  },
-  mounted() {
-    const parallaxSceneEl = this.$el;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.to(".sky", {
-  filter: "brightness(1.5)", // Brighten
-  duration: 4, // Time for one glow cycle
-  repeat: -1, // Infinite repeat
-  yoyo: true, // Glow up and down
-  ease: "power3.inOut",
-});
-
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: parallaxSceneEl.querySelector(".scrollDist"),
-        start: "top center",
-        end: "bottom+=1200 top", // Control the scroll tempo
-        scrub: 2,
-      },
-    })
-      .fromTo(parallaxSceneEl.querySelector(".darkrift"), { y: 0, x: 50 }, { rotation: -4, y: -390, scale: .85, x: 200, duration: 2 }, 0)
-      .fromTo(parallaxSceneEl.querySelector(".sky"), { y: 0, x: 50 }, { rotation: -4, y: -390, scale: .85, x: 200, duration: 2 }, 0)
-      .fromTo(parallaxSceneEl.querySelector(".stars"), { y: -200, x: 50}, { rotation: -25, y: 100, scale: 1.85, x: 150, duration: 2 }, 0)
-      .fromTo(parallaxSceneEl.querySelectorAll(".cloud1"), { y: 100 }, { y: -800, duration: 2 }, 0)
-      .fromTo(parallaxSceneEl.querySelector(".nebula"), { scale: .5 }, { scale: .25, duration: 2 }, 0)
-      .fromTo(parallaxSceneEl.querySelector(".cloud3"), { y: -50 }, { y: -650, duration: 2 }, 0)
-      // Add mountains to parallax
-      .fromTo(
-    parallaxSceneEl.querySelector(".asteroids"),
-    { y: -10, rotation: 0 }, // Initial position and rotation
-    { y: -900, rotation: 15, duration: 2 }, // Rotate 360 degrees during parallax
-    0
-  )
-      .fromTo(parallaxSceneEl.querySelector(".planet1"), { x: -200,  scale: .45 }, { rotation: -25, x: -200, duration: 2, scale: .25}, 0)
-      .fromTo(parallaxSceneEl.querySelector(".planet2"), { x: 750, y: 150, scale: .45 }, { rotation: 25,x: 1200, duration: 2, y: 350, scale: .25}, 0)
-      // Add parallax effect to texts
-      .fromTo(
-        parallaxSceneEl.querySelector(".explore-text"),
-        { y: "-100", opacity: 0 },
-        {duration: .5, opacity: 1},
-        { y: "400",scale: .55, rotation: -8, duration: 2 }, // Moves down slightly
-        -.25
-      )
-      .fromTo(
-  parallaxSceneEl.querySelector(".further-text"),
-  { y: "-100" },
-  { y: "300", rotation: 2, duration: 2 }, // Moves to intermediate position
-  0.5 // Start time
-)
-.to(
-  parallaxSceneEl.querySelector(".further-text"),
-  { y: "300", rotation: 2, duration: 0 }, // Holds in place
-  "+=0" // Immediately after the first animation
-);
-
   },
 };
 </script>
 
 <style scoped>
+/* Main Wrapper Styling */
 .parallax-wrapper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 400vh; /* Large scrollable height */
+  background: linear-gradient(to bottom, #ffffff, #ffffffb8, #f0f0f000);
   overflow: hidden;
-  z-index: 0;
+  z-index: 10;
 }
 
 .parallax-scene {
   position: relative;
-  z-index: 0;
-}
-
-.scrollDist {
-  width: 100%;
 }
 
 main {
@@ -181,57 +169,20 @@ svg {
   height: 100%;
 }
 
-image {
-  width: 100%;
-  height: auto;
-}
-
-.explore-text{
-  text-shadow: -2px 2px 4px rgb(0, 0, 0);
-}
-
 .explore-text,
 .further-text {
-  font-weight: 800;
   font-size: 6vw;
+  font-weight: 800;
   text-transform: uppercase;
   fill: #fff;
 }
 
+.explore-text {
+  text-shadow: -2px 2px 4px rgb(0, 0, 0);
+}
+
 .further-text {
-  fill: #242424; /* Color controlled via mask */
-}
-
-.nebula {
-  mix-blend-mode: soft-light; /* Makes it blend with the background */
-  opacity: 0.8; /* Adjust transparency */
-}
-.asteroids {
-  opacity: 0.95; /* Adjust transparency */
-}
-
-.darkrift{
-  mix-blend-mode: screen;
-}
-
-.cloud1,
-.cloud3 {
-  mix-blend-mode: hard-light;
-}
-
-.cloud3 {
-  opacity: .75;
-}
-
-
-.color-overlay {/*
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.041); /* Blue with 2% transparency */
-  pointer-events: none; /* Ensures it doesn’t interfere with clicks or interactions */
-  z-index: 2; /* Place it above all content */
+  fill: #242424;
+  mix-blend-mode: soft-light;
 }
 </style>

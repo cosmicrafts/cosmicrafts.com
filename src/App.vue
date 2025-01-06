@@ -1,5 +1,6 @@
 <template>
   <main id="app">
+    <LoadingScreen />
     <Header />
     <router-view />
     <Footer v-if="!isWhitepaper" />
@@ -11,9 +12,9 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import LoadingScreen from '@/components/LoadingScreen.vue';
 
 const route = useRoute();
-
 const isWhitepaper = computed(() => route.path === '/whitepaper');
 </script>
 

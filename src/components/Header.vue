@@ -85,10 +85,10 @@ const additionalLogoSrc = computed(() => {
     <!-- Navigation Links (Desktop Only) -->
     <nav class="nav-links">
       <ul>
+        <li><router-link to="/games">{{ t('header.games') }}</router-link></li>
         <li><router-link to="/dao">{{ t('header.dao') }}</router-link></li>
-        <li><a href="#">{{ t('header.games') }}</a></li>
-        <li><a href="#">{{ t('header.dashboard') }}</a></li>
-        <li><a href="#">{{ t('header.community') }}</a></li>
+        <li><router-link to="/whitepaper">{{ t('header.whitepaper') }}</router-link></li>
+        <li><router-link to="/dashboard">{{ t('header.dashboard') }}</router-link></li>
       </ul>
     </nav>
 <!-- Flex Container for Connect Button and Language Selector -->

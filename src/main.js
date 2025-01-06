@@ -3,6 +3,7 @@ import App from './App.vue';
 import { createI18n } from 'vue-i18n';
 import router from './router';
 import './style.css';
+import { useLoadingScreen } from '@/utils/useLoadingScreen';
 
 // Import language files
 import en from './locales/en.json';
@@ -39,6 +40,28 @@ const i18n = createI18n({
 });
 
 const app = createApp(App);
+
+const { showLoadingScreen, hideLoadingScreen } = useLoadingScreen();
+// Router Navigation Guards
+router.beforeEach((to, from, next) => {
+  const t = i18n.global.t; // Get the translation function
+
+  if (to.path === '/dao') {
+    showLoadingScreen(t, 'header.dao'); // Pass the translation function and key
+  } else if (to.path === '/whitepaper') {
+    showLoadingScreen(t, 'header.whitepaper');
+  } else {
+    showLoadingScreen(t, 'header.home');
+  }
+
+  next();
+});
+
+router.afterEach(() => {
+  setTimeout(() => {
+    hideLoadingScreen(); // Hide loading screen after 1 second
+  }, 750);
+});
 
 // Define `selectedLanguage` as a global state
 const selectedLanguage = ref('en');
