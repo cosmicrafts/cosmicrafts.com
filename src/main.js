@@ -4,6 +4,7 @@ import { createI18n } from 'vue-i18n';
 import router from './router';
 import './style.css';
 import { useLoadingScreen } from '@/utils/useLoadingScreen';
+import { createPinia } from 'pinia';
 
 // Import language files
 import en from './locales/en.json';
@@ -40,6 +41,10 @@ const i18n = createI18n({
 });
 
 const app = createApp(App);
+
+// Initialize Pinia
+const pinia = createPinia();
+app.use(pinia); // Use Pinia
 
 const { showLoadingScreen, hideLoadingScreen } = useLoadingScreen();
 // Router Navigation Guards

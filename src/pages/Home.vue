@@ -4,33 +4,6 @@
     <div class="hero-wrapper">
       <HeroSection @ctaClick="handleCtaClick" />
     </div>
-
-    <!-- Lore Section -->
-    <div class="lore-wrapper">
-      <Lore />
-    </div>
-
-    <!-- Lore2 Section -->
-    <div class="lore-wrapper">
-      <Lore2 />
-    </div>
-
-    <!-- Other Sections (Games, etc.) -->
-    <section class="games">
-      <h2>{{ $t('games.title') }}</h2>
-      <div class="game-highlight">
-        <h3>{{ $t('games.battlegrounds.title') }}</h3>
-        <p>{{ $t('games.battlegrounds.description') }}</p>
-      </div>
-      <div class="game-highlight">
-        <h3>{{ $t('games.adventures.title') }}</h3>
-        <p>{{ $t('games.adventures.description') }}</p>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <button class="cta-button">{{ $t('cta') }}</button>
-    </section>
   </div>
 </template>
 

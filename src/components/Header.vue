@@ -3,8 +3,8 @@ import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import MobileMenu from '@/components/MobileMenu.vue';
-
-// Import logos explicitly for each language
+import Modal from '@/components/Modal.vue'; // Import the modal
+import Login from '@/components/Login.vue'; // Import the login component
 import defaultLogo from '@/assets/icons/logo.svg';
 import logoCN from '@/assets/icons/logo-cn.svg';
 import logoKR from '@/assets/icons/logo-kr.svg';
@@ -17,13 +17,18 @@ import { useRouter, useRoute } from 'vue-router';
 
 const { t, locale } = useI18n();
 const isMenuOpen = ref(false);
+const isLoginModalOpen = ref(false); // State for controlling the modal
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
 const handleLogin = () => {
-  console.log('Log In button clicked');
+  isLoginModalOpen.value = true; // Open the modal
+};
+
+const closeLoginModal = () => {
+  isLoginModalOpen.value = false; // Close the modal
 };
 
 // Scroll to the top of the page when the logo is clicked
@@ -50,9 +55,8 @@ const additionalLogoMap = {
   ja: logoJP,
   ru: logoRU,
   ar: logoAR,
-  default: defaultLogo
+  default: defaultLogo,
 };
-
 
 // Computed property to get the additional logo source based on the current language
 const additionalLogoSrc = computed(() => {
@@ -91,19 +95,23 @@ const additionalLogoSrc = computed(() => {
         <li><router-link to="/dashboard">{{ t('header.dashboard') }}</router-link></li>
       </ul>
     </nav>
-<!-- Flex Container for Connect Button and Language Selector -->
-<div class="connect-container">
-  <div class="desktop-language-selector header">
-    <LanguageSelector direction="down-left" />
-  </div>
-  <button class="button outline" @click="handleLogin">{{ t('header.connect') }}</button>
-</div>
 
-    <!-- Language Selector, hidden on mobile -->
+    <!-- Flex Container for Connect Button and Language Selector -->
+    <div class="connect-container">
+      <div class="desktop-language-selector header">
+        <LanguageSelector direction="down-left" />
+      </div>
+      <button class="button outline" @click="handleLogin">{{ t('header.connect') }}</button>
+    </div>
   </header>
 
   <!-- MobileMenu Component -->
   <MobileMenu :isOpen="isMenuOpen" @closeMenu="toggleMenu" />
+
+  <!-- Login Modal -->
+  <Modal :isOpen="isLoginModalOpen" @close="closeLoginModal">
+    <Login />
+  </Modal>
 </template>
 
 
